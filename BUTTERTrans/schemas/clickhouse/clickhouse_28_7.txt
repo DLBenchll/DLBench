@@ -1,5 +1,0 @@
-DROP TABLE IF EXISTS t1;
-CREATE TABLE t1 (value String NOT NULL, id String NOT NULL, stamp DateTime NOT NULL) ENGINE = MergeTree ORDER BY tuple();
-INSERT INTO t1 VALUES ('my value', 'myKey', '1999-04-02 00:00:00');
-DROP TABLE t1;
-CREATE TABLE t1 (a DateTime NOT NULL) ENGINE = MergeTree ORDER BY a;

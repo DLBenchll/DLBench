@@ -1,3 +1,0 @@
-[
-    "Table: `t1`\nColumns:\n(id, int(11), PRI)\n(a, bigint(20) unsigned, )\n(b, varchar(20), )\n"
-]

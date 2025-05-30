@@ -1,3 +1,0 @@
-[
-    "Table: `t1`\nColumns:\n(id, int, )\n(title, varchar(255), )\n(prio, int, )\n(category, int, )\n(program, int, )\n(bugdesc, text, )\n(created, datetime, )\n(modified, timestamp, )\n(bugstatus, int, )\n(submitter, int, )\n"
-]

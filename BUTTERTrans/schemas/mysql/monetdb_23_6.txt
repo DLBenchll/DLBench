@@ -1,4 +1,0 @@
-DROP TABLE IF EXISTS t1;
-create table t1 (i int, ts timestamp);
-insert into t1 (i, ts) values(unix_timestamp('2003-03-01 00:00:00'),'2003-03-01 00:00:00'); -- UNIX_TIMESTAMP
-insert into t1 (i, ts) values(unix_timestamp('2003-03-30 01:59:59'),'2003-03-30 01:59:59'),(unix_timestamp('2003-03-30 02:30:00'),'2003-03-30 02:30:00'),(unix_timestamp('2003-03-30 03:00:00'),'2003-03-30 03:00:00'); -- UNIX_TIMESTAMP

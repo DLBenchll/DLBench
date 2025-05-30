@@ -1,2 +1,0 @@
-select CONVERT("2004-01-22 21:45:33",DATE);
-select timediff(cast('2004-12-30 12:00:00' as time), '12:00:00');

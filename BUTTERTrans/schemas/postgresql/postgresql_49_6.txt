@@ -1,6 +1,0 @@
-DROP TABLE IF EXISTS t1;
-CREATE TABLE t1 (text1 varchar(32) NOT NULL);
-INSERT INTO t1 VALUES ('teststring'), ('nothing'), ('teststring\\t');
-ANALYZE t1;
-ALTER TABLE t1 ALTER COLUMN text1 TYPE char(32);
-SELECT '|' || text1 || '|' AS c FROM t1 WHERE text1='teststring' OR text1 LIKE 'teststring_%' ORDER BY c;

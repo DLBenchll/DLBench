@@ -1,8 +1,0 @@
-DROP TABLE IF EXISTS t1;
-create table t1 (a varchar(50));
-insert into t1 values (0x00410000);
-select hex(a) from t1 where a like 'A_';
-analyze table t1;
-explain select hex(a) from t1 where a like 'A_';
-select hex(a) from t1;
-drop table t1;

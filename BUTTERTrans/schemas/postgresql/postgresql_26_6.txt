@@ -1,6 +1,0 @@
-DROP TABLE IF EXISTS t1;
-CREATE table t1 (a BYTEA);
-insert into t1 values ('b'),('a\\0'),('a'),('a '),('aa'),(NULL);
-select encode(a, 'hex') from t1 order by a;
-select encode(a || '\\0', 'hex') as b from t1 order by a || '\\0';
-ALTER TABLE t1 ALTER COLUMN a TYPE BYTEA;

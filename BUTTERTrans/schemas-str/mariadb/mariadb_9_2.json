@@ -1,3 +1,0 @@
-[
-    "Table: `seq3`\nColumns:\n(next_not_cached_value, bigint(21), )\n(minimum_value, bigint(21), )\n(maximum_value, bigint(21), )\n(start_value, bigint(21), )\n(increment, bigint(21), )\n(cache_size, bigint(21) unsigned, )\n(cycle_option, tinyint(1) unsigned, )\n(cycle_count, bigint(21), )\n"
-]

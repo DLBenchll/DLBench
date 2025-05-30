@@ -1,1 +1,0 @@
-select elt(2,1),field(NULL,"a","b","c"); -- ELT, FIELD

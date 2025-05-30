@@ -1,5 +1,0 @@
-DROP TABLE IF EXISTS t1;
-CREATE TABLE t1 (subject String, pattern String)  ENGINE = MergeTree ORDER BY subject;
-SELECT position('a', 'abc');
-SELECT position('b', 'abc');
-SELECT position('c', 'abc');

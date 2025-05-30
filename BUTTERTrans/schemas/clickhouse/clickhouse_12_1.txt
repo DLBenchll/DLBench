@@ -1,1 +1,0 @@
-SELECT number + 1 AS n FROM numbers(3);

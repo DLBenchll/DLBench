@@ -1,6 +1,0 @@
-DROP TABLE IF EXISTS t1;
-CREATE TABLE t1 (i Int32, a String, b String) ENGINE = MergeTree ORDER BY i;
-INSERT INTO t1 VALUES (1, repeat('a', 110), repeat('b', 210));
-SELECT i, length(a), length(b), lengthUTF8(a), lengthUTF8(b) FROM t1;
-DROP TABLE t1;
-CREATE TABLE t1 (c1 Int32, c2 String, c3 String, c4 DateTime NOT NULL) ENGINE = MergeTree ORDER BY  c1;

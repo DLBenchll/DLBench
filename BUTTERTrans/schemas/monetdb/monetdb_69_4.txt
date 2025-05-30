@@ -1,4 +1,0 @@
-SELECT 0=0, 1>0, 1>=1, 1<0, 1<=0, 1!=0, CASE WHEN 'abc' = 'abcd' THEN 0 WHEN 'abc' < 'abcd' THEN -1 ELSE 1 END, CASE WHEN 'b' = 'a' THEN 0 WHEN 'b' < 'a' THEN -1 ELSE 1 END, CASE WHEN 'a' = 'a' THEN 0 WHEN 'a' < 'a' THEN -1 ELSE 1 END;
-DROP TABLE IF EXISTS t1;
-CREATE TABLE t1 (d varchar(6), k int);
-INSERT INTO t1 VALUES ('abc', 2);

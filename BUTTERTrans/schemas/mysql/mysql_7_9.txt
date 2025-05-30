@@ -1,7 +1,0 @@
-DROP TABLE IF EXISTS pagg_tab;
-CREATE TABLE pagg_tab (a int, b int, c text, d int);
-ANALYZE TABLE pagg_tab;
-DROP TABLE pagg_tab;
-DROP TABLE IF EXISTS pagg_tab_ml;
-CREATE TABLE pagg_tab_ml (a int, b int, c text);
-ANALYZE TABLE pagg_tab_ml;

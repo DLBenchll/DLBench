@@ -1,4 +1,0 @@
-[
-    "Table: `t1`\nColumns:\n(a, DECIMAL(1,0), )\n(b, DECIMAL(1,0), )\n",
-    "Table: `t2`\nColumns:\n(COALESCE(NULL, b), DECIMAL(1,0), )\n"
-]

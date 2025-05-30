@@ -1,1 +1,0 @@
-SELECT str_to_date('04 /30/2004', '%m /%d/%Y');

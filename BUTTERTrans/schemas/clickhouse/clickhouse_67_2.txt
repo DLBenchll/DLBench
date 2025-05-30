@@ -1,2 +1,0 @@
-SELECT arrayElement([1, 2], 2), indexOf(['a', 'b', 'c'], NULL);
-SELECT indexOf(['a', NULL], 'b'), indexOf([0, NULL], 1) + 0, indexOf([0.0, NULL], 1.0) + 0.0, indexOf([0.0e1, NULL], 1.0e1) + 0.0e1;

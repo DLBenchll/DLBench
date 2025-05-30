@@ -1,3 +1,0 @@
-DROP TABLE IF EXISTS delete_test;
-CREATE TABLE delete_test (id INT PRIMARY KEY, a INT, b TEXT);
-INSERT INTO delete_test (id, a) VALUES (1, 10);

@@ -1,2 +1,0 @@
-SELECT LPAD(NULL, 5, 'x') AS result;
-SELECT LPAD(NULL, NULL, 'x') AS result;

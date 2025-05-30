@@ -1,3 +1,0 @@
-DROP TABLE IF EXISTS delete_test;
-CREATE TABLE delete_test (id Int32 PRIMARY KEY, a Int32, b String) ENGINE=MergeTree() ORDER BY id;
-INSERT INTO delete_test (id, a) VALUES (1, 10);

@@ -1,5 +1,0 @@
-SELECT RPAD(NULL, 5, 'x') AS result;
-SELECT RPAD(NULL, NULL, 'x') AS result;
-SELECT RPAD(NULL, NULL, NULL) AS result;
-SELECT RPAD('a', NULL, 'x') AS result;
-SELECT RPAD('a', NULL, NULL) AS result;

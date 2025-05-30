@@ -1,1 +1,0 @@
-SELECT CASE WHEN '' = 'ae' THEN 0 WHEN '' < 'ae' THEN -1 ELSE 1 END, CASE WHEN 'ae' = '' THEN 0 WHEN 'ae' < '' THEN -1 ELSE 1 END, CASE WHEN 'aeq' = 'q' THEN 0 WHEN 'aeq' < 'q' THEN -1 ELSE 1 END, CASE WHEN 'q' = 'aeq' THEN 0 WHEN 'q' < 'aeq' THEN -1 ELSE 1 END;

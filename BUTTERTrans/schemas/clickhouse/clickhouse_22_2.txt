@@ -1,2 +1,0 @@
-SELECT least(toDateTime('2001-01-01 00:00:00'), toDateTime('2001-01-01 00:01:02'));
-SELECT least(toDate('2001-12-10'), toDate('2001-12-11'));

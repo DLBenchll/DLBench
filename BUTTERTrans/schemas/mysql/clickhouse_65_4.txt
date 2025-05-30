@@ -1,3 +1,0 @@
-select maketime(10,11,12); -- MAKETIME
-select maketime(20,11,12); -- MAKETIME
-select timestamp("2001-12-01", "01:01:01.999999"); -- TIMESTAMP

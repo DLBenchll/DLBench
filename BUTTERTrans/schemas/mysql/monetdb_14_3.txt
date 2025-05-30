@@ -1,3 +1,0 @@
-drop table if exists t1;
-CREATE TABLE t1 (data LONGBLOB);
-INSERT INTO t1 (data) VALUES ('aaa');

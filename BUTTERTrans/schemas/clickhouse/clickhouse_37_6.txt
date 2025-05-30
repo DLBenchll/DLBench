@@ -1,6 +1,0 @@
-SELECT (NULL IS NULL), (NULL IS NULL);
-SELECT dateDiff('second', toDateTime('2004-12-30 12:00:00'), toDateTime('2004-12-30 12:00:00'));
-SELECT dateDiff('second', toDateTime('2025-01-01 12:00:00'), toDateTime('2025-01-01 00:12:00'));
-SELECT CAST(concat('12345', '6789') AS UInt64);
-SELECT CAST(concat('12345', '6789') AS Int64);
-SELECT CAST(repeat('1', 9) AS UInt64);

@@ -1,7 +1,0 @@
-select ln(exp(10)),exp(ln(sqrt(10))*2),ln(NULL);
-select log(2, 8),log(2, 15);
-select power(10,log10(10)),power(2,4);
-select ceil(0.09);
-select ceil(0.000000000000000009);
-DROP TABLE IF EXISTS t1;
-create table t1 (a varchar(90), ts timestamp not null);

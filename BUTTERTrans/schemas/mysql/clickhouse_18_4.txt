@@ -1,4 +1,0 @@
-SELECT regexp_replace( 'aaa', 'a', 'X' ); -- REGEXP_REPLACE
-SELECT regexp_replace( 'abc', 'b', 'X' ); -- REGEXP_REPLACE
-SELECT regexp_replace( NULL, 'a', 'X' ); -- REGEXP_REPLACE
-SELECT regexp_replace( 'aaa', NULL, 'X' ); -- REGEXP_REPLACE

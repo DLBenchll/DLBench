@@ -1,2 +1,0 @@
-SELECT ['1', '2', '3'][2], COALESCE(array_position(ARRAY['a', 'b', 'c'], NULL), 0);
-SELECT COALESCE(array_position(ARRAY['a', NULL], 'b'), 0), COALESCE(array_position(ARRAY[0, NULL], 1), 0) + 0, COALESCE(array_position(ARRAY[0.0, NULL], 1.0), 0) + 0.0, COALESCE(array_position(ARRAY[0.0e1, NULL], 1.0e1), 0) + 0.0e1;

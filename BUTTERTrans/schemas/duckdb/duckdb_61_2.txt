@@ -1,2 +1,0 @@
-select md5('a'), hex(md5('a'));
-DROP TABLE IF EXISTS t1;

@@ -1,3 +1,0 @@
-DROP TABLE IF EXISTS t1;
-create table t1 (f1 int, f2 int);
-insert into t1 values (0,1),(1,2);

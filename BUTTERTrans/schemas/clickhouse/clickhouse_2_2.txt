@@ -1,2 +1,0 @@
-DROP TABLE IF EXISTS cmdata;
-CREATE TABLE cmdata(f1 text) ENGINE=MergeTree ORDER BY f1;

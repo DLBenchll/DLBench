@@ -1,1 +1,0 @@
-select from_unixtime(123456789); -- FROM_UNIXTIME

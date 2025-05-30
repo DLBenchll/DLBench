@@ -1,4 +1,0 @@
-SELECT host(((1 >> 24) || '.' || ((1 >> 16) & 255) || '.' || ((1 >> 8) & 255) || '.' || (1 & 255))::inet);
-DROP TABLE IF EXISTS t1;
-CREATE TABLE t1 (v VARCHAR(10));
-INSERT INTO t1 VALUES('a');

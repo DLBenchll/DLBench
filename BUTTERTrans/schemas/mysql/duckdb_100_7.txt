@@ -1,7 +1,0 @@
-DROP TABLE IF EXISTS t1;
-CREATE TABLE t1 (ts int);
-INSERT INTO t1 (ts) VALUES (Unix_timestamp('2002-10-27 01:00')); -- UNIX_TIMESTAMP
-INSERT INTO t1 (ts) VALUES (Unix_timestamp('2002-10-27 02:00')); -- UNIX_TIMESTAMP
-INSERT INTO t1 (ts) VALUES (Unix_timestamp('2002-10-27 03:00')); -- UNIX_TIMESTAMP
-SELECT ts,from_unixtime(ts) FROM t1; -- FROM_UNIXTIME
-DROP TABLE t1;

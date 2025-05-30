@@ -1,3 +1,0 @@
-DROP TABLE IF EXISTS t1;
-create table t1 (a BLOB);
-insert t1 values (NULL), ('A\0\0\0BBBBBBBB'), (SPACE(50000)), (SPACE(50000)); -- SPACE
