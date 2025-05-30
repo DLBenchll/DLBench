@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS t1;
+create table t1 (s1 blob);
+insert into t1 values (X'61'), (X'6120'), (X'612020');
+drop table t1;
+create table t1 (s1 blob, s2 blob);
+insert into t1 values (X'4100',X'4100');

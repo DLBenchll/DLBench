@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS pagg_tab;
+CREATE TABLE pagg_tab (a int, b int, c text, d int);
+WITH series AS (SELECT generate_series AS i FROM generate_series(0, 2999)) INSERT INTO pagg_tab SELECT i % 20, i % 30, lpad(CAST(i % 12 AS VARCHAR), 4, '0'), i % 30 FROM series;
+ANALYZE pagg_tab;
+DROP TABLE pagg_tab;
+DROP TABLE IF EXISTS pagg_tab_ml;
+CREATE TABLE pagg_tab_ml (a int, b int, c text);
+WITH series AS (SELECT generate_series AS i FROM generate_series(0, 29999)) INSERT INTO pagg_tab_ml SELECT i % 30, i % 10, lpad(CAST(i % 4 AS VARCHAR), 4, '0') FROM series;
+ANALYZE pagg_tab_ml;

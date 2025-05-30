@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS h;
+CREATE TABLE h (c1 CHAR(20));
+INSERT INTO h VALUES ('12345678900987654321'), ('hҼ'), ('߰'), ('ʮ'), (''), ('50515253');
+INSERT INTO h VALUES ('31'), ('h31'), ('2805');
+SELECT c1, octet_length(c1) FROM h; -- LENGTH

@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS t;
+CREATE TABLE t(c String, vc String, b String, vb String) ENGINE = MergeTree ORDER BY tuple();

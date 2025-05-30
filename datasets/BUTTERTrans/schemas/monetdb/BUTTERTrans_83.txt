@@ -1,0 +1,11 @@
+SELECT regexp_replace( 'aaa', 'a', 'X' );
+SELECT regexp_replace( 'abc', 'b', 'X' );
+SELECT regexp_replace( NULL, 'a', 'X' );
+SELECT regexp_replace( 'aaa', NULL, 'X' );
+SELECT regexp_replace( 'aaa', 'a', NULL );
+SELECT regexp_replace( 'aaa', 'a', 'X' ) || 'x';
+SELECT regexp_replace( 'aaa', 'a', 'X' );
+SELECT regexp_replace( 'aaabbccbbddaa', 'b+', 'X' );
+SELECT regexp_replace( 'aaabbccbbddaa', 'b+', 'X' );
+SELECT regexp_replace( 'aaabbccbbddaa', '(b+)', '<$1>' );
+SELECT regexp_replace( 'aaabbccbbddaa', 'x+', 'x' );

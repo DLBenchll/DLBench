@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (y Int16) ENGINE = MergeTree ORDER BY y;
+INSERT INTO t1 VALUES (toYear(now()));

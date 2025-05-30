@@ -1,0 +1,1 @@
+SELECT strptime(CONCAT('15-01-2001', ' 2:59:58.999'), CONCAT('%d-%m-%Y', ' ','%H:%M:%S.%f'));

@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1(c1 CHAR(4));
+INSERT INTO t1 VALUES(X'3A'), (X'3B'), (X'3C'), (X'3D'), (X'3E'), (X'3F'), (X'40'), (X'5B'), (X'5C'), (X'5D'), (X'5E'), (X'5F'), (X'60'), (X'7B'), (X'7C'), (X'7D'), (X'7E');
+DROP TABLE t1;

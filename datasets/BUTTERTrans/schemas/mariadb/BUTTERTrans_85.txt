@@ -1,0 +1,2 @@
+SELECT REGEXP_REPLACE( 'aaa', 'a', 'X' );
+SELECT REGEXP_REPLACE( 'abc', 'b', 'X' );

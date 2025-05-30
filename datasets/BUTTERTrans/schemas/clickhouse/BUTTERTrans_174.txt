@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (y Int16) ENGINE = MergeTree ORDER BY y;
+INSERT INTO t1 VALUES (toYear(now()));
+SELECT IF(y = toYear(now()), 1, 0) FROM t1;
+DROP TABLE t1;
+DROP TABLE IF EXISTS t4;
+CREATE TABLE t4(yyyy Int16, c4 String) ENGINE = MergeTree ORDER BY yyyy;
+INSERT INTO t4 (yyyy, c4) VALUES (1970, '1970'), (1999, '1999'), (2000, '2000'), (2001, '2001'), (2069, '2069');
+SELECT * FROM t4 WHERE yyyy = toYear(now());
+DROP TABLE t4;
+CREATE TABLE t1(y Int16, d Date, i Int32, v String) ENGINE = MergeTree ORDER BY d;
+INSERT INTO t1 VALUES(1901, toDate('1901-01-01'), 1, 'one');
+DROP TABLE t1;
+CREATE TABLE t1 (d Date, y1 Nullable(Int16) DEFAULT NULL, y2 Nullable(Int16) DEFAULT NULL, dbl Nullable(Float64) DEFAULT NULL) ENGINE = MergeTree ORDER BY d;
+INSERT INTO t1 VALUES(toDate('1978-07-14'), 1957, 2085, 87315.633);

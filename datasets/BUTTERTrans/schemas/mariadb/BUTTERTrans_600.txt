@@ -1,0 +1,7 @@
+SELECT IF(0,"ERROR","this"),IF(1,"is","ERROR"),IF(NULL,"ERROR","a"),IF(1,2,3),IF(1,2.0,3.0)+0; -- IF
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (st varchar(255) NOT NULL, u int NOT NULL);
+INSERT INTO t1 VALUES ('a',1),('A',1),('aa',1),('AA',1),('a',1),('aaa',0),('BBB',0);
+SELECT IF(1,st,st) s FROM t1 ORDER BY s; -- IF
+SELECT IF(u=1,st,st) s FROM t1 ORDER BY s; -- IF
+ANALYZE TABLE t1;

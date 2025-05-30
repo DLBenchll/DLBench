@@ -23,16 +23,21 @@ Below is the structure of the dataset directory:
 │ ├── mariadb.json
 │ ├── ...
 │ └── schemas/
-│ └── sqlite/
-│ ├── app_store.txt
-│ └── ...
-└── BUTTERTrans/
-├── mysql.json
-├── monetdb.json
-├── ...
-└── schemas/
-├── mysql/
-└── postgresql/
+│ ├──── mysql/
+│ ├────── app_store.txt
+│ └────── ...
+│ └──── ...
+│ └──── duckdb/
+├── BUTTERTrans/
+│ ├── mysql.json
+│ ├── monetdb.json
+│ ├── ...
+│ └── schemas/
+│ ├──── mysql/
+│ ├────── BUTTERTrans_1.txt
+│ └────── ...
+│ └──── ...
+└ └──── duckdb/
 ```
 Each translation task contains the following fields:
 

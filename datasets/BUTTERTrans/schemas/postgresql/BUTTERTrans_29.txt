@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS t1;
+create table t1 (s1 bytea);
+insert into t1 values (E'\\x61'), (E'\\x6120'), (E'\\x612020');
+select encode(s1, 'hex') from t1;
+drop table t1;
+create table t1 (s1 bytea, s2 bytea);
+INSERT INTO t1 VALUES (E'\\x4100', E'\\x4100');
+select octet_length('*' || s1 || '*' || s2 || '*') from t1;
+drop table t1;
+create table t1 (s1 bytea, s2 varchar(1));
+insert into t1 values (E'\\x41', 'a'), (E'\\x4100', 'b'), (E'\\x41', 'c'), (E'\\x4100', 'd');
+select encode(s1, 'hex'), s2 from t1 order by s1, s2;

@@ -1,0 +1,5 @@
+select make_time(10,11,12);
+select make_time(20,11,12);
+select TIMESTAMP '2001-12-01 01:01:01.999999';
+select TIMESTAMP '2001-10-01 01:01:01.000001';
+select TIMESTAMP '2001-12-01 20:01:01';

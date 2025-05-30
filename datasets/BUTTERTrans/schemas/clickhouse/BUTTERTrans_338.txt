@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (a String) ENGINE = TinyLog;
+INSERT INTO t1 VALUES ('a'),('abc'),('abcd'),('hello'),('test');

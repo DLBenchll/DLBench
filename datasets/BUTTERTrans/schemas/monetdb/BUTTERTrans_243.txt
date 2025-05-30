@@ -1,0 +1,5 @@
+SELECT str_to_date('04 /30/2004', '%m /%d/%Y');
+SELECT str_to_date('04/30 /2004', '%m /%d /%Y');
+SELECT str_to_date('04/30/2004 ', '%m/%d/%Y ');
+SELECT sys.timestamp_to_str(TIMESTAMP '0000-01-01', 'Day DD Month YYYY') as valid_date;
+SELECT sys.timestamp_to_str(TIMESTAMP '0000-02-28', 'Day DD Month YYYY') as valid_date;

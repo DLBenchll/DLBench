@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS prt1;
+CREATE TABLE prt1 (a Int32, b Int32, c String) ENGINE=MergeTree ORDER BY a;

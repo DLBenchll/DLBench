@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS t1;
+create table t1 (a BYTEA);
+INSERT INTO t1 values (NULL), (E'A\\000\\000\\000BBBBBBBB'), (REPEAT(' ', 50000)::BYTEA), (REPEAT(' ', 50000)::BYTEA);

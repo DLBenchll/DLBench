@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (a String, b Float64, c Date, d Int8) ENGINE = MergeTree ORDER BY a;
+INSERT INTO t1 VALUES ('AAAA', 105, '2003-03-01', 1);
+SELECT * FROM t1 WHERE concat(a, c, b, d) = 'AAAA2003-03-011051';
+DROP TABLE t1;
+SELECT 'a' UNION ALL SELECT concat('a', -4);
+SELECT 'a' UNION ALL SELECT concat('a', -4.5);
+SELECT 'a' UNION ALL SELECT concat('a', -(4 + 1));
+SELECT 'a' UNION ALL SELECT concat('a', 4 - 5);
+SELECT 'a' UNION ALL SELECT concat('a', -0);
+SELECT 'a' UNION ALL SELECT concat('a', -0.0);
+SELECT 'a' UNION ALL SELECT concat('a', -0.0000);
+SELECT concat((SELECT x FROM (SELECT 'a' AS x) AS t1), (SELECT y FROM (SELECT 'b' AS y) AS t2)) FROM (SELECT 1 UNION ALL SELECT 2) AS t3;
+CREATE TABLE t1(f1 String) ENGINE = MergeTree ORDER BY f1;
+INSERT INTO t1 VALUES ('123456');

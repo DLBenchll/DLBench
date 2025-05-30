@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (ts int) ENGINE=MergeTree ORDER BY ts;
+INSERT INTO t1 (ts) VALUES (toUnixTimestamp('2002-10-27 01:00'));
+INSERT INTO t1 (ts) VALUES (toUnixTimestamp('2002-10-27 02:00'));
+INSERT INTO t1 (ts) VALUES (toUnixTimestamp('2002-10-27 03:00'));
+SELECT ts, FROM_UNIXTIME(ts) FROM t1;
+DROP TABLE t1;
+SELECT toDateTime('2001-01-01 00:00:00');

@@ -1,0 +1,8 @@
+SELECT GREATEST('11', '5', '2');
+SELECT GREATEST('11', 5, 2);
+SELECT GREATEST(11, 5, 2);
+SELECT least('11', '5', '2');
+SELECT least('11', 5, 2);
+SELECT least(11, 5, 2);
+SELECT GREATEST('11', '5', '2')::INTEGER + 0;
+SELECT GREATEST('11', 5, 2) + 0;

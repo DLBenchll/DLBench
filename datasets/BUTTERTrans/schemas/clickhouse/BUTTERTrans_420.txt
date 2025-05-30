@@ -1,0 +1,5 @@
+SELECT formatDateTime(toDateTime(86399), '%H:%i:%s')=formatDateTime(toDateTime(concat('1970-01-01 ', '23:59:59')), '%H:%i:%s');
+SELECT formatDateTime(toDateTime(86399), '%H:%i:%s')='-838:59:59';
+SELECT formatDateTime(toDateTime(86399), '%H:%i:%s')=formatDateTime(toDateTime(concat('1970-01-01 ', '23:59:58')), '%H:%i:%s');
+SELECT formatDateTime(toDateTime('1970-01-01 01:00:01'), '%H:%i:%s')='01:00:01';
+SELECT formatDateTime(toDateTime('1970-01-01 01:00:01'), '%H:%i:%s')=CAST('01:00:01' AS String);

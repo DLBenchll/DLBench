@@ -1,0 +1,6 @@
+DROP USER IF EXISTS test;
+CREATE USER test IDENTIFIED WITH sha256_password BY 'gambling';
+GRANT ALL ON *.* TO test;
+DROP USER test;
+DROP USER IF EXISTS must_change;
+CREATE USER must_change IDENTIFIED WITH sha256_password BY 'aha';
