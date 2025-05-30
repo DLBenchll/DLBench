@@ -1,0 +1,2 @@
+SELECT (NULL IS NULL), (NULL IS NULL);
+SELECT dateDiff('second', toDateTime('2004-12-30 12:00:00'), toDateTime('2004-12-30 12:00:00'));

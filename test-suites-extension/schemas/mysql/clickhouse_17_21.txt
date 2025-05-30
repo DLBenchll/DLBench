@@ -1,0 +1,21 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (subject char(10),pattern char(10));
+SELECT regexp_instr( 'abc', 'a' ); -- REGEXP_INSTR
+SELECT regexp_instr( 'abc', 'b' ); -- REGEXP_INSTR
+SELECT regexp_instr( 'abc', 'c' ); -- REGEXP_INSTR
+SELECT regexp_instr( 'abc', 'd' ); -- REGEXP_INSTR
+SELECT regexp_instr( NULL, 'a' ); -- REGEXP_INSTR
+SELECT regexp_instr( 'a', NULL ); -- REGEXP_INSTR
+SELECT regexp_instr( NULL, NULL ); -- REGEXP_INSTR
+SELECT hex( concat(regexp_instr( 'a', 'a' )) ); -- HEX, CONCAT, REGEXP_INSTR
+SELECT regexp_instr( 1, 'a' ); -- REGEXP_INSTR
+SELECT regexp_instr( 1.1, 'a' ); -- REGEXP_INSTR
+SELECT regexp_instr( 'a', 1 ); -- REGEXP_INSTR
+SELECT regexp_instr( 'a', 1.1 ); -- REGEXP_INSTR
+SELECT regexp_instr( subject, pattern ) FROM t1; -- REGEXP_INSTR
+SELECT regexp_instr( 'abcabcabc', 'a+', 1 ); -- REGEXP_INSTR
+SELECT regexp_instr( 'abcabcabc', 'a+', 2 ); -- REGEXP_INSTR
+SELECT regexp_instr( 'abcabcabc', 'b+', 1 ); -- REGEXP_INSTR
+SELECT regexp_instr( 'abcabcabc', 'b+', 2 ); -- REGEXP_INSTR
+SELECT regexp_instr( 'abcabcabc', 'b+', 3 ); -- REGEXP_INSTR
+SELECT regexp_instr( 'abcabcabc', 'a+', 1, 2 ); -- REGEXP_INSTR

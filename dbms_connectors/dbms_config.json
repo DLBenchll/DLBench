@@ -1,0 +1,37 @@
+{
+  "mysql": {
+    "host": "127.0.0.1",
+    "port": 13306,
+    "user": "root",
+    "password": "123456"
+  },
+  "mariadb": {
+    "host": "127.0.0.1",
+    "port": 9901,
+    "user": "root",
+    "password": "123456"
+  },
+  "postgresql": {
+    "host": "127.0.0.1",
+    "port": 5432,
+    "user": "postgres",
+    "password": "123456"
+  },
+  "monetdb": {
+    "host": "127.0.0.1",
+    "port": 50000,
+    "user": "monetdb",
+    "password": "monetdb"
+  },
+  "clickhouse": {
+    "host": "127.0.0.1",
+    "port": 8123,
+    "user": "admin",
+    "password": "123456"
+  },
+  "duckdb": {
+    "host": "127.0.0.1",
+    "db_dir":"",
+    "database_name": ""
+  }
+}

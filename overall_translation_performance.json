@@ -1,0 +1,67 @@
+{
+    "sqlcoder-7b": {
+        "P_DM_numerator": 835,
+        "P_DM_denominator": 7804,
+        "R_DM_numerator": 835,
+        "R_DM_denominator": 4500,
+        "EM_numerator": 10,
+        "EM_denominator": 3206,
+        "EX_numerator": 501,
+        "EX_denominator": 3206,
+        "F1_DM": 0.13572821846553967,
+        "EM": 0.0031191515907673115,
+        "EX": 0.1562694946974423
+    },
+    "codellama-7b-instruct": {
+        "P_DM_numerator": 3906,
+        "P_DM_denominator": 25288,
+        "R_DM_numerator": 3906,
+        "R_DM_denominator": 8116,
+        "EM_numerator": 328,
+        "EM_denominator": 6377,
+        "EX_numerator": 1170,
+        "EX_denominator": 6377,
+        "F1_DM": 0.2338642078792959,
+        "EM": 0.051434843970519055,
+        "EX": 0.18347185196801002
+    },
+    "deepseek-coder-6.7b-instruct": {
+        "P_DM_numerator": 3973,
+        "P_DM_denominator": 21041,
+        "R_DM_numerator": 3973,
+        "R_DM_denominator": 8135,
+        "EM_numerator": 513,
+        "EM_denominator": 6377,
+        "EX_numerator": 2124,
+        "EX_denominator": 6377,
+        "F1_DM": 0.27234713463120375,
+        "EM": 0.08044535047828133,
+        "EX": 0.333071977418849
+    },
+    "deepseek-r1-8b-llama-distill-q8_0": {
+        "P_DM_numerator": 3669,
+        "P_DM_denominator": 15503,
+        "R_DM_numerator": 3669,
+        "R_DM_denominator": 8135,
+        "EM_numerator": 538,
+        "EM_denominator": 6377,
+        "EX_numerator": 1279,
+        "EX_denominator": 6377,
+        "F1_DM": 0.31043235468313735,
+        "EM": 0.08436568919554649,
+        "EX": 0.2005645287752862
+    },
+    "gpt-3.5-turbo": {
+        "P_DM_numerator": 4849,
+        "P_DM_denominator": 10623,
+        "R_DM_numerator": 4849,
+        "R_DM_denominator": 8135,
+        "EM_numerator": 809,
+        "EM_denominator": 6377,
+        "EX_numerator": 3972,
+        "EX_denominator": 6377,
+        "F1_DM": 0.517006077406973,
+        "EM": 0.12686216089070096,
+        "EX": 0.6228634153990905
+    }
+}

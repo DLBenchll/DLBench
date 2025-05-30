@@ -1,0 +1,633 @@
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE (a, b) IN (SELECT ROW(1, 10)); -- ROW", "sql_id": "postgresql_1_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE (a, b) IN (SELECT 1, 10 UNION ALL SELECT 2, 20);", "sql_id": "postgresql_1_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE (a, b) NOT IN (SELECT 1, 10);", "sql_id": "postgresql_1_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE (a, b) NOT IN (SELECT 1, 10 UNION ALL SELECT 2, 20);", "sql_id": "postgresql_1_9"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (ts) VALUES (EXTRACT(EPOCH FROM TIMESTAMP '2002-10-27 01:00')); -- UNIX_TIMESTAMP", "sql_id": "postgresql_100_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (ts) VALUES (EXTRACT(EPOCH FROM TIMESTAMP '2002-10-27 02:00')); -- UNIX_TIMESTAMP", "sql_id": "postgresql_100_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (ts) VALUES (EXTRACT(EPOCH FROM TIMESTAMP '2002-10-27 03:00')); -- UNIX_TIMESTAMP", "sql_id": "postgresql_100_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ts, to_timestamp(ts) FROM t1; -- FROM_UNIXTIME", "sql_id": "postgresql_100_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP '2001-01-01 00:00:00'; -- TIMESTAMP", "sql_id": "postgresql_100_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2001-01-01 00:00:00') / 86400; -- TO_DAYS", "sql_id": "postgresql_100_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2001-01-01 00:00:00') / 86400; -- TO_DAYS", "sql_id": "postgresql_100_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE_PART('day', TIMESTAMP '2007-12-31 23:59:59' - TIMESTAMP '2007-12-30 00:00:00'); -- DATEDIFF", "sql_id": "postgresql_100_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2000-01-01 00:00:00' - TIMESTAMP '2000-01-01 00:00:00'); -- TIMEDIFF", "sql_id": "postgresql_100_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_CHAR( TIMESTAMP '2009-10-10 23:59:59', 'FMDay FMMonth FMYYYY' ); -- DATE_FORMAT", "sql_id": "postgresql_100_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(TIME FROM TIMESTAMP '2003-12-31 23:59:59'); -- TIME", "sql_id": "postgresql_100_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP '2003-12-31 23:59:59' + INTERVAL '12:00:00'; -- TIMESTAMP", "sql_id": "postgresql_100_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP '2003-01-02 23:59:59' + INTERVAL '1 minute'; -- TIMESTAMPADD", "sql_id": "postgresql_100_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(MONTH FROM TIMESTAMP '2003-05-01' - TIMESTAMP '2003-02-01 23:59:59'); -- TIMESTAMPDIFF", "sql_id": "postgresql_100_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2009-11-29 23:59:59'); -- TO_SECONDS", "sql_id": "postgresql_100_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2015-11-13 23:59:59'); -- UNIX_TIMESTAMP", "sql_id": "postgresql_100_18"}
+{"model": "gpt-3.5-turbo", "message": "select encode(s1, 'hex') from t1;", "sql_id": "postgresql_101_3"}
+{"model": "gpt-3.5-turbo", "message": "select octet_length(concat('*',s1,'*',s2,'*')) from t1;", "sql_id": "postgresql_101_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(s1, 'hex'), s2 FROM t1 ORDER BY s1, s2;", "sql_id": "postgresql_101_11"}
+{"model": "gpt-3.5-turbo", "message": "select 123456789::unsigned; -- CONVERT", "sql_id": "postgresql_101_12"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (CURRENT_DATE, 1);", "sql_id": "postgresql_102_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(*) FROM t1 WHERE a = CURRENT_DATE; -- COUNT, NOW", "sql_id": "postgresql_102_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (CURRENT_DATE, 2);", "sql_id": "postgresql_102_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(*) FROM t1 WHERE a = CURRENT_DATE; -- COUNT, NOW", "sql_id": "postgresql_102_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(*) FROM t1 WHERE a = CURRENT_DATE AND b = 1;", "sql_id": "postgresql_102_6"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t1 AS SELECT current_date AS f1; -- CURDATE", "sql_id": "postgresql_102_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 FROM (SELECT DATE '2011-01-01') a; -- MAKEDATE", "sql_id": "postgresql_102_18"}
+{"model": "gpt-3.5-turbo", "message": "WITH recursive qn as (select 1 as n, cast('x' as char(100)) as un union all select 1+n, un || 'x' from qn where n<10) select * from qn; -- CONCAT", "sql_id": "postgresql_2_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN COUNT(*) > 0 THEN 'YES' ELSE 'NO' END AS \"IMPLICIT COMMIT\" FROM trans;", "sql_id": "postgresql_3_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN a = 1 THEN a ELSE a END AS b FROM t1 ORDER BY POSITION((b + 1)::text IN '1');", "sql_id": "postgresql_39_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN a = 1 THEN a ELSE a END AS b FROM t1 ORDER BY POSITION(',' || b || ',' IN ',1,');", "sql_id": "postgresql_39_4"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT 1 FROM t1 WHERE a = 9223372036854775807 AND TRIM(a) = b; -- TRIM", "sql_id": "postgresql_4_4"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT 1 FROM t1 WHERE a = 9223372036854775806 AND TRIM(a) = b; -- TRIM", "sql_id": "postgresql_4_5"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT 1 FROM t1 WHERE a = 9223372036854775805 AND TRIM(a) = b; -- TRIM", "sql_id": "postgresql_4_6"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT 1 FROM t1 WHERE a = 0 AND TRIM(a) = b; -- TRIM", "sql_id": "postgresql_4_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE COALESCE(a, 0) BETWEEN 0 AND 0.9; -- COALESCE", "sql_id": "postgresql_4_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE COALESCE(a, 0) = 0.9; -- COALESCE", "sql_id": "postgresql_4_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE COALESCE(a, 0) IN (0.8, 0.9);", "sql_id": "postgresql_4_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT current_user; -- USER", "sql_id": "postgresql_5_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ENCODE(c1, 'hex') FROM t1;", "sql_id": "postgresql_6_3"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t1 AS SELECT repeat('a',4000) AS a; -- REPEAT", "sql_id": "postgresql_6_5"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE head AS SELECT concat(b1.b, b2.b) AS head FROM t1 b1, t1 b2; -- CONCAT", "sql_id": "postgresql_6_12"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE tail AS SELECT concat(b1.b, b2.b) AS tail FROM t1 b1, t1 b2; -- CONCAT", "sql_id": "postgresql_6_13"}
+{"model": "gpt-3.5-turbo", "message": "UPDATE t1 SET a = decode(code, 'hex');", "sql_id": "postgresql_6_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(*) FROM t1 WHERE a<>'' AND LENGTH(a)=2; -- OCTET_LENGTH", "sql_id": "postgresql_6_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE LENGTH(a) = 2;", "sql_id": "postgresql_6_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(*) FROM t1 WHERE a <> '' AND LENGTH(a) = 3; -- OCTET_LENGTH", "sql_id": "postgresql_6_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c1, LENGTH(c1) FROM h; -- LENGTH", "sql_id": "postgresql_7_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c1, LPAD(c1, 20, ' ') FROM h; -- LPAD", "sql_id": "postgresql_7_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c1, RPAD(c1, 20, '52') FROM h; -- RPAD", "sql_id": "postgresql_7_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('h' IN c1) FROM h; -- INSTR", "sql_id": "postgresql_7_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('' IN c1) FROM h; -- INSTR", "sql_id": "postgresql_7_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('52' IN c1) FROM h; -- INSTR", "sql_id": "postgresql_7_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('54' IN c1) FROM h; -- INSTR", "sql_id": "postgresql_7_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('31' IN c1) FROM h; -- INSTR", "sql_id": "postgresql_7_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c1, LENGTH(TRIM(c1)) FROM h; -- TRIM", "sql_id": "postgresql_7_23"}
+{"model": "gpt-3.5-turbo", "message": "select to_timestamp(123456789); -- FROM_UNIXTIME", "sql_id": "postgresql_71_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT to_timestamp(234567890); -- FROM_UNIXTIME", "sql_id": "postgresql_71_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT to_timestamp(1); -- FROM_UNIXTIME", "sql_id": "postgresql_71_2"}
+{"model": "gpt-3.5-turbo", "message": "select extract(epoch from timestamp '1970-01-01' + interval '123456789' second); -- UNIX_TIMESTAMP, FROM_UNIXTIME", "sql_id": "postgresql_71_3"}
+{"model": "gpt-3.5-turbo", "message": "select extract(epoch from timestamp '1970-01-01' + interval '234567890' second); -- UNIX_TIMESTAMP, FROM_UNIXTIME", "sql_id": "postgresql_71_4"}
+{"model": "gpt-3.5-turbo", "message": "select extract(epoch from timestamp '2039-01-20 01:00:00'); -- UNIX_TIMESTAMP", "sql_id": "postgresql_71_5"}
+{"model": "gpt-3.5-turbo", "message": "select extract(epoch from timestamp '2038-02-10 01:00:00'); -- UNIX_TIMESTAMP", "sql_id": "postgresql_71_6"}
+{"model": "gpt-3.5-turbo", "message": "select extract(epoch from timestamp '1970-01-01 01:00:00'), extract(epoch from timestamp '1970-01-01 01:00:01'), extract(epoch from timestamp '2038-01-19 04:14:07'), extract(epoch from timestamp '2038-01-19 04:14:08'); -- UNIX_TIMESTAMP", "sql_id": "postgresql_71_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, TO_TIMESTAMP(a) FROM t1; -- TO_TIMESTAMP", "sql_id": "postgresql_71_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '3001-01-19 08:59:59'); -- UNIX_TIMESTAMP", "sql_id": "postgresql_71_13"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT * FROM t WHERE x || x = 'XX'; -- CONCAT", "sql_id": "postgresql_72_4"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1(f1) select coalesce(max(f1), '2000') from t1;", "sql_id": "postgresql_74_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (SELECT SUM(LENGTH(c)) FROM t1 WHERE c='13_characters') FROM t1; -- LENGTH", "sql_id": "postgresql_74_6"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t2 (d) SELECT (SELECT SUM(LENGTH(c)) FROM t1 WHERE c='13_characters') FROM t1; -- LENGTH", "sql_id": "postgresql_74_9"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t2 (d) SELECT (SELECT SUM(LENGTH(c)) FROM t1 WHERE c='7_chars') FROM t1; -- LENGTH", "sql_id": "postgresql_74_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *, ENCODE(a, 'hex') FROM t1;", "sql_id": "postgresql_74_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *, ENCODE(a::bytea, 'hex') FROM t1 WHERE a = 'abc-def';", "sql_id": "postgresql_74_17"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES('valid-string',1), (decode('11', 'hex'), 2);", "sql_id": "postgresql_75_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT pk, OCTET_LENGTH(tx), LENGTH(tx) FROM t1;", "sql_id": "postgresql_75_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (1, repeat('a',110), repeat('b', 210));", "sql_id": "postgresql_76_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT i, LENGTH(a), LENGTH(b), CHAR_LENGTH(a), CHAR_LENGTH(b) FROM t1; -- LENGTH, CHAR_LENGTH", "sql_id": "postgresql_76_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (1, 'a', 'a', CURRENT_TIMESTAMP), (1, 'b', 'b', CURRENT_TIMESTAMP);", "sql_id": "postgresql_76_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT t1.time, t1.date, t1.\"timestamp\", t1.date || ' ' || t1.time, t1.quarter + t1.week, t1.year + t1.\"timestampadd\", t1.\"timestampdiff\" FROM t1; -- CONCAT", "sql_id": "postgresql_77_3"}
+{"model": "gpt-3.5-turbo", "message": "select concat('|',a,'|'), concat('|',b,'|') from t1; -- CONCAT", "sql_id": "postgresql_78_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ENCODE(val, 'hex') FROM t1; -- HEX", "sql_id": "postgresql_78_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ENCODE(a::bytea, 'hex') FROM t1;", "sql_id": "postgresql_78_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, to_char(a, 'Dy') as abday, to_char(a, 'Day') as day FROM t1 ORDER BY a;", "sql_id": "postgresql_79_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, to_char(a, 'Mon') as abmon, to_char(a, 'Month') as mon FROM t1 ORDER BY a;", "sql_id": "postgresql_79_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_CHAR('2001-01-01', 'Dy Day D'); -- TO_CHAR", "sql_id": "postgresql_79_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_CHAR('2001-01-01', 'FMDD Mon Month'); -- DATE_FORMAT", "sql_id": "postgresql_79_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_CHAR('2010-03-23 11:00:00', 'HH AM'); -- DATE_FORMAT", "sql_id": "postgresql_79_11"}
+{"model": "gpt-3.5-turbo", "message": "select strcmp('','ae'),strcmp('ae',''),strcmp('aeq','q'),strcmp('q','aeq'); -- STRCMP", "sql_id": "postgresql_8_0"}
+{"model": "gpt-3.5-turbo", "message": "select strcmp('ss',''),strcmp('','ss'),strcmp('s','sss'),strcmp('q','ssq'); -- STRCMP", "sql_id": "postgresql_8_1"}
+{"model": "gpt-3.5-turbo", "message": "select strcmp('','af'),strcmp('a',''),strcmp('','aeq'),strcmp('','aeaeq'); -- STRCMP", "sql_id": "postgresql_8_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT strcmp('ss','a'),strcmp('','ssa'),strcmp('sa','sssb'),strcmp('s',''); -- STRCMP", "sql_id": "postgresql_8_3"}
+{"model": "gpt-3.5-turbo", "message": "select strcmp('','o'),strcmp('','u'),strcmp('','oeb'); -- STRCMP", "sql_id": "postgresql_8_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN 'af' = '' THEN 0 ELSE 1 END,\n       CASE WHEN '' = 'a' THEN -1 ELSE 1 END,\n       CASE WHEN 'aeq' = '' THEN 1 ELSE -1 END,\n       CASE WHEN 'aeaeq' = '' THEN 1 ELSE -1 END; -- STRCMP", "sql_id": "postgresql_8_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT strcmp('a','ss'),strcmp('ssa',''),strcmp('sssb','sa'),strcmp('','s'); -- STRCMP", "sql_id": "postgresql_8_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT strcmp('u','a'),strcmp('u',''); -- STRCMP", "sql_id": "postgresql_8_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT strcmp('s', 'a'), strcmp('a', 'x'); -- STRCMP", "sql_id": "postgresql_8_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('ue' IN s1), POSITION('' IN s1), s1='ue', s1='' FROM t1; -- POSITION", "sql_id": "postgresql_8_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE LENGTH(s1) = 2 AND s1 = 'oe'; -- LENGTH", "sql_id": "postgresql_8_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD(NULL::text, 5, 'x') AS result; -- LPAD", "sql_id": "postgresql_80_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD(NULL::text, NULL, 'x') AS result; -- LPAD", "sql_id": "postgresql_80_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD(NULL, NULL, NULL) AS result; -- LPAD", "sql_id": "postgresql_80_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('a', NULL, 'x') AS result; -- LPAD", "sql_id": "postgresql_80_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('a', NULL, NULL) AS result; -- LPAD", "sql_id": "postgresql_80_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('a', 5, NULL) AS result; -- LPAD", "sql_id": "postgresql_80_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD(NULL::text, 5, NULL::text) AS result; -- LPAD", "sql_id": "postgresql_80_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT lpad('a', 0, 'x') AS result; -- LPAD", "sql_id": "postgresql_80_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT lpad('a', 0, '') AS result; -- LPAD", "sql_id": "postgresql_80_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT lpad('', 0, 'x') AS result; -- LPAD", "sql_id": "postgresql_80_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT lpad('', 0, '') AS result; -- LPAD", "sql_id": "postgresql_80_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('a', -1, 'x'); -- LPAD", "sql_id": "postgresql_80_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('123', 5, 'x'); -- LPAD", "sql_id": "postgresql_80_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT lpad('a', 5, 'xy'); -- LPAD", "sql_id": "postgresql_80_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('I LOVE SQL', 20, ' '); -- LPAD", "sql_id": "postgresql_80_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('I LOVE SQL in the morning', 20, ' '); -- LPAD", "sql_id": "postgresql_80_15"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES(REPEAT('a', 1024), 0), (REPEAT('b', 1024), 1), (REPEAT('c', 1024), 2), (REPEAT('d', 1024), 3), (REPEAT('e', 1024), 4), (REPEAT('f', 1024), 5); -- REPEAT", "sql_id": "postgresql_81_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUM(LENGTH(f1)) FROM t1; -- LENGTH", "sql_id": "postgresql_81_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COALESCE(d, d), COALESCE(d, d), COALESCE(NULLIF(i, 0), d), CASE WHEN i = i THEN d ELSE d END, GREATEST(d, d), LEAST(d, d) FROM t1 ORDER BY RANDOM();", "sql_id": "postgresql_82_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ENCODE(c1, 'hex') FROM ab;", "sql_id": "postgresql_83_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t5 values (1, to_char('2001-01-01', 'FMDay')); -- DATE_FORMAT", "sql_id": "postgresql_84_2"}
+{"model": "gpt-3.5-turbo", "message": "insert into t5 values (2, to_char('2001-01-01', 'FMDay')); -- DATE_FORMAT", "sql_id": "postgresql_84_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t5 values (3, to_char('2001-01-01', 'FMDay')); -- DATE_FORMAT", "sql_id": "postgresql_84_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(a::bytea, 'hex') FROM t1; -- HEX", "sql_id": "postgresql_84_8"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (1, CURRENT_USER);", "sql_id": "postgresql_84_11"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (REPEAT('ManyMegaByteBlck', 123)); -- REPEAT", "sql_id": "postgresql_85_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (REPEAT('ManyMegaByteBlck', 234)); -- REPEAT", "sql_id": "postgresql_85_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (REPEAT('ManyMegaByteBlck', 345)); -- REPEAT", "sql_id": "postgresql_85_4"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (REPEAT('ManyMegaByteBlck', 456)); -- REPEAT", "sql_id": "postgresql_85_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(c1) FROM t1; -- LENGTH", "sql_id": "postgresql_85_6"}
+{"model": "gpt-3.5-turbo", "message": "select NULL=NULL,NULL<>NULL,COALESCE(NULL,1.1)+0,COALESCE(NULL,1) | 0; -- COALESCE", "sql_id": "postgresql_86_1"}
+{"model": "gpt-3.5-turbo", "message": "select strcmp('a',NULL),(1<NULL),NULL ~ 'a',NULL like 'a%','a%' like NULL; -- STRCMP", "sql_id": "postgresql_86_2"}
+{"model": "gpt-3.5-turbo", "message": "select repeat('a',0),repeat('ab',5+5),repeat('ab',-1),reverse(NULL); -- REPEAT", "sql_id": "postgresql_86_3"}
+{"model": "gpt-3.5-turbo", "message": "select field(NULL,'a','b','c'); -- FIELD", "sql_id": "postgresql_86_4"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT COALESCE(a, b) AS coalesce FROM t1;", "sql_id": "postgresql_86_9"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT COALESCE(a, NULL) AS coalesce FROM t1;", "sql_id": "postgresql_86_11"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT COALESCE(NULL, b) AS coalesce FROM t1;", "sql_id": "postgresql_86_13"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES ( repeat( 'a', 10 ), 1),( repeat( 'b', 10 ), 2); -- REPEAT", "sql_id": "postgresql_87_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STRING_AGG(a, ',') FROM t1; -- GROUP_CONCAT", "sql_id": "postgresql_87_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM NOW()); -- UNIX_TIMESTAMP", "sql_id": "postgresql_87_5"}
+{"model": "gpt-3.5-turbo", "message": "select repeat('a',2000); -- REPEAT", "sql_id": "postgresql_88_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa') as len; -- LENGTH", "sql_id": "postgresql_88_1"}
+{"model": "gpt-3.5-turbo", "message": "select char_length(repeat('a',2000)); -- CHAR_LENGTH, REPEAT", "sql_id": "postgresql_88_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c11, LENGTH(c12) FROM t1; -- LENGTH", "sql_id": "postgresql_88_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(a::bytea, 'hex') FROM t1 WHERE a LIKE 'A_';", "sql_id": "postgresql_89_3"}
+{"model": "gpt-3.5-turbo", "message": "explain select encode(a::bytea, 'hex') from t1 where a like 'A_'; -- HEX", "sql_id": "postgresql_89_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(a::bytea, 'hex') FROM t1; -- HEX", "sql_id": "postgresql_89_6"}
+{"model": "gpt-3.5-turbo", "message": "create table t1 as select extract(epoch from null) as to_seconds; -- TO_SECONDS", "sql_id": "postgresql_89_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN 0 THEN 'ERROR' ELSE 'this' END, \n       CASE WHEN 1 THEN 'is' ELSE 'ERROR' END, \n       CASE WHEN NULL THEN 'ERROR' ELSE 'a' END, \n       CASE WHEN 1 THEN 2 ELSE 3 END, \n       CASE WHEN 1 THEN 2.0 ELSE 3.0 END + 0; -- IF", "sql_id": "postgresql_9_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN 1 THEN st ELSE st END AS s FROM t1 ORDER BY s;", "sql_id": "postgresql_9_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN u = 1 THEN st ELSE st END AS s FROM t1 ORDER BY s;", "sql_id": "postgresql_9_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT NULLIF(u, 1) FROM t1; -- NULLIF", "sql_id": "postgresql_9_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT nullif(u, 1) FROM t1; -- NULLIF", "sql_id": "postgresql_9_8"}
+{"model": "gpt-3.5-turbo", "message": "select sum(coalesce(num, 0.00)) from t1; -- IF", "sql_id": "postgresql_9_12"}
+{"model": "gpt-3.5-turbo", "message": "select min(case when y - x > 5 then y else null end), max(case when y - x > 5 then y else null end) from t1;", "sql_id": "postgresql_9_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT NULLIF(5,5) IS NULL, NULLIF(5,5) IS NOT NULL; -- NULLIF", "sql_id": "postgresql_9_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT id, CASE WHEN date IS NULL THEN '-' ELSE TO_CHAR(TO_TIMESTAMP(date), 'DD-MM-YYYY') END AS date_ord, text FROM t1 ORDER BY date_ord ASC;", "sql_id": "postgresql_9_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT id, CASE WHEN date IS NULL THEN '-' ELSE TO_CHAR(TO_TIMESTAMP(date), 'DD-MM-YYYY') END AS date_ord, text FROM t1 ORDER BY date_ord DESC;", "sql_id": "postgresql_9_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM (SELECT MAX(CAST(c AS INTEGER)) FROM t1) AS te;", "sql_id": "postgresql_9_26"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM (SELECT GREATEST(CAST(NULLIF(c, '') AS INTEGER), 0) FROM t1) AS te; -- IFNULL", "sql_id": "postgresql_9_27"}
+{"model": "gpt-3.5-turbo", "message": "SELECT AVG(NULLIF(EXTRACT(YEAR FROM DATE '2001-01-01'), 10)); -- NULLIF, YEAR", "sql_id": "postgresql_9_29"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE '2000-02-29', DATE '2000-03-01', DATE '2000-03-02'; -- FROM_DAYS", "sql_id": "postgresql_90_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT to_date('1970-01-01', 'YYYY-MM-DD') + 42949670, to_date('1970-01-01', 'YYYY-MM-DD') + 42949671, to_date('1970-01-01', 'YYYY-MM-DD') + 42949673; -- FROM_DAYS", "sql_id": "postgresql_90_1"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t VALUES (0, REPEAT('x', 120000)), (1, REPEAT('z', 12000)); -- REPEAT", "sql_id": "postgresql_91_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(b) FROM (SELECT * FROM t INTERSECT SELECT * FROM t) AS derived; -- LENGTH", "sql_id": "postgresql_91_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT argument FROM test_log WHERE argument LIKE '%' || 'azun' || 'dris%';", "sql_id": "postgresql_92_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(10,2,3) IN (ROW(3,2,3), ROW(1,2,3), ROW(1,3,3)); -- ROW", "sql_id": "postgresql_93_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,3) IN (ROW(3,NULL,3), ROW(1,2,3), ROW(1,3,3)); -- ROW", "sql_id": "postgresql_93_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(10,2,3) IN (ROW(3,NULL,3), ROW(1,2,3), ROW(1,3,3)); -- ROW", "sql_id": "postgresql_93_2"}
+{"model": "gpt-3.5-turbo", "message": "select row(1,2,row(3,null)) = any (array[row(3,2,row(3,4)), row(1,2,row(4,5)]); -- ROW", "sql_id": "postgresql_93_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,3)=ROW(1,2,3); -- ROW", "sql_id": "postgresql_93_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(2,2,3)=ROW(1+1,2,3); -- ROW", "sql_id": "postgresql_93_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,3)=ROW(1+1,2,3); -- ROW", "sql_id": "postgresql_93_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,3)<ROW(1+1,2,3); -- ROW", "sql_id": "postgresql_93_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,3)>ROW(1+1,2,3); -- ROW", "sql_id": "postgresql_93_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,3)<=ROW(1+1,2,3); -- ROW", "sql_id": "postgresql_93_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,3)>=ROW(1+1,2,3); -- ROW", "sql_id": "postgresql_93_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,3)<>(ROW(1+1,2,3)); -- ROW", "sql_id": "postgresql_93_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(NULL,2,3)=ROW(NULL,2,3); -- ROW", "sql_id": "postgresql_93_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,ROW(3,4,5)) = ROW(1,2,ROW(3,4,5)); -- ROW", "sql_id": "postgresql_93_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW('test',2,3.33)=ROW('test',2,3.33); -- ROW", "sql_id": "postgresql_93_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW('test',2,ROW(3,33)) = ROW('test',2,ROW(3,33)); -- ROW", "sql_id": "postgresql_93_25"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW('test',2,ROW(3,33)) = ROW('test',2,ROW(3,3)); -- ROW", "sql_id": "postgresql_93_26"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE ROW(1,2,3) = ROW(a,b,c); -- ROW", "sql_id": "postgresql_94_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE ROW(0,2,3) = ROW(a,b,c); -- ROW", "sql_id": "postgresql_94_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE ROW(1,2,3) < ROW(a,b,c); -- ROW", "sql_id": "postgresql_94_5"}
+{"model": "gpt-3.5-turbo", "message": "select ROW(a,2,3) IN (ROW(1,b,c), ROW(2,3,1)) from t1; -- ROW", "sql_id": "postgresql_94_6"}
+{"model": "gpt-3.5-turbo", "message": "select ROW(c,2,3) IN(row(1,b,a), row(2,3,1)) from t1; -- ROW", "sql_id": "postgresql_94_7"}
+{"model": "gpt-3.5-turbo", "message": "select ROW(a,b,c) IN(row(1,2,3), row(3,2,1)) from t1; -- ROW", "sql_id": "postgresql_94_8"}
+{"model": "gpt-3.5-turbo", "message": "select ROW(1,2,3) IN(row(a,b,c), row(1,2,3)) from t1; -- ROW", "sql_id": "postgresql_94_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,1,1) = ROW(1,1,1), ROW(1,1,1) = ROW(1,2,1), ROW(1,NULL,1) = ROW(2,2,1), ROW(1,NULL,1) = ROW(1,2,2), ROW(1,NULL,1) = ROW(1,2,1) ; -- ROW", "sql_id": "postgresql_94_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(a, 1) IN (SELECT SUM(b), 1) FROM t1 GROUP BY a; -- ROW", "sql_id": "postgresql_95_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(a, 1) IN (SELECT SUM(b), 3) FROM t1 GROUP BY a; -- ROW", "sql_id": "postgresql_95_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 FROM t1 WHERE ROW(a, b) >= ROW('1', (SELECT 1 FROM t1 WHERE a > '1234')); -- ROW", "sql_id": "postgresql_95_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2) = (SELECT 1,2 FROM t1 WHERE 1 = 0); -- ROW", "sql_id": "postgresql_95_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2) = (SELECT 1,3 FROM t1 WHERE 1 = 0); -- ROW", "sql_id": "postgresql_95_13"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT row(least(a), 1) = row(a, 1) AS al FROM t1 GROUP BY a; -- ROW", "sql_id": "postgresql_95_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT row(min(a), 1) = row(a, 1) AS al FROM t1 GROUP BY a; -- ROW", "sql_id": "postgresql_95_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('', 5, 'x') AS result; -- LPAD", "sql_id": "postgresql_96_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD(NULL, NULL, 'x') AS result; -- LPAD", "sql_id": "postgresql_96_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD(NULL, NULL, NULL) AS result; -- LPAD", "sql_id": "postgresql_96_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('a', NULL, 'x') AS result; -- LPAD", "sql_id": "postgresql_96_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('a', NULL, NULL) AS result; -- LPAD", "sql_id": "postgresql_96_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('a', 5, NULL) AS result; -- LPAD", "sql_id": "postgresql_96_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('', 5, '') AS result; -- LPAD", "sql_id": "postgresql_96_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('a', 0, 'x') AS result; -- LPAD", "sql_id": "postgresql_96_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('a', 0, '') AS result; -- LPAD", "sql_id": "postgresql_96_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('', 0, 'x') AS result; -- LPAD", "sql_id": "postgresql_96_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('', 0, '') AS result; -- LPAD", "sql_id": "postgresql_96_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('a', -1, 'x'); -- LPAD", "sql_id": "postgresql_96_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('123456787890', 1, 'x'); -- RPAD", "sql_id": "postgresql_96_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('a', 5, 'xy'); -- RPAD", "sql_id": "postgresql_96_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('I LOVE SQL', 20, ' '); -- RPAD", "sql_id": "postgresql_96_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('I LOVE SQL in the morning', 20, ' '); -- RPAD", "sql_id": "postgresql_96_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE t1.a IS NULL OR t1.a NOT IN (SELECT t3.a FROM t1 t3);", "sql_id": "postgresql_97_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE t1.a NOT IN (SELECT t3.a FROM t1 t3);", "sql_id": "postgresql_97_7"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT * FROM t1 WHERE (SELECT b FROM t2 WHERE CAST(gen_random_uuid() AS TEXT) = CAST(t2.a AS TEXT)) > 0; -- UUID", "sql_id": "postgresql_98_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (SELECT COALESCE(SUM(t3.b), 0) FROM t3 WHERE t1.a = t3.a) FROM t1; -- COALESCE", "sql_id": "postgresql_98_14"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT (SELECT COALESCE(SUM(t3.b), 0) FROM t3 WHERE t1.a=t3.a) FROM t1 ; -- COALESCE", "sql_id": "postgresql_98_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COALESCE((SELECT SUM(t3.b) FROM t3 WHERE t1.a = t3.a), 0) FROM t1;", "sql_id": "postgresql_98_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (SELECT COALESCE(SUM(t3.b), 0) FROM t3 WHERE t1.a = t3.a) FROM t1; -- COALESCE", "sql_id": "postgresql_98_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TRIM(f1), COUNT(*) FROM table_varchar_pad_space GROUP BY f1;", "sql_id": "postgresql_99_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a1, a2, b, MIN(c) FROM t1 WHERE (ASCII(a1) > 97) AND (ASCII(a2) + ASCII(a1) > 194) AND (b = 'a') GROUP BY a1, a2, b; -- ASCII", "sql_id": "postgresql_10_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a1 || min(c), b FROM t1 WHERE a1 < 'd' GROUP BY a1, a2, b;", "sql_id": "postgresql_10_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a1 || min(c), b, max(c) FROM t1 WHERE a1 < 'd' GROUP BY a1, a2, b;", "sql_id": "postgresql_10_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat(a1,a2),b,min(c),max(c) FROM t1 WHERE a1 < 'd' GROUP BY a1,a2,b; -- CONCAT", "sql_id": "postgresql_10_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat(ord(min(b)), ord(max(b))), min(b), max(b) FROM t1 GROUP BY a1, a2;", "sql_id": "postgresql_10_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT Fld1, max(Fld2) FROM t1 GROUP BY Fld1 HAVING stddev_pop(Fld2) IS NOT NULL; -- STD", "sql_id": "postgresql_11_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT Fld1, max(Fld2) FROM t1 GROUP BY Fld1 HAVING VARIANCE(Fld2) IS NOT NULL; -- VARIANCE", "sql_id": "postgresql_11_4"}
+{"model": "gpt-3.5-turbo", "message": "insert into t3 select concat('c-', 1000+A.a, '=w'), concat('c-', 2000+A.a, '=w'),'filler-1' from t2 A; -- CONCAT", "sql_id": "postgresql_12_8"}
+{"model": "gpt-3.5-turbo", "message": "insert into t3 select concat('c-', 1000+A.a, '=w'), concat('c-', 3000+A.a, '=w'),'filler-2' from t2 A; -- CONCAT", "sql_id": "postgresql_12_9"}
+{"model": "gpt-3.5-turbo", "message": "update t1 set b=repeat(chr(65+a), 20) where a < 25; -- REPEAT", "sql_id": "postgresql_12_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE a < 10 AND b = REPEAT(CHR(65+a), 20); -- REPEAT", "sql_id": "postgresql_12_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE a < 10 AND b = REPEAT(CHR(65+a), 20); -- REPEAT", "sql_id": "postgresql_12_25"}
+{"model": "gpt-3.5-turbo", "message": "UPDATE t1 SET data = repeat('a', 18*1024); -- REPEAT", "sql_id": "postgresql_14_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT octet_length(data) FROM t1; -- LENGTH", "sql_id": "postgresql_14_4"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (data) VALUES (repeat('a',1*1024)); -- REPEAT", "sql_id": "postgresql_14_7"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (data) VALUES (repeat('b',16*1024-1024)); -- REPEAT", "sql_id": "postgresql_14_8"}
+{"model": "gpt-3.5-turbo", "message": "UPDATE t1 SET data = repeat('c', 17*1024); -- REPEAT", "sql_id": "postgresql_14_10"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 SET data = repeat('a', 18*1024); -- REPEAT", "sql_id": "postgresql_14_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT octet_length(data) FROM t1; -- LENGTH", "sql_id": "postgresql_14_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2011-01-01 00:00:00') as time_t, EXTRACT(EPOCH FROM TIMESTAMP '2011-01-01 00:00:00') % 3 as part, 1234567890 % 3 as part2; -- UNIX_TIMESTAMP", "sql_id": "postgresql_15_0"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t3 (a) VALUES (CURRENT_TIMESTAMP);", "sql_id": "postgresql_15_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t2 VALUES (1 + (SELECT a FROM t1), 'subq: ' || (SELECT b FROM t1));", "sql_id": "postgresql_15_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT current_user, session_user; -- USER, CURRENT_USER", "sql_id": "postgresql_16_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abc', 'a' ); -- REGEXP_INSTR", "sql_id": "postgresql_17_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr('abc', 'b'); -- REGEXP_INSTR", "sql_id": "postgresql_17_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abc', 'c' ); -- REGEXP_INSTR", "sql_id": "postgresql_17_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr('abc', 'd'); -- REGEXP_INSTR", "sql_id": "postgresql_17_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr(NULL, 'a'); -- REGEXP_INSTR", "sql_id": "postgresql_17_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'a', NULL ); -- REGEXP_INSTR", "sql_id": "postgresql_17_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr(NULL, NULL); -- REGEXP_INSTR", "sql_id": "postgresql_17_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode( concat(regexp_instr( 'a', 'a' )), 'hex' );", "sql_id": "postgresql_17_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 1, 'a' ); -- REGEXP_INSTR", "sql_id": "postgresql_17_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 1.1, 'a' ); -- REGEXP_INSTR", "sql_id": "postgresql_17_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'a', 1 ); -- REGEXP_INSTR", "sql_id": "postgresql_17_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'a', 1.1 ); -- REGEXP_INSTR", "sql_id": "postgresql_17_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr(subject, pattern) FROM t1; -- REGEXP_INSTR", "sql_id": "postgresql_17_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abcabcabc', 'a+', 1 ); -- REGEXP_INSTR", "sql_id": "postgresql_17_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abcabcabc', 'a+', 2 ); -- REGEXP_INSTR", "sql_id": "postgresql_17_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abcabcabc', 'b+', 1 ); -- REGEXP_INSTR", "sql_id": "postgresql_17_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abcabcabc', 'b+', 2 ); -- REGEXP_INSTR", "sql_id": "postgresql_17_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abcabcabc', 'b+', 3 ); -- REGEXP_INSTR", "sql_id": "postgresql_17_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abcabcabc', 'a+', 1, 2 ); -- REGEXP_INSTR", "sql_id": "postgresql_17_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abcabcabc', 'a+', 1, 3 ); -- REGEXP_INSTR", "sql_id": "postgresql_17_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abcabcabc', 'a+', 1, 4 ); -- REGEXP_INSTR", "sql_id": "postgresql_17_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abcabcabc', 'a+', 4, 2 ); -- REGEXP_INSTR", "sql_id": "postgresql_17_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'a', 'a+', 1, 1, NULL ); -- REGEXP_INSTR", "sql_id": "postgresql_17_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abcabcabc', 'a+', 1, 1, 0 ); -- REGEXP_INSTR", "sql_id": "postgresql_17_25"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abcabcabc', 'a+', 1, 1, 1 ); -- REGEXP_INSTR", "sql_id": "postgresql_17_26"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'aaabcabcabc', 'a+', 1, 1, 1 ); -- REGEXP_INSTR", "sql_id": "postgresql_17_27"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'aaabcabcabc', 'A+', 1, 1, 1, 'c' ); -- REGEXP_INSTR", "sql_id": "postgresql_17_28"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'aaabcabcabc', 'A+', 1, 1, 1, 'i' ); -- REGEXP_INSTR", "sql_id": "postgresql_17_29"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'aaabcabcabc', 'A+', 1, 1, 1, 'c' ); -- REGEXP_INSTR", "sql_id": "postgresql_17_30"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'aaabcabcabc', 'A+', 1, 1, 1, 'cic' ); -- REGEXP_INSTR", "sql_id": "postgresql_17_31"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'a', 'a+', 1, 1, 1, NULL ); -- REGEXP_INSTR", "sql_id": "postgresql_17_32"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaa', 'a', 'X' ); -- REGEXP_REPLACE", "sql_id": "postgresql_18_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'abc', 'b', 'X' ); -- REGEXP_REPLACE", "sql_id": "postgresql_18_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( NULL, 'a', 'X' ); -- REGEXP_REPLACE", "sql_id": "postgresql_18_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaa', '', 'X' ); -- REGEXP_REPLACE", "sql_id": "postgresql_18_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaa', 'a', NULL ); -- REGEXP_REPLACE", "sql_id": "postgresql_18_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat( regexp_replace( 'aaa', 'a', 'X' ), 'x' ); -- CONCAT, REGEXP_REPLACE", "sql_id": "postgresql_18_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaa', 'a', 'X', 'g' ); -- REGEXP_REPLACE", "sql_id": "postgresql_18_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabbccbbddaa', 'b+', 'X', 'g', '1' ); -- REGEXP_REPLACE", "sql_id": "postgresql_18_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabbccbbddaa', 'b+', 'X', 'g', '1', '2' ); -- REGEXP_REPLACE", "sql_id": "postgresql_18_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabbccbbddaa', '(b+)', '<$1>', 1, 2 ); -- REGEXP_REPLACE", "sql_id": "postgresql_18_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabbccbbddaa', 'x+', 'x', '1', 'g' ); -- REGEXP_REPLACE", "sql_id": "postgresql_18_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabbccbbddaa', 'b+', 'x', 'g', 'i' ); -- REGEXP_REPLACE", "sql_id": "postgresql_18_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaab', 'b', 'x', 'g'); -- REGEXP_REPLACE", "sql_id": "postgresql_18_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabccc', 'b', 'x', 'g', 2 ); -- REGEXP_REPLACE", "sql_id": "postgresql_18_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'abc', 'b', 'X' ); -- REGEXP_REPLACE", "sql_id": "postgresql_18_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'abcbdb', 'b', 'X' ); -- REGEXP_REPLACE", "sql_id": "postgresql_18_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'abcbdb', 'b', 'X', 3 ); -- REGEXP_REPLACE", "sql_id": "postgresql_18_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabcbdb', 'b', 'X', 1 ); -- REGEXP_REPLACE", "sql_id": "postgresql_18_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabcbdb', 'b', 'X', 2 ); -- REGEXP_REPLACE", "sql_id": "postgresql_18_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabcbdb', 'b', 'X', 3 ); -- REGEXP_REPLACE", "sql_id": "postgresql_18_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaa', 'a', 'X', 'g'); -- REGEXP_REPLACE", "sql_id": "postgresql_18_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaa', 'a', 'XX', 'g'); -- REGEXP_REPLACE", "sql_id": "postgresql_18_21"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES ( regexp_instr('a', 'a'),regexp_instr('a', 'a'),regexp_instr('a', 'a'),regexp_instr('a', 'a') ); -- REGEXP_INSTR", "sql_id": "postgresql_19_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 ( c ) VALUES ( regexp_replace('a', 'a', 'a') ); -- REGEXP_REPLACE", "sql_id": "postgresql_19_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT length(regexp_replace( repeat('a', 'b'), 'a', 'b' )); -- LENGTH, REGEXP_REPLACE, REPEAT", "sql_id": "postgresql_19_10"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES ( repeat( 'a', 16384 ) ); -- REPEAT", "sql_id": "postgresql_19_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT char_length(regexp_replace(a, 'a', 'b')) FROM t1;", "sql_id": "postgresql_19_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace(a, '^([[:alpha:]]+)[[:space:]].*$', '$1') FROM t1; -- REGEXP_REPLACE", "sql_id": "postgresql_19_17"}
+{"model": "gpt-3.5-turbo", "message": "UPDATE t1 SET a = regexp_replace(a, 'b', 'y'); -- REGEXP_REPLACE", "sql_id": "postgresql_19_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUM(DISTINCT LENGTH(name)) s1 FROM t1; -- LENGTH", "sql_id": "postgresql_20_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUM(DISTINCT LENGTH(name)) s1 FROM t1; -- LENGTH", "sql_id": "postgresql_20_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (SELECT SUM(DISTINCT LENGTH(name)) FROM t1) FROM t2; -- LENGTH", "sql_id": "postgresql_20_10"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t2 VALUES (1, '18:19:29', CURRENT_TIME); -- NOW", "sql_id": "postgresql_20_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT_WS(pkCrash, strCrash) FROM t1; -- CONCAT_WS", "sql_id": "postgresql_21_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT one.id, two.val, CASE two.val WHEN 1 THEN 'one' WHEN 2 THEN 'two' END\nFROM t1 one\nJOIN t2 two ON two.id = one.id\nORDER BY one.id;", "sql_id": "postgresql_21_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(CAST('01-01-01' AS TIMESTAMP), '01-01:02'); -- LEAST", "sql_id": "postgresql_22_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(CAST('2001-12-10' AS DATE), '2001-12/11'); -- LEAST", "sql_id": "postgresql_22_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(CAST('10:11:12' AS TIME), '10:11:13'); -- LEAST", "sql_id": "postgresql_22_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM CURRENT_TIMESTAMP) - EXTRACT(EPOCH FROM CURRENT_TIMESTAMP AT TIME ZONE 'UTC');", "sql_id": "postgresql_23_0"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 (i, ts) values(EXTRACT(EPOCH FROM TIMESTAMP '2003-03-01 00:00:00'), '2003-03-01 00:00:00');", "sql_id": "postgresql_23_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 (i, ts) values(EXTRACT(EPOCH FROM TIMESTAMP '2003-03-30 01:59:59')::integer, '2003-03-30 01:59:59'::timestamp without time zone),(EXTRACT(EPOCH FROM TIMESTAMP '2003-03-30 02:30:00')::integer, '2003-03-30 02:30:00'::timestamp without time zone),(EXTRACT(EPOCH FROM TIMESTAMP '2003-03-30 03:00:00')::integer, '2003-03-30 03:00:00'::timestamp without time zone);", "sql_id": "postgresql_23_4"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 (i, ts) values(EXTRACT(EPOCH FROM TIMESTAMP '2003-03-30 01:59:59'), '2003-03-30 01:59:59'),\n(EXTRACT(EPOCH FROM TIMESTAMP '2003-03-30 02:30:00'), '2003-03-30 02:30:00'),\n(EXTRACT(EPOCH FROM TIMESTAMP '2003-03-30 03:00:00'), '2003-03-30 03:00:00');", "sql_id": "postgresql_23_5"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 (i, ts) values(EXTRACT(EPOCH FROM TIMESTAMP '2003-05-01 00:00:00')::integer, '2003-05-01 00:00:00');", "sql_id": "postgresql_23_6"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 (i, ts) values(EXTRACT(EPOCH FROM TIMESTAMP '2003-10-26 01:00:00')::integer, '2003-10-26 01:00:00'),(EXTRACT(EPOCH FROM TIMESTAMP '2003-10-26 02:00:00')::integer, '2003-10-26 02:00:00'),(EXTRACT(EPOCH FROM TIMESTAMP '2003-10-26 02:59:59')::integer, '2003-10-26 02:59:59'),(EXTRACT(EPOCH FROM TIMESTAMP '2003-10-26 04:00:00')::integer, '2003-10-26 04:00:00'),(EXTRACT(EPOCH FROM TIMESTAMP '2003-10-26 02:59:59')::integer, '2003-10-26 02:59:59');", "sql_id": "postgresql_23_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT to_timestamp(362793609); -- FROM_UNIXTIME", "sql_id": "postgresql_23_10"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 (ts) values (now()); -- NOW", "sql_id": "postgresql_23_12"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES('2003-03-30 01:59:59', 'Before the gap'),('2003-03-30 02:30:00', 'Inside the gap'),('2003-03-30 03:00:00',  'After the gap'); -- UNIX_TIMESTAMP", "sql_id": "postgresql_23_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2003-03-30 01:59:59'), 'Before the gap' AS b; -- EXTRACT EPOCH", "sql_id": "postgresql_23_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2003-03-30 02:30:00'), 'Inside the gap' AS b; -- EXTRACT EPOCH", "sql_id": "postgresql_23_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2003-03-30 03:00:00'), 'After the gap' AS b; -- EXTRACT EPOCH", "sql_id": "postgresql_23_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT to_timestamp(0); -- FROM_UNIXTIME", "sql_id": "postgresql_23_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '1969-12-31 15:59:59'); -- UNIX_TIMESTAMP", "sql_id": "postgresql_23_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '1969-12-31 16:00:00'); -- UNIX_TIMESTAMP", "sql_id": "postgresql_23_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '1969-12-31 16:00:01'); -- UNIX_TIMESTAMP", "sql_id": "postgresql_23_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '1970-01-01 00:00:01'); -- UNIX_TIMESTAMP", "sql_id": "postgresql_23_25"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2022-01-01 16:00:01'); -- UNIX_TIMESTAMP", "sql_id": "postgresql_23_26"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(a::bytea, 'hex') FROM t1; -- HEX", "sql_id": "postgresql_24_3"}
+{"model": "gpt-3.5-turbo", "message": "select encode(a::bytea, 'hex') from t1; -- HEX", "sql_id": "postgresql_24_7"}
+{"model": "gpt-3.5-turbo", "message": "select encode(min(a), 'hex') from t1;", "sql_id": "postgresql_24_11"}
+{"model": "gpt-3.5-turbo", "message": "select encode(min(b), 'hex') from t1;", "sql_id": "postgresql_24_12"}
+{"model": "gpt-3.5-turbo", "message": "select encode(min(a)::bytea, 'hex'), encode(max(a)::bytea, 'hex'), encode(min(b)::bytea, 'hex'), encode(max(b)::bytea, 'hex') from t1;", "sql_id": "postgresql_24_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(min(b), 'hex') FROM t1 WHERE a = 4;", "sql_id": "postgresql_24_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(min(c), 'hex') FROM t1 WHERE a = 4 AND b = 0;", "sql_id": "postgresql_24_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(max(b), 'hex') FROM t1;", "sql_id": "postgresql_24_19"}
+{"model": "gpt-3.5-turbo", "message": "update t1 set b = a || b; -- CONCAT", "sql_id": "postgresql_24_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ENCODE(array_agg(DISTINCT b), 'hex') FROM t1 GROUP BY a;", "sql_id": "postgresql_24_27"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(b::bytea, 'hex'), i2 FROM t1 WHERE (i2 >= 100 AND i2 < 201) AND b = TRUE;", "sql_id": "postgresql_25_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(b1::bytea, 'hex'), i2 FROM t2 WHERE (i2 >= 100 AND i2 < 201) AND b1 = TRUE;", "sql_id": "postgresql_25_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(b2::bytea, 'hex'), i2 FROM t2 WHERE (i2 >= 100 AND i2 < 201) AND b2 = FALSE;", "sql_id": "postgresql_25_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ENCODE(array_agg(DISTINCT b), 'hex') FROM t1 GROUP BY a;", "sql_id": "postgresql_25_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(t2.b::bytea, 'hex') FROM t2;", "sql_id": "postgresql_25_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, encode(b, 'hex') FROM t1 ORDER BY b;", "sql_id": "postgresql_25_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(a, 'hex') FROM t1 ORDER BY a;", "sql_id": "postgresql_26_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(concat(a, E'\\\\0'), 'hex') as b FROM t1 ORDER BY concat(a, E'\\\\0');", "sql_id": "postgresql_26_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(a, 'hex') FROM t1 ORDER BY a;", "sql_id": "postgresql_26_6"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t (c) VALUES (REPEAT('3',65535)); -- REPEAT", "sql_id": "postgresql_26_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(c), CHAR_LENGTH(c) FROM t; -- LENGTH, CHAR_LENGTH", "sql_id": "postgresql_26_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(c) FROM t2; -- LENGTH", "sql_id": "postgresql_26_16"}
+{"model": "gpt-3.5-turbo", "message": "select least(-1.1111111111111111111111111, - string_agg(1.7976931348623157E+308, '')) as foo; -- LEAST, STRING_AGG", "sql_id": "postgresql_27_0"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values (now()); -- NOW", "sql_id": "postgresql_28_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT to_char(a, 'YYYY YY'), extract(year from a), extract(year from current_timestamp) from t1;", "sql_id": "postgresql_28_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP '2000-01-27 23:13:41' - TIMESTAMP '2003-05-16 23:53:29'; -- TIMESTAMP", "sql_id": "postgresql_28_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(v), LENGTH(c), LENGTH(e), LENGTH(t) FROM t1; -- LENGTH", "sql_id": "postgresql_30_5"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES(SUBSTRING(f1 FROM 1 FOR 3));", "sql_id": "postgresql_30_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, (a / 2) FROM t1 ORDER BY a; -- DIV", "sql_id": "postgresql_30_12"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (CURRENT_TIMESTAMP); -- NOW", "sql_id": "postgresql_31_2"}
+{"model": "gpt-3.5-turbo", "message": "select CASE WHEN y = now() THEN 1 ELSE 0 END from t1; -- IF, NOW", "sql_id": "postgresql_31_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t4 WHERE yyyy = CURRENT_DATE; -- NOW", "sql_id": "postgresql_31_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(QUARTER FROM LEAST(y1, y2) - dbl) FROM t1;", "sql_id": "postgresql_31_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE_PART('hour', GREATEST(y1, y2)) FROM t1;", "sql_id": "postgresql_31_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT y, CONCAT('\"', c, '\"') FROM t1; -- CONCAT", "sql_id": "postgresql_32_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(b, 'hex') FROM t1 ORDER BY pk1; -- HEX", "sql_id": "postgresql_33_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(b, 'hex') FROM t1 ORDER BY pk1;", "sql_id": "postgresql_33_7"}
+{"model": "gpt-3.5-turbo", "message": "select concat('*',name, '*') from t1 order by 1; -- CONCAT", "sql_id": "postgresql_34_8"}
+{"model": "gpt-3.5-turbo", "message": "select min(name),min(concat('*',name,'*')),max(name),max(concat('*',name,'*')) from t1; -- CONCAT", "sql_id": "postgresql_34_9"}
+{"model": "gpt-3.5-turbo", "message": "select concat('-',a,'-',b,'-') from t1 where a='hello'; -- CONCAT", "sql_id": "postgresql_34_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat('-', a, '-', b, '-') FROM t1 WHERE a = 'hello'; -- CONCAT", "sql_id": "postgresql_34_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(col1, 'hex') FROM t1;", "sql_id": "postgresql_34_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(col1, 'hex') FROM t1; -- HEX", "sql_id": "postgresql_34_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(col1, 'hex') FROM t1; -- HEX", "sql_id": "postgresql_34_24"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (a) VALUES (decode('1F9480179366F2BF567E1C4B964C1EF029087575', 'hex'));", "sql_id": "postgresql_35_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (a) VALUES (decode('1F9480179366F2BF567E1C4B964C1EF029082020', 'hex'));", "sql_id": "postgresql_35_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (a) VALUES (decode('1F9480179366F2BF567E1C4B964C1EF029080707', 'hex'));", "sql_id": "postgresql_35_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(a, 'hex') FROM t1 ORDER BY a;", "sql_id": "postgresql_35_5"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT encode(a, 'hex') FROM t1 ORDER BY a; -- HEX", "sql_id": "postgresql_35_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(a, 'hex') from t1 WHERE a=decode('1F9480179366F2BF567E1C4B964C1EF029082020', 'hex'); -- HEX, UNHEX", "sql_id": "postgresql_35_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(a, 'hex') from t1 WHERE a=decode('1F9480179366F2BF567E1C4B964C1EF02908', 'hex'); -- HEX, UNHEX", "sql_id": "postgresql_35_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN NULL AND 1 THEN 1 ELSE 2 END, CASE WHEN 1 AND NULL THEN 1 ELSE 2 END; -- IF", "sql_id": "postgresql_36_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE (a AND 1) = 0; -- IF", "sql_id": "postgresql_36_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE (1 AND a) = 0; -- IF", "sql_id": "postgresql_36_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COALESCE(CASE WHEN A=1 THEN 'N' ELSE 'Y' END, 'N') AS A, \n       COALESCE(CASE WHEN B=1 THEN 'N' ELSE 'Y' END, 'N') AS B, \n       COALESCE(CASE WHEN NOT (A=1) THEN 'N' ELSE 'Y' END, 'N') AS nA, \n       COALESCE(CASE WHEN NOT (B=1) THEN 'N' ELSE 'Y' END, 'N') AS nB, \n       COALESCE(CASE WHEN (A=1) AND (B=1) THEN 'N' ELSE 'Y' END, 'N') AS AB, \n       COALESCE(CASE WHEN NOT ((A=1) AND (B=1)) THEN 'N' ELSE 'Y' END, 'N') AS \"n(AB)\", \n       COALESCE(CASE WHEN NOT ((A=1) OR (B=1)) THEN 'N' ELSE 'Y' END, 'N') AS nAonB, \n       COALESCE(CASE WHEN (A=1) OR (B=1) THEN 'N' ELSE 'Y' END, 'N') AS AoB, \n       COALESCE(CASE WHEN NOT ((A=1) OR (B=1)) THEN 'N' ELSE 'Y' END, 'N') AS \"n(AoB)\", \n       COALESCE(CASE WHEN NOT (A=1) AND NOT (B=1) THEN 'N' ELSE 'Y' END, 'N') AS nAnB \nFROM t1;", "sql_id": "postgresql_36_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST('2004-01-22 21:45:33' AS DATE); -- CONVERT", "sql_id": "postgresql_37_0"}
+{"model": "gpt-3.5-turbo", "message": "select EXTRACT(EPOCH FROM TIMESTAMP '2004-12-30 12:00:00' - TIME '12:00:00'); -- TIMEDIFF", "sql_id": "postgresql_37_1"}
+{"model": "gpt-3.5-turbo", "message": "select extract(epoch from (cast('1 12:00:00' as time) - '12:00:00')); -- TIMEDIFF", "sql_id": "postgresql_37_2"}
+{"model": "gpt-3.5-turbo", "message": "select cast(concat('12345','6789') as integer); -- CONCAT", "sql_id": "postgresql_37_3"}
+{"model": "gpt-3.5-turbo", "message": "select cast(concat('12345','6789') as integer); -- CONCAT", "sql_id": "postgresql_37_4"}
+{"model": "gpt-3.5-turbo", "message": "select cast(repeat('1',9) as integer); -- REPEAT", "sql_id": "postgresql_37_5"}
+{"model": "gpt-3.5-turbo", "message": "select cast(repeat('1',9) as integer); -- REPEAT", "sql_id": "postgresql_37_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COALESCE(NULL, date(NULL)), COALESCE(NULL::DATE); -- COALESCE", "sql_id": "postgresql_37_7"}
+{"model": "gpt-3.5-turbo", "message": "select encode(cast('a' as bytea), 'hex'); -- HEX", "sql_id": "postgresql_37_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(DATE(d1) AS INTEGER) FROM t1;", "sql_id": "postgresql_37_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(HOUR FROM f1), EXTRACT(MINUTE FROM f1), EXTRACT(SECOND FROM f1) FROM t1;", "sql_id": "postgresql_37_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE_PART('hour', CAST('2007-07-19' AS DATE)), DATE_PART('minute', CAST('2007-07-19' AS DATE)), DATE_PART('second', CAST('2007-07-19' AS DATE));", "sql_id": "postgresql_37_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(HOUR FROM CAST(NULL AS DATE)), EXTRACT(MINUTE FROM CAST(NULL AS DATE)), EXTRACT(SECOND FROM CAST(NULL AS DATE)); -- HOUR, MINUTE, SECOND", "sql_id": "postgresql_37_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(HOUR FROM NULL), EXTRACT(MINUTE FROM NULL), EXTRACT(SECOND FROM NULL);", "sql_id": "postgresql_37_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST('a' AS CHAR(2049)); -- CONVERT", "sql_id": "postgresql_37_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'value=' || CAST('3.4e5' AS FLOAT); -- CONCAT", "sql_id": "postgresql_37_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MAKE_TIME(1, 2, CAST('1.6' AS FLOAT)); -- MAKE_TIME", "sql_id": "postgresql_37_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN a = b THEN 0 ELSE CASE WHEN a > b THEN 1 ELSE -1 END END FROM t1; -- STRCMP", "sql_id": "postgresql_38_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(('{\\\"key_year\\\":1934}')::json->>'key_year' AS YEAR); -- JSON_EXTRACT", "sql_id": "postgresql_38_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE '1988-01-01' AS c1, REPEAT(CAST(DATE '1988-01-01' AS text), 3) AS c2; -- REPEAT", "sql_id": "postgresql_38_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('x', CAST(1988 AS DATE)); -- CONCAT", "sql_id": "postgresql_38_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM MAKE_DATE(2030, 1, 1)); -- TIME_TO_SEC", "sql_id": "postgresql_38_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP '1988-01-01' + INTERVAL '1 minute'; -- TIMESTAMPADD", "sql_id": "postgresql_38_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE_PART('year', TO_DATE('nope', 'DD-MM-YYYY')); -- TO_DATE", "sql_id": "postgresql_38_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 FROM t WHERE CAST(a AS INTEGER) = 1 AND a = CASE WHEN TRUE THEN NULL ELSE 1 END; -- IF", "sql_id": "postgresql_38_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(a, 'hex'), CASE WHEN a = 'a' THEN 0 ELSE 1 END, CASE WHEN a = 'a ' THEN 0 ELSE 1 END FROM t1;", "sql_id": "postgresql_40_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(b::text, c::text), CONCAT(b::text, c::text) = '0101' FROM t1; -- CONCAT", "sql_id": "postgresql_40_7"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT b,c FROM t1 WHERE b = 1 AND CONCAT(b::text,c::text) = '0101'; -- CONCAT", "sql_id": "postgresql_40_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT b,c FROM t1 WHERE b = 1 AND CONCAT(CAST(b AS TEXT), CAST(c AS TEXT)) = '0101';", "sql_id": "postgresql_40_9"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (NOW()),(NOW()),(NOW()); -- NOW", "sql_id": "postgresql_40_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW('1', '1') > ROW(a, '1') FROM t1; -- ROW", "sql_id": "postgresql_40_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(a, '1') > ROW('1', '1') FROM t1; -- ROW", "sql_id": "postgresql_40_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(DISTINCT CASE WHEN f1 THEN 3 ELSE f2 END) FROM t1;", "sql_id": "postgresql_41_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT inet6_ntoa(inet '1'); -- INET6_NTOA", "sql_id": "postgresql_42_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ENCODE(v::bytea, 'hex') FROM t1; -- HEX", "sql_id": "postgresql_42_4"}
+{"model": "gpt-3.5-turbo", "message": "select concat(name, ' ' || level::text), concat(name, repeat(' ', level)) from t1;", "sql_id": "postgresql_43_3"}
+{"model": "gpt-3.5-turbo", "message": "create table t1 as select REPEAT('a',4000) a;", "sql_id": "postgresql_43_5"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE head AS SELECT concat(b1.b, b2.b) AS head FROM t1 b1, t1 b2; -- CONCAT", "sql_id": "postgresql_43_14"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE tail AS SELECT concat(b1.b, b2.b) AS tail FROM t1 b1, t1 b2; -- CONCAT", "sql_id": "postgresql_43_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT inet6_ntoa(inet '1'); -- INET6_NTOA, INET_NTOA", "sql_id": "postgresql_43_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STRING_AGG(COALESCE(a,''), '') FROM t1;", "sql_id": "postgresql_44_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STRING_AGG(CASE WHEN a IS NOT NULL THEN a ELSE '' END, '') FROM t1;", "sql_id": "postgresql_44_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STRING_AGG(CASE WHEN a THEN a ELSE '' END, '') FROM t1; -- GROUP_CONCAT", "sql_id": "postgresql_44_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COALESCE(a,'') FROM t1 GROUP BY 1; -- COALESCE", "sql_id": "postgresql_44_6"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT CONCAT_WS(',', '1', '2', '3') FROM t1; -- CONCAT_WS", "sql_id": "postgresql_44_8"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT LOWER(a) FROM t1; -- LCASE", "sql_id": "postgresql_44_10"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT UPPER(a) FROM t1; -- UCASE", "sql_id": "postgresql_44_12"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT REPEAT('1',2) FROM t1; -- REPEAT", "sql_id": "postgresql_44_14"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT CASE 1 WHEN 1 THEN 111 WHEN 2 THEN 222 WHEN 3 THEN 333 END FROM t1; -- ELT", "sql_id": "postgresql_44_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ENCODE(a::bytea, 'hex') FROM t1;", "sql_id": "postgresql_45_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ENCODE(a::bytea, 'hex') FROM t2;", "sql_id": "postgresql_45_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE a = lpad('xxx', 10, ' '); -- LPAD", "sql_id": "postgresql_45_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COALESCE(c1,''), COALESCE(null,c1) FROM t1; -- COALESCE", "sql_id": "postgresql_45_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN 1 THEN c1 ELSE '' END, CASE WHEN 0 THEN c1 ELSE '' END FROM t1; -- IF", "sql_id": "postgresql_45_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COALESCE('', c1), COALESCE(NULL, c1) FROM t1; -- COALESCE", "sql_id": "postgresql_45_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT least(c1,''), greatest(c1,'') FROM t1;", "sql_id": "postgresql_45_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('', c1), POSITION(c1, '') FROM t1; -- LOCATE", "sql_id": "postgresql_45_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT field(c1,'') AS field1, field('',c1) AS field2 FROM t1; -- FIELD", "sql_id": "postgresql_45_20"}
+{"model": "gpt-3.5-turbo", "message": "select c1 || '', '' || c1 from t1; -- CONCAT", "sql_id": "postgresql_45_21"}
+{"model": "gpt-3.5-turbo", "message": "select concat_ws('',c1,''), concat_ws('',c1,'') from t1; -- CONCAT_WS", "sql_id": "postgresql_45_22"}
+{"model": "gpt-3.5-turbo", "message": "select case when 1 = 1 then c1 else '' end, case when 1 = 1 then '' else c1 end from t1; -- ELT", "sql_id": "postgresql_45_23"}
+{"model": "gpt-3.5-turbo", "message": "select lpad(c1,3,'x'), lpad('x',3,c1) from t1; -- LPAD", "sql_id": "postgresql_45_24"}
+{"model": "gpt-3.5-turbo", "message": "select rpad(c1,3,'x'), rpad('x',3,c1) from t1; -- RPAD", "sql_id": "postgresql_45_25"}
+{"model": "gpt-3.5-turbo", "message": "select to_timestamp(concat('15-01-2001',' 2:59:58.999'),concat('DD-MM-YYYY',' ','HH24:MI:SS.MS')); -- TO_TIMESTAMP, CONCAT", "sql_id": "postgresql_46_0"}
+{"model": "gpt-3.5-turbo", "message": "select TO_TIMESTAMP('2004.12.12 22:30:59', 'YYYY.MM.DD HH24:MI:SS'); -- TO_TIMESTAMP", "sql_id": "postgresql_46_1"}
+{"model": "gpt-3.5-turbo", "message": "select '' || to_timestamp('8:11:2 03-01-02', 'HH24:MI:SS YY-MM-DD'); -- CONCAT, STR_TO_DATE", "sql_id": "postgresql_46_11"}
+{"model": "gpt-3.5-turbo", "message": "select to_char(d, 'DD') from t1 order by 1;", "sql_id": "postgresql_46_15"}
+{"model": "gpt-3.5-turbo", "message": "select to_char('2004-01-01', 'FMDay (Dy), FMDD Month (Mon) YYYY'); -- DATE_FORMAT", "sql_id": "postgresql_46_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_CHAR('24:00:00', 'HH12:MI:SS AM'); -- TIME_FORMAT", "sql_id": "postgresql_47_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_CHAR('00:00:00', 'HH12:MI:SS AM'); -- TIME_FORMAT", "sql_id": "postgresql_47_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_CHAR('12:00:00', 'HH12:MI:SS AM'); -- TIME_FORMAT", "sql_id": "postgresql_47_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_CHAR('15:00:00', 'HH12:MI:SS AM'); -- TIME_FORMAT", "sql_id": "postgresql_47_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_CHAR('01:00:00', 'HH12:MI:SS AM'); -- TIME_FORMAT", "sql_id": "postgresql_47_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_CHAR('00:00:00', 'HH12 AM'); -- TIME_FORMAT", "sql_id": "postgresql_47_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_CHAR('01:00:00', 'HH12 AM'); -- TIME_FORMAT", "sql_id": "postgresql_47_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_CHAR('12:00:00', 'HH12:MI AM'); -- TIME_FORMAT", "sql_id": "postgresql_47_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_CHAR('23:00:00'::time, 'HH12 AM'); -- TIME_FORMAT", "sql_id": "postgresql_47_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_CHAR('24:00:00'::time, 'HH12 AM'); -- TIME_FORMAT", "sql_id": "postgresql_47_10"}
+{"model": "gpt-3.5-turbo", "message": "select to_date('04 /30/2004', 'MM /DD/YYYY'); -- TO_DATE", "sql_id": "postgresql_47_13"}
+{"model": "gpt-3.5-turbo", "message": "select to_date('04/30 /2004', 'MM/DD/YYYY'); -- TO_DATE", "sql_id": "postgresql_47_14"}
+{"model": "gpt-3.5-turbo", "message": "select to_date('04/30/2004 ', 'MM/DD/YYYY '); -- STR_TO_DATE", "sql_id": "postgresql_47_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_CHAR('2009-01-01', 'FMDay DD Month YYYY') as valid_date; -- DATE_FORMAT", "sql_id": "postgresql_47_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ('{\"id\": \"3\", \"$name\": \"Barney\"}'::json)->>'id'; -- JSON_EXTRACT", "sql_id": "postgresql_48_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ('{\"id\": \"3\", \"$name\": \"$Barney\"}'::json)->'$.$name'; -- JSON_EXTRACT", "sql_id": "postgresql_48_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat('|', text1, '|') as c FROM t1 WHERE text1='teststring' OR text1 LIKE 'teststring\\_%' ORDER BY c;", "sql_id": "postgresql_49_5"}
+{"model": "gpt-3.5-turbo", "message": "select concat('|', text1, '|') from t1 where text1='teststring' or text1 > 'teststring\\\\t'; -- CONCAT", "sql_id": "postgresql_49_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT text1, LENGTH(text1) FROM t1 ORDER BY text1; -- LENGTH", "sql_id": "postgresql_49_7"}
+{"model": "gpt-3.5-turbo", "message": "select concat('|', text1, '|') from t1 order by text1; -- CONCAT", "sql_id": "postgresql_49_9"}
+{"model": "gpt-3.5-turbo", "message": "select concat('|', text1, '|') from t1 where text1='teststring' or text1 > 'teststring\\\\t'; -- CONCAT", "sql_id": "postgresql_49_10"}
+{"model": "gpt-3.5-turbo", "message": "select concat('|', text1, '|') from t1 where text1='teststring'; -- CONCAT", "sql_id": "postgresql_49_11"}
+{"model": "gpt-3.5-turbo", "message": "select concat('|', text1, '|') from t1 where text1='teststring '; -- CONCAT", "sql_id": "postgresql_49_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('Let''s create some new events from the name of ', current_user); -- CONCAT, current_user", "sql_id": "postgresql_50_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (2, REPEAT('-', 104)); -- REPEAT", "sql_id": "postgresql_51_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (1, REPEAT('x', 104)); -- REPEAT", "sql_id": "postgresql_51_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT f1 || '' AS dummy FROM t1 ORDER BY dummy; -- CONCAT", "sql_id": "postgresql_51_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 ORDER BY EXTRACT(EPOCH FROM f1); -- UNIX_TIMESTAMP", "sql_id": "postgresql_51_11"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (1, REPEAT('x', 40001)); -- REPEAT", "sql_id": "postgresql_51_18"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (2, REPEAT('x', 40002)); -- REPEAT", "sql_id": "postgresql_51_19"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (3, REPEAT('x', 40003)); -- REPEAT", "sql_id": "postgresql_51_20"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (4, REPEAT('x', 40005)); -- REPEAT", "sql_id": "postgresql_51_21"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (5, REPEAT('x', 40008)); -- REPEAT", "sql_id": "postgresql_51_22"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (6, REPEAT('x', 40013)); -- REPEAT", "sql_id": "postgresql_51_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, LENGTH(b) FROM t1 ORDER BY a DESC; -- LENGTH", "sql_id": "postgresql_51_24"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT * FROM t1 WHERE LENGTH(t1.vc) > 3; -- LENGTH", "sql_id": "postgresql_52_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE LENGTH(t1.vc) = 3; -- LENGTH", "sql_id": "postgresql_52_14"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT * FROM t1 WHERE LENGTH(t1.vc) IS NULL; -- LENGTH", "sql_id": "postgresql_52_15"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT * FROM t1 WHERE LENGTH(t1.vc) IS NOT NULL; -- LENGTH", "sql_id": "postgresql_52_16"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t VALUES(REPEAT(E'\\\\x0a',1000)); -- REPEAT", "sql_id": "postgresql_53_12"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t VALUES(1, REPEAT('2', 257)::bytea), (1, REPEAT('1', 257)::bytea);", "sql_id": "postgresql_53_15"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t VALUES(1, REPEAT('2', 255)::bytea), (1, REPEAT('1', 255)::bytea); -- REPEAT", "sql_id": "postgresql_53_18"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t VALUES(1, REPEAT('2', 32750)::bytea, REPEAT('1', 32750)::bytea);", "sql_id": "postgresql_53_21"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values (NULL), ('A\\0\\0\\0BBBBBBBB'::bytea), (repeat(' ', 50000)::bytea), (repeat(' ', 50000)::bytea);", "sql_id": "postgresql_54_2"}
+{"model": "gpt-3.5-turbo", "message": "select octet_length(a) from t1; -- LENGTH", "sql_id": "postgresql_54_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE CONCAT(a, c, b, d) = 'AAAA2003-03-011051'; -- CONCAT", "sql_id": "postgresql_55_3"}
+{"model": "gpt-3.5-turbo", "message": "select 'a' union select concat('a', -4); -- CONCAT", "sql_id": "postgresql_55_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' \nUNION \nSELECT 'a' || '-4.5'; -- CONCAT", "sql_id": "postgresql_55_6"}
+{"model": "gpt-3.5-turbo", "message": "select 'a' union select concat('a', -(4 + 1)); -- CONCAT", "sql_id": "postgresql_55_7"}
+{"model": "gpt-3.5-turbo", "message": "select 'a' union select concat('a', 4 - 5); -- CONCAT", "sql_id": "postgresql_55_8"}
+{"model": "gpt-3.5-turbo", "message": "select 'a' union select concat('a', -0); -- CONCAT", "sql_id": "postgresql_55_11"}
+{"model": "gpt-3.5-turbo", "message": "select 'a' union select concat('a', -0.0); -- CONCAT", "sql_id": "postgresql_55_12"}
+{"model": "gpt-3.5-turbo", "message": "select 'a' union select concat('a', -0.0000); -- CONCAT", "sql_id": "postgresql_55_13"}
+{"model": "gpt-3.5-turbo", "message": "select concat((select x from (select 'a' as x) as t1 ),(select y from (select 'b' as y) as t2 )) from (select 1 union select 2 )as t3; -- CONCAT", "sql_id": "postgresql_55_14"}
+{"model": "gpt-3.5-turbo", "message": "select concat(f1, '2') as a from t1 union select 'x' as a from t1;", "sql_id": "postgresql_55_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE CONCAT(c1, ' ', c2) ~ 'First.*'; -- CONCAT", "sql_id": "postgresql_55_21"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values (CURRENT_DATE + INTERVAL '1 day'); -- DATE_ADD", "sql_id": "postgresql_56_2"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values (date '2000-01-04' + NULL);", "sql_id": "postgresql_56_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values (CURRENT_DATE + INTERVAL '1 day'); -- DATE_ADD", "sql_id": "postgresql_56_4"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values (date '2000-01-04' + interval '1 day');", "sql_id": "postgresql_56_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE(ts) = CURRENT_DATE + INTERVAL '1' DAY AS is_tomorrow, TIME(ts)\nFROM (SELECT TIME '00:00:00' + INTERVAL '1 DAY' AS ts) AS dt; -- DATE", "sql_id": "postgresql_56_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE mydate IS NULL;", "sql_id": "postgresql_57_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * \nFROM t3 \nLEFT JOIN (t2 outr2 JOIN t2 outr JOIN t1) \nON (outr.pk = t3.pk) \nAND (t1.col_int_key = t3.pk) \nAND (t1.col_date_key IS NULL) \nAND (outr2.pk <> t3.pk);", "sql_id": "postgresql_57_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * \nFROM t3 \nJOIN (t2 outr2 JOIN t2 outr JOIN t1) \nON (outr.pk = t3.pk) \nAND (t1.col_int_key = t3.pk) \nAND (t1.col_date_key IS NULL) \nAND (outr2.pk <> t3.pk);", "sql_id": "postgresql_57_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE a LIKE concat('abc','%'); -- CONCAT", "sql_id": "postgresql_58_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE a LIKE concat('abc', '%'); -- CONCAT", "sql_id": "postgresql_58_5"}
+{"model": "gpt-3.5-turbo", "message": "select ln(exp(10)),exp(ln(sqrt(10))*2),ln(NULL); -- LN", "sql_id": "postgresql_59_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT log(8, 2), log(15, 2), log(NULL, 2); -- LOG2", "sql_id": "postgresql_59_1"}
+{"model": "gpt-3.5-turbo", "message": "select pow(10,log(10)),power(2,4); -- POW, POWER", "sql_id": "postgresql_59_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CEIL(0.09); -- CEIL", "sql_id": "postgresql_59_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CEIL(0.000000000000000009); -- CEIL", "sql_id": "postgresql_59_4"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES ('http://www.foo.com/', NOW()); -- NOW", "sql_id": "postgresql_59_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a FROM t1 WHERE a='http://www.foo.com/' ORDER BY ABS(EXTRACT(EPOCH FROM ts) - EXTRACT(EPOCH FROM TIMESTAMP 'epoch')); -- TIMEDIFF", "sql_id": "postgresql_59_8"}
+{"model": "gpt-3.5-turbo", "message": "select mod(cast(-2 as integer), 3), mod(18446744073709551614, 3), mod(-2, 3); -- MOD", "sql_id": "postgresql_59_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT mod(5, CAST(-2 AS INTEGER)), mod(5, 18446744073709551614), mod(5, -2); -- MOD", "sql_id": "postgresql_59_11"}
+{"model": "gpt-3.5-turbo", "message": "select power(cast(-2 as unsigned), 5), power(18446744073709551614, 5), power(-2, 5); -- POW", "sql_id": "postgresql_59_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROUND(LEAST(15, -4939092, 0.2704)); -- LEAST, STDDEV", "sql_id": "postgresql_60_0"}
+{"model": "gpt-3.5-turbo", "message": "select (1.175494351E-37 / 1.7976931348623157E+308); -- DIV", "sql_id": "postgresql_60_1"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (LN(1)); -- LN", "sql_id": "postgresql_60_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT floor(ceil(123456789)); -- CEIL", "sql_id": "postgresql_60_6"}
+{"model": "gpt-3.5-turbo", "message": "select power(2,63)-1024 as pp; -- POW", "sql_id": "postgresql_60_7"}
+{"model": "gpt-3.5-turbo", "message": "select cast(1-pow(2,63) as bigint) as qq; -- POW", "sql_id": "postgresql_60_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE CAST(COALESCE(t0.c0, -1) AS INTEGER); -- COALESCE", "sql_id": "postgresql_60_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE CAST(COALESCE(t0.c0, -1) AS INTEGER); -- COALESCE", "sql_id": "postgresql_60_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(COALESCE(t0.c0, -1) AS INTEGER) IS TRUE FROM t0; -- COALESCE", "sql_id": "postgresql_60_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COALESCE(NULLIF(t0.c0, ''), -1) FROM t0; -- COALESCE", "sql_id": "postgresql_60_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT md5('a'), encode(digest('a', 'md5'), 'hex'); -- MD5, HEX", "sql_id": "postgresql_61_0"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t1 AS SELECT MD5('a') AS c1;", "sql_id": "postgresql_61_2"}
+{"model": "gpt-3.5-turbo", "message": "select md5('hello'); -- MD5", "sql_id": "postgresql_61_4"}
+{"model": "gpt-3.5-turbo", "message": "explain select md5('hello'); -- MD5", "sql_id": "postgresql_61_5"}
+{"model": "gpt-3.5-turbo", "message": "select length(decode(md5('abrakadabra'), 'hex'));", "sql_id": "postgresql_61_6"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values ('test', md5('test')), ('test', md5('test')); -- MD5", "sql_id": "postgresql_61_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE f1='test' AND (f2= md5('test') OR f2= md5('Test')); -- MD5", "sql_id": "postgresql_61_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE f1='test' AND (f2= md5('TEST') OR f2= md5('test')); -- MD5", "sql_id": "postgresql_61_10"}
+{"model": "gpt-3.5-turbo", "message": "select inet_ntoa(4294902271),inet_ntoa(511); -- INET_NTOA", "sql_id": "postgresql_62_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a FROM t1 WHERE SUBSTRING(CAST(a AS TEXT), 6, 3) IN (SUBSTRING(CAST(20040106123400 AS TEXT), 6, 3)); -- MID", "sql_id": "postgresql_62_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a FROM t1 WHERE SUBSTRING(CAST(a AS TEXT), 6, 3) = (SUBSTRING(CAST(20040106123400 AS TEXT), 6, 3)); -- MID", "sql_id": "postgresql_62_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MIN(a) FROM t1 GROUP BY inet_ntoa(a);", "sql_id": "postgresql_62_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DISTINCT LEAST(a, (SELECT b FROM t1 LIMIT 1)) FROM t1 UNION SELECT 1; -- LEAST", "sql_id": "postgresql_62_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DISTINCT GREATEST(a, (SELECT b FROM t1 LIMIT 1)) FROM t1 UNION SELECT 1; -- GREATEST", "sql_id": "postgresql_62_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1+1,1-1,1+1*2,8/5,8%5,8%5,-(1+1)*-2; -- MOD", "sql_id": "postgresql_63_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 | (1+1), 5 & 3, bit_count(7); -- BIT_COUNT", "sql_id": "postgresql_63_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT t1.a, t2.a, t2.b, bit_count(t2.b) FROM t1 LEFT JOIN t2 ON t1.a = t2.a; -- BIT_COUNT", "sql_id": "postgresql_63_7"}
+{"model": "gpt-3.5-turbo", "message": "select to_char('1997-12-31 23:59:59.000002', 'MS'); -- DATE_FORMAT", "sql_id": "postgresql_64_0"}
+{"model": "gpt-3.5-turbo", "message": "select date_part('day', timestamp '1997-12-31 23:59:59.000001' - timestamp '1997-12-30'); -- DATEDIFF", "sql_id": "postgresql_64_1"}
+{"model": "gpt-3.5-turbo", "message": "select make_date(03,1); -- MAKEDATE", "sql_id": "postgresql_64_3"}
+{"model": "gpt-3.5-turbo", "message": "select make_date(1997,1); -- MAKEDATE", "sql_id": "postgresql_64_5"}
+{"model": "gpt-3.5-turbo", "message": "select make_date(1997,1); -- MAKEDATE", "sql_id": "postgresql_64_6"}
+{"model": "gpt-3.5-turbo", "message": "select make_date(9999,365); -- MAKEDATE", "sql_id": "postgresql_64_7"}
+{"model": "gpt-3.5-turbo", "message": "select make_date(9999,366); -- MAKEDATE", "sql_id": "postgresql_64_8"}
+{"model": "gpt-3.5-turbo", "message": "select make_date(100,1); -- MAKEDATE", "sql_id": "postgresql_64_9"}
+{"model": "gpt-3.5-turbo", "message": "select (\"1997-12-31 23:59:59.000001\" - interval '1 1:1:1.000002'); -- SUBTIME", "sql_id": "postgresql_64_10"}
+{"model": "gpt-3.5-turbo", "message": "select (\"1997-12-31 23:59:59.999999\" - interval '1 day 1 hour 1 minute 1.999999 seconds'); -- SUBTIME", "sql_id": "postgresql_64_11"}
+{"model": "gpt-3.5-turbo", "message": "select (\"01:00:00.999999\" - interval '02:00:00.999998'); -- SUBTIME", "sql_id": "postgresql_64_12"}
+{"model": "gpt-3.5-turbo", "message": "select (\"02:01:01.999999\" - interval '01:01:01.999999'); -- SUBTIME", "sql_id": "postgresql_64_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '1997-01-01 23:59:59.000001' - TIMESTAMP '1995-12-31 23:59:59.000002'); -- TIMEDIFF", "sql_id": "postgresql_64_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '1997-12-31 23:59:59.000001' - TIMESTAMP '1997-12-30 01:01:01.000002'); -- TIMEDIFF", "sql_id": "postgresql_64_15"}
+{"model": "gpt-3.5-turbo", "message": "select extract(epoch from timestamp '1997-12-31 23:59:59.000001' - time '23:59:59.000001'); -- TIMEDIFF", "sql_id": "postgresql_64_16"}
+{"model": "gpt-3.5-turbo", "message": "select extract(epoch from timestamp '2000-01-01 00:00:00' - timestamp '2000-01-01 00:00:00.000001'); -- TIMEDIFF", "sql_id": "postgresql_64_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2005-01-11 15:48:49.999999' - TIMESTAMP '2005-01-11 15:48:50'); -- TIMEDIFF", "sql_id": "postgresql_64_18"}
+{"model": "gpt-3.5-turbo", "message": "select make_time(10,11,12); -- MAKETIME", "sql_id": "postgresql_65_0"}
+{"model": "gpt-3.5-turbo", "message": "select make_time(20,11,12); -- MAKETIME", "sql_id": "postgresql_65_1"}
+{"model": "gpt-3.5-turbo", "message": "select timestamp '2001-12-01 01:01:01.999999'; -- TIMESTAMP", "sql_id": "postgresql_65_3"}
+{"model": "gpt-3.5-turbo", "message": "select timestamp '2001-10-01 01:01:01.000001'; -- TIMESTAMP", "sql_id": "postgresql_65_4"}
+{"model": "gpt-3.5-turbo", "message": "select timestamp '2001-12-01 20:01:01'; -- TIMESTAMP", "sql_id": "postgresql_65_5"}
+{"model": "gpt-3.5-turbo", "message": "select timestamp '2001-12-01'; -- TIMESTAMP", "sql_id": "postgresql_65_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(DAY FROM TIMESTAMP '1997-12-31 23:59:59.000001'); -- DAY", "sql_id": "postgresql_65_7"}
+{"model": "gpt-3.5-turbo", "message": "select time('1997-12-31 23:59:59.000001'); -- TIME", "sql_id": "postgresql_65_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT AGE(t1, t4) AS ttt, AGE(t2, t3) AS qqq, AGE(t3, t2) AS eee, AGE(t2, t4) AS rrr FROM test; -- AGE", "sql_id": "postgresql_65_12"}
+{"model": "gpt-3.5-turbo", "message": "select to_timestamp('2003-01-02 10:11:12.0012', 'YYYY-MM-DD HH24:MI:SS.US'); -- STR_TO_DATE", "sql_id": "postgresql_65_13"}
+{"model": "gpt-3.5-turbo", "message": "select ('2008-09-29 20:10:10' - '2008-09-30 20:10:10'), '00:00:00'::time; -- TIMEDIFF, TIME", "sql_id": "postgresql_65_14"}
+{"model": "gpt-3.5-turbo", "message": "select ('2008-09-29 20:10:10' - '2008-09-30 20:10:10')::interval > '00:00:00'::interval;", "sql_id": "postgresql_65_15"}
+{"model": "gpt-3.5-turbo", "message": "select extract(epoch from timestamp '2008-09-30 20:10:10' - timestamp '2008-09-29 20:10:10') < interval '0' second; -- TIMEDIFF, TIME", "sql_id": "postgresql_65_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(time '23:42:12' AS DECIMAL); -- TIME", "sql_id": "postgresql_66_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SEC_TO_TIME(86399)=TIME '23:59:59'; -- SEC_TO_TIME, TIME", "sql_id": "postgresql_66_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SEC_TO_TIME(86399)='23:59:59'; -- SEC_TO_TIME", "sql_id": "postgresql_66_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM make_interval(secs := 86399)) = TIME '23:59:59';", "sql_id": "postgresql_66_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT make_time(1,0,1)='01:00:01'; -- MAKETIME", "sql_id": "postgresql_66_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(HOUR FROM TIME(make_time(1,0,1))) = CAST('01:00:01' AS TIME); -- TIME, MAKETIME", "sql_id": "postgresql_66_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT maketime(1,0,1)=CAST('01:00:01' AS TIME); -- MAKETIME", "sql_id": "postgresql_66_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT split_part('1', ',', 2), position(NULL in 'a,b,c'); -- ELT, FIELD", "sql_id": "postgresql_67_0"}
+{"model": "gpt-3.5-turbo", "message": "select coalesce(\"b\",\"a\",NULL),coalesce(1,0,NULL)+0,coalesce(1.0,0.0,NULL)+0.0,coalesce(1.0e1,0.0e1,NULL)+0.0e1; -- FIELD", "sql_id": "postgresql_67_1"}
+{"model": "gpt-3.5-turbo", "message": "select coalesce(NULL,'a',NULL),coalesce(NULL,0,NULL)+0,coalesce(NULL,0.0,NULL)+0.0,coalesce(NULL,0.0e1,NULL)+0.0e1; -- COALESCE", "sql_id": "postgresql_67_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT one.id, elt(two.val, 'one', 'two') FROM t1 one, t2 two WHERE two.id = one.id; -- ELT", "sql_id": "postgresql_67_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT one.id, elt(two.val, 'one', 'two') FROM t1 one, t2 two WHERE two.id = one.id ORDER BY one.id; -- ELT", "sql_id": "postgresql_67_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('\"',CONCAT_WS('\";\"',title,prio,category,program,bugdesc,created,modified,bugstatus,submitter),'\"') FROM t1; -- CONCAT, CONCAT_WS", "sql_id": "postgresql_68_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('\"',CONCAT_WS('\";\"',title,prio,category,program,bugstatus,submitter),'\"') FROM t1; -- CONCAT, CONCAT_WS", "sql_id": "postgresql_68_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT_WS('\";\"',title,prio,category,program,bugdesc,created,modified,bugstatus,submitter) FROM t1; -- CONCAT_WS", "sql_id": "postgresql_68_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('</a>', LPAD('', (55-LENGTH(title)), '.')) from t1;", "sql_id": "postgresql_68_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 0=0,1>0,1>=1,1<0,1<=0,1<>0,strcmp('abc','abcd'),strcmp('b','a'),strcmp('a','a') ; -- STRCMP", "sql_id": "postgresql_69_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(d,d) FROM t1 WHERE k=2; -- GREATEST", "sql_id": "postgresql_69_4"}
+{"model": "gpt-3.5-turbo", "message": "select (12 % 1) <=> null as \"col\"; -- MOD", "sql_id": "postgresql_69_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (12 % 1) IS NULL AS col; -- MOD", "sql_id": "postgresql_69_7"}
+{"model": "gpt-3.5-turbo", "message": "select mod(12.0, 1) as col; -- MOD", "sql_id": "postgresql_69_8"}
+{"model": "gpt-3.5-turbo", "message": "select mod(12, 1.0) as \"col\"; -- MOD", "sql_id": "postgresql_69_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(123456789, 234567890) as g; -- GREATEST", "sql_id": "postgresql_69_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT least(123456789, 234567890) as l; -- LEAST", "sql_id": "postgresql_69_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT greatest(123456789, -1, 234567890) as g; -- GREATEST", "sql_id": "postgresql_69_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT least(123456789, -1, 234567890) as l; -- LEAST", "sql_id": "postgresql_69_13"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t1 AS SELECT GREATEST(-1, 123456789);", "sql_id": "postgresql_69_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST('11', '5', '2'); -- GREATEST", "sql_id": "postgresql_70_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST('11', 5, 2); -- GREATEST", "sql_id": "postgresql_70_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(11, 5, 2); -- GREATEST", "sql_id": "postgresql_70_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST('11', '5', '2'); -- LEAST", "sql_id": "postgresql_70_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST('11', 5, 2); -- LEAST", "sql_id": "postgresql_70_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(11, 5, 2); -- LEAST", "sql_id": "postgresql_70_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST('11', '5', '2')::int; -- GREATEST", "sql_id": "postgresql_70_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST('11', 5, 2)::int + 0; -- GREATEST", "sql_id": "postgresql_70_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(11, 5, 2) + 0; -- GREATEST", "sql_id": "postgresql_70_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST('11', '5', '2')::numeric + 0.00; -- GREATEST", "sql_id": "postgresql_70_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST('11', 5, 2) + 0.00; -- GREATEST", "sql_id": "postgresql_70_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(11, 5, 2) + 0.00; -- GREATEST", "sql_id": "postgresql_70_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(18446744073709551615, NULL) FROM t0017; -- GREATEST", "sql_id": "postgresql_70_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE (GREATEST(c1, c2) = 42) AND (c2 = 1); -- GREATEST", "sql_id": "postgresql_70_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUM(LEAST(a, b)) FROM t1; -- LEAST", "sql_id": "postgresql_70_27"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUM(LEAST(a, b)) FROM t2; -- LEAST", "sql_id": "postgresql_70_28"}

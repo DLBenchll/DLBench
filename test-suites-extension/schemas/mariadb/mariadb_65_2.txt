@@ -1,0 +1,2 @@
+select maketime(10,11,12);
+select maketime(20,11,12);

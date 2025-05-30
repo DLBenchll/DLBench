@@ -1,0 +1,2 @@
+SELECT sec_to_time(86399)=TIME('23:59:59'); -- SEC_TO_TIME, TIME
+SELECT sec_to_time(86399)='23:59:59'; -- SEC_TO_TIME

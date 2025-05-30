@@ -1,0 +1,10 @@
+BEGIN;
+DROP TABLE IF EXISTS simple1;
+create table simple1 as select generate_series(1, 200) AS id;
+analyze simple1;
+DROP TABLE IF EXISTS bigger_than_it_looks;
+create table bigger_than_it_looks as select generate_series(1, 200) as id;
+analyze bigger_than_it_looks;
+DROP TABLE IF EXISTS extremely_skewed;
+create table extremely_skewed (id int, t text);
+analyze extremely_skewed;

@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1(a REAL,b INT,c CHAR(100),d DECIMAL);
+INSERT INTO t1 VALUES ( POSITION('a' IN 'a'), POSITION('a' IN 'a'), POSITION('a' IN 'a'), POSITION('a' IN 'a') );
+DELETE FROM t1;
+INSERT INTO t1 VALUES ( regexp_matches('a', 'a'), regexp_matches('a', 'a'), regexp_matches('a', 'a'), regexp_matches('a', 'a') );
+DELETE FROM t1;
+INSERT INTO t1 ( c ) VALUES ( regexp_replace('a', 'a', 'a') );
+DELETE FROM t1;
+INSERT INTO t1 ( c ) VALUES ( regexp_extract('a', 'a') );
+DROP TABLE t1;
+SELECT length(regexp_replace( repeat('a', 12), 'a', 'b' ));
+CREATE TABLE t1 ( a TEXT);

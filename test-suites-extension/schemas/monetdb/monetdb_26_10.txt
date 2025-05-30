@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS t1;
+CREATE table t1 (a blob);
+select a from t1 order by a;
+select (a || '\\0') as b from t1 order by (a || '\\0');
+select a from t1 order by a;
+DROP TABLE t1;
+DROP TABLE IF EXISTS t;
+CREATE TABLE t (c TEXT);

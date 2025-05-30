@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (ts int) ENGINE=MergeTree ORDER BY ts;
+INSERT INTO t1 (ts) VALUES (toUnixTimestamp('2002-10-27 01:00'));
+INSERT INTO t1 (ts) VALUES (toUnixTimestamp('2002-10-27 02:00'));
+INSERT INTO t1 (ts) VALUES (toUnixTimestamp('2002-10-27 03:00'));
+SELECT ts, FROM_UNIXTIME(ts) FROM t1;
+DROP TABLE t1;
+SELECT toDateTime('2001-01-01 00:00:00');
+SELECT toRelativeDayNum(toDate('2001-01-01 00:00:00')) + 719528;
+SELECT toRelativeDayNum(toDate('2001-01-01 00:00:00')) + 719528;
+SELECT dateDiff('day', toDate('2007-12-30 00:00:00'), toDate('2007-12-31 23:59:59'));
+SELECT dateDiff('second', toDateTime('2000:01:01 00:00:00'), toDateTime('2000:01:01 00:00:00'));
+SELECT formatDateTime(toDateTime('2009-10-10 23:59:59'), '%W %M %Y');
+SELECT formatDateTime(toDateTime('2003-12-31 23:59:59'), '%H:%i:%s');
+SELECT addMinutes(toDateTime('2003-01-02 23:59:59'), 1);
+SELECT dateDiff('month', toDateTime('2003-02-01 23:59:59'), toDateTime('2003-05-01'));

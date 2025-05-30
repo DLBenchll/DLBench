@@ -1,0 +1,9 @@
+select 0=0,1>0,1>=1,1<0,1<=0,1!=0,strcmp("abc","abcd"),strcmp("b","a"),strcmp("a","a") ; -- STRCMP
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (d varchar(6), k int);
+INSERT INTO t1 VALUES ("abc", 2);
+SELECT GREATEST(d,d) FROM t1 WHERE k=2; -- GREATEST
+DROP TABLE t1;
+select (12 mod 1) is null   as 'col'; -- MOD
+select mod(12.0, 1)         as 'col'; -- MOD
+select mod(12, 1.0)         as 'col'; -- MOD

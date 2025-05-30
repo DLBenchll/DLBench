@@ -1,0 +1,80 @@
+{
+    "sqlcoder-7b": {
+        "P_DM_numerator": 835,
+        "P_DM_denominator": 7804,
+        "R_DM_numerator": 835,
+        "R_DM_denominator": 4500,
+        "EM_numerator": 10,
+        "EM_denominator": 3206,
+        "EX_numerator": 501,
+        "EX_denominator": 3206,
+        "F1_DM": 0.13572821846553967,
+        "EM": 0.0031191515907673115,
+        "EX": 0.1562694946974423
+    },
+    "codellama-7b-instruct": {
+        "P_DM_numerator": 1643,
+        "P_DM_denominator": 8838,
+        "R_DM_numerator": 1643,
+        "R_DM_denominator": 4481,
+        "EM_numerator": 195,
+        "EM_denominator": 3206,
+        "EX_numerator": 736,
+        "EX_denominator": 3206,
+        "F1_DM": 0.24671521886027478,
+        "EM": 0.06082345601996257,
+        "EX": 0.2295695570804741
+    },
+    "deepseek-coder-6.7b-instruct": {
+        "P_DM_numerator": 1740,
+        "P_DM_denominator": 9368,
+        "R_DM_numerator": 1740,
+        "R_DM_denominator": 4500,
+        "EM_numerator": 196,
+        "EM_denominator": 3206,
+        "EX_numerator": 1256,
+        "EX_denominator": 3206,
+        "F1_DM": 0.25093740986443613,
+        "EM": 0.0611353711790393,
+        "EX": 0.3917654398003743
+    },
+    "deepseek-r1-8b-llama-distill-q8_0": {
+        "P_DM_numerator": 1624,
+        "P_DM_denominator": 8629,
+        "R_DM_numerator": 1624,
+        "R_DM_denominator": 4500,
+        "EM_numerator": 51,
+        "EM_denominator": 3206,
+        "EX_numerator": 482,
+        "EX_denominator": 3206,
+        "F1_DM": 0.24739127123162463,
+        "EM": 0.015907673112913287,
+        "EX": 0.1503431066749844
+    },
+    "gpt-3.5-turbo": {
+        "P_DM_numerator": 2219,
+        "P_DM_denominator": 5709,
+        "R_DM_numerator": 2219,
+        "R_DM_denominator": 4500,
+        "EM_numerator": 389,
+        "EM_denominator": 3206,
+        "EX_numerator": 2061,
+        "EX_denominator": 3206,
+        "F1_DM": 0.434714467626604,
+        "EM": 0.12133499688084841,
+        "EX": 0.6428571428571429
+    },
+    "sqlglot": {
+        "P_DM_numerator": 456,
+        "P_DM_denominator": 1316,
+        "R_DM_numerator": 456,
+        "R_DM_denominator": 882,
+        "EM_numerator": 44,
+        "EM_denominator": 3206,
+        "EX_numerator": 1193,
+        "EX_denominator": 3206,
+        "F1_DM": 0.4149226569608735,
+        "EM": 0.01372426699937617,
+        "EX": 0.37211478477854026
+    }
+}

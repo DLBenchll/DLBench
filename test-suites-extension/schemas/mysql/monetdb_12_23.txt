@@ -1,0 +1,22 @@
+DROP TABLE IF EXISTS t1;
+create table t1(a int);
+insert into t1 values (0),(1),(2),(3),(4),(5),(6),(7),(8),(9);
+DROP TABLE IF EXISTS t2;
+create table t2(a int);
+insert into t2 select A.a + 10*(B.a + 10*C.a) from t1 A, t1 B, t1 C;
+DROP TABLE IF EXISTS t3;
+create table t3 (a char(8) not null, b char(8) not null, filler char(200));
+insert into t3 select concat('c-', 1000+A.a, '=w'), concat('c-', 2000+A.a, '=w'),'filler-1' from t2 A; -- CONCAT
+insert into t3 select concat('c-', 1000+A.a, '=w'), concat('c-', 3000+A.a, '=w'),'filler-2' from t2 A; -- CONCAT
+insert into t3 values ('c-1013=z', 'c-1013=z', 'err');
+insert into t3 values ('a-1014=w', 'a-1014=w', 'err');
+delete from t3 where b in ('c-1013=z', 'a-1014=w');
+insert into t3 values ('c-1013=w', 'del-me', 'inserted');
+delete from t3 where b='del-me';
+DROP TABLE t1;
+DROP TABLE t2;
+DROP TABLE t3;
+DROP TABLE IF EXISTS t0;
+create table t0 (a int);
+insert into t0 values (0),(1),(2),(3),(4),(5),(6),(7),(8),(9);
+create table t1 (a int, b char(20), filler char(200));

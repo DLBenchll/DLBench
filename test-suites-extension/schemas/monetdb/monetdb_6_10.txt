@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS simple1;
+CREATE TABLE simple1 AS SELECT * FROM generate_series(1, 200 + 1) AS id;
+DROP TABLE IF EXISTS bigger_than_it_looks;
+CREATE TABLE bigger_than_it_looks AS SELECT * FROM generate_series(1, 200 + 1) AS id;
+DROP TABLE IF EXISTS extremely_skewed;
+CREATE TABLE extremely_skewed (id INT, t TEXT);

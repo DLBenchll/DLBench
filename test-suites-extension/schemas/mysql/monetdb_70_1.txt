@@ -1,0 +1,1 @@
+SELECT GREATEST('11', '5', '2'); -- GREATEST

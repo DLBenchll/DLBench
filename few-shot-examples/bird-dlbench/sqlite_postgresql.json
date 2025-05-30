@@ -1,0 +1,45 @@
+[
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from sqlite to postgresql , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT COUNT(business_id) FROM inspections WHERE STRFTIME('%Y', `date`) = '2014' AND type = 'Foodborne Illness Investigation'Output only the translated SQL. Do not add any extra commentary.\n[Schema Information]:sqlite schema: ['Table: `inspections`\\nColumns:\\n(`business_id`, integer)\\n(`score`, integer)\\n(`date`, date)\\n(`type`, text)\\n(`rowid`, integer, primary key)\\n'].\n postgresql schema: ['Table: \"inspections\"\\nColumns:\\n(\"business_id\", BIGINT)\\n(\"score\", BIGINT)\\n(\"date\", DATE)\\n(\"_type\", TEXT)\\n(\"rowid\", BIGINT, primary key)\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT COUNT(\"business_id\") FROM \"inspections\" WHERE TO_CHAR(\"date\", 'YYYY') = '2014' AND \"_type\" = 'Foodborne Illness Investigation';"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from sqlite to postgresql , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT DISTINCT T2.name FROM inspections AS T1 INNER JOIN businesses AS T2 ON T1.business_id = T2.business_id WHERE STRFTIME('%Y', T1.`date`) = '2013' AND T1.score = 100Output only the translated SQL. Do not add any extra commentary.\n[Schema Information]:sqlite schema: ['Table: `inspections`\\nColumns:\\n(`business_id`, integer)\\n(`score`, integer)\\n(`date`, date)\\n(`type`, text)\\n(`rowid`, integer, primary key)\\n', 'Table: `businesses`\\nColumns:\\n(`business_id`, integer, primary key)\\n(`name`, text)\\n(`address`, text)\\n(`city`, text)\\n(`postal_code`, text)\\n(`latitude`, real)\\n(`longitude`, real)\\n(`phone_number`, integer)\\n(`tax_code`, text)\\n(`business_certificate`, integer)\\n(`application_date`, date)\\n(`owner_name`, text)\\n(`owner_address`, text)\\n(`owner_city`, text)\\n(`owner_state`, text)\\n(`owner_zip`, text)\\n'].\n postgresql schema: ['Table: \"inspections\"\\nColumns:\\n(\"business_id\", BIGINT)\\n(\"score\", BIGINT)\\n(\"date\", DATE)\\n(\"_type\", TEXT)\\n(\"rowid\", BIGINT, primary key)\\n', 'Table: \"businesses\"\\nColumns:\\n(\"business_id\", BIGINT, primary key)\\n(\"_name\", TEXT)\\n(\"address\", TEXT)\\n(\"city\", TEXT)\\n(\"postal_code\", TEXT)\\n(\"latitude\", DOUBLE PRECISION)\\n(\"longitude\", DOUBLE PRECISION)\\n(\"phone_number\", BIGINT)\\n(\"tax_code\", TEXT)\\n(\"business_certificate\", BIGINT)\\n(\"application_date\", DATE)\\n(\"owner_name\", TEXT)\\n(\"owner_address\", TEXT)\\n(\"owner_city\", TEXT)\\n(\"owner_state\", TEXT)\\n(\"owner_zip\", TEXT)\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT DISTINCT T2.\"_name\" FROM \"inspections\" AS T1 INNER JOIN \"businesses\" AS T2 ON T1.\"business_id\" = T2.\"business_id\" WHERE TO_CHAR(T1.\"date\", 'YYYY') = '2013' AND T1.\"score\" = 100;"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from sqlite to postgresql , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT T2.city FROM violations AS T1 INNER JOIN businesses AS T2 ON T1.business_id = T2.business_id WHERE STRFTIME('%Y', T1.`date`) = '2016' AND T1.risk_category = 'High Risk' GROUP BY T2.city ORDER BY COUNT(T2.city) DESC LIMIT 1Output only the translated SQL. Do not add any extra commentary.\n[Schema Information]:sqlite schema: ['Table: `violations`\\nColumns:\\n(`business_id`, integer)\\n(`date`, date)\\n(`violation_type_id`, text)\\n(`risk_category`, text)\\n(`description`, text)\\n(`rowid`, integer, primary key)\\n', 'Table: `businesses`\\nColumns:\\n(`business_id`, integer, primary key)\\n(`name`, text)\\n(`address`, text)\\n(`city`, text)\\n(`postal_code`, text)\\n(`latitude`, real)\\n(`longitude`, real)\\n(`phone_number`, integer)\\n(`tax_code`, text)\\n(`business_certificate`, integer)\\n(`application_date`, date)\\n(`owner_name`, text)\\n(`owner_address`, text)\\n(`owner_city`, text)\\n(`owner_state`, text)\\n(`owner_zip`, text)\\n'].\n postgresql schema: ['Table: \"violations\"\\nColumns:\\n(\"business_id\", BIGINT)\\n(\"date\", DATE)\\n(\"violation_type_id\", TEXT)\\n(\"risk_category\", TEXT)\\n(\"description\", TEXT)\\n(\"rowid\", BIGINT, primary key)\\n', 'Table: \"businesses\"\\nColumns:\\n(\"business_id\", BIGINT, primary key)\\n(\"_name\", TEXT)\\n(\"address\", TEXT)\\n(\"city\", TEXT)\\n(\"postal_code\", TEXT)\\n(\"latitude\", DOUBLE PRECISION)\\n(\"longitude\", DOUBLE PRECISION)\\n(\"phone_number\", BIGINT)\\n(\"tax_code\", TEXT)\\n(\"business_certificate\", BIGINT)\\n(\"application_date\", DATE)\\n(\"owner_name\", TEXT)\\n(\"owner_address\", TEXT)\\n(\"owner_city\", TEXT)\\n(\"owner_state\", TEXT)\\n(\"owner_zip\", TEXT)\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT \"T2\".\"city\" FROM \"violations\" AS \"T1\" INNER JOIN \"businesses\" AS \"T2\" ON \"T1\".\"business_id\" = \"T2\".\"business_id\" WHERE TO_CHAR(\"T1\".\"date\", 'YYYY') = '2016' AND \"T1\".\"risk_category\" = 'High Risk' GROUP BY \"T2\".\"city\" ORDER BY COUNT(\"T2\".\"city\") DESC LIMIT 1;"
+    }
+  ]
+]
+

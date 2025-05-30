@@ -1,0 +1,45 @@
+[
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from sqlite to mysql , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT name FROM Person WHERE SUBSTR(birthdate, 1, 4) < '1970';Output only the translated SQL. Do not add any extra commentary.\n[Schema Information]:sqlite schema: ['Table: `Person`\\nColumns:\\n(`name`, text, primary key)\\n(`birthdate`, text)\\n(`birth_name`, text)\\n(`birth_place`, text)\\n(`birth_region`, text)\\n(`birth_country`, text)\\n(`height_meters`, real)\\n(`nickname`, text)\\n'].\n mysql schema: ['Table: `Person`\\nColumns:\\n(`name`, TEXT, primary key)\\n(`birthdate`, TEXT)\\n(`birth_name`, TEXT)\\n(`birth_place`, TEXT)\\n(`birth_region`, TEXT)\\n(`birth_country`, TEXT)\\n(`height_meters`, DOUBLE)\\n(`nickname`, TEXT)\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT `name` FROM `Person` WHERE SUBSTR(`birthdate`, 1, 4) < '1970';"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from sqlite to mysql , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT name FROM Person WHERE SUBSTR(birthdate, 1, 4) = '1958' AND birth_place = 'California' AND birth_country = 'USA';Output only the translated SQL. Do not add any extra commentary.\n[Schema Information]:sqlite schema: ['Table: `Person`\\nColumns:\\n(`name`, text, primary key)\\n(`birthdate`, text)\\n(`birth_name`, text)\\n(`birth_place`, text)\\n(`birth_region`, text)\\n(`birth_country`, text)\\n(`height_meters`, real)\\n(`nickname`, text)\\n'].\n mysql schema: ['Table: `Person`\\nColumns:\\n(`name`, TEXT, primary key)\\n(`birthdate`, TEXT)\\n(`birth_name`, TEXT)\\n(`birth_place`, TEXT)\\n(`birth_region`, TEXT)\\n(`birth_country`, TEXT)\\n(`height_meters`, DOUBLE)\\n(`nickname`, TEXT)\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT `name` FROM `Person` WHERE SUBSTR(`birthdate`, 1, 4) = '1958' AND `birth_place` = 'California' AND `birth_country` = 'USA';"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from sqlite to mysql , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT T1.person FROM Award AS T1 INNER JOIN Episode AS T2 ON T1.episode_id = T2.episode_id WHERE SUBSTR(T1.year, 1, 4) = '2009' AND T1.role = 'writer' AND T2.votes > 5;Output only the translated SQL. Do not add any extra commentary.\n[Schema Information]:sqlite schema: ['Table: `Award`\\nColumns:\\n(`award_id`, integer, primary key)\\n(`organization`, text)\\n(`year`, integer)\\n(`award_category`, text)\\n(`award`, text)\\n(`person`, text)\\n(`role`, text)\\n(`episode_id`, text)\\n(`season`, text)\\n(`song`, text)\\n(`result`, text)\\n', 'Table: `Episode`\\nColumns:\\n(`episode_id`, text, primary key)\\n(`season`, integer)\\n(`episode`, integer)\\n(`number_in_series`, integer)\\n(`title`, text)\\n(`summary`, text)\\n(`air_date`, text)\\n(`episode_image`, text)\\n(`rating`, real)\\n(`votes`, integer)\\n'].\n mysql schema: ['Table: `Award`\\nColumns:\\n(`award_id`, BIGINT, primary key)\\n(`organization`, TEXT)\\n(`year`, BIGINT)\\n(`award_category`, TEXT)\\n(`award`, TEXT)\\n(`person`, TEXT)\\n(`role`, TEXT)\\n(`episode_id`, TEXT)\\n(`season`, TEXT)\\n(`song`, TEXT)\\n(`result`, TEXT)\\n', 'Table: `Episode`\\nColumns:\\n(`episode_id`, TEXT, primary key)\\n(`season`, BIGINT)\\n(`episode`, BIGINT)\\n(`number_in_series`, BIGINT)\\n(`title`, TEXT)\\n(`summary`, TEXT)\\n(`air_date`, TEXT)\\n(`episode_image`, TEXT)\\n(`rating`, DOUBLE)\\n(`votes`, BIGINT)\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT `T1`.`person` FROM `Award` AS `T1` INNER JOIN `Episode` AS `T2` ON `T1`.`episode_id` = `T2`.`episode_id` WHERE SUBSTR(`T1`.`year`, 1, 4) = '2009' AND `T1`.`role` = 'writer' AND `T2`.`votes` > 5;"
+    }
+  ]
+]
+

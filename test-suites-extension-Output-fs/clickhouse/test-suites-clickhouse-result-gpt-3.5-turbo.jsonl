@@ -1,0 +1,644 @@
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE (a, b) IN (('1', '10')); -- ROW", "sql_id": "clickhouse_1_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE (a, b) IN (('1', '10'), ('2', '20'));", "sql_id": "clickhouse_1_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE (a, b) NOT IN (SELECT 1, 10);", "sql_id": "clickhouse_1_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE (a, b) NOT IN ((1, 10), (2, 20));", "sql_id": "clickhouse_1_9"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (ts) VALUES (toUnixTimestamp('2002-10-27 01:00')); -- toUnixTimestamp", "sql_id": "clickhouse_100_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (ts) VALUES (toUnixTimestamp('2002-10-27 02:00')); -- toUnixTimestamp", "sql_id": "clickhouse_100_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (ts) VALUES (toUnixTimestamp('2002-10-27 03:00')); -- toUnixTimestamp", "sql_id": "clickhouse_100_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ts, toDateTime(ts) FROM t1; -- FROM_UNIXTIME", "sql_id": "clickhouse_100_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime('2001-01-01 00:00:00'); -- TIMESTAMP", "sql_id": "clickhouse_100_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDay('2001-01-01 00:00:00'); -- TO_DAYS", "sql_id": "clickhouse_100_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDay('2001-01-01 00:00:00'); -- TO_DAYS", "sql_id": "clickhouse_100_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUInt16(toDateTime('2007-12-31 23:59:59')) - toUInt16(toDateTime('2007-12-30 00:00:00')); -- DATEDIFF", "sql_id": "clickhouse_100_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime('2000-01-01 00:00:00') - toDateTime('2000-01-01 00:00:00') as TIMEDIFF;", "sql_id": "clickhouse_100_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate('2009-10-10 23:59:59', 'UTC') FORMAT '%A %M %Y'; -- DATE_FORMAT", "sql_id": "clickhouse_100_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime('2003-12-31 23:59:59'); -- TIME", "sql_id": "clickhouse_100_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT plusInterval('2003-01-02 23:59:59', INTERVAL 1 MINUTE); -- TIMESTAMPADD", "sql_id": "clickhouse_100_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT dateDiff('month', toDateTime('2003-02-01 23:59:59'), toDateTime('2003-05-01')); -- TIMESTAMPDIFF", "sql_id": "clickhouse_100_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUnixTimestamp('2009-11-29 23:59:59'); -- TO_SECONDS", "sql_id": "clickhouse_100_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUnixTimestamp('2015-11-13 23:59:59'); -- UNIX_TIMESTAMP", "sql_id": "clickhouse_100_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(s1) FROM t1; -- HEX", "sql_id": "clickhouse_101_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT length(concat('*', s1, '*', s2, '*')) FROM t1;", "sql_id": "clickhouse_101_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(s1), s2 FROM t1 ORDER BY s1, s2; -- HEX", "sql_id": "clickhouse_101_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(123456789 AS UInt32); -- CONVERT", "sql_id": "clickhouse_101_12"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (toDate(now()), 1);", "sql_id": "clickhouse_102_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT count(*) FROM t1 WHERE a = toDate(now()); -- COUNT, NOW", "sql_id": "clickhouse_102_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (toDate(now()), 2);", "sql_id": "clickhouse_102_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT count(*) FROM t1 WHERE a = toDate(now()); -- COUNT, NOW", "sql_id": "clickhouse_102_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT count(*) FROM t1 WHERE a = toDate(now()) AND b = 1;", "sql_id": "clickhouse_102_6"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t1 AS SELECT today() AS f1; -- CURDATE", "sql_id": "clickhouse_102_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 FROM (SELECT toDate('2011-01-01') AS a); -- MAKEDATE", "sql_id": "clickhouse_102_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate(least(20010101, 20020202)); -- LEAST", "sql_id": "clickhouse_102_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate(toDateTime(UNIX_TIMESTAMP())); -- UNIX_TIMESTAMP", "sql_id": "clickhouse_102_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate(20110512154559.6 + 0e0); -- DATE", "sql_id": "clickhouse_102_21"}
+{"model": "gpt-3.5-turbo", "message": "WITH RECURSIVE qn AS (\n    SELECT 1 AS n, 'x' AS un\n    UNION ALL\n    SELECT 1 + n, concat(un, 'x')\n    FROM qn\n    WHERE n < 10\n)\nSELECT *\nFROM qn; -- CONCAT", "sql_id": "clickhouse_2_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT if(count() > 0, 'YES', 'NO') AS \"IMPLICIT COMMIT\" FROM trans; -- IF", "sql_id": "clickhouse_3_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT if(a = 1, a, a) AS b FROM t1 ORDER BY arrayElement([b + 1], 1);", "sql_id": "clickhouse_39_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT if(a = 1, a, a) AS b FROM t1 ORDER BY arrayPosition([1], b);", "sql_id": "clickhouse_39_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 FROM t1 WHERE a = 9223372036854775807 AND trim(toString(a)) = b; -- TRIM", "sql_id": "clickhouse_4_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 FROM t1 WHERE a = 9223372036854775806 AND trim(toString(a)) = b; -- TRIM", "sql_id": "clickhouse_4_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 FROM t1 WHERE a = 9223372036854775805 AND trim(toString(a)) = b; -- TRIM", "sql_id": "clickhouse_4_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 FROM t1 WHERE a = 0 AND trim(toString(a)) = b; -- TRIM", "sql_id": "clickhouse_4_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE ifNull(a, 0) BETWEEN 0 AND 0.9; -- COALESCE", "sql_id": "clickhouse_4_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE ifNull(a, 0) = 0.9; -- COALESCE", "sql_id": "clickhouse_4_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE ifNull(a, 0) IN (0.8, 0.9); -- COALESCE", "sql_id": "clickhouse_4_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT currentUser() as USER; -- USER", "sql_id": "clickhouse_5_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(c1) FROM t1;", "sql_id": "clickhouse_6_3"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t1 AS SELECT replicate('a',4000) AS a; -- REPEAT", "sql_id": "clickhouse_6_5"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE head AS SELECT concat(b1.b, b2.b) AS head FROM t1 b1 CROSS JOIN t1 b2; -- CONCAT", "sql_id": "clickhouse_6_12"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE tail AS SELECT concat(b1.b, b2.b) AS tail FROM t1 AS b1 CROSS JOIN t1 AS b2; -- CONCAT", "sql_id": "clickhouse_6_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(*) FROM t1 WHERE a<>'' AND length(a)=2; -- LENGTH (Equivalent to OCTET_LENGTH in MySQL)", "sql_id": "clickhouse_6_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE lengthUTF8(a)=2; -- CHAR_LENGTH", "sql_id": "clickhouse_6_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(*) FROM t1 WHERE a<>'' AND length(a)=3; -- OCTET_LENGTH", "sql_id": "clickhouse_6_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c1, length(c1) FROM h; -- LENGTH", "sql_id": "clickhouse_7_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c1, replicate(' ', 20 - length(c1)) || c1 FROM h; -- LPAD", "sql_id": "clickhouse_7_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c1, replicate('52', 20 - length(c1)) || c1 FROM h; -- RPAD", "sql_id": "clickhouse_7_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('h' IN c1) FROM h; -- INSTR", "sql_id": "clickhouse_7_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT position('', c1) FROM h; -- INSTR", "sql_id": "clickhouse_7_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT position('52', c1) FROM h; -- INSTR", "sql_id": "clickhouse_7_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT position('54', c1) FROM h; -- INSTR", "sql_id": "clickhouse_7_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT position('31', c1) FROM h; -- INSTR", "sql_id": "clickhouse_7_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c1, trim(c1) FROM h; -- TRIM", "sql_id": "clickhouse_7_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime(123456789); -- FROM_UNIXTIME", "sql_id": "clickhouse_71_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime(234567890); -- FROM_UNIXTIME", "sql_id": "clickhouse_71_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime(1); -- FROM_UNIXTIME", "sql_id": "clickhouse_71_2"}
+{"model": "gpt-3.5-turbo", "message": "select toUnixTimestamp(toDateTime(123456789)); -- TO_UNIXTIMESTAMP, TO_DATETIME", "sql_id": "clickhouse_71_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUnixTimestamp(toDateTime(234567890)); -- UNIX_TIMESTAMP, FROM_UNIXTIME", "sql_id": "clickhouse_71_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUnixTimestamp('2039-01-20 01:00:00'); -- UNIX_TIMESTAMP", "sql_id": "clickhouse_71_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUnixTimestamp('2038-02-10 01:00:00'); -- UNIX_TIMESTAMP", "sql_id": "clickhouse_71_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUnixTimestamp('1970-01-01 01:00:00'), toUnixTimestamp('1970-01-01 01:00:01'), toUnixTimestamp('2038-01-19 04:14:07'), toUnixTimestamp('2038-01-19 04:14:08'); -- UNIX_TIMESTAMP", "sql_id": "clickhouse_71_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, toDateTime(a) FROM t1;", "sql_id": "clickhouse_71_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUnixTimestamp('3001-01-19 08:59:59'); -- UNIX_TIMESTAMP", "sql_id": "clickhouse_71_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t WHERE concat(x, x) = 'XX'; -- CONCAT", "sql_id": "clickhouse_72_4"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1(f1) SELECT if(max(f1) IS NULL, '2000', max(f1)) FROM t1;", "sql_id": "clickhouse_74_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sum(length(c)) FROM t1 WHERE c='13_characters'; -- LENGTH", "sql_id": "clickhouse_74_6"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t2 (d) SELECT sum(length(c)) FROM t1 WHERE c='13_characters';", "sql_id": "clickhouse_74_9"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t2 (d) SELECT sum(length(c)) FROM t1 WHERE c='7_chars'; -- LENGTH", "sql_id": "clickhouse_74_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *, hex(a) FROM t1; -- hex", "sql_id": "clickhouse_74_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *, hex(a) FROM t1 WHERE a = 'abc-def'; -- hex", "sql_id": "clickhouse_74_17"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES('valid-string',1), (hex('11'),2);", "sql_id": "clickhouse_75_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT pk, lengthUTF8(tx), length(tx) FROM t1;", "sql_id": "clickhouse_75_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (1, replicate('a',110), replicate('b', 210)) IGNORE; -- REPLICATE", "sql_id": "clickhouse_76_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT i, length(a), length(b), lengthUTF8(a), lengthUTF8(b) FROM t1;", "sql_id": "clickhouse_76_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values (1, 'a', 'a', now()), (1, 'b', 'b', now())", "sql_id": "clickhouse_76_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT time, date, timestamp, concat(date, ' ', time), quarter + week, year + timestampadd, timestampdiff FROM t1; -- CONCAT", "sql_id": "clickhouse_77_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat('|', a, '|'), concat('|', b, '|') FROM t1; -- CONCAT", "sql_id": "clickhouse_78_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(val) FROM t1; -- hex", "sql_id": "clickhouse_78_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(a) FROM t1; -- hex", "sql_id": "clickhouse_78_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, toDayOfWeek(a) as abday, toDayOfWeek(a) as day FROM t1 ORDER BY a;", "sql_id": "clickhouse_79_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, toMonthName(a) as abmon, toMonthName(a) as mon FROM t1 ORDER BY a;", "sql_id": "clickhouse_79_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toTypeName(toDateTime('2001-01-01', 'UTC')) || ' ' || toDayOfWeek(toDateTime('2001-01-01', 'UTC')) || ' ' || toWeek(toDateTime('2001-01-01', 'UTC')); -- DATE_FORMAT", "sql_id": "clickhouse_79_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate('2001-01-01', '%Y-%m-%d'); -- toDate", "sql_id": "clickhouse_79_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT formatDateTime('2010-03-23 11:00:00', '%l %p'); -- DATE_FORMAT", "sql_id": "clickhouse_79_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT strcmp('', 'ae'), strcmp('ae', ''), strcmp('aeq', 'q'), strcmp('q', 'aeq'); -- STRCMP", "sql_id": "clickhouse_8_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT strcmp('ss',''), strcmp('','ss'), strcmp('s','sss'), strcmp('q','ssq'); -- STRCMP", "sql_id": "clickhouse_8_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT strcmp('', 'af'), strcmp('a', ''), strcmp('', 'aeq'), strcmp('', 'aeaeq'); -- STRCMP", "sql_id": "clickhouse_8_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT strcmp('ss','a'), strcmp('','ssa'), strcmp('sa','sssb'), strcmp('s','') -- STRCMP;", "sql_id": "clickhouse_8_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT strcmp('', 'o'), strcmp('', 'u'), strcmp('', 'oeb'); -- STRCMP", "sql_id": "clickhouse_8_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT strcmp('af',''), strcmp('','a'), strcmp('aeq',''), strcmp('aeaeq','') -- STRCMP;", "sql_id": "clickhouse_8_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT strcmp('a','ss'),strcmp('ssa',''),strcmp('sssb','sa'),strcmp('','s'); -- STRCMP", "sql_id": "clickhouse_8_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT strcmp('u','a'), strcmp('u','') -- STRCMP", "sql_id": "clickhouse_8_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT strcmp('s', 'a'), strcmp('a', 'x'); -- STRCMP", "sql_id": "clickhouse_8_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT arrayElement(['ue', s1], 1), arrayElement(['', s1], 1), s1='ue', s1='' FROM t1; -- FIELD", "sql_id": "clickhouse_8_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *\nFROM t1\nWHERE length(s1) = 2 AND s1 = 'oe';", "sql_id": "clickhouse_8_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('x', 5) AS result; -- LPAD", "sql_id": "clickhouse_80_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('x', 0); -- LPAD", "sql_id": "clickhouse_80_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('', 0); -- LPAD", "sql_id": "clickhouse_80_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('x', 1) || 'a' AS result; -- LPAD", "sql_id": "clickhouse_80_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('a', NULL); -- LPAD", "sql_id": "clickhouse_80_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('a', 5); -- LPAD equivalent in ClickHouse", "sql_id": "clickhouse_80_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('', 5); -- LPAD", "sql_id": "clickhouse_80_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('x', 0) || 'a' AS result; -- LPAD", "sql_id": "clickhouse_80_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('a', 0); -- LPAD", "sql_id": "clickhouse_80_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('x', 0) AS result; -- LPAD", "sql_id": "clickhouse_80_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('', 0) AS result; -- replicate", "sql_id": "clickhouse_80_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('x', 5 - length('123')) || '123'; -- LPAD", "sql_id": "clickhouse_80_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('xy', 2) || 'a'; -- LPAD equivalent in ClickHouse", "sql_id": "clickhouse_80_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate(' ', 20 - length('I LOVE SQL')) || 'I LOVE SQL'; -- LPAD", "sql_id": "clickhouse_80_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate(' ', 20 - length('I LOVE SQL in the morning')) || 'I LOVE SQL in the morning'; -- LPAD", "sql_id": "clickhouse_80_15"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (f1, f2) VALUES (repeat('a', 1024), 0), (repeat('b', 1024), 1), (repeat('c', 1024), 2), (repeat('d', 1024), 3), (repeat('e', 1024), 4), (repeat('f', 1024), 5);", "sql_id": "clickhouse_81_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sum(length(f1)) FROM t1; -- LENGTH", "sql_id": "clickhouse_81_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT coalesce(d, d), ifNull(d, d), if(i, d, d), if(i = i, d, d), greatest(d, d), least(d, d) FROM t1 ORDER BY rand();", "sql_id": "clickhouse_82_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(c1) FROM AB; -- HEX", "sql_id": "clickhouse_83_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t5 values (1, toYYYYMMDD('2001-01-01')); -- DATE_FORMAT", "sql_id": "clickhouse_84_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t5 VALUES (2, toDate('2001-01-01')); -- DATE_FORMAT equivalent in ClickHouse", "sql_id": "clickhouse_84_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t5 values (3, toDayOfWeek(toDate('2001-01-01'))); -- DATE_FORMAT", "sql_id": "clickhouse_84_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(a) FROM t1; -- HEX", "sql_id": "clickhouse_84_8"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (1,currentUser()); -- USER", "sql_id": "clickhouse_84_11"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (repeat('ManyMegaByteBlck', 123)); -- REPEAT", "sql_id": "clickhouse_85_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (repeat('ManyMegaByteBlck', 234)) FORMAT Values;", "sql_id": "clickhouse_85_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (repeat('ManyMegaByteBlck', 345)) FORMAT Values;", "sql_id": "clickhouse_85_4"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (repeat('ManyMegaByteBlck', 456)); -- REPEAT", "sql_id": "clickhouse_85_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT length(c1) FROM t1; -- LENGTH", "sql_id": "clickhouse_85_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT \n    NULL,\n    if(isNull(NULL), 1, 0),\n    if(isNull(1/0), 1, 0),\n    if(isNull(1/0) = 1, 1, 0),\n    if(isNull(NULL), 1, 0),\n    if(isNull(NULL), 'TRUE', 'FALSE'),\n    if(isNull('TRUE'), 'TRUE', 'ERROR'),\n    if(1/0 IS NULL, 1, 0),\n    if(1 IS NOT NULL, 1, 0); -- ISNULL, IFNULL", "sql_id": "clickhouse_86_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT NULL=NULL, NULL<>NULL, ifNull(NULL, 1.1) + 0, ifNull(NULL, 1) | 0; -- ifNull", "sql_id": "clickhouse_86_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT strcmp('a', NULL), (1 < NULL), match(NULL, 'a'), match(NULL, 'a%'), match('a%', NULL); -- STRCMP", "sql_id": "clickhouse_86_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT repeat('a',0), repeat('ab',5+5), repeat('ab',-1), reverse(NULL); -- REPEAT", "sql_id": "clickhouse_86_3"}
+{"model": "gpt-3.5-turbo", "message": "select arrayEnumerate(['a','b','c'], NULL); -- FIELD", "sql_id": "clickhouse_86_4"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 SELECT ifNull(a, b) FROM t1; -- IFNULL", "sql_id": "clickhouse_86_9"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 SELECT ifNull(a, NULL) FROM t1; -- IFNULL", "sql_id": "clickhouse_86_11"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 SELECT ifNull(NULL, b) FROM t1; -- IFNULL", "sql_id": "clickhouse_86_13"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES ( replicate( 'a', 10 ), 1),( replicate( 'b', 10 ), 2); -- REPLICATE", "sql_id": "clickhouse_87_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT arrayStringConcat(a) FROM t1; -- GROUP_CONCAT", "sql_id": "clickhouse_87_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUnixTimestamp(now()); -- UNIX_TIMESTAMP", "sql_id": "clickhouse_87_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('a', 2000); -- REPEAT", "sql_id": "clickhouse_88_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT lengthUTF8('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa') as len; -- LENGTH", "sql_id": "clickhouse_88_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT length(repeat('a',2000)); -- LENGTH, REPEAT", "sql_id": "clickhouse_88_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c11, length(c12) FROM t1; -- LENGTH", "sql_id": "clickhouse_88_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(a) FROM t1 WHERE a LIKE 'A_'; -- HEX", "sql_id": "clickhouse_89_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(a) FROM t1 WHERE a LIKE 'A_'; -- HEX", "sql_id": "clickhouse_89_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(a) FROM t1; -- hex", "sql_id": "clickhouse_89_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT if(0,'ERROR','this'), if(1,'is','ERROR'), if(NULL,'ERROR','a'), if(1,2,3), if(1,2.0,3.0)+0; -- IF", "sql_id": "clickhouse_9_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IF(1, st, st) AS s FROM t1 ORDER BY s; -- IF", "sql_id": "clickhouse_9_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT if(u=1,st,st) AS s FROM t1 ORDER BY s;", "sql_id": "clickhouse_9_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT nullIf(u, 1) FROM t1; -- NULLIF", "sql_id": "clickhouse_9_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT nullIf(u, 1) FROM t1; -- NULLIF", "sql_id": "clickhouse_9_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sum(if(num is null, 0.00, num)) FROM t1; -- IF", "sql_id": "clickhouse_9_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT min(if(y - x > 5, y, NULL)), max(if(y - x > 5, y, NULL)) FROM t1; -- IF", "sql_id": "clickhouse_9_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT NULLIF(5,5) IS NULL, NULLIF(5,5) IS NOT NULL; -- NULLIF", "sql_id": "clickhouse_9_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT id, if(date IS NULL, '-', toDate(date)) AS date_ord, text FROM t1 ORDER BY date_ord ASC;", "sql_id": "clickhouse_9_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT id, if(date IS NULL, '-', toDate(date)) AS date_ord, text FROM t1 ORDER BY date_ord DESC;", "sql_id": "clickhouse_9_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MAX(tryCast(c, 'UInt32')) FROM t1 AS te;", "sql_id": "clickhouse_9_26"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MAX(tryCast(c, 'UInt32')) FROM t1 AS te; -- IFNULL", "sql_id": "clickhouse_9_27"}
+{"model": "gpt-3.5-turbo", "message": "SELECT avgOrNullIf(year(toDate('2001-01-01')), 10);", "sql_id": "clickhouse_9_29"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate(3652499), toDate(3652500), toDate(3652501); -- toDate", "sql_id": "clickhouse_90_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate(42949670), toDate(42949671), toDate(42949673); -- FROM_DAYS", "sql_id": "clickhouse_90_1"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t VALUES (0, replicate('x', 120000)), (1, replicate('z', 12000)); -- REPEAT", "sql_id": "clickhouse_91_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT length(b) FROM (SELECT * FROM t INTERSECT SELECT * FROM t) AS derived; -- LENGTH", "sql_id": "clickhouse_91_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT argument FROM test_log WHERE argument LIKE concat('%azun','dris%'); -- CONCAT", "sql_id": "clickhouse_92_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple(10,2,3) IN ((3,2,3), (1,2,3), (1,3,3)); -- TUPLE", "sql_id": "clickhouse_93_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple(1,2,3) IN ((3,NULL,3), (1,2,3), (1,3,3)); -- TUPLE", "sql_id": "clickhouse_93_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple(10, 2, 3) IN ((3, NULL, 3), (1, 2, 3), (1, 3, 3)); -- TUPLE", "sql_id": "clickhouse_93_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple('a', 0, 3) IN ((3, 2, 3), ('a', '0', '3'), (1, 3, 3)); -- TUPLE", "sql_id": "clickhouse_93_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple('a', 1.5, 3) IN (tuple(3, NULL, 3), tuple('a', 1.5, 3), tuple(1, 3, 3)); -- TUPLE", "sql_id": "clickhouse_93_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple('b', 1.5, 3) IN (tuple(3, NULL, 3), tuple('a', 1.5, 3), tuple(1, 3, 3)); -- TUPLE", "sql_id": "clickhouse_93_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple('b', 1.5, 3) IN (tuple('b', NULL, 3), tuple('a', 1.5, 3), tuple(1, 3, 3)); -- TUPLE", "sql_id": "clickhouse_93_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple('b', 1.5, 3) IN ((tuple('b', NULL, 4)), (tuple('a', 1.5, 3)), (tuple(1, 3, 3))); -- TUPLE", "sql_id": "clickhouse_93_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple(1, 2, tuple(3, 4)) IN ((3, 2, (3, 4)), (1, 2, (3, NULL))); -- tuple", "sql_id": "clickhouse_93_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple(1, 2, tuple(3, 4)) IN ((3, 2, (3, 4)), (1, 2, (3, NULL))); -- tuple", "sql_id": "clickhouse_93_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple(1, 2, tuple(3, NULL)) IN ((3, 2, (3, 4)), (1, 2, (4, 5))); -- ROW", "sql_id": "clickhouse_93_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple(1, 2, tuple(3, NULL)) IN ((3, 2, (3, 4)), (1, 2, (3, 5))); -- TUPLE", "sql_id": "clickhouse_93_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT equals(tuple(1,2,3), tuple(1,2,3)); -- tuple", "sql_id": "clickhouse_93_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT equals(tuple(2,2,3), tuple(1+1,2,3)); -- tuple", "sql_id": "clickhouse_93_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT equals(tuple(1,2,3), tuple(1+1,2,3)); -- tuple", "sql_id": "clickhouse_93_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple(1,2,3) < tuple(1+1,2,3); -- tuple", "sql_id": "clickhouse_93_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple(1,2,3) > tuple(1+1,2,3); -- tuple", "sql_id": "clickhouse_93_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple(1,2,3) <= tuple(1+1,2,3); -- tuple", "sql_id": "clickhouse_93_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple(1,2,3)>=tuple(1+1,2,3); -- tuple", "sql_id": "clickhouse_93_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple(1,2,3) != tuple(1+1,2,3); -- tuple", "sql_id": "clickhouse_93_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple(NULL,2,3)=tuple(NULL,2,3); -- tuple", "sql_id": "clickhouse_93_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT equals(ROW(1,2,ROW(3,4,5)), ROW(1,2,ROW(3,4,5))); -- ROW", "sql_id": "clickhouse_93_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple('test', 2, 3.33) = tuple('test', 2, 3.33); -- tuple", "sql_id": "clickhouse_93_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT equals(tuple('test', 2, tuple(3, 33)), tuple('test', 2, tuple(3, 33))); -- tuple", "sql_id": "clickhouse_93_25"}
+{"model": "gpt-3.5-turbo", "message": "SELECT equals(tuple('test', 2, tuple(3, 33)), tuple('test', 2, tuple(3, 3))); -- tuple", "sql_id": "clickhouse_93_26"}
+{"model": "gpt-3.5-turbo", "message": "SELECT equals(tuple('test', 2, tuple(3, 33)), tuple('test', 2, tuple(3, NULL))); -- tuple", "sql_id": "clickhouse_93_27"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *\nFROM t1\nWHERE tuple(1, 2, 3) = tuple(a, b, c); -- tuple", "sql_id": "clickhouse_94_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *\nFROM t1\nWHERE tuple(0, 2, 3) = tuple(a, b, c); -- tuple", "sql_id": "clickhouse_94_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *\nFROM t1\nWHERE tuple(1, 2, 3) < tuple(a, b, c); -- tuple", "sql_id": "clickhouse_94_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple(a, b, c) IN ((1, 2, 3), (3, 2, 1)) FROM t1;", "sql_id": "clickhouse_94_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT equals(tuple(1,1,1), tuple(1,1,1)), equals(tuple(1,1,1), tuple(1,2,1)), equals(tuple(1,NULL,1), tuple(2,2,1)), equals(tuple(1,NULL,1), tuple(1,2,2)), equals(tuple(1,NULL,1), tuple(1,2,1)) ; -- ROW", "sql_id": "clickhouse_94_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple(a, 1) IN (SELECT sum(b), 1 FROM t1) FROM t1 GROUP BY a; -- tuple", "sql_id": "clickhouse_95_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (a, 1) IN (SELECT sum(b), 3 FROM t1) FROM t1 GROUP BY a; -- ROW", "sql_id": "clickhouse_95_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 FROM t1 WHERE tuple(a, b) >= tuple('1', (SELECT 1 FROM t1 WHERE a > '1234')); -- tuple", "sql_id": "clickhouse_95_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT arrayMin([a], [1]) = arrayJoin([a], [1]) AS al FROM t1 GROUP BY a; -- ROW", "sql_id": "clickhouse_95_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT equals(min(a), 1) AS al FROM t1 GROUP BY a;", "sql_id": "clickhouse_95_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('x', 5) AS result; -- RPAD", "sql_id": "clickhouse_96_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('x', NULL); -- RPAD", "sql_id": "clickhouse_96_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('', 0); -- RPAD", "sql_id": "clickhouse_96_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('x', 1) AS result; -- RPAD", "sql_id": "clickhouse_96_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('a', NULL) AS result; -- RPAD", "sql_id": "clickhouse_96_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('a', 5); -- RPAD equivalent in ClickHouse", "sql_id": "clickhouse_96_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('', 5); -- RPAD", "sql_id": "clickhouse_96_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('a', 0); -- RPAD", "sql_id": "clickhouse_96_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('a', 0); -- RPAD", "sql_id": "clickhouse_96_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('x', 0) AS result; -- RPAD", "sql_id": "clickhouse_96_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('', 0) AS result; -- RPAD", "sql_id": "clickhouse_96_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('x', 1) || '123456787890'; -- RPAD", "sql_id": "clickhouse_96_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('a', 5); -- RPAD", "sql_id": "clickhouse_96_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('I LOVE SQL', 20); -- RPAD", "sql_id": "clickhouse_96_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replicate('I LOVE SQL in the morning', 20); -- RPAD", "sql_id": "clickhouse_96_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *\nFROM t1\nWHERE a IS NULL OR NOT (a IN (SELECT t3.a FROM t1 t3));", "sql_id": "clickhouse_97_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE a IN (SELECT a FROM t1 WHERE a IS NULL);", "sql_id": "clickhouse_97_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *\nFROM t1\nWHERE (SELECT b FROM t2 WHERE toString(generateUUID()) = toString(t2.a)) > 0;", "sql_id": "clickhouse_98_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT trim(f1), count(*)\nFROM table_varchar_pad_space\nGROUP BY f1;", "sql_id": "clickhouse_99_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat(concat(a1, min(c)), b) AS result, b\nFROM t1\nWHERE a1 < 'd'\nGROUP BY a1, a2, b;", "sql_id": "clickhouse_10_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat(a1, min(c)), b, max(c) FROM t1 WHERE a1 < 'd' GROUP BY a1, a2, b; -- CONCAT", "sql_id": "clickhouse_10_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat(a1, a2), b, min(c), max(c)\nFROM t1\nWHERE a1 < 'd'\nGROUP BY a1, a2, b; -- CONCAT", "sql_id": "clickhouse_10_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT Fld1, max(Fld2) FROM t1 GROUP BY Fld1 HAVING stdDevPop(Fld2) IS NOT NULL; -- STD", "sql_id": "clickhouse_11_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT Fld1, max(Fld2) FROM t1 GROUP BY Fld1 HAVING varSamp(Fld2) IS NOT NULL; -- VARIANCE", "sql_id": "clickhouse_11_4"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t3 \nSELECT concat('c-', 1000 + A.a, '=w'), \n       concat('c-', 2000 + A.a, '=w'), \n       'filler-1' \nFROM t2 A; -- CONCAT", "sql_id": "clickhouse_12_8"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t3 SELECT concat('c-', 1000 + A.a, '=w'), concat('c-', 3000 + A.a, '=w'), 'filler-2' FROM t2 A; -- CONCAT", "sql_id": "clickhouse_12_9"}
+{"model": "gpt-3.5-turbo", "message": "UPDATE t1 SET b = replicate(toString(65 + a), 20) WHERE a < 25;", "sql_id": "clickhouse_12_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *\nFROM t1\nWHERE a < 10\n  AND b = replicate(toString(ASCII(a) + 65), 20); -- REPEAT", "sql_id": "clickhouse_12_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *\nFROM t1\nWHERE a < 10\n  AND b = replicate(toString(65 + a), 20); -- REPEAT", "sql_id": "clickhouse_12_25"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a,hex(b),hex(c),filler FROM t1 ORDER BY filler; -- HEX", "sql_id": "clickhouse_13_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT length(data) FROM t1;", "sql_id": "clickhouse_14_4"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (data) VALUES (replicate('a',1*1024)) FORMAT Values;", "sql_id": "clickhouse_14_7"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (data) VALUES (repeat('b',16*1024-1024)) FORMAT Values;", "sql_id": "clickhouse_14_8"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 SET data=replicate('a',18*1024) FORMAT Values;", "sql_id": "clickhouse_14_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT length(data) FROM t1;", "sql_id": "clickhouse_14_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUnixTimestamp('2011-01-01 00:00:00') as time_t, toUnixTimestamp('2011-01-01 00:00:00') % 3 as part, 1234567890 % 3 as part2; -- UNIX_TIMESTAMP", "sql_id": "clickhouse_15_0"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t3 (a) VALUES (toDateTime(NOW()));", "sql_id": "clickhouse_15_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t2 SELECT 1 + a, 'subq: ' || b FROM t1;", "sql_id": "clickhouse_15_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT currentUser(),currentUser()", "sql_id": "clickhouse_16_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT match(subject, pattern) FROM t1; -- REGEXP_INSTR", "sql_id": "clickhouse_17_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT position('b', 'abc'); -- REGEXP_INSTR", "sql_id": "clickhouse_17_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT position('c', 'abc'); -- REGEXP_INSTR", "sql_id": "clickhouse_17_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT match(subject, pattern) FROM t1 WHERE subject = 'abc' AND pattern = 'd'; -- REGEXP_INSTR", "sql_id": "clickhouse_17_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT match(subject, 'a') FROM t1 WHERE subject IS NULL; -- REGEXP_INSTR", "sql_id": "clickhouse_17_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT match(subject, pattern) FROM t1 WHERE subject = 'a'; -- REGEXP_INSTR", "sql_id": "clickhouse_17_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT match(subject, pattern); -- REGEXP_INSTR", "sql_id": "clickhouse_17_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex( concat( regexpMatch( 'a', 'a' ) ) ); -- HEX, CONCAT, REGEXP_MATCH", "sql_id": "clickhouse_17_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT match(subject, 'a'); -- REGEXP_INSTR", "sql_id": "clickhouse_17_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT match(subject, 'a') -- REGEXP_INSTR", "sql_id": "clickhouse_17_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT matchRegexp('a', 1); -- REGEXP_INSTR", "sql_id": "clickhouse_17_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT match(a, 'a', 1.1); -- REGEXP_INSTR", "sql_id": "clickhouse_17_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT match(subject, pattern) FROM t1; -- REGEXP_INSTR", "sql_id": "clickhouse_17_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT matchRegexp('abcabcabc', 'a+', 1); -- REGEXP_INSTR", "sql_id": "clickhouse_17_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT matchRegexp('abcabcabc', 'a+', 2); -- REGEXP_INSTR", "sql_id": "clickhouse_17_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT matchRegexp('abcabcabc', 'b+', 1); -- REGEXP_INSTR", "sql_id": "clickhouse_17_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT matchRegexp('abcabcabc', 'b+', 2); -- REGEXP_INSTR", "sql_id": "clickhouse_17_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT match('abcabcabc', 'b+', 3); -- REGEXP_INSTR", "sql_id": "clickhouse_17_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT position('a+', 'abcabcabc', 1, 2); -- REGEXP_INSTR", "sql_id": "clickhouse_17_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT matchRegexp('abcabcabc', 'a+', 3); -- REGEXP_INSTR", "sql_id": "clickhouse_17_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT position('a+', 'abcabcabc', 4); -- REGEXP_INSTR", "sql_id": "clickhouse_17_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT matchRegexp('abcabcabc', 'a+', 4, 2); -- REGEXP_INSTR", "sql_id": "clickhouse_17_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT matchRegexp('a', 'a+', 1, 1, NULL); -- REGEXP_INSTR", "sql_id": "clickhouse_17_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT matchRegexpFirstIndex('abcabcabc', 'a+', 1, 1, 0); -- REGEXP_INSTR", "sql_id": "clickhouse_17_25"}
+{"model": "gpt-3.5-turbo", "message": "SELECT matchRegexpFirstIndex('abcabcabc', 'a+', 1, 1, 1); -- REGEXP_INSTR", "sql_id": "clickhouse_17_26"}
+{"model": "gpt-3.5-turbo", "message": "SELECT matchRegexpFirstIndex('aaabcabcabc', 'a+', 1, 1, 1); -- REGEXP_INSTR", "sql_id": "clickhouse_17_27"}
+{"model": "gpt-3.5-turbo", "message": "SELECT position(c, subject) FROM t1 WHERE match(subject, pattern, 'g'); -- REGEXP_INSTR", "sql_id": "clickhouse_17_28"}
+{"model": "gpt-3.5-turbo", "message": "SELECT matchRegexpFirstIndex('aaabcabcabc', 'A+', 1, 1, 1, 'i'); -- REGEXP_INSTR", "sql_id": "clickhouse_17_29"}
+{"model": "gpt-3.5-turbo", "message": "SELECT matchRegexpFirstIndex('aaabcabcabc', 'A+', 1, 1, 1, 'i'); -- REGEXP_INSTR", "sql_id": "clickhouse_17_30"}
+{"model": "gpt-3.5-turbo", "message": "SELECT matchRegexpFirstIndex('aaabcabcabc', 'A+', 1, 1, 1, 'cic'); -- REGEXP_INSTR", "sql_id": "clickhouse_17_31"}
+{"model": "gpt-3.5-turbo", "message": "SELECT matchRegexp('a', 'a+', 1, 1, 1, NULL); -- REGEXP_INSTR", "sql_id": "clickhouse_17_32"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replaceRegexpOne('aaa', 'a', 'X'); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replaceRegexpOne('abc', 'b', 'X'); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( '', 'a', 'X' ); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replaceRegexpOne('aaa', NULL, 'X'); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replaceRegexpOne('aaa', 'a', ''); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat( replaceRegexpOne('aaa', 'a', 'X'), 'x' );", "sql_id": "clickhouse_18_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replaceRegexpOne('aaa', 'a', 'X'); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabbccbbddaa', 'b+', 'X', 1, 1 ); -- REGEXP_REPLACE\n\nSELECT replaceRegexpOne('aaabbccbbddaa', 'b+', 'X', 1, 1); -- REGEXP_REPLACE equivalent in ClickHouse", "sql_id": "clickhouse_18_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabbccbbddaa', 'b+', 'X', 1, 2 ); -- REGEXP_REPLACE\n\nSELECT replaceRegexpAll('aaabbccbbddaa', 'b+', 'X', 1, 2); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replaceRegexpOne('aaabbccbbddaa', '(b+)', '<$1>', 1, 2); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replaceRegexpOne('aaabbccbbddaa', 'x+', 'x'); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabbccbbddaa', 'b+', 'x', 1, 0 ); -- REGEXP_REPLACE\n\nSELECT replaceRegexpAll('aaabbccbbddaa', 'b+', 'x', 1, 0); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaab', 'b', 'x', 1, 2 ); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replaceRegexpOne('aaabccc', 'b', 'x', 1, 2); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replaceRegexpOne('abc', 'b', 'X'); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replaceRegexpOne('abcbdb', 'b', 'X'); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'abcbdb', 'b', 'X', 3 ); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replaceRegexpOne('aaabcbdb', 'b', 'X'); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabcbdb', 'b', 'X', 2 ); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabcbdb', 'b', 'X', 3 ); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT replaceRegexpOne('aaa', 'a', 'X', 2); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaa', 'a', 'XX', 2 ); -- REGEXP_REPLACE", "sql_id": "clickhouse_18_21"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES ( match('a', 'a'),match('a', 'a'),match('a', 'a'),match('a', 'a') ); -- REGEXP_INSTR", "sql_id": "clickhouse_19_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (c) VALUES (replaceAll('a', 'a', 'a')); -- REGEXP_REPLACE", "sql_id": "clickhouse_19_6"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES ( replicate('a', 16384) ); -- REPLICATE", "sql_id": "clickhouse_19_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT length( replaceRegexpAll( a, 'a', 'b' ) ) FROM t1;", "sql_id": "clickhouse_19_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexpReplace(a, '^([[:alpha:]]+)[[:space:]].*$', '$1') FROM t1; -- REGEXP_REPLACE", "sql_id": "clickhouse_19_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sum(length(name)) AS s1 FROM t1;", "sql_id": "clickhouse_20_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sum(length(name)) AS s1 FROM t1;", "sql_id": "clickhouse_20_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sum(length(DISTINCT name)) FROM t2;", "sql_id": "clickhouse_20_10"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t2 VALUES (1, '18:19:29', now()); -- now", "sql_id": "clickhouse_20_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT one.id, two.val, ELT(indexOf(['one', 'two'], two.val) + 1, 'one', 'two')\nFROM t1 AS one\nJOIN t2 AS two ON two.id = one.id\nORDER BY one.id;", "sql_id": "clickhouse_21_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT least(toDateTime('01-01-01'), toDateTime('01-01:02')); -- LEAST", "sql_id": "clickhouse_22_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT least(toDate('2001-12-10'), toDate('2001-12-11')); -- LEAST", "sql_id": "clickhouse_22_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT least(toDateTime('10:11:12'), toDateTime('10:11:13')); -- LEAST", "sql_id": "clickhouse_22_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUInt32(toUnixTimestamp64(now())) - toUInt32(toUnixTimestamp64(now())); -- UNIX_TIMESTAMP, UTC_TIMESTAMP, CURRENT_TIMESTAMP", "sql_id": "clickhouse_23_0"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 (i, ts) values(toUnixTimestamp('2003-03-01 00:00:00'),'2003-03-01 00:00:00');", "sql_id": "clickhouse_23_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 (i, ts) values(toUInt32(toUnixTimestamp('2003-03-30 01:59:59')),'2003-03-30 01:59:59'),(toUInt32(toUnixTimestamp('2003-03-30 02:30:00')),'2003-03-30 02:30:00'),(toUInt32(toUnixTimestamp('2003-03-30 03:00:00')),'2003-03-30 03:00:00');", "sql_id": "clickhouse_23_4"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (i, ts) VALUES(toUnixTimestamp(toDateTime('2003-03-30 01:59:59')), toDateTime('2003-03-30 01:59:59')),\n(toUnixTimestamp(toDateTime('2003-03-30 02:30:00')), toDateTime('2003-03-30 02:30:00')),\n(toUnixTimestamp(toDateTime('2003-03-30 03:00:00')), toDateTime('2003-03-30 03:00:00'));", "sql_id": "clickhouse_23_5"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (i, ts) VALUES(toUnixTimestamp('2003-05-01 00:00:00'), '2003-05-01 00:00:00');", "sql_id": "clickhouse_23_6"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 (i, ts) values(toUInt32(toUnixTimestamp('2003-10-26 01:00:00')),'2003-10-26 01:00:00'),(toUInt32(toUnixTimestamp('2003-10-26 02:00:00')),'2003-10-26 02:00:00'),(toUInt32(toUnixTimestamp('2003-10-26 02:59:59')),'2003-10-26 02:59:59'),(toUInt32(toUnixTimestamp('2003-10-26 04:00:00')),'2003-10-26 04:00:00'),(toUInt32(toUnixTimestamp('2003-10-26 02:59:59')),'2003-10-26 02:59:59');", "sql_id": "clickhouse_23_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime(362793609); -- FROM_UNIXTIME", "sql_id": "clickhouse_23_10"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (ts) VALUES (now()); -- NOW", "sql_id": "clickhouse_23_12"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES('2003-03-30 01:59:59', 'Before the gap'),('2003-03-30 02:30:00', 'Inside the gap'),('2003-03-30 03:00:00',  'After the gap') FORMAT Values; -- UNIX_TIMESTAMP", "sql_id": "clickhouse_23_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUnixTimestamp('2003-03-30 01:59:59'), 'Before the gap' AS b; -- toUnixTimestamp", "sql_id": "clickhouse_23_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUnixTimestamp('2003-03-30 02:30:00'), 'Inside the gap' AS b; -- toUnixTimestamp", "sql_id": "clickhouse_23_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUnixTimestamp('2003-03-30 03:00:00'), 'After the gap' AS b; -- toUnixTimestamp", "sql_id": "clickhouse_23_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime(0); -- FROM_UNIXTIME", "sql_id": "clickhouse_23_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUnixTimestamp('1969-12-31 15:59:59'); -- UNIX_TIMESTAMP", "sql_id": "clickhouse_23_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUnixTimestamp('1969-12-31 16:00:00'); -- UNIX_TIMESTAMP", "sql_id": "clickhouse_23_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUnixTimestamp('1969-12-31 16:00:01'); -- UNIX_TIMESTAMP", "sql_id": "clickhouse_23_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUnixTimestamp('1970-01-01 00:00:01'); -- UNIX_TIMESTAMP", "sql_id": "clickhouse_23_25"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUnixTimestamp('2022-01-01 16:00:01'); -- UNIX_TIMESTAMP", "sql_id": "clickhouse_23_26"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(cast(a as String)) from t1; -- HEX", "sql_id": "clickhouse_24_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(toString(a)) FROM t1;", "sql_id": "clickhouse_24_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(min(intDiv(toUInt32(a), 256))) FROM t1;", "sql_id": "clickhouse_24_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(min(cast(b as UInt64))) FROM t1;", "sql_id": "clickhouse_24_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(min(intDiv(toUInt64(a), 1))), hex(max(intDiv(toUInt64(a), 1))), hex(min(intDiv(toUInt64(b), 1))), hex(max(intDiv(toUInt64(b), 1))) FROM t1;", "sql_id": "clickhouse_24_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(minState(b)) FROM t1 WHERE a = 4;", "sql_id": "clickhouse_24_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(minState(c)) FROM t1 WHERE a = 4 AND b = 0;", "sql_id": "clickhouse_24_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(toString(max(b))) FROM t1;", "sql_id": "clickhouse_24_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT groupArray(toUInt8(b)) FROM t1 GROUP BY a;", "sql_id": "clickhouse_24_27"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(b), i2 FROM t1 WHERE (i2>=100 AND i2<201) AND b=1; -- HEX", "sql_id": "clickhouse_25_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(b1), i2 FROM t2 WHERE (i2>=100 AND i2<201) AND b1=1; -- HEX", "sql_id": "clickhouse_25_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(b2), i2 FROM t2 WHERE (i2>=100 AND i2<201) AND b2=0; -- HEX", "sql_id": "clickhouse_25_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT groupArray(toHex(uniqCombinedState(b))) AS result FROM t1 GROUP BY a;", "sql_id": "clickhouse_25_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(toString(b)) FROM t2;", "sql_id": "clickhouse_25_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, hex(b) FROM t1 ORDER BY b;", "sql_id": "clickhouse_25_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(a) FROM t1 ORDER BY a; -- HEX", "sql_id": "clickhouse_26_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(append(a, '\\0')) AS b FROM t1 ORDER BY append(a, '\\0');", "sql_id": "clickhouse_26_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(a) FROM t1 ORDER BY a; -- HEX", "sql_id": "clickhouse_26_6"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t (c) VALUES (repeat('3', 65535)) FORMAT Values;", "sql_id": "clickhouse_26_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT length(c), lengthUTF8(c) FROM t;", "sql_id": "clickhouse_26_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT length(c) FROM t2; -- LENGTH", "sql_id": "clickhouse_26_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT least(-1.1111111111111111111111111, -toFloat64(groupArray(1.7976931348623157E+308))) AS foo;", "sql_id": "clickhouse_27_0"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (NOW()); -- NOW", "sql_id": "clickhouse_28_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT date_format(a, '%Y %y'), toYear(a), toYear(now()) FROM t1;", "sql_id": "clickhouse_28_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime('2000-01-27 23:13:41') - toDateTime('2003-05-16 23:53:29'); -- TIMESTAMP", "sql_id": "clickhouse_28_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT length(v), length(c), length(e), length(t) FROM t1; -- LENGTH", "sql_id": "clickhouse_30_5"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 SELECT substring(f1, 1, 3) FROM t1;", "sql_id": "clickhouse_30_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, (a / 2) FROM t1 ORDER BY a;", "sql_id": "clickhouse_30_12"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (toYear(now())); -- NOW", "sql_id": "clickhouse_31_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT if(y = now(), 1, 0) FROM t1;", "sql_id": "clickhouse_31_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t4 WHERE yyyy = toYear(now()); -- NOW", "sql_id": "clickhouse_31_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT dateDiff('quarter', least(y1, y2), dbl) FROM t1;", "sql_id": "clickhouse_31_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toHour(toDateTime(greatest(y1, y2))) FROM t1;", "sql_id": "clickhouse_31_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT y, concat('\"', c, '\"') FROM t1; -- CONCAT", "sql_id": "clickhouse_32_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(b) FROM t1 ORDER BY pk1; -- HEX", "sql_id": "clickhouse_33_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(toString(b)) AS hex_b FROM t1 ORDER BY pk1;", "sql_id": "clickhouse_33_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat('*', name, '*') AS new_column FROM t1 ORDER BY new_column;", "sql_id": "clickhouse_34_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT min(name), min(concat('*', name, '*')), max(name), max(concat('*', name, '*')) FROM t1; -- CONCAT", "sql_id": "clickhouse_34_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat('-', a, '-', b, '-') FROM t1 WHERE a = 'hello'; -- CONCAT", "sql_id": "clickhouse_34_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat('-', a, '-', b, '-') FROM t1 WHERE a = 'hello'; -- CONCAT", "sql_id": "clickhouse_34_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(col1) FROM t1; -- HEX", "sql_id": "clickhouse_34_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(col1) FROM t1; -- HEX", "sql_id": "clickhouse_34_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(col1) FROM t1; -- HEX", "sql_id": "clickhouse_34_24"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (a) VALUES (hex('1F9480179366F2BF567E1C4B964C1EF029087575'));", "sql_id": "clickhouse_35_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES unhex('1F9480179366F2BF567E1C4B964C1EF029082020') FORMAT Values;", "sql_id": "clickhouse_35_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (a) VALUES (hex('1F9480179366F2BF567E1C4B964C1EF029080707'));", "sql_id": "clickhouse_35_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(a) FROM t1 ORDER BY a; -- HEX", "sql_id": "clickhouse_35_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(toString(a)) FROM t1 ORDER BY a;", "sql_id": "clickhouse_35_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(encode(a, 'hex')) from t1 WHERE a=unhex('1F9480179366F2BF567E1C4B964C1EF029082020');", "sql_id": "clickhouse_35_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(encode(a, 'hex')) from t1 WHERE a=unhex('1F9480179366F2BF567E1C4B964C1EF02908');", "sql_id": "clickhouse_35_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT if(NULL AND 1, 1, 2), if(1 AND NULL, 1, 2); -- IF", "sql_id": "clickhouse_36_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE if((a != 0) AND 1, 0, 1); -- IF", "sql_id": "clickhouse_36_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE if((1 AND a) = 0, 1, 1); -- IF", "sql_id": "clickhouse_36_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ifNull(a, 'N') AS A, ifNull(b, 'N') AS B, ifNull(not a, 'N') AS nA, ifNull(not b, 'N') AS nB, ifNull(a AND b, 'N') AS AB, ifNull(not (a AND b), 'N') AS `n(AB)`, ifNull((not a OR not b), 'N') AS nAonB, ifNull(a OR b, 'N') AS AoB, ifNull(not(a OR b), 'N') AS `n(AoB)`, ifNull(not a AND not b, 'N') AS nAnB FROM t1; -- IFNULL", "sql_id": "clickhouse_36_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT \n    if(A = 1, 'N', A) AS A, \n    if(B = 1, 'N', B) AS B, \n    if(not (A = 1), 'N', A) AS nA, \n    if(not (B = 1), 'N', B) AS nB, \n    if((A = 1) AND (B = 1), 'N', A) AS AB, \n    if(not ((A = 1) AND (B = 1)), 'N', A) AS `n(AB)`, \n    if(not (A = 1) OR not (B = 1), 'N', A) AS nAonB, \n    if((A = 1) OR (B = 1), 'N', A) AS AoB, \n    if(not ((A = 1) OR (B = 1)), 'N', A) AS `n(AoB)`, \n    if(not (A = 1) AND not (B = 1), 'N', A) AS nAnB \nFROM t1; -- IFNULL", "sql_id": "clickhouse_36_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate('2004-01-22 21:45:33'); -- CONVERT", "sql_id": "clickhouse_37_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime('2004-12-30 12:00:00') - toDateTime('2000-01-01 12:00:00'); -- TIMEDIFF", "sql_id": "clickhouse_37_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUInt32(toDateTime('1 12:00:00') - toDateTime('12:00:00')) as timediff; -- TIMEDIFF", "sql_id": "clickhouse_37_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(concat('12345','6789') AS UInt64); -- CONCAT", "sql_id": "clickhouse_37_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(concat('12345','6789') AS Int32); -- CONCAT", "sql_id": "clickhouse_37_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT length(repeat('1',9)) as unsigned; -- REPEAT", "sql_id": "clickhouse_37_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(repeat('1',9) AS Int8); -- REPEAT", "sql_id": "clickhouse_37_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT isNull(toNullable(toDate(NULL))), isNull(toNullable(toDate(NULL))); -- ISNULL, DATE", "sql_id": "clickhouse_37_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(toString('a')); -- HEX", "sql_id": "clickhouse_37_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toInt32(toUnixTimestamp(d1)) FROM t1; -- DATE", "sql_id": "clickhouse_37_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toHour(f1), toMinute(f1), toSecond(f1) FROM t1;", "sql_id": "clickhouse_37_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toHour(toDateTime('2007-07-19')), toMinute(toDateTime('2007-07-19')), toSecond(toDateTime('2007-07-19')); -- HOUR, MINUTE, SECOND", "sql_id": "clickhouse_37_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toHour(toDateTime(NULL)), toMinute(toDateTime(NULL)), toSecond(toDateTime(NULL));", "sql_id": "clickhouse_37_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toHour(NULL), toMinute(NULL), toSecond(NULL);", "sql_id": "clickhouse_37_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toString('a', 2049); -- CONVERT", "sql_id": "clickhouse_37_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat('value=', CAST('3.4e5' AS Float64)); -- CONCAT", "sql_id": "clickhouse_37_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime(3600 + 120 + CAST('1.6' AS Float32)); -- toDateTime", "sql_id": "clickhouse_37_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT strcmp(a, b) FROM t1; -- STRCMP", "sql_id": "clickhouse_38_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(JSONExtractString('{\\\"key_year\\\":1934}', 'key_year') AS UInt16); -- JSON_EXTRACT", "sql_id": "clickhouse_38_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toYear(1988) AS c1, repeat(toYear(1988), 3) AS c2; -- REPEAT", "sql_id": "clickhouse_38_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat('x', toString(1988)); -- CONCAT", "sql_id": "clickhouse_38_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUInt32(toDateTime('2030-01-01 00:00:00')) - toUInt32(toDateTime('2000-01-01 00:00:00')); -- TIME_TO_SEC", "sql_id": "clickhouse_38_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime('1988-01-01 00:01:00'); -- TIMESTAMPADD", "sql_id": "clickhouse_38_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(parseDateTimeBestEffort('nope') AS UInt16) as year; -- parseDateTimeBestEffort", "sql_id": "clickhouse_38_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 FROM t WHERE CAST(a AS UInt32) = 1 AND a = if(1, NULL, 1); -- IF", "sql_id": "clickhouse_38_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(a), strcmp(a, 'a'), strcmp(a, 'a ') FROM t1;", "sql_id": "clickhouse_40_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat(toString(b), toString(c)), concat(toString(b), toString(c)) = '0101' FROM t1; -- CONCAT", "sql_id": "clickhouse_40_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT b, c FROM t1 WHERE b = 1 AND concat(toString(b), toString(c)) = '0101';", "sql_id": "clickhouse_40_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT b,c FROM t1 WHERE b = 1 AND concat(toString(b), toString(c)) = '0101';", "sql_id": "clickhouse_40_9"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (NOW()),(NOW()),(NOW()) FORMAT Values;", "sql_id": "clickhouse_40_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple('1', '1') > tuple(a, '1') FROM t1; -- tuple", "sql_id": "clickhouse_40_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT tuple(a, '1') > tuple('1', '1') FROM t1; -- ROW", "sql_id": "clickhouse_40_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT count(DISTINCT if(f1 = 1, 3, f2)) FROM t1;", "sql_id": "clickhouse_41_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IPv6String(inetString('1')); -- IPv6String, inetString", "sql_id": "clickhouse_42_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(v) FROM t1; -- hex", "sql_id": "clickhouse_42_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat(name, ' ', toString(level)), concat(name, replicate(' ', level)) from t1;", "sql_id": "clickhouse_43_3"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t1 ENGINE = MergeTree ORDER BY a AS SELECT repeat('a', 4000) AS a;", "sql_id": "clickhouse_43_5"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE head AS SELECT concat(b1.b, b2.b) AS head FROM t1 b1 CROSS JOIN t1 b2; -- CONCAT", "sql_id": "clickhouse_43_14"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE tail AS SELECT concat(b1.b, b2.b) AS tail FROM t1 b1 CROSS JOIN t1 b2; -- CONCAT", "sql_id": "clickhouse_43_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IPv6String(inetString('1')); -- IPv6String, inetString", "sql_id": "clickhouse_43_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT arrayStringConcat(arrayMap(x -> ifNull(x, ''), [a])) FROM t1;", "sql_id": "clickhouse_44_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT arrayStringConcat(arrayFilter(x -> x != '', groupArray(a))) FROM t1;", "sql_id": "clickhouse_44_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT groupArray(if(a <> 0, a, NULL)) FROM t1; -- GROUP_CONCAT", "sql_id": "clickhouse_44_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COALESCE(a, '') FROM t1 GROUP BY a; -- COALESCE", "sql_id": "clickhouse_44_6"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT arrayStringConcat(['1', '2', '3']) AS result FROM t1;", "sql_id": "clickhouse_44_8"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT lower(a) AS a FROM t1;", "sql_id": "clickhouse_44_10"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT upper(a) AS UCASE FROM t1;", "sql_id": "clickhouse_44_12"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT replicate('1',2) AS result FROM t1; -- REPEAT", "sql_id": "clickhouse_44_14"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT tupleElement((1,111,222,333), 1) AS result FROM t1; -- tupleElement", "sql_id": "clickhouse_44_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(a) FROM t1; -- hex", "sql_id": "clickhouse_45_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(a) FROM t2; -- hex", "sql_id": "clickhouse_45_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *\nFROM t1\nWHERE a = replicate(' ', 10 - length(a)) || 'xxx';", "sql_id": "clickhouse_45_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ifnull(c1,''), ifnull('',c1) FROM t1; -- IFNULL", "sql_id": "clickhouse_45_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT if(1, c1, ''), if(0, c1, '') FROM t1; -- IF", "sql_id": "clickhouse_45_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT coalesce('', c1), coalesce('', c1) FROM t1; -- COALESCE", "sql_id": "clickhouse_45_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT least(c1, ''), greatest(c1, '') FROM t1;", "sql_id": "clickhouse_45_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT position('', c1), position(c1, '') FROM t1; -- LOCATE", "sql_id": "clickhouse_45_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT if(c1='', '', c1), if(c1='', c1, '') FROM t1;", "sql_id": "clickhouse_45_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat(c1, ''), concat('', c1) FROM t1; -- CONCAT", "sql_id": "clickhouse_45_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT elt(1, c1, ''), elt(1, '', c1) FROM t1; -- ELT", "sql_id": "clickhouse_45_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT lpad(c1, 3, 'x'), lpad('x', 3, c1) FROM t1; -- LPAD", "sql_id": "clickhouse_45_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT rpad(c1, 3, 'x'), rpad('x', 3, c1) FROM t1; -- RPAD", "sql_id": "clickhouse_45_25"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate(d) AS date FROM t1 ORDER BY date; -- DATE_FORMAT", "sql_id": "clickhouse_46_15"}
+{"model": "gpt-3.5-turbo", "message": "select formatDateTime(parseDateTimeBestEffort('2004-01-01'), '%A (%a), %e %B (%b) %Y'); -- DATE_FORMAT", "sql_id": "clickhouse_46_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT formatDateTime(parseDateTimeBestEffort('24:00:00', 'HH:mm:ss'), '%r'); -- TIME_FORMAT", "sql_id": "clickhouse_47_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT formatDateTime(parseDateTimeBestEffort('00:00:00'), '%r') as result;", "sql_id": "clickhouse_47_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT formatDateTime(parseDateTimeBestEffort('12:00:00'), '%r') as result;", "sql_id": "clickhouse_47_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT formatDateTime(parseDateTimeBestEffort('15:00:00'), '%r') as result;", "sql_id": "clickhouse_47_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT formatDateTime(parseDateTimeBestEffort('01:00:00'), '%r') as result;", "sql_id": "clickhouse_47_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT formatDateTime(parseDateTimeBestEffort('25:00:00'), '%r') as result;", "sql_id": "clickhouse_47_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT formatDateTime(parseDateTimeBestEffort('00:00:00'), '%l %p') as result;", "sql_id": "clickhouse_47_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT formatDateTime(parseDateTimeBestEffort('01:00:00'), '%l %p') as result;", "sql_id": "clickhouse_47_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT formatDateTime(parseDateTimeBestEffort('12:00:00', 'HH:mm:ss'), '%l %p') as result;", "sql_id": "clickhouse_47_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT formatDateTime(parseDateTimeBestEffort('23:00:00'), '%l %p') as result;", "sql_id": "clickhouse_47_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT formatDateTime(parseDateTimeBestEffort('24:00:00', 'HH:mm:ss'), '%l %p') as result;", "sql_id": "clickhouse_47_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT formatDateTime(parseDateTimeBestEffort('25:00:00'), '%l %p') as result;", "sql_id": "clickhouse_47_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime(1151414896); -- DATE_FORMAT", "sql_id": "clickhouse_47_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT parseDateTimeBestEffort('04/30/2004 ', '%m/%d/%Y '); -- STR_TO_DATE", "sql_id": "clickhouse_47_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate('0000-01-01') AS valid_date; -- DATE_FORMAT", "sql_id": "clickhouse_47_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate('0000-02-28') as valid_date; -- DATE_FORMAT", "sql_id": "clickhouse_47_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate('2009-01-01') as valid_date; -- DATE_FORMAT", "sql_id": "clickhouse_47_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT JSONExtractString('{\"id\": \"3\", \"$name\": \"Barney\"}', '$.id'); -- JSON_EXTRACT", "sql_id": "clickhouse_48_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT JSONExtractString('{\"id\": \"3\", \"$name\": \"$Barney\"}', '$.$name'); -- JSON_EXTRACT", "sql_id": "clickhouse_48_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat('|', text1, '|') as c FROM t1 WHERE text1 = 'teststring' OR text1 LIKE 'teststring_%' ORDER BY c;", "sql_id": "clickhouse_49_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat('|', text1, '|') FROM t1 WHERE text1 = 'teststring' OR text1 > 'teststring\\\\t'; -- CONCAT", "sql_id": "clickhouse_49_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT text1, length(text1) FROM t1 ORDER BY text1; -- LENGTH", "sql_id": "clickhouse_49_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat('|', text1, '|') AS result FROM t1 ORDER BY text1;", "sql_id": "clickhouse_49_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat('|', text1, '|') FROM t1 WHERE text1 = 'teststring' OR text1 > 'teststring\\\\t'; -- CONCAT", "sql_id": "clickhouse_49_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat('|', text1, '|') FROM t1 WHERE text1='teststring'; -- CONCAT", "sql_id": "clickhouse_49_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat('|', text1, '|') FROM t1 WHERE text1='teststring '; -- CONCAT", "sql_id": "clickhouse_49_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat('Let\\'s create some new events from the name of ', currentUser()); -- CONCAT, USER", "sql_id": "clickhouse_50_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (2, replicate('-', 104)) FORMAT Values;", "sql_id": "clickhouse_51_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (f1, f2) VALUES (1, replicate('x', 104));", "sql_id": "clickhouse_51_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat(f1, '') AS dummy FROM t1 ORDER BY dummy;", "sql_id": "clickhouse_51_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 ORDER BY toUnixTimestamp(f1); -- UNIX_TIMESTAMP", "sql_id": "clickhouse_51_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' AS f1 FROM t1 WHERE a='8' GROUP BY f1 ORDER BY concat(f1); -- CONCAT", "sql_id": "clickhouse_51_15"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (1, replicate('x', 40001)) FORMAT Values", "sql_id": "clickhouse_51_18"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (2, replicate('x', 40002)) FORMAT Values;", "sql_id": "clickhouse_51_19"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (3, replicate('x', 40003)) FORMAT Values", "sql_id": "clickhouse_51_20"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (4, replicate('x', 40005)) FORMAT Values;", "sql_id": "clickhouse_51_21"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (5, replicate('x', 40008)); -- REPEAT", "sql_id": "clickhouse_51_22"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (6, replicate('x', 40013)) FORMAT Values;", "sql_id": "clickhouse_51_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, length(b) FROM t1 ORDER BY a DESC; -- LENGTH", "sql_id": "clickhouse_51_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE length(vc) > 3; -- LENGTH", "sql_id": "clickhouse_52_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE length(vc) = 3; -- LENGTH", "sql_id": "clickhouse_52_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE length(vc) IS NULL; -- LENGTH", "sql_id": "clickhouse_52_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE length(vc) IS NOT NULL; -- LENGTH", "sql_id": "clickhouse_52_16"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t VALUES(repeat('0a', 1000));", "sql_id": "clickhouse_53_12"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t VALUES (1, replicate('2', 257)), (1, replicate('1', 257));", "sql_id": "clickhouse_53_15"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t VALUES (1, replicate('2', 255)), (1, replicate('1', 255));", "sql_id": "clickhouse_53_18"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t VALUES(1, replicate('2', 32750), replicate('1', 32750)); -- REPEAT", "sql_id": "clickhouse_53_21"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (NULL), ('A\\0\\0\\0BBBBBBBB'), repeat(' ', 50000), repeat(' ', 50000);", "sql_id": "clickhouse_54_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT length(a) FROM t1; -- LENGTH", "sql_id": "clickhouse_54_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *\nFROM t1\nWHERE concat(a, toString(c), b, toString(d)) = 'AAAA2003-03-011051';", "sql_id": "clickhouse_55_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION ALL SELECT concat('a', -4); -- CONCAT", "sql_id": "clickhouse_55_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION ALL SELECT concat('a', toString(-4.5)); -- CONCAT", "sql_id": "clickhouse_55_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a'\nUNION ALL\nSELECT concat('a', -(4 + 1)) FORMAT TSV; -- CONCAT", "sql_id": "clickhouse_55_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a'\nUNION ALL\nSELECT concat('a', 4 - 5); -- CONCAT", "sql_id": "clickhouse_55_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION ALL SELECT concat('a', -0); -- CONCAT", "sql_id": "clickhouse_55_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION ALL SELECT concat('a', -0.0); -- CONCAT", "sql_id": "clickhouse_55_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION ALL SELECT concat('a', -0.0000); -- CONCAT", "sql_id": "clickhouse_55_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat((SELECT x FROM (SELECT 'a' AS x) AS t1), (SELECT y FROM (SELECT 'b' AS y) AS t2)) FROM (SELECT 1 UNION ALL SELECT 2) AS t3; -- CONCAT", "sql_id": "clickhouse_55_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat(f1, '2') AS a FROM t1 UNION ALL SELECT 'x' AS a FROM t1;", "sql_id": "clickhouse_55_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE match((c1 || ' ' || c2), 'First.*', 'i'); -- CONCAT", "sql_id": "clickhouse_55_21"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values (toDateOrNull(addDays(NULL, 1))); -- DATE_ADD", "sql_id": "clickhouse_56_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (toDate('2000-01-04') + INTERVAL NULL DAY); -- DATE_ADD", "sql_id": "clickhouse_56_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values (toDateOrNull(addDays(NULL, 1))); -- DATE_ADD", "sql_id": "clickhouse_56_4"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (toDate('2000-01-04') + INTERVAL 1 DAY); -- DATE_ADD", "sql_id": "clickhouse_56_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate(ts) = today() + 1 AS is_tomorrow, ts\nFROM (SELECT addDays(toDateTime('00:00:00'), 1) AS ts) AS dt; -- DATE", "sql_id": "clickhouse_56_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *\nFROM t1\nWHERE mydate IS NULL;", "sql_id": "clickhouse_57_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *\nFROM t1\nWHERE a LIKE concat('abc', '%');", "sql_id": "clickhouse_58_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT log(exp(10)), exp(log(sqrt(10)) * 2), log(NULL); -- LN", "sql_id": "clickhouse_59_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT log2(8), log2(15), log2(NULL); -- LOG2", "sql_id": "clickhouse_59_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT pow(10,log(10)),pow(2,4); -- POW, POWER", "sql_id": "clickhouse_59_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ceil(0.09); -- CEIL", "sql_id": "clickhouse_59_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ceil(0.000000000000000009); -- CEIL", "sql_id": "clickhouse_59_4"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES ('http://www.foo.com/', now()) FORMAT Values;", "sql_id": "clickhouse_59_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a FROM t1 WHERE a='http://www.foo.com/' ORDER BY abs(toUInt32(ts) - 0); -- TIMEDIFF", "sql_id": "clickhouse_59_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT mod(cast(-2 as UInt64), 3), mod(18446744073709551614, 3), mod(-2, 3); -- MOD", "sql_id": "clickhouse_59_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT modulo(5, toUInt32OrZero(-2)), modulo(5, 18446744073709551614), modulo(5, -2); -- MOD", "sql_id": "clickhouse_59_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT pow(cast(-2 as UInt64), 5), pow(18446744073709551614, 5), pow(-2, 5); -- POW", "sql_id": "clickhouse_59_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DISTINCT intDiv(a, 254576881) FROM t1;", "sql_id": "clickhouse_59_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT round(greatest(15, -4939092, 0.2704)) as result; -- GREATEST, STDDEV", "sql_id": "clickhouse_60_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (1.175494351E-37 DIV 1.7976931348623157E+308); -- DIV", "sql_id": "clickhouse_60_1"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (log(1)); -- LN", "sql_id": "clickhouse_60_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT floor(ceil(123456789)) -- CEIL;", "sql_id": "clickhouse_60_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toInt64(pow(2,63)-1024) as pp; -- POW", "sql_id": "clickhouse_60_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(1 - pow(2, 63), 'Int64') AS qq; -- POW", "sql_id": "clickhouse_60_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE CAST(COALESCE(t0.c0, -1) AS UInt64); -- COALESCE", "sql_id": "clickhouse_60_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE CAST(ifNull(t0.c0, -1) AS UInt64); -- IFNULL", "sql_id": "clickhouse_60_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(COALESCE(t0.c0, -1) AS UInt64) IS TRUE FROM t0; -- COALESCE", "sql_id": "clickhouse_60_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(COALESCE(t0.c0, -1) AS UInt64) FROM t0; -- COALESCE", "sql_id": "clickhouse_60_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT md5('a'), hex(md5('a')); -- MD5, HEX", "sql_id": "clickhouse_61_0"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t1 engine=TinyLog AS SELECT MD5('a') AS c1 ;", "sql_id": "clickhouse_61_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT md5('hello'); -- MD5", "sql_id": "clickhouse_61_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT md5('hello') as md5_result;", "sql_id": "clickhouse_61_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT length(hex(md5('abrakadabra'))) as result;", "sql_id": "clickhouse_61_6"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (f1, f2) VALUES ('test', MD5('test')), ('test', MD5('test')) FORMAT Values;", "sql_id": "clickhouse_61_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *\nFROM t1\nWHERE f1 = 'test' AND (f2 = MD5('test') OR f2 = MD5('Test'));", "sql_id": "clickhouse_61_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *\nFROM t1\nWHERE f1 = 'test' AND (f2 = MD5('TEST') OR f2 = MD5('test'));", "sql_id": "clickhouse_61_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IPv4String(4294902271), IPv4String(511); -- INET_NTOA", "sql_id": "clickhouse_62_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a FROM t1 WHERE substring(toString(a), 6, 3) IN (substring('20040106123400', 6, 3));", "sql_id": "clickhouse_62_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a FROM t1 WHERE substring(a, 6, 3) = substring('20040106123400', 6, 3);", "sql_id": "clickhouse_62_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT min(a) FROM t1 GROUP BY IPv4NumToString(a);", "sql_id": "clickhouse_62_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DISTINCT least(a, (SELECT b FROM t1 LIMIT 1)) FROM t1 UNION ALL SELECT 1; -- LEAST", "sql_id": "clickhouse_62_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DISTINCT greatest(a, (SELECT b FROM t1 LIMIT 1)) FROM t1 UNION ALL SELECT 1; -- GREATEST", "sql_id": "clickhouse_62_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1+1,1-1,1+1*2,8/5,8%5,8%5,-(1+1)*-2; -- MOD", "sql_id": "clickhouse_63_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT t1.a, t2.a, t2.b, bitCount(t2.b) FROM t1 LEFT JOIN t2 ON t1.a = t2.a; -- BIT_COUNT", "sql_id": "clickhouse_63_7"}
+{"model": "gpt-3.5-turbo", "message": "select toUInt32(toDecimal(splitByChar('.', toString(toDateTime('1997-12-31 23:59:59.000002')))[2])); -- DATE_FORMAT", "sql_id": "clickhouse_64_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUInt16(toDateTime('1997-12-31 23:59:59.000001')) - toUInt16(toDateTime('1997-12-30')); -- DATEDIFF", "sql_id": "clickhouse_64_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT dateDiff('1997-11-30 23:59:59.000001', NULL); -- DATEDIFF", "sql_id": "clickhouse_64_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate('2003-01-01'); -- MAKEDATE", "sql_id": "clickhouse_64_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate('1997-01-01'); -- MAKEDATE", "sql_id": "clickhouse_64_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate('1997-01-01'); -- MAKEDATE", "sql_id": "clickhouse_64_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate('9999-12-31'); -- MAKEDATE", "sql_id": "clickhouse_64_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate('9999-12-31'); -- MAKEDATE", "sql_id": "clickhouse_64_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDate('2000-01-01'); -- MAKEDATE", "sql_id": "clickhouse_64_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT subtime(toDateTime('1997-12-31 23:59:59.000001'), interval '1 day 1 hour 1 minute 1.000002 second'); -- SUBTIME", "sql_id": "clickhouse_64_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT subtractDateTime('1997-12-31 23:59:59.999999', '1998-01-01 01:01:01.999999'); -- SUBTIME", "sql_id": "clickhouse_64_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT subtime(toDateTime('01:00:00.999999'), toDateTime('02:00:00.999998')); -- SUBTIME", "sql_id": "clickhouse_64_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT subtractDateTime('02:01:01.999999', '01:01:01.999999'); -- SUBTIME", "sql_id": "clickhouse_64_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime('1997-01-01 23:59:59.000001') - toDateTime('1995-12-31 23:59:59.000002'); -- TIMEDIFF", "sql_id": "clickhouse_64_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime('1997-12-31 23:59:59.000001') - toDateTime('1997-12-30 01:01:01.000002'); -- TIMEDIFF", "sql_id": "clickhouse_64_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime('1997-12-31 23:59:59.000001') - toDateTime('23:59:59.000001') as timediff; -- TIMEDIFF", "sql_id": "clickhouse_64_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime('2000-01-01 00:00:00') - toDateTime('2000-01-01 00:00:00.000001') as timediff; -- TIMEDIFF", "sql_id": "clickhouse_64_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime('2005-01-11 15:48:49.999999') - toDateTime('2005-01-11 15:48:50') as timediff; -- TIMEDIFF", "sql_id": "clickhouse_64_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime(36000 + 11 * 3600 + 12 * 60 + 10); -- MAKETIME", "sql_id": "clickhouse_65_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime(20,11,12); -- MAKETIME", "sql_id": "clickhouse_65_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime('2001-12-01 01:01:01.999999'); -- TIMESTAMP", "sql_id": "clickhouse_65_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime('2001-10-01 01:01:01.000001'); -- TIMESTAMP", "sql_id": "clickhouse_65_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime('2001-12-01 20:01:01'); -- TIMESTAMP", "sql_id": "clickhouse_65_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime('2001-12-01'); -- TIMESTAMP", "sql_id": "clickhouse_65_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDay('1997-12-31 23:59:59.000001'); -- DAY", "sql_id": "clickhouse_65_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime('1997-12-31 23:59:59.000001'); -- TIME", "sql_id": "clickhouse_65_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime(t1) - toDateTime(t4) AS ttt, toDateTime(t2) - toDateTime(t3) AS qqq, toDateTime(t3) - toDateTime(t2) AS eee, toDateTime(t2) - toDateTime(t4) AS rrr FROM test;", "sql_id": "clickhouse_65_12"}
+{"model": "gpt-3.5-turbo", "message": "select parseDateTimeBestEffort(\"2003-01-02 10:11:12.0012\", '%Y-%m-%d %H:%i:%S.%f') as result; -- STR_TO_DATE", "sql_id": "clickhouse_65_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime('2008-09-29 20:10:10') - toDateTime('2008-09-30 20:10:10'), toDateTime('2000-01-01 00:00:00'); -- TIMEDIFF, TIME", "sql_id": "clickhouse_65_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUInt32(timediff('2008-09-29 20:10:10','2008-09-30 20:10:10')) > toUInt32(toDateTime('0000-00-00 00:00:00')); -- TIMEDIFF, TIME", "sql_id": "clickhouse_65_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUInt32(toDateTime('2008-09-30 20:10:10')) - toUInt32(toDateTime('2008-09-29 20:10:10')) < toUInt32(toDateTime('0000-00-00 00:00:00')); -- TIMEDIFF, TIME", "sql_id": "clickhouse_65_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT secToDateTime(86399)=toDateTime('23:59:59'); -- secToDateTime, toDateTime", "sql_id": "clickhouse_66_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT secToDateTime(86399)='23:59:59'; -- SEC_TO_TIME", "sql_id": "clickhouse_66_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUInt32(toDateTime(86399)) = toDateTime('23:59:59'); -- toDateTime, toUInt32", "sql_id": "clickhouse_66_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toUInt32(toDateTime('01:00:01')) = toUInt32('01:00:01'); -- MAKETIME", "sql_id": "clickhouse_66_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT equals(maketime(1,0,1), toDateTime('01:00:01')); -- MAKETIME", "sql_id": "clickhouse_66_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT arrayElement(['1', 'b', 'c'], 2), arrayPosition(['a', 'b', 'c'], NULL); -- ELT, FIELD", "sql_id": "clickhouse_67_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ifNull(['b', 'a', NULL], 0), ifNull([1, 0, NULL], 0) + 0, ifNull([1.0, 0.0, NULL], 0.0) + 0.0, ifNull([10.0, 0.0, NULL], 0.0) + 0.0; -- FIELD", "sql_id": "clickhouse_67_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT coalesce(NULL, 'a', NULL), coalesce(NULL, 0, NULL) + 0, coalesce(NULL, 0.0, NULL) + 0.0, coalesce(NULL, 0.0e1, NULL) + 0.0e1; -- FIELD", "sql_id": "clickhouse_67_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT one.id, ELT(two.val, 'one', 'two') \nFROM t1 AS one \nJOIN t2 AS two ON two.id = one.id;", "sql_id": "clickhouse_67_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT one.id, ELT(two.val, 'one', 'two') \nFROM t1 AS one \nJOIN t2 AS two ON two.id = one.id \nORDER BY one.id;", "sql_id": "clickhouse_67_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('\"', CONCAT_WS('\";\"', title, toString(prio), toString(category), toString(program), bugdesc, toString(created), toString(modified), toString(bugstatus), toString(submitter), '\"') FROM t1;", "sql_id": "clickhouse_68_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('\"', CONCAT_WS('\";\"', title, toString(prio), toString(category), toString(program), toString(bugstatus), toString(submitter)), '\"') FROM t1;", "sql_id": "clickhouse_68_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT arrayStringConcat([title, toString(prio), toString(category), toString(program), bugdesc, toString(created), toString(modified), toString(bugstatus), toString(submitter)], '\";\"') FROM t1;", "sql_id": "clickhouse_68_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat('</a>', replicate('.',(55-length(title)))) from t1;", "sql_id": "clickhouse_68_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 0=0,1>0,1>=1,1<0,1<=0,1!=0,strcmp('abc','abcd'),strcmp('b','a'),strcmp('a','a') ; -- STRCMP", "sql_id": "clickhouse_69_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT greatest(d,d) FROM t1 WHERE k=2; -- GREATEST", "sql_id": "clickhouse_69_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT if(mod(12, 1) = 0, 1, 0) as col; -- MOD", "sql_id": "clickhouse_69_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT mod(12.0, 1) AS col; -- MOD", "sql_id": "clickhouse_69_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT mod(12, 1.0) AS col; -- MOD", "sql_id": "clickhouse_69_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT greatest(123456789, 234567890) AS g; -- greatest", "sql_id": "clickhouse_69_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT least(123456789, 234567890) as l; -- LEAST", "sql_id": "clickhouse_69_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT greatest(123456789, -1, 234567890) AS g; -- GREATEST", "sql_id": "clickhouse_69_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT least(123456789, -1, 234567890) as l; -- LEAST", "sql_id": "clickhouse_69_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT greatest(toUInt64('11'), toUInt64('5'), toUInt64('2')); -- GREATEST", "sql_id": "clickhouse_70_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT greatest(toUInt64('11'), 5, 2); -- GREATEST", "sql_id": "clickhouse_70_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT greatest(11, 5, 2); -- GREATEST", "sql_id": "clickhouse_70_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT least(['11', '5', '2']); -- LEAST", "sql_id": "clickhouse_70_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT least(toUInt64('11'), 5, 2); -- LEAST", "sql_id": "clickhouse_70_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT least(11, 5, 2); -- LEAST", "sql_id": "clickhouse_70_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT greatest(toUInt64('11'), toUInt64('5'), toUInt64('2'));", "sql_id": "clickhouse_70_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT greatest(toUInt64('11'), 5, 2) + 0; -- GREATEST", "sql_id": "clickhouse_70_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT greatest(11, 5, 2) + 0; -- GREATEST", "sql_id": "clickhouse_70_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT greatest(toUInt64('11'), toUInt64('5'), toUInt64('2')) + 0.00; -- GREATEST", "sql_id": "clickhouse_70_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT greatest(toUInt64('11'), 5, 2) + 0.00; -- GREATEST", "sql_id": "clickhouse_70_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT greatest(11, 5, 2) + 0.00; -- GREATEST", "sql_id": "clickhouse_70_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT greatest(18446744073709551615, NULL) FROM t0017; -- GREATEST", "sql_id": "clickhouse_70_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE greatest(c1, c2) = 42 AND c2 = 1; -- GREATEST", "sql_id": "clickhouse_70_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sum(greatest(a, b)) FROM t1; -- GREATEST", "sql_id": "clickhouse_70_27"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sum(greatest(a, b)) FROM t2; -- GREATEST", "sql_id": "clickhouse_70_28"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO clstr_tst (a, b, c, d) VALUES (32, 6, 'seis', replicate('xyzzy', 10000)); -- REPEAT", "sql_id": "clickhouse_1_33"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO tidrangescan SELECT number, replicate('x', 100) FROM numbers(1, 200);", "sql_id": "clickhouse_10_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sleep(0.1); -- PG_SLEEP", "sql_id": "clickhouse_11_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sleep(0.1); -- PG_SLEEP", "sql_id": "clickhouse_11_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sleep(0.1); -- PG_SLEEP", "sql_id": "clickhouse_11_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT number + 1 AS val1 FROM numbers(3);", "sql_id": "clickhouse_12_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT arrayJoin(generateSeries(1, 3)) AS val1, arrayJoin(generateSeries(3, 5)) AS val2;", "sql_id": "clickhouse_12_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM system.numbers_mt(1, 2) AS val1, system.numbers_mt(1, 4) AS val2;", "sql_id": "clickhouse_12_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO cmdata VALUES(repeat('1234567890', 1000)) FORMAT Values;", "sql_id": "clickhouse_2_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO cmdata1 VALUES(repeat('1234567890', 1004)) FORMAT Values;", "sql_id": "clickhouse_2_6"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO delete_test (id, a, b) VALUES (2, 50, replicate('x', 10000)) FORMAT Values;", "sql_id": "clickhouse_3_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT toDateTime(currentDateTime()) = now(); -- NOW", "sql_id": "clickhouse_4_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT currentDatabase() as current_schemas;", "sql_id": "clickhouse_5_0"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE simple1 ENGINE=MergeTree ORDER BY id AS SELECT number + 1 AS id FROM numbers(200);", "sql_id": "clickhouse_6_2"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE bigger_than_it_looks AS SELECT * FROM system.numbers LIMIT 200;", "sql_id": "clickhouse_6_5"}
+{"model": "gpt-3.5-turbo", "message": "insert into extremely_skewed select 42 as id, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' from numbers(1, 200); -- GENERATE_SERIES", "sql_id": "clickhouse_6_10"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE wide AS SELECT * FROM (SELECT number + 1 AS id, replicate('x', 320000) AS t FROM numbers(2));", "sql_id": "clickhouse_6_12"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE join_foo AS SELECT number AS id, 'xxxxx' AS t FROM numbers(1, 3);", "sql_id": "clickhouse_6_14"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE join_bar AS SELECT number AS id, 'xxxxx' AS t FROM numbers(1, 10000);", "sql_id": "clickhouse_6_16"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO pagg_tab \nSELECT i % 20, i % 30, toString(i % 12, 'FM0000'), i % 30 \nFROM numbers(3000) AS i;", "sql_id": "clickhouse_7_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO pagg_tab_ml \nSELECT i % 30, i % 10, toString(i % 4, 'FM0000') \nFROM numbers(30000) AS i;", "sql_id": "clickhouse_7_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, sum(b), groupArray(c), count() FROM pagg_tab_ml GROUP BY a HAVING avg(b) < 3 ORDER BY a, sum(b), groupArray(c);", "sql_id": "clickhouse_7_9"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO prt1 (a, b, c) SELECT number, number % 25, toString(number) FROM numbers(0, 599) WHERE number % 2 = 0;", "sql_id": "clickhouse_8_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO prt2 SELECT i % 25, i, toString(i, '0000') FROM numbers(0, 599) AS i WHERE i % 3 = 0;", "sql_id": "clickhouse_8_7"}

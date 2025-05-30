@@ -1,0 +1,3 @@
+[
+    "Table: `t1`\nColumns:\n(d, Date, )\n(y1, Nullable(Int16), )\n(y2, Nullable(Int16), )\n(dbl, Nullable(Float64), )\n"
+]

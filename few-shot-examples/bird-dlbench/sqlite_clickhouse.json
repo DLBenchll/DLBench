@@ -1,0 +1,45 @@
+[
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from sqlite to clickhouse , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT COUNT(CASE WHEN JULIANDAY(t1.shippeddate) - JULIANDAY(t1.requireddate) > 3 THEN T1.customerNumber ELSE NULL END) FROM orders AS T1 INNER JOIN orderdetails AS T2 ON T1.orderNumber = T2.orderNumber WHERE T1.status = 'Shipped'Output only the translated SQL. Do not add any extra commentary.\n[Schema Information]:sqlite schema: ['Table: `orders`\\nColumns:\\n(`orderNumber`, integer, primary key)\\n(`orderDate`, date)\\n(`requiredDate`, date)\\n(`shippedDate`, date)\\n(`status`, text)\\n(`comments`, text)\\n(`customerNumber`, integer)\\n', 'Table: `orderdetails`\\nColumns:\\n(`orderNumber`, integer, primary key)\\n(`productCode`, text, primary key)\\n(`quantityOrdered`, integer)\\n(`priceEach`, real)\\n(`orderLineNumber`, integer)\\n'].\n clickhouse schema: ['Table: `orders`\\nColumns:\\n(`orderNumber`, Int64, primary key)\\n(`orderDate`, Date32)\\n(`requiredDate`, Date32)\\n(`shippedDate`, Date32)\\n(`status`, String)\\n(`comments`, String)\\n(`customerNumber`, Int64)\\n', 'Table: `orderdetails`\\nColumns:\\n(`orderNumber`, Int64, primary key)\\n(`productCode`, String, primary key)\\n(`quantityOrdered`, Int64)\\n(`priceEach`, Float64)\\n(`orderLineNumber`, Int64)\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT COUNT(CASE WHEN (toUInt32(toDateTime(`t1`.`shippedDate`)) / 86400 + 2440587.5) - (toUInt32(toDateTime(`t1`.`requiredDate`)) / 86400 + 2440587.5) > 3 THEN `t1`.`customerNumber` ELSE NULL END) FROM `orders` AS `t1` INNER JOIN `orderdetails` AS `t2` ON `t1`.`orderNumber` = `t2`.`orderNumber` WHERE `t1`.`status` = 'Shipped';"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from sqlite to clickhouse , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT COUNT(DISTINCT T1.license_no) FROM inspection AS T1 INNER JOIN establishment AS T2 ON T1.license_no = T2.license_no WHERE strftime('%Y', T1.inspection_date) = '2010' AND T2.facility_type = 'Restaurant'Output only the translated SQL. Do not add any extra commentary.\n[Schema Information]:sqlite schema: ['Table: `inspection`\\nColumns:\\n(`inspection_id`, integer, primary key)\\n(`inspection_date`, date)\\n(`inspection_type`, text)\\n(`results`, text)\\n(`employee_id`, integer)\\n(`license_no`, integer)\\n(`followup_to`, integer)\\n', 'Table: `establishment`\\nColumns:\\n(`license_no`, integer, primary key)\\n(`dba_name`, text)\\n(`aka_name`, text)\\n(`facility_type`, text)\\n(`risk_level`, integer)\\n(`address`, text)\\n(`city`, text)\\n(`state`, text)\\n(`zip`, integer)\\n(`latitude`, real)\\n(`longitude`, real)\\n(`ward`, integer)\\n'].\n clickhouse schema: ['Table: `inspection`\\nColumns:\\n(`inspection_id`, Int64, primary key)\\n(`inspection_date`, Date32)\\n(`inspection_type`, String)\\n(`results`, String)\\n(`employee_id`, Int64)\\n(`license_no`, Int64)\\n(`followup_to`, Int64)\\n', 'Table: `establishment`\\nColumns:\\n(`license_no`, Int64, primary key)\\n(`dba_name`, String)\\n(`aka_name`, String)\\n(`facility_type`, String)\\n(`risk_level`, Int64)\\n(`address`, String)\\n(`city`, String)\\n(`state`, String)\\n(`zip`, Int64)\\n(`latitude`, Float64)\\n(`longitude`, Float64)\\n(`ward`, Int64)\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT COUNT(DISTINCT `T1`.`license_no`) FROM `inspection` AS `T1` INNER JOIN `establishment` AS `T2` ON `T1`.`license_no` = `T2`.`license_no` WHERE formatDateTime(`T1`.`inspection_date`, '%Y') = '2010' AND `T2`.`facility_type` = 'Restaurant';"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from sqlite to clickhouse , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT 2022 - SUBSTR(DOB, 1, 4) FROM Player WHERE Player_Name = 'Ishan Kishan'Output only the translated SQL. Do not add any extra commentary.\n[Schema Information]:sqlite schema: ['Table: `Player`\\nColumns:\\n(`Player_Id`, integer, primary key)\\n(`Player_Name`, text)\\n(`DOB`, date)\\n(`Batting_hand`, integer)\\n(`Bowling_skill`, integer)\\n(`Country_Name`, integer)\\n'].\n clickhouse schema: ['Table: `Player`\\nColumns:\\n(`Player_Id`, Int64, primary key)\\n(`Player_Name`, String)\\n(`DOB`, Date32)\\n(`Batting_hand`, Int64)\\n(`Bowling_skill`, Int64)\\n(`Country_Name`, Int64)\\n']."
+    },
+    {
+      "role": "assistant",
+      "target_query": "SELECT COUNT(DISTINCT `T1`.`license_no`) FROM `inspection` AS `T1` INNER JOIN `establishment` AS `T2` ON `T1`.`license_no` = `T2`.`license_no` WHERE formatDateTime(`T1`.`inspection_date`, '%Y') = '2010' AND `T2`.`facility_type` = 'Restaurant';"
+    }
+  ]
+]
+

@@ -1,0 +1,3 @@
+SELECT RPAD(NULL, 5, 'x') AS result; -- RPAD
+SELECT RPAD(NULL, NULL, 'x') AS result; -- RPAD
+SELECT RPAD(NULL, NULL, NULL) AS result; -- RPAD

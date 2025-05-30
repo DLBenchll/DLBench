@@ -1,0 +1,689 @@
+[
+    {
+        "sql_id": "mysql_1_33",
+        "database_name": "mysql_1_33",
+        "source_dialect": "postgresql",
+        "target_dialect": "mysql",
+        "source_query": "INSERT INTO clstr_tst (a, b, c, d) VALUES (32, 6, 'seis', repeat('xyzzy', 10000)); -- REPEAT",
+        "target_query": "INSERT INTO clstr_tst (a, b, c, d) VALUES (32, 6, 'seis', REPEAT('xyzzy', 10000));",
+        "semantic_equivalent_type": "exact_equivalence",
+        "dialect_tokens": [
+            "REPEAT"
+        ],
+        "source_dialect_knowledge": [
+            {
+                "expression": "REPEAT(str, count)",
+                "description": "Returns 'str' repeated 'count' times. Returns NULL if any argument is NULL.",
+                "examples": [
+                    "SELECT REPEAT('x', 5);",
+                    "SELECT REPEAT('ab', 3);",
+                    "SELECT REPEAT('*', 0);",
+                    "SELECT REPEAT(name, 2) FROM users;"
+                ]
+            }
+        ],
+        "target_dialect_knowledge": [
+            {
+                "expression": "REPEAT(str, count)",
+                "description": "Returns a string consisting of the string 'str' repeated 'count' times. Returns NULL if any argument is NULL.",
+                "examples": [
+                    "SELECT REPEAT('x', 5);",
+                    "SELECT REPEAT('ab', 3);",
+                    "SELECT REPEAT('*', 0);",
+                    "SELECT REPEAT(name, 2) FROM users;"
+                ]
+            }
+        ],
+        "source_related_schemas": [
+            "Table: `clstr_tst`\nColumns:\n(a, integer, PRI)\n(b, integer, )\n(c, text, )\n(d, text, )\n"
+        ],
+        "target_related_schemas": [
+            "Table: `clstr_tst`\nColumns:\n(a, int, PRI)\n(b, int, )\n(c, text, )\n(d, text, )\n"
+        ]
+    },
+    {
+        "sql_id": "mysql_10_2",
+        "database_name": "mysql_10_2",
+        "source_dialect": "postgresql",
+        "target_dialect": "mysql",
+        "source_query": "INSERT INTO tidrangescan SELECT i,repeat('x', 100) FROM generate_series(1,200) AS s(i); -- REPEAT, GENERATE_SERIES",
+        "target_query": "INSERT INTO tidrangescan SELECT n, REPEAT('x', 100) FROM (WITH RECURSIVE seq(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq WHERE n + 1 <= 200) SELECT * FROM seq) AS s;",
+        "semantic_equivalent_type": "exact_equivalence",
+        "dialect_tokens": [
+            "REPEAT",
+            "GENERATE_SERIES"
+        ],
+        "source_dialect_knowledge": [
+            {
+                "expression": "REPEAT(str, count)",
+                "description": "Returns 'str' repeated 'count' times. Returns NULL if any argument is NULL.",
+                "examples": [
+                    "SELECT REPEAT('x', 5);",
+                    "SELECT REPEAT('ab', 3);",
+                    "SELECT REPEAT('*', 0);",
+                    "SELECT REPEAT(name, 2) FROM users;"
+                ]
+            },
+            {
+                "expression": "generate_series(start, stop [, step])",
+                "description": "Generates a series of integers or timestamps between start and stop with an optional step.",
+                "examples": [
+                    "SELECT generate_series(1, 5);",
+                    "SELECT generate_series(3, 9, 2);",
+                    "SELECT generate_series(10, 6, -2);"
+                ]
+            }
+        ],
+        "target_dialect_knowledge": [
+            {
+                "expression": "REPEAT(str, count)",
+                "description": "Returns a string consisting of the string 'str' repeated 'count' times. Returns NULL if any argument is NULL.",
+                "examples": [
+                    "SELECT REPEAT('x', 5);",
+                    "SELECT REPEAT('ab', 3);",
+                    "SELECT REPEAT('*', 0);",
+                    "SELECT REPEAT(name, 2) FROM users;"
+                ]
+            },
+            {
+                "expression": "WITH RECURSIVE seq(n) AS (...) SELECT * FROM seq",
+                "description": "Implements sequence generation using recursive CTEs, functionally equivalent to generate_series.",
+                "examples": [
+                    "WITH RECURSIVE seq(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq WHERE n + 1 <= 5) SELECT * FROM seq;",
+                    "WITH RECURSIVE seq(n) AS (SELECT 3 UNION ALL SELECT n + 2 FROM seq WHERE n + 2 <= 9) SELECT * FROM seq;",
+                    "WITH RECURSIVE seq(n) AS (SELECT 10 UNION ALL SELECT n - 2 FROM seq WHERE n - 2 >= 6) SELECT * FROM seq;"
+                ]
+            }
+        ],
+        "source_related_schemas": [
+            "Table: `tidrangescan`\nColumns:\n(id, integer, )\n(data, text, )\n"
+        ],
+        "target_related_schemas": [
+            "Table: `tidrangescan`\nColumns:\n(id, int, )\n(data, text, )\n"
+        ]
+    },
+    {
+        "sql_id": "mysql_11_11",
+        "database_name": "mysql_11_11",
+        "source_dialect": "postgresql",
+        "target_dialect": "mysql",
+        "source_query": "SELECT pg_sleep(0.1); -- PG_SLEEP",
+        "target_query": "SELECT SLEEP(0.1);",
+        "semantic_equivalent_type": "exact_equivalence",
+        "dialect_tokens": [
+            "PG_SLEEP"
+        ],
+        "source_dialect_knowledge": [
+            {
+                "expression": "pg_sleep(seconds)",
+                "description": "Delays execution for the specified number of seconds.",
+                "examples": [
+                    "SELECT pg_sleep(1);",
+                    "SELECT pg_sleep(0.5);",
+                    "SELECT pg_sleep(2);"
+                ]
+            }
+        ],
+        "target_dialect_knowledge": [
+            {
+                "expression": "SLEEP(seconds)",
+                "description": "Pauses execution for the given number of seconds.",
+                "examples": [
+                    "SELECT SLEEP(1);",
+                    "SELECT SLEEP(0.5);",
+                    "SELECT SLEEP(2);"
+                ]
+            }
+        ],
+        "source_related_schemas": [
+            "Table: `timestamp_tbl`\nColumns:\n(d1, timestamp(2) without time zone, )\n"
+        ],
+        "target_related_schemas": [
+            "Table: `TIMESTAMP_TBL`\nColumns:\n(d1, timestamp(2), )\n"
+        ]
+    },
+    {
+        "sql_id": "mysql_11_14",
+        "database_name": "mysql_11_14",
+        "source_dialect": "postgresql",
+        "target_dialect": "mysql",
+        "source_query": "SELECT pg_sleep(0.1); -- PG_SLEEP",
+        "target_query": "SELECT SLEEP(0.1);",
+        "semantic_equivalent_type": "exact_equivalence",
+        "dialect_tokens": [
+            "PG_SLEEP"
+        ],
+        "source_dialect_knowledge": [
+            {
+                "expression": "pg_sleep(seconds)",
+                "description": "Delays execution for the specified number of seconds.",
+                "examples": [
+                    "SELECT pg_sleep(1);",
+                    "SELECT pg_sleep(0.5);",
+                    "SELECT pg_sleep(2);"
+                ]
+            }
+        ],
+        "target_dialect_knowledge": [
+            {
+                "expression": "SLEEP(seconds)",
+                "description": "Pauses execution for the given number of seconds.",
+                "examples": [
+                    "SELECT SLEEP(1);",
+                    "SELECT SLEEP(0.5);",
+                    "SELECT SLEEP(2);"
+                ]
+            }
+        ],
+        "source_related_schemas": [
+            "Table: `timestamp_tbl`\nColumns:\n(d1, timestamp(2) without time zone, )\n"
+        ],
+        "target_related_schemas": [
+            "Table: `TIMESTAMP_TBL`\nColumns:\n(d1, timestamp(2), )\n"
+        ]
+    },
+    {
+        "sql_id": "mysql_11_16",
+        "database_name": "mysql_11_16",
+        "source_dialect": "postgresql",
+        "target_dialect": "mysql",
+        "source_query": "SELECT pg_sleep(0.1); -- PG_SLEEP",
+        "target_query": "SELECT SLEEP(0.1);",
+        "semantic_equivalent_type": "exact_equivalence",
+        "dialect_tokens": [
+            "PG_SLEEP"
+        ],
+        "source_dialect_knowledge": [
+            {
+                "expression": "pg_sleep(seconds)",
+                "description": "Delays execution for the specified number of seconds.",
+                "examples": [
+                    "SELECT pg_sleep(1);",
+                    "SELECT pg_sleep(0.5);",
+                    "SELECT pg_sleep(2);"
+                ]
+            }
+        ],
+        "target_dialect_knowledge": [
+            {
+                "expression": "SLEEP(seconds)",
+                "description": "Pauses execution for the given number of seconds.",
+                "examples": [
+                    "SELECT SLEEP(1);",
+                    "SELECT SLEEP(0.5);",
+                    "SELECT SLEEP(2);"
+                ]
+            }
+        ],
+        "source_related_schemas": [
+            "Table: `timestamp_tbl`\nColumns:\n(d1, timestamp(2) without time zone, )\n"
+        ],
+        "target_related_schemas": [
+            "Table: `TIMESTAMP_TBL`\nColumns:\n(d1, timestamp(2), )\n"
+        ]
+    },
+    {
+        "sql_id": "mysql_12_0",
+        "database_name": "mysql_12_0",
+        "source_dialect": "postgresql",
+        "target_dialect": "mysql",
+        "source_query": "SELECT generate_series(1, 3); -- GENERATE_SERIES",
+        "target_query": "WITH RECURSIVE seq(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq WHERE n + 1 <= 3) SELECT * FROM seq;",
+        "semantic_equivalent_type": "exact_equivalence",
+        "dialect_tokens": [
+            "GENERATE_SERIES"
+        ],
+        "source_dialect_knowledge": [
+            {
+                "expression": "generate_series(start, stop [, step])",
+                "description": "Generates a series of integers or timestamps between start and stop with an optional step.",
+                "examples": [
+                    "SELECT generate_series(1, 5);",
+                    "SELECT generate_series(3, 9, 2);",
+                    "SELECT generate_series(10, 6, -2);"
+                ]
+            }
+        ],
+        "target_dialect_knowledge": [
+            {
+                "expression": "WITH RECURSIVE seq(n) AS (...) SELECT * FROM seq",
+                "description": "Implements sequence generation using recursive CTEs, functionally equivalent to generate_series.",
+                "examples": [
+                    "WITH RECURSIVE seq(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq WHERE n + 1 <= 5) SELECT * FROM seq;",
+                    "WITH RECURSIVE seq(n) AS (SELECT 3 UNION ALL SELECT n + 2 FROM seq WHERE n + 2 <= 9) SELECT * FROM seq;",
+                    "WITH RECURSIVE seq(n) AS (SELECT 10 UNION ALL SELECT n - 2 FROM seq WHERE n - 2 >= 6) SELECT * FROM seq;"
+                ]
+            }
+        ],
+        "source_related_schemas": [],
+        "target_related_schemas": []
+    },
+    {
+        "sql_id": "mysql_12_1",
+        "database_name": "mysql_12_1",
+        "source_dialect": "postgresql",
+        "target_dialect": "mysql",
+        "source_query": "SELECT generate_series(1, 3) AS val1, generate_series(3,5) AS val2; -- GENERATE_SERIES",
+        "target_query": "WITH RECURSIVE seq1(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq1 WHERE n + 1 <= 3), seq2(n) AS (SELECT 3 UNION ALL SELECT n + 1 FROM seq2 WHERE n + 1 <= 5) SELECT seq1.n AS val1, seq2.n AS val2 FROM seq1, seq2;",
+        "semantic_equivalent_type": "exact_equivalence",
+        "dialect_tokens": [
+            "GENERATE_SERIES"
+        ],
+        "source_dialect_knowledge": [
+            {
+                "expression": "generate_series(start, stop [, step])",
+                "description": "Generates a series of integers or timestamps between start and stop with an optional step.",
+                "examples": [
+                    "SELECT generate_series(1, 5);",
+                    "SELECT generate_series(3, 9, 2);",
+                    "SELECT generate_series(10, 6, -2);"
+                ]
+            }
+        ],
+        "target_dialect_knowledge": [
+            {
+                "expression": "WITH RECURSIVE seq(n) AS (...) SELECT * FROM seq",
+                "description": "Implements sequence generation using recursive CTEs, functionally equivalent to generate_series.",
+                "examples": [
+                    "WITH RECURSIVE seq(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq WHERE n + 1 <= 5) SELECT * FROM seq;",
+                    "WITH RECURSIVE seq(n) AS (SELECT 3 UNION ALL SELECT n + 2 FROM seq WHERE n + 2 <= 9) SELECT * FROM seq;",
+                    "WITH RECURSIVE seq(n) AS (SELECT 10 UNION ALL SELECT n - 2 FROM seq WHERE n - 2 >= 6) SELECT * FROM seq;"
+                ]
+            }
+        ],
+        "source_related_schemas": [],
+        "target_related_schemas": []
+    },
+    {
+        "sql_id": "mysql_12_2",
+        "database_name": "mysql_12_2",
+        "source_dialect": "postgresql",
+        "target_dialect": "mysql",
+        "source_query": "SELECT generate_series(1, 2) AS val1, generate_series(1,4) AS val2; -- GENERATE_SERIES",
+        "target_query": "WITH RECURSIVE seq1(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq1 WHERE n + 1 <= 2), seq2(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq2 WHERE n + 1 <= 4) SELECT seq1.n AS val1, seq2.n AS val2 FROM seq1, seq2;",
+        "semantic_equivalent_type": "exact_equivalence",
+        "dialect_tokens": [
+            "GENERATE_SERIES"
+        ],
+        "source_dialect_knowledge": [
+            {
+                "expression": "generate_series(start, stop [, step])",
+                "description": "Generates a series of integers or timestamps between start and stop with an optional step.",
+                "examples": [
+                    "SELECT generate_series(1, 5);",
+                    "SELECT generate_series(3, 9, 2);",
+                    "SELECT generate_series(10, 6, -2);"
+                ]
+            }
+        ],
+        "target_dialect_knowledge": [
+            {
+                "expression": "WITH RECURSIVE seq(n) AS (...) SELECT * FROM seq",
+                "description": "Implements sequence generation using recursive CTEs, functionally equivalent to generate_series.",
+                "examples": [
+                    "WITH RECURSIVE seq(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq WHERE n + 1 <= 5) SELECT * FROM seq;",
+                    "WITH RECURSIVE seq(n) AS (SELECT 3 UNION ALL SELECT n + 2 FROM seq WHERE n + 2 <= 9) SELECT * FROM seq;",
+                    "WITH RECURSIVE seq(n) AS (SELECT 10 UNION ALL SELECT n - 2 FROM seq WHERE n - 2 >= 6) SELECT * FROM seq;"
+                ]
+            }
+        ],
+        "source_related_schemas": [],
+        "target_related_schemas": []
+    },
+    {
+        "sql_id": "mysql_2_2",
+        "database_name": "mysql_2_2",
+        "source_dialect": "postgresql",
+        "target_dialect": "mysql",
+        "source_query": "INSERT INTO cmdata VALUES(repeat('1234567890', 1000)); -- REPEAT",
+        "target_query": "INSERT INTO cmdata VALUES(repeat('1234567890', 1000));",
+        "semantic_equivalent_type": "exact_equivalence",
+        "dialect_tokens": [
+            "REPEAT"
+        ],
+        "source_dialect_knowledge": [
+            {
+                "expression": "REPEAT(str, count)",
+                "description": "Returns 'str' repeated 'count' times. Returns NULL if any argument is NULL.",
+                "examples": [
+                    "SELECT REPEAT('x', 5);",
+                    "SELECT REPEAT('ab', 3);",
+                    "SELECT REPEAT('*', 0);",
+                    "SELECT REPEAT(name, 2) FROM users;"
+                ]
+            }
+        ],
+        "target_dialect_knowledge": [
+            {
+                "expression": "REPEAT(str, count)",
+                "description": "Returns a string consisting of the string 'str' repeated 'count' times. Returns NULL if any argument is NULL.",
+                "examples": [
+                    "SELECT REPEAT('x', 5);",
+                    "SELECT REPEAT('ab', 3);",
+                    "SELECT REPEAT('*', 0);",
+                    "SELECT REPEAT(name, 2) FROM users;"
+                ]
+            }
+        ],
+        "source_related_schemas": [
+            "Table: `cmdata`\nColumns:\n(f1, text, )\n"
+        ],
+        "target_related_schemas": [
+            "Table: `cmdata`\nColumns:\n(f1, text, )\n"
+        ]
+    },
+    {
+        "sql_id": "mysql_2_6",
+        "database_name": "mysql_2_6",
+        "source_dialect": "postgresql",
+        "target_dialect": "mysql",
+        "source_query": "INSERT INTO cmdata1 VALUES(repeat('1234567890', 1004)); -- REPEAT",
+        "target_query": "INSERT INTO cmdata1 VALUES(repeat('1234567890', 1004));",
+        "semantic_equivalent_type": "exact_equivalence",
+        "dialect_tokens": [
+            "REPEAT"
+        ],
+        "source_dialect_knowledge": [
+            {
+                "expression": "REPEAT(str, count)",
+                "description": "Returns 'str' repeated 'count' times. Returns NULL if any argument is NULL.",
+                "examples": [
+                    "SELECT REPEAT('x', 5);",
+                    "SELECT REPEAT('ab', 3);",
+                    "SELECT REPEAT('*', 0);",
+                    "SELECT REPEAT(name, 2) FROM users;"
+                ]
+            }
+        ],
+        "target_dialect_knowledge": [
+            {
+                "expression": "REPEAT(str, count)",
+                "description": "Returns a string consisting of the string 'str' repeated 'count' times. Returns NULL if any argument is NULL.",
+                "examples": [
+                    "SELECT REPEAT('x', 5);",
+                    "SELECT REPEAT('ab', 3);",
+                    "SELECT REPEAT('*', 0);",
+                    "SELECT REPEAT(name, 2) FROM users;"
+                ]
+            }
+        ],
+        "source_related_schemas": [
+            "Table: `cmdata1`\nColumns:\n(f1, text, )\n"
+        ],
+        "target_related_schemas": [
+            "Table: `cmdata1`\nColumns:\n(f1, text, )\n"
+        ]
+    },
+    {
+        "sql_id": "mysql_3_3",
+        "database_name": "mysql_3_3",
+        "source_dialect": "postgresql",
+        "target_dialect": "mysql",
+        "source_query": "INSERT INTO delete_test (id, a, b) VALUES (2, 50, repeat('x', 10000)); -- REPEAT",
+        "target_query": "INSERT INTO delete_test (id, a, b) VALUES (2, 50, REPEAT('x', 10000));",
+        "semantic_equivalent_type": "exact_equivalence",
+        "dialect_tokens": [
+            "REPEAT"
+        ],
+        "source_dialect_knowledge": [
+            {
+                "expression": "REPEAT(str, count)",
+                "description": "Returns 'str' repeated 'count' times. Returns NULL if any argument is NULL.",
+                "examples": [
+                    "SELECT REPEAT('x', 5);",
+                    "SELECT REPEAT('ab', 3);",
+                    "SELECT REPEAT('*', 0);",
+                    "SELECT REPEAT(name, 2) FROM users;"
+                ]
+            }
+        ],
+        "target_dialect_knowledge": [
+            {
+                "expression": "REPEAT(str, count)",
+                "description": "Returns a string consisting of the string 'str' repeated 'count' times. Returns NULL if any argument is NULL.",
+                "examples": [
+                    "SELECT REPEAT('x', 5);",
+                    "SELECT REPEAT('ab', 3);",
+                    "SELECT REPEAT('*', 0);",
+                    "SELECT REPEAT(name, 2) FROM users;"
+                ]
+            }
+        ],
+        "source_related_schemas": [
+            "Table: `delete_test`\nColumns:\n(id, integer, PRI)\n(a, integer, )\n(b, text, )\n"
+        ],
+        "target_related_schemas": [
+            "Table: `delete_test`\nColumns:\n(id, int, PRI)\n(a, int, )\n(b, text, )\n"
+        ]
+    },
+    {
+        "sql_id": "mysql_4_0",
+        "database_name": "mysql_4_0",
+        "source_dialect": "postgresql",
+        "target_dialect": "mysql",
+        "source_query": "SELECT current_timestamp = NOW(); -- NOW",
+        "target_query": "SELECT NOW() = NOW();",
+        "semantic_equivalent_type": "exact_equivalence",
+        "dialect_tokens": [
+            "NOW"
+        ],
+        "source_dialect_knowledge": [
+            {
+                "expression": "CURRENT_TIMESTAMP",
+                "description": "In PostgreSQL, CURRENT_TIMESTAMP is used to retrieve the current date and time, equivalent to NOW() in MySQL and MariaDB.",
+                "examples": [
+                    "SELECT CURRENT_TIMESTAMP;",
+                    "CREATE TABLE t12 SELECT * FROM t1 WHERE b = 67 AND (c IS NULL OR c > CURRENT_TIMESTAMP) ORDER BY 3 DESC;",
+                    "INSERT INTO t1 VALUES (CURRENT_TIMESTAMP);"
+                ]
+            }
+        ],
+        "target_dialect_knowledge": [
+            {
+                "expression": "NOW()",
+                "description": "Returns the current date and time in 'YYYY-MM-DD HH:MM:SS' format.",
+                "examples": [
+                    "SELECT NOW();",
+                    "CREATE TABLE t12 SELECT * FROM t1 WHERE b = 67 AND (c IS NULL OR c > NOW()) ORDER BY 3 DESC;",
+                    "INSERT INTO t1 VALUES (NOW());"
+                ]
+            }
+        ],
+        "source_related_schemas": [],
+        "target_related_schemas": []
+    },
+    {
+        "sql_id": "mysql_5_0",
+        "database_name": "mysql_5_0",
+        "source_dialect": "postgresql",
+        "target_dialect": "mysql",
+        "source_query": "select current_schemas(false); -- CURRENT_SCHEMAS",
+        "target_query": "SELECT DATABASE();",
+        "semantic_equivalent_type": "exact_equivalence",
+        "dialect_tokens": [
+            "CURRENT_SCHEMAS"
+        ],
+        "source_dialect_knowledge": [
+            {
+                "expression": "current_schemas(include_implicit boolean)",
+                "description": "Returns a text array of schema names in the current search path. The boolean parameter controls whether implicit schemas such as pg_catalog are included.",
+                "examples": [
+                    "SELECT current_schemas(false);",
+                    "SELECT current_schemas(true);",
+                    "SELECT unnest(current_schemas(false));"
+                ]
+            }
+        ],
+        "target_dialect_knowledge": [
+            {
+                "expression": "DATABASE()",
+                "description": "Returns the name of the current database for the connection, equivalent to the schema name in PostgreSQL.",
+                "examples": [
+                    "SELECT DATABASE();"
+                ]
+            }
+        ],
+        "source_related_schemas": [],
+        "target_related_schemas": []
+    },
+    {
+        "sql_id": "mysql_6_2",
+        "database_name": "mysql_6_2",
+        "source_dialect": "postgresql",
+        "target_dialect": "mysql",
+        "source_query": "create table simple1 as select generate_series(1, 200) AS id; -- GENERATE_SERIES",
+        "target_query": "CREATE TABLE simple1 AS WITH RECURSIVE seq(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq WHERE n + 1 <= 200) SELECT n AS id FROM seq;",
+        "semantic_equivalent_type": "exact_equivalence",
+        "dialect_tokens": [
+            "GENERATE_SERIES"
+        ],
+        "source_dialect_knowledge": [
+            {
+                "expression": "generate_series(start, stop [, step])",
+                "description": "Generates a series of integers or timestamps between start and stop with an optional step.",
+                "examples": [
+                    "SELECT generate_series(1, 5);",
+                    "SELECT generate_series(3, 9, 2);",
+                    "SELECT generate_series(10, 6, -2);"
+                ]
+            }
+        ],
+        "target_dialect_knowledge": [
+            {
+                "expression": "WITH RECURSIVE seq(n) AS (...) SELECT * FROM seq",
+                "description": "Implements sequence generation using recursive CTEs, functionally equivalent to generate_series.",
+                "examples": [
+                    "WITH RECURSIVE seq(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq WHERE n + 1 <= 5) SELECT * FROM seq;",
+                    "WITH RECURSIVE seq(n) AS (SELECT 3 UNION ALL SELECT n + 2 FROM seq WHERE n + 2 <= 9) SELECT * FROM seq;",
+                    "WITH RECURSIVE seq(n) AS (SELECT 10 UNION ALL SELECT n - 2 FROM seq WHERE n - 2 >= 6) SELECT * FROM seq;"
+                ]
+            }
+        ],
+        "source_related_schemas": [
+            "create table simple1 as select generate_series(1, 200) AS id; -- GENERATE_SERIES"
+        ],
+        "target_related_schemas": [
+            "CREATE TABLE simple1 AS WITH RECURSIVE seq(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq WHERE n + 1 <= 200) SELECT n AS id FROM seq;"
+        ]
+    },
+    {
+        "sql_id": "mysql_6_5",
+        "database_name": "mysql_6_5",
+        "source_dialect": "postgresql",
+        "target_dialect": "mysql",
+        "source_query": "create table bigger_than_it_looks as select generate_series(1, 200) as id; -- GENERATE_SERIES",
+        "target_query": "CREATE TABLE bigger_than_it_looks AS WITH RECURSIVE seq(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq WHERE n + 1 <= 200) SELECT n AS id FROM seq;",
+        "semantic_equivalent_type": "exact_equivalence",
+        "dialect_tokens": [
+            "GENERATE_SERIES"
+        ],
+        "source_dialect_knowledge": [
+            {
+                "expression": "generate_series(start, stop [, step])",
+                "description": "Generates a series of integers or timestamps between start and stop with an optional step.",
+                "examples": [
+                    "SELECT generate_series(1, 5);",
+                    "SELECT generate_series(3, 9, 2);",
+                    "SELECT generate_series(10, 6, -2);"
+                ]
+            }
+        ],
+        "target_dialect_knowledge": [
+            {
+                "expression": "WITH RECURSIVE seq(n) AS (...) SELECT * FROM seq",
+                "description": "Implements sequence generation using recursive CTEs, functionally equivalent to generate_series.",
+                "examples": [
+                    "WITH RECURSIVE seq(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq WHERE n + 1 <= 5) SELECT * FROM seq;",
+                    "WITH RECURSIVE seq(n) AS (SELECT 3 UNION ALL SELECT n + 2 FROM seq WHERE n + 2 <= 9) SELECT * FROM seq;",
+                    "WITH RECURSIVE seq(n) AS (SELECT 10 UNION ALL SELECT n - 2 FROM seq WHERE n - 2 >= 6) SELECT * FROM seq;"
+                ]
+            }
+        ],
+        "source_related_schemas": [
+            "Table: `simple1`\nColumns:\n(id, integer, )\n"
+        ],
+        "target_related_schemas": [
+            "Table: `simple1`\nColumns:\n(id, bigint, )\n"
+        ]
+    },
+    {
+        "sql_id": "mysql_6_10",
+        "database_name": "mysql_6_10",
+        "source_dialect": "postgresql",
+        "target_dialect": "mysql",
+        "source_query": "insert into extremely_skewed select 42 as id, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'from generate_series(1, 200); -- GENERATE_SERIES",
+        "target_query": "INSERT INTO extremely_skewed SELECT 42 AS id, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' FROM (WITH RECURSIVE seq(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq WHERE n + 1 <= 200) SELECT * FROM seq) AS series;",
+        "semantic_equivalent_type": "exact_equivalence",
+        "dialect_tokens": [
+            "GENERATE_SERIES"
+        ],
+        "source_dialect_knowledge": [
+            {
+                "expression": "generate_series(start, stop [, step])",
+                "description": "Generates a series of integers or timestamps between start and stop with an optional step.",
+                "examples": [
+                    "SELECT generate_series(1, 5);",
+                    "SELECT generate_series(3, 9, 2);",
+                    "SELECT generate_series(10, 6, -2);"
+                ]
+            }
+        ],
+        "target_dialect_knowledge": [
+            {
+                "expression": "WITH RECURSIVE seq(n) AS (...) SELECT * FROM seq",
+                "description": "Implements sequence generation using recursive CTEs, functionally equivalent to generate_series.",
+                "examples": [
+                    "WITH RECURSIVE seq(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq WHERE n + 1 <= 5) SELECT * FROM seq;",
+                    "WITH RECURSIVE seq(n) AS (SELECT 3 UNION ALL SELECT n + 2 FROM seq WHERE n + 2 <= 9) SELECT * FROM seq;",
+                    "WITH RECURSIVE seq(n) AS (SELECT 10 UNION ALL SELECT n - 2 FROM seq WHERE n - 2 >= 6) SELECT * FROM seq;"
+                ]
+            }
+        ],
+        "source_related_schemas": [
+            "Table: `bigger_than_it_looks`\nColumns:\n(id, integer, )\n",
+            "Table: `extremely_skewed`\nColumns:\n(id, integer, )\n(t, text, )\n",
+            "Table: `simple1`\nColumns:\n(id, integer, )\n"
+        ],
+        "target_related_schemas": [
+            "Table: `bigger_than_it_looks`\nColumns:\n(id, bigint, )\n",
+            "Table: `extremely_skewed`\nColumns:\n(id, int, )\n(t, text, )\n",
+            "Table: `simple1`\nColumns:\n(id, bigint, )\n"
+        ]
+    },
+    {
+        "sql_id": "mysql_7_9",
+        "database_name": "mysql_7_9",
+        "source_dialect": "postgresql",
+        "target_dialect": "mysql",
+        "source_query": "SELECT a, sum(b), array_agg(distinct c), count(*) FROM pagg_tab_ml GROUP BY a HAVING avg(b) < 3 ORDER BY 1, 2, 3; -- ARRAY_AGG",
+        "target_query": "SELECT a, sum(b), GROUP_CONCAT(DISTINCT c), count(*) FROM pagg_tab_ml GROUP BY a HAVING avg(b) < 3 ORDER BY 1, 2, 3;",
+        "semantic_equivalent_type": "exact_equivalence",
+        "dialect_tokens": [
+            "ARRAY_AGG"
+        ],
+        "source_dialect_knowledge": [
+            {
+                "expression": "ARRAY_AGG(expression [DISTINCT])",
+                "description": "Aggregate function that returns an array of all input values, optionally removing duplicates if DISTINCT is specified.",
+                "examples": [
+                    "SELECT ARRAY_AGG(DISTINCT x) FROM (VALUES (1), (2), (1), (3)) AS t(x);",
+                    "SELECT id, ARRAY_AGG(value) FROM my_table GROUP BY id;",
+                    "SELECT ARRAY_AGG(DISTINCT LOWER(name)) FROM users;"
+                ]
+            }
+        ],
+        "target_dialect_knowledge": [
+            {
+                "expression": "",
+                "description": "",
+                "examples": []
+            }
+        ],
+        "source_related_schemas": [
+            "Table: `pagg_tab_ml`\nColumns:\n(a, integer, )\n(b, integer, )\n(c, text, )\n"
+        ],
+        "target_related_schemas": [
+            "Table: `pagg_tab_ml`\nColumns:\n(a, int, )\n(b, int, )\n(c, text, )\n"
+        ]
+    }
+]

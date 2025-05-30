@@ -1,0 +1,1 @@
+SELECT strftime(TIMESTAMP '2000-01-01 24:00:00', '%I:%M:%S %p');

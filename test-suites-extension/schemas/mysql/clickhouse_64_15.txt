@@ -1,0 +1,15 @@
+select date_format("1997-12-31 23:59:59.000002", "%f"); -- DATE_FORMAT
+select datediff("1997-12-31 23:59:59.000001","1997-12-30"); -- DATEDIFF
+select datediff("1997-11-30 23:59:59.000001",null); --  DATEDIFF
+select makedate(03,1); -- MAKEDATE
+select makedate('0003',1); -- MAKEDATE
+select makedate(1997,1); -- MAKEDATE
+select makedate(1997,0); -- MAKEDATE
+select makedate(9999,365); -- MAKEDATE
+select makedate(9999,366); -- MAKEDATE
+select makedate(100,1); -- MAKEDATE
+select subtime("1997-12-31 23:59:59.000001", "1 1:1:1.000002"); -- SUBTIME
+select subtime("1997-12-31 23:59:59.999999", "1998-01-01 01:01:01.999999"); -- SUBTIME
+select subtime("01:00:00.999999", "02:00:00.999998"); -- SUBTIME
+select subtime("02:01:01.999999", "01:01:01.999999"); -- SUBTIME
+select timediff("1997-01-01 23:59:59.000001","1995-12-31 23:59:59.000002"); -- TIMEDIFF

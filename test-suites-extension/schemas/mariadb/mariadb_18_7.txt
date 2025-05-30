@@ -1,0 +1,7 @@
+SELECT REGEXP_REPLACE( 'aaa', 'a', 'X' );
+SELECT REGEXP_REPLACE( 'abc', 'b', 'X' );
+SELECT REGEXP_REPLACE( NULL, 'a', 'X' );
+SELECT REGEXP_REPLACE( 'aaa', NULL, 'X' );
+SELECT REGEXP_REPLACE( 'aaa', 'a', NULL );
+SELECT CONCAT( REGEXP_REPLACE( 'aaa', 'a', 'X' ), 'x' );
+SELECT REGEXP_REPLACE( 'aaa', 'a', 'X' );

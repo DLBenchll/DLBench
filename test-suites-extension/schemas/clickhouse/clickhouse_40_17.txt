@@ -1,0 +1,17 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (a FixedString(10) NOT NULL) ENGINE = MergeTree ORDER BY a;
+INSERT INTO t1 VALUES ('a'),('a\\0'),('a\\t'),('a ');
+SELECT HEX(a), CASE WHEN a = 'a' THEN 0 WHEN a < 'a' THEN -1 ELSE 1 END, CASE WHEN a = 'a ' THEN 0 WHEN a < 'a ' THEN -1 ELSE 1 END FROM t1;
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (b Int32, c Int32) ENGINE = MergeTree ORDER BY tuple(b, c);
+INSERT INTO t1 (b,c) VALUES (1,2), (1,1), (2,2);
+SELECT concat(toString(b), toString(c)), concat(toString(b), toString(c)) = '0101' FROM t1;
+EXPLAIN SELECT b, c FROM t1 WHERE b = 1 AND concat(toString(b), toString(c)) = '0101';
+SELECT b, c FROM t1 WHERE b = 1 AND concat(toString(b), toString(c)) = '0101';
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (a DateTime) ENGINE = MergeTree ORDER BY a;
+INSERT INTO t1 VALUES (now()),(now()),(now());
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1(a FixedString(10)) ENGINE = MergeTree ORDER BY a;
+INSERT INTO t1 VALUES('a'),('b'),('c');
+SELECT tuple('1', '1') > tuple(a, '1') FROM t1;

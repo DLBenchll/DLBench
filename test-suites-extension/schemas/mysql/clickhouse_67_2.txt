@@ -1,0 +1,2 @@
+select elt(2,1),field(NULL,"a","b","c"); -- ELT, FIELD
+select field("b","a",NULL),field(1,0,NULL)+0,field(1.0,0.0,NULL)+0.0,field(1.0e1,0.0e1,NULL)+0.0e1; -- FIELD

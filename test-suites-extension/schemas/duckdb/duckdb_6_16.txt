@@ -1,0 +1,16 @@
+BEGIN;
+DROP TABLE IF EXISTS simple1;
+create table simple1 as select generate_series(1, 200) AS id;
+analyze simple1;
+DROP TABLE IF EXISTS bigger_than_it_looks;
+create table bigger_than_it_looks as select generate_series(1, 200) as id;
+analyze bigger_than_it_looks;
+DROP TABLE IF EXISTS extremely_skewed;
+create table extremely_skewed (id int, t text);
+analyze extremely_skewed;
+insert into extremely_skewed select 42 as id, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' from generate_series(1, 200);
+DROP TABLE IF EXISTS wide;
+create table wide as select generate_series(1, 2) as id, rpad('', 320000, 'x') as t;
+DROP TABLE IF EXISTS join_foo;
+create table join_foo as select generate_series(1, 3) as id, 'xxxxx'::text as t;
+DROP TABLE IF EXISTS join_bar;

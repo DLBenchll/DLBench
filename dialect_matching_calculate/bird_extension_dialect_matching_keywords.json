@@ -1,0 +1,851 @@
+{
+    "RANK": {
+        "sqlite": {
+            "expression": "rank()",
+            "matching_keyword": [
+                "rank(",
+                "RANK("
+            ]
+        },
+        "mysql": {
+            "expression": "RANK()",
+            "matching_keyword": [
+                "rank(",
+                "RANK("
+            ]
+        },
+        "mariadb": {
+            "expression": "RANK() OVER (ORDER BY <column> [ASC|DESC])",
+            "matching_keyword": [
+                "rank(",
+                "RANK("
+            ]
+        },
+        "postgresql": {
+            "expression": "RANK()",
+            "matching_keyword": [
+                "rank(",
+                "RANK("
+            ]
+        },
+        "clickhouse": {
+            "expression": "RANK() OVER (PARTITION BY column ORDER BY column)",
+            "matching_keyword": [
+                "rank(",
+                "RANK("
+            ]
+        },
+        "monetdb": {
+            "expression": "rank(value any)",
+            "matching_keyword": [
+                "rank(",
+                "RANK("
+            ]
+        },
+        "duckdb": {
+            "expression": "rank()",
+            "matching_keyword": [
+                "rank(",
+                "RANK("
+            ]
+        }
+    },
+    "STRFTIME": {
+        "sqlite": {
+            "expression": "strftime(format, time-value, modifier, modifier, ...)",
+            "matching_keyword": [
+                "strftime(",
+                "STRFTIME("
+            ]
+        },
+        "mysql": {
+            "expression": "DATE_FORMAT(FROM_UNIXTIME(unix_timestamp), format)",
+            "matching_keyword": [
+                "date_format(",
+                "DATE_FORMAT("
+            ]
+        },
+        "mariadb": {
+            "expression": "DATE_FORMAT(time-value, format)",
+            "matching_keyword": [
+                "date_format(",
+                "DATE_FORMAT("
+            ]
+        },
+        "postgresql": {
+            "expression": "TO_CHAR(time-value, format)",
+            "matching_keyword": [
+                "to_char(",
+                "TO_CHAR("
+            ]
+        },
+        "clickhouse": {
+            "expression": "formatDateTime(time_value, format)",
+            "matching_keyword": [
+                "formatDateTime("
+            ]
+        },
+        "monetdb": {
+            "expression": "sys.timestamp_to_str(timestamp, format)",
+            "matching_keyword": [
+                "sys.timestamp_to_str("
+            ]
+        },
+        "duckdb": {
+            "expression": "strftime(time-value, format)",
+            "matching_keyword": [
+                "strftime(",
+                "STRFTIME("
+            ]
+        }
+    },
+    "IIF": {
+        "sqlite": {
+            "expression": "iif(X,Y,Z)",
+            "matching_keyword": [
+                "iif(",
+                "IIF("
+            ]
+        },
+        "mysql": {
+            "expression": "IF(expr1,expr2,expr3)",
+            "matching_keyword": [
+                "if(",
+                "IF("
+            ]
+        },
+        "mariadb": {
+            "expression": "IF(expr1,expr2,expr3)",
+            "matching_keyword": [
+                "if(",
+                "IF("
+            ]
+        },
+        "postgresql": {
+            "expression": "case when X then Y else Z end",
+            "matching_keyword": [
+                "case when",
+                "CASE WHEN"
+            ]
+        },
+        "clickhouse": {
+            "expression": "if(cond, then, else)",
+            "matching_keyword": [
+                "if(",
+                "IF("
+            ]
+        },
+        "monetdb": {
+            "expression": "CASE WHEN X THEN Y ELSE Z END",
+            "matching_keyword": [
+                "case when",
+                "CASE WHEN"
+            ]
+        },
+        "duckdb": {
+            "expression": "case when X then Y else Z end",
+            "matching_keyword": [
+                "case when",
+                "CASE WHEN"
+            ]
+        }
+    },
+    "SUBSTR": {
+        "sqlite": {
+            "expression": "substr(X,Y,Z)substr(X,Y)substring(X,Y,Z)substring(X,Y)",
+            "matching_keyword": [
+                "substr(",
+                "SUBSTR(",
+                "substring(",
+                "SUBSTRING("
+            ]
+        },
+        "mysql": {
+            "expression": "substr(X,Y,Z)substr(X,Y)substring(X,Y,Z)substring(X,Y)",
+            "matching_keyword": [
+                "substr(",
+                "SUBSTR(",
+                "substring(",
+                "SUBSTRING("
+            ]
+        },
+        "mariadb": {
+            "expression": "substr(X,Y,Z)substr(X,Y)substring(X,Y,Z)substring(X,Y)",
+            "matching_keyword": [
+                "substr(",
+                "SUBSTR(",
+                "substring(",
+                "SUBSTRING("
+            ]
+        },
+        "postgresql": {
+            "expression": "substr(X,Y,Z)substr(X,Y)substring(X,Y,Z)substring(X,Y)",
+            "matching_keyword": [
+                "substr(",
+                "SUBSTR(",
+                "substring(",
+                "SUBSTRING("
+            ]
+        },
+        "clickhouse": {
+            "expression": "substring(str, start, length) | substring(str, start)",
+            "matching_keyword": [
+                "substring(",
+                "SUBSTRING("
+            ]
+        },
+        "monetdb": {
+            "expression": "substring(X from Y for Z)",
+            "matching_keyword": [
+                "substring(",
+                "SUBSTRING("
+            ]
+        },
+        "duckdb": {
+            "expression": "substring(X,Y,Z)substring(X,Y)substring(X,Y,Z)substring(X,Y)",
+            "matching_keyword": [
+                "substring(",
+                "SUBSTRING("
+            ]
+        }
+    },
+    "LENGTH": {
+        "sqlite": {
+            "expression": "length(X)",
+            "matching_keyword": [
+                "length(",
+                "LENGTH("
+            ]
+        },
+        "mysql": {
+            "expression": "LENGTH(str)",
+            "matching_keyword": [
+                "length(",
+                "LENGTH("
+            ]
+        },
+        "mariadb": {
+            "expression": "LENGTH(str)",
+            "matching_keyword": [
+                "length(",
+                "LENGTH("
+            ]
+        },
+        "postgresql": {
+            "expression": "length(X)",
+            "matching_keyword": [
+                "length(",
+                "LENGTH("
+            ]
+        },
+        "clickhouse": {
+            "expression": "length(str)",
+            "matching_keyword": [
+                "length(",
+                "LENGTH("
+            ]
+        },
+        "monetdb": {
+            "expression": "length(X)",
+            "matching_keyword": [
+                "length(",
+                "LENGTH("
+            ]
+        },
+        "duckdb": {
+            "expression": "length(X)",
+            "matching_keyword": [
+                "length(",
+                "LENGTH("
+            ]
+        }
+    },
+    "DATE": {
+        "sqlite": {
+            "expression": "date(time-value, modifier, modifier, ...)",
+            "matching_keyword": [
+                "date(",
+                "DATE("
+            ]
+        },
+        "mysql": {
+            "expression": "DATE(time-value)",
+            "matching_keyword": [
+                "date(",
+                "DATE("
+            ]
+        },
+        "mariadb": {
+            "expression": "DATE(time-value)",
+            "matching_keyword": [
+                "date(",
+                "DATE("
+            ]
+        },
+        "postgresql": {
+            "expression": "date(expr) or date(expr + INTERVAL modifier)",
+            "matching_keyword": [
+                "date(",
+                "DATE("
+            ]
+        },
+        "clickhouse": {
+            "expression": "toDate(time_value)",
+            "matching_keyword": [
+                "toDate("
+            ]
+        },
+        "monetdb": {
+            "expression": "sys.timestamp_to_str(date-value, '%Y-%m-%d')",
+            "matching_keyword": [
+                "sys.timestamp_to_str("
+            ]
+        },
+        "duckdb": {
+            "expression": "CAST(time-value AS DATE)",
+            "matching_keyword": [
+                "cast(",
+                "CAST("
+            ]
+        }
+    },
+    "INSTR": {
+        "sqlite": {
+            "expression": "instr(X,Y)",
+            "matching_keyword": [
+                "instr(",
+                "INSTR("
+            ]
+        },
+        "mysql": {
+            "expression": "INSTR(str,substr)",
+            "matching_keyword": [
+                "instr(",
+                "INSTR("
+            ]
+        },
+        "mariadb": {
+            "expression": "INSTR(str,substr)",
+            "matching_keyword": [
+                "instr(",
+                "INSTR("
+            ]
+        },
+        "postgresql": {
+            "expression": "position ( substring bytea IN bytes bytea ) → integer",
+            "matching_keyword": [
+                "position (",
+                "POSITION (",
+                "position(",
+                "POSITION("
+            ]
+        },
+        "clickhouse": {
+            "expression": "positionCaseInsensitive",
+            "matching_keyword": [
+                "positionCaseInsensitive",
+                "positionCaseInsensitive("
+            ]
+        },
+        "monetdb": {
+            "expression": "POSITION(Y IN X)",
+            "matching_keyword": [
+                "position(",
+                "POSITION("
+            ]
+        },
+        "duckdb": {
+            "expression": "position(search_string IN string)",
+            "matching_keyword": [
+                "position(",
+                "POSITION("
+            ]
+        }
+    },
+    "JULIANDAY": {
+        "sqlite": {
+            "expression": "julianday(time-value, modifier, modifier, ...)",
+            "matching_keyword": [
+                "julianday(",
+                "JULIANDAY("
+            ]
+        },
+        "mysql": {
+            "expression": "UNIX_TIMESTAMP(datetime_expr) / 86400 + 2440587.5",
+            "matching_keyword": [
+                "unix_timestamp(",
+                "UNIX_TIMESTAMP(",
+                ") / 86400 + 2440587.5"
+            ]
+        },
+        "mariadb": {
+            "expression": "UNIX_TIMESTAMP(datetime_expr) / 86400 + 2440587.5",
+            "matching_keyword": [
+                "unix_timestamp(",
+                "UNIX_TIMESTAMP(",
+                ") / 86400 + 2440587.5"
+            ]
+        },
+        "postgresql": {
+            "expression": "EXTRACT(EPOCH FROM datetime_expr) / 86400 + 2440587.5",
+            "matching_keyword": [
+                "extract(epoch from",
+                "EXTRACT(EPOCH FROM",
+                ") / 86400 + 2440587.5"
+            ]
+        },
+        "clickhouse": {
+            "expression": "toUInt32(toDateTime(time_value)) / 86400 + 2440587.5",
+            "matching_keyword": [
+                "toUInt32(toDateTime(",
+                ")) / 86400 + 2440587.5"
+            ]
+        },
+        "monetdb": {
+            "expression": "2440587.5 + EXTRACT(EPOCH FROM time-value) / 86400",
+            "matching_keyword": [
+                "2440587.5 + extract(epoch from",
+                "2440587.5 + EXTRACT(EPOCH FROM",
+                ") / 86400"
+            ]
+        },
+        "duckdb": {
+            "expression": "epoch(datetime_expr) / 86400 + 2440587.5",
+            "matching_keyword": [
+                "epoch(",
+                "EPOCH(",
+                ") / 86400 + 2440587.5"
+            ]
+        }
+    },
+    "DATETIME": {
+        "sqlite": {
+            "expression": "datetime(time-value, modifier, modifier, ...)",
+            "matching_keyword": [
+                "datetime(",
+                "DATETIME("
+            ]
+        },
+        "mysql": {
+            "expression": "DATE_FORMAT(DATE_ADD(datetime_expr, INTERVAL n unit), '%Y-%m-%d %H:%i:%s')",
+            "matching_keyword": [
+                "date_format(date_add(",
+                "DATE_FORMAT(DATE_ADD("
+            ]
+        },
+        "mariadb": {
+            "expression": "DATE_FORMAT(DATE_ADD(datetime_expr, INTERVAL n unit), '%Y-%m-%d %H:%i:%s')",
+            "matching_keyword": [
+                "date_format(date_add(",
+                "DATE_FORMAT(DATE_ADD("
+            ]
+        },
+        "postgresql": {
+            "expression": "TO_CHAR(datetime_expr, 'YYYY-MM-DD HH24:MI:SS')",
+            "matching_keyword": [
+                "to_char(",
+                "TO_CHAR(",
+                "'YYYY-MM-DD HH24:MI:SS')"
+            ]
+        },
+        "clickhouse": {
+            "expression": "formatDateTime(time_value, format)",
+            "matching_keyword": [
+                "formatDateTime("
+            ]
+        },
+        "monetdb": {
+            "expression": "sys.timestamp_to_str(timestamp-value, format)",
+            "matching_keyword": [
+                "sys.timestamp_to_str("
+            ]
+        },
+        "duckdb": {
+            "expression": "strftime(format, time-value, modifier, modifier, ...)",
+            "matching_keyword": [
+                "strftime(",
+                "STRFTIME("
+            ]
+        }
+    },
+    "DENSE_RANK": {
+        "sqlite": {
+            "expression": "dense_rank()",
+            "matching_keyword": [
+                "dense_rank(",
+                "DENSE_RANK("
+            ]
+        },
+        "mysql": {
+            "expression": "DENSE_RANK()",
+            "matching_keyword": [
+                "dense_rank(",
+                "DENSE_RANK("
+            ]
+        },
+        "mariadb": {
+            "expression": "DENSE_RANK() OVER (  [ PARTITION BY partition_expression ]  [ ORDER BY order_list ])",
+            "matching_keyword": [
+                "dense_rank(",
+                "DENSE_RANK("
+            ]
+        },
+        "postgresql": {
+            "expression": "DENSE_RANK()",
+            "matching_keyword": [
+                "dense_rank(",
+                "DENSE_RANK("
+            ]
+        },
+        "clickhouse": {
+            "expression": "dense_rank() OVER (PARTITION BY column ORDER BY column)",
+            "matching_keyword": [
+                "dense_rank(",
+                "DENSE_RANK("
+            ]
+        },
+        "monetdb": {
+            "expression": "dense_rank(value any)",
+            "matching_keyword": [
+                "dense_rank(",
+                "DENSE_RANK("
+            ]
+        },
+        "duckdb": {
+            "expression": "rank_dense()",
+            "matching_keyword": [
+                "rank_dense(",
+                "RANK_DENSE("
+            ]
+        }
+    },
+    "ROW_NUMBER": {
+        "sqlite": {
+            "expression": "row_number()",
+            "matching_keyword": [
+                "row_number(",
+                "ROW_NUMBER("
+            ]
+        },
+        "mysql": {
+            "expression": "ROW_COUNT()",
+            "matching_keyword": [
+                "row_count(",
+                "ROW_COUNT("
+            ]
+        },
+        "mariadb": {
+            "expression": "ROW_NUMBER() OVER (  [ PARTITION BY partition_expression ]  [ ORDER BY order_list ])",
+            "matching_keyword": [
+                "row_number(",
+                "ROW_NUMBER("
+            ]
+        },
+        "postgresql": {
+            "expression": "ROW_NUMBER()",
+            "matching_keyword": [
+                "row_number(",
+                "ROW_NUMBER("
+            ]
+        },
+        "clickhouse": {
+            "expression": "rowNumberInAllBlocks()",
+            "matching_keyword": [
+                "rowNumberInAllBlocks("
+            ]
+        },
+        "monetdb": {
+            "expression": "ROW_NUMBER() OVER (ORDER BY ...)",
+            "matching_keyword": [
+                "row_number(",
+                "ROW_NUMBER("
+            ]
+        },
+        "duckdb": {
+            "expression": "row_number()",
+            "matching_keyword": [
+                "row_number(",
+                "ROW_NUMBER("
+            ]
+        }
+    },
+    "TRIM": {
+        "sqlite": {
+            "expression": "trim(X)trim(X,Y)",
+            "matching_keyword": [
+                "trim(",
+                "TRIM("
+            ]
+        },
+        "mysql": {
+            "expression": "trim(X)trim(X,Y)",
+            "matching_keyword": [
+                "trim(",
+                "TRIM("
+            ]
+        },
+        "mariadb": {
+            "expression": "trim(X)trim(X,Y)",
+            "matching_keyword": [
+                "trim(",
+                "TRIM("
+            ]
+        },
+        "postgresql": {
+            "expression": "TRIM([BOTH | LEADING | TRAILING] [remstr] FROM str)",
+            "matching_keyword": [
+                "trim(",
+                "TRIM("
+            ]
+        },
+        "clickhouse": {
+            "expression": "TRIM([BOTH | LEADING | TRAILING] characters FROM X)",
+            "matching_keyword": [
+                "trim(",
+                "TRIM("
+            ]
+        },
+        "monetdb": {
+            "expression": "trim(X) trim(X, Y)",
+            "matching_keyword": [
+                "trim(",
+                "TRIM("
+            ]
+        },
+        "duckdb": {
+            "expression": "trim(X)",
+            "matching_keyword": [
+                "trim(",
+                "TRIM("
+            ]
+        }
+    },
+    "GROUP_CONCAT": {
+        "sqlite": {
+            "expression": "group_concat(X)group_concat(X,Y)string_agg(X,Y)",
+            "matching_keyword": [
+                "group_concat(",
+                "GROUP_CONCAT(",
+                "string_agg(",
+                "STRING_AGG("
+            ]
+        },
+        "mysql": {
+            "expression": "group_concat(X)group_concat(X,Y)string_agg(X,Y)",
+            "matching_keyword": [
+                "group_concat(",
+                "GROUP_CONCAT(",
+                "string_agg(",
+                "STRING_AGG("
+            ]
+        },
+        "mariadb": {
+            "expression": "group_concat(X)group_concat(X,Y)string_agg(X,Y)",
+            "matching_keyword": [
+                "group_concat(",
+                "GROUP_CONCAT(",
+                "string_agg(",
+                "STRING_AGG("
+            ]
+        },
+        "postgresql": {
+            "expression": "STRING_AGG(expression, delimiter)",
+            "matching_keyword": [
+                "string_agg(",
+                "STRING_AGG("
+            ]
+        },
+        "clickhouse": {
+            "expression": "groupArray(X)arrayStringConcat(groupArray(X), Y)",
+            "matching_keyword": [
+                "groupArray(",
+                "groupArray(X)arrayStringConcat("
+            ]
+        },
+        "monetdb": {
+            "expression": "group_concat(X) group_concat(X,Y)",
+            "matching_keyword": [
+                "group_concat(",
+                "GROUP_CONCAT("
+            ]
+        },
+        "duckdb": {
+            "expression": "group_concat(X)group_concat(X,Y)string_agg(X,Y)",
+            "matching_keyword": [
+                "group_concat(",
+                "GROUP_CONCAT(",
+                "string_agg(",
+                "STRING_AGG("
+            ]
+        }
+    },
+    "TIME": {
+        "sqlite": {
+            "expression": "time(time-value, modifier, modifier, ...)",
+            "matching_keyword": [
+                "time(",
+                "TIME("
+            ]
+        },
+        "mysql": {
+            "expression": "TIME(time-value) | TIME_FORMAT(time-value, format)",
+            "matching_keyword": [
+                "time(",
+                "TIME(",
+                "time_format(",
+                "TIME_FORMAT("
+            ]
+        },
+        "mariadb": {
+            "expression": "TIME(time-value) | TIME_FORMAT(DATE_ADD(time-value, INTERVAL n unit), '%H:%i:%s')",
+            "matching_keyword": [
+                "time(",
+                "TIME(",
+                "time_format(date_add(",
+                "TIME_FORMAT(DATE_ADD("
+            ]
+        },
+        "postgresql": {
+            "expression": "TO_CHAR(time_expr, 'HH24:MI:SS')",
+            "matching_keyword": [
+                "to_char(",
+                "TO_CHAR("
+            ]
+        },
+        "clickhouse": {
+            "expression": "formatDateTime(datetime_expr, format)",
+            "matching_keyword": [
+                "formatDateTime("
+            ]
+        },
+        "monetdb": {
+            "expression": "sys.time_to_str(time-value, format)",
+            "matching_keyword": [
+                "sys.time_to_str("
+            ]
+        },
+        "duckdb": {
+            "expression": "strftime(format, datetime_expr)",
+            "matching_keyword": [
+                "strftime(",
+                "STRFTIME("
+            ]
+        }
+    },
+    "OVER": {
+        "sqlite": {
+            "expression": "OVER ( [PARTITION BY column_list] [ORDER BY column_list] )",
+            "matching_keyword": [
+                "over (",
+                "OVER (",
+                "over(",
+                "OVER("
+            ]
+        },
+        "mysql": {
+            "expression": "OVER ( [PARTITION BY partition_expression] [ORDER BY order_expression] [ROWS or RANGE specification] )",
+            "matching_keyword": [
+                "over (",
+                "OVER (",
+                "over(",
+                "OVER("
+            ]
+        },
+        "mariadb": {
+            "expression": "OVER (  [ PARTITION BY partition_expression ]  [ ORDER BY order_list ])",
+            "matching_keyword": [
+                "over (",
+                "OVER (",
+                "over(",
+                "OVER("
+            ]
+        },
+        "postgresql": {
+            "expression": "OVER ( [PARTITION BY partition_expression] [ORDER BY order_expression] [ROWS or RANGE specification] )",
+            "matching_keyword": [
+                "over (",
+                "OVER (",
+                "over(",
+                "OVER("
+            ]
+        },
+        "clickhouse": {
+            "expression": "OVER ([PARTITION BY column_list] [ORDER BY column_list] [ROWS BETWEEN ...])",
+            "matching_keyword": [
+                "over (",
+                "OVER (",
+                "over(",
+                "OVER("
+            ]
+        },
+        "monetdb": {
+            "expression": "OVER ( [PARTITION BY column_list] [ORDER BY column_list] )",
+            "matching_keyword": [
+                "over (",
+                "OVER (",
+                "over(",
+                "OVER("
+            ]
+        },
+        "duckdb": {
+            "expression": "OVER ( [PARTITION BY partition_expression] [ORDER BY order_expression] [ROWS or RANGE specification] )",
+            "matching_keyword": [
+                "over (",
+                "OVER (",
+                "over(",
+                "OVER("
+            ]
+        }
+    },
+    "TOTAL": {
+        "sqlite": {
+            "expression": "TOTAL(expression)",
+            "matching_keyword": [
+                "total(",
+                "TOTAL("
+            ]
+        },
+        "mysql": {
+            "expression": "SUM(expression)",
+            "matching_keyword": [
+                "sum(",
+                "SUM("
+            ]
+        },
+        "mariadb": {
+            "expression": "SUM(X)",
+            "matching_keyword": [
+                "sum(",
+                "SUM("
+            ]
+        },
+        "postgresql": {
+            "expression": "SUM(expression)",
+            "matching_keyword": [
+                "sum(",
+                "SUM("
+            ]
+        },
+        "clickhouse": {
+            "expression": "sum(expression)",
+            "matching_keyword": [
+                "sum(",
+                "SUM("
+            ]
+        },
+        "monetdb": {
+            "expression": "SUM(expression)",
+            "matching_keyword": [
+                "sum(",
+                "SUM("
+            ]
+        },
+        "duckdb": {
+            "expression": "SUM(expression)",
+            "matching_keyword": [
+                "sum(",
+                "SUM("
+            ]
+        }
+    }
+}

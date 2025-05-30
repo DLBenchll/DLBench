@@ -1,0 +1,9 @@
+select 0=0,1>0,1>=1,1<0,1<=0,1!=0,strcmp("abc","abcd"),strcmp("b","a"),strcmp("a","a") ;
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (d varchar(6), k int);
+INSERT INTO t1 VALUES ("abc", 2);
+SELECT GREATEST(d,d) FROM t1 WHERE k=2;
+DROP TABLE t1;
+SELECT (12 MOD 1) <=> NULL AS 'col'; -- Expected output for col: 1 (True)
+SELECT (12 MOD 1) IS NULL AS 'col';   -- Expected output for col: 1 (True)
+SELECT MOD(12.0, 1) AS 'col';       -- Expected output for col: NULL

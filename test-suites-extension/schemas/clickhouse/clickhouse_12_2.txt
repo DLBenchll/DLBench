@@ -1,0 +1,2 @@
+SELECT number + 1 AS n FROM numbers(3);
+SELECT a.number + 1 AS val1, b.number + 3 AS val2 FROM numbers(3) AS a, numbers(3) AS b;

@@ -1,0 +1,45 @@
+[
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from sqlite to duckdb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT IIF(SUM(IIF(T1.gender = 'M', 1, 0)) - SUM(IIF(T1.gender = 'F', 1, 0)) > 0, 'M', 'F') AS gender FROM gender_age AS T1 INNER JOIN phone_brand_device_model2 AS T2 ON T1.device_id = T2.device_id WHERE T2.device_model = 'Galaxy Note 2'Output only the translated SQL. Do not add any extra commentary.\n[Schema Information]:sqlite schema: ['Table: `gender_age`\\nColumns:\\n(`device_id`, integer, primary key)\\n(`gender`, text)\\n(`age`, integer)\\n(`group`, text)\\n', 'Table: `phone_brand_device_model2`\\nColumns:\\n(`device_id`, integer, primary key)\\n(`phone_brand`, text, primary key)\\n(`device_model`, text, primary key)\\n'].\n duckdb schema: ['Table: \"gender_age\"\\nColumns:\\n(\"device_id\", BIGINT, primary key)\\n(\"gender\", TEXT)\\n(\"age\", BIGINT)\\n(\"_group\", TEXT)\\n', 'Table: \"phone_brand_device_model2\"\\nColumns:\\n(\"device_id\", BIGINT, primary key)\\n(\"phone_brand\", TEXT, primary key)\\n(\"device_model\", TEXT, primary key)\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT CASE WHEN SUM(CASE WHEN \"T1\".\"gender\" = 'M' THEN 1 ELSE 0 END) - SUM(CASE WHEN \"T1\".\"gender\" = 'F' THEN 1 ELSE 0 END) > 0 THEN 'M' ELSE 'F' END AS \"gender\" FROM \"gender_age\" AS \"T1\" INNER JOIN \"phone_brand_device_model2\" AS \"T2\" ON \"T1\".\"device_id\" = \"T2\".\"device_id\" WHERE \"T2\".\"device_model\" = 'Galaxy Note 2';"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from sqlite to duckdb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT SUM(IIF(T1.gender IS NULL AND T1.age IS NULL AND T1.`group` IS NULL, 1, 0)) / COUNT(T1.device_id) AS per FROM gender_age AS T1 INNER JOIN phone_brand_device_model2 AS T2 ON T1.device_id = T2.device_id WHERE T2.phone_brand = 'vivo'Output only the translated SQL. Do not add any extra commentary.\n[Schema Information]:sqlite schema: ['Table: `gender_age`\\nColumns:\\n(`device_id`, integer, primary key)\\n(`gender`, text)\\n(`age`, integer)\\n(`group`, text)\\n', 'Table: `phone_brand_device_model2`\\nColumns:\\n(`device_id`, integer, primary key)\\n(`phone_brand`, text, primary key)\\n(`device_model`, text, primary key)\\n'].\n duckdb schema: ['Table: \"gender_age\"\\nColumns:\\n(\"device_id\", BIGINT, primary key)\\n(\"gender\", TEXT)\\n(\"age\", BIGINT)\\n(\"_group\", TEXT)\\n', 'Table: \"phone_brand_device_model2\"\\nColumns:\\n(\"device_id\", BIGINT, primary key)\\n(\"phone_brand\", TEXT, primary key)\\n(\"device_model\", TEXT, primary key)\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT SUM(CASE WHEN T1.gender IS NULL AND T1.age IS NULL AND T1.\"_group\" IS NULL THEN 1 ELSE 0 END) / COUNT(T1.device_id) AS per FROM \"gender_age\" AS T1 INNER JOIN \"phone_brand_device_model2\" AS T2 ON T1.device_id = T2.device_id WHERE T2.phone_brand = 'vivo';"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from sqlite to duckdb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT SUM(IIF(T1.category = 'Academic Information', 1.0, 0)) / COUNT(T2.app_id) AS per FROM label_categories AS T1 INNER JOIN app_labels AS T2 ON T1.label_id = T2.label_idOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:sqlite schema: ['Table: `label_categories`\\nColumns:\\n(`label_id`, integer, primary key)\\n(`category`, text)\\n', 'Table: `app_labels`\\nColumns:\\n(`app_id`, integer)\\n(`label_id`, integer)\\n(`rowid`, integer, primary key)\\n'].\n duckdb schema: ['Table: \"label_categories\"\\nColumns:\\n(\"label_id\", BIGINT, primary key)\\n(\"category\", TEXT)\\n', 'Table: \"app_labels\"\\nColumns:\\n(\"app_id\", BIGINT)\\n(\"label_id\", BIGINT)\\n(\"rowid\", BIGINT, primary key)\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT SUM(CASE WHEN \"T1\".\"category\" = 'Academic Information' THEN 1.0 ELSE 0 END) / COUNT(\"T2\".\"app_id\") AS \"per\" FROM \"label_categories\" AS \"T1\" INNER JOIN \"app_labels\" AS \"T2\" ON \"T1\".\"label_id\" = \"T2\".\"label_id\";"
+    }
+  ]
+]
+

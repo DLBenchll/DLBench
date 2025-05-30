@@ -1,0 +1,45 @@
+[
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from mysql to mariadb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT * FROM t1 WHERE coalesce(a) in (0.8,0.9); -- COALESCEOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:mysql schema: ['Table: `t1`\\nColumns:\\n(a, bigint, )\\n'].\n mariadb schema: ['Table: `t1`\\nColumns:\\n(a, bigint(20), )\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT * FROM t1 WHERE coalesce(a) in (0.8,0.9);"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from mysql to mariadb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT USER(); -- USEROutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:mysql schema: [].\n mariadb schema: []."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT USER(); -- USER"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from mysql to mariadb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT HEX(c1) FROM t1; -- HEXOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:mysql schema: ['Table: `t1`\\nColumns:\\n(c1, char(4), )\\n'].\n mariadb schema: ['Table: `t1`\\nColumns:\\n(c1, char(4), )\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT HEX(c1) FROM t1; -- HEX"
+    }
+  ]
+]
+

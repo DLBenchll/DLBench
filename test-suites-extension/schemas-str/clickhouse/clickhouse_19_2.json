@@ -1,0 +1,3 @@
+[
+    "Table: `t1`\nColumns:\n(a, Float32, )\n(b, Int32, )\n(c, String, )\n(d, Decimal(10, 0), )\n"
+]

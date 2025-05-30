@@ -1,0 +1,19 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1(c1 CHAR(4));
+INSERT INTO t1 VALUES(0x3A), (0x3B), (0x3C), (0x3D), (0x3E), (0x3F), (0x40), (0x5B), (0x5C), (0x5D), (0x5E), (0x5F), (0x60), (0x7B), (0x7C), (0x7D), (0x7E);
+SELECT HEX(c1) FROM t1; -- HEX
+DROP TABLE t1;
+CREATE TABLE t1 SELECT repeat('a',4000) a; -- REPEAT
+DROP TABLE t1;
+CREATE TABLE t1 (b VARCHAR(2));
+INSERT INTO t1 VALUES ('0'),('1'),('2'),('3'),('4'),('5'),('6'),('7');
+INSERT INTO t1 VALUES ('8'),('9'),('A'),('B'),('C'),('D'),('E'),('F');
+DROP TABLE IF EXISTS head;
+DROP TABLE IF EXISTS tail;
+CREATE TABLE head AS SELECT concat(b1.b, b2.b) AS head FROM t1 b1, t1 b2; -- CONCAT
+CREATE TABLE tail AS SELECT concat(b1.b, b2.b) AS tail FROM t1 b1, t1 b2; -- CONCAT
+DROP TABLE head;
+DROP TABLE tail;
+DROP TABLE t1;
+CREATE TABLE t1 AS SELECT '111111' AS code, ' ' AS a LIMIT 1;
+SELECT COUNT(*) FROM t1 WHERE a<>'' AND OCTET_LENGTH(a)=2; -- OCTET_LENGTH

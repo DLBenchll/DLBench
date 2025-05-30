@@ -1,0 +1,659 @@
+{"model": "sqlglot", "message": "SELECT * FROM t0 WHERE (a, b) IN (ROW(1, 10))", "sql_id": "duckdb_1_6"}
+{"model": "sqlglot", "message": "SELECT * FROM t0 WHERE (a, b) IN (VALUES (ROW(1, 10)), (ROW(2, 20)))", "sql_id": "duckdb_1_7"}
+{"model": "sqlglot", "message": "SELECT * FROM t0 WHERE NOT (a, b) IN (VALUES (ROW(1, 10)))", "sql_id": "duckdb_1_8"}
+{"model": "sqlglot", "message": "SELECT * FROM t0 WHERE NOT (a, b) IN (VALUES (ROW(1, 10)), (ROW(2, 20)))", "sql_id": "duckdb_1_9"}
+{"model": "sqlglot", "message": "INSERT INTO t1 (ts) VALUES (UNIX_TIMESTAMP('2002-10-27 01:00'))", "sql_id": "duckdb_100_2"}
+{"model": "sqlglot", "message": "INSERT INTO t1 (ts) VALUES (UNIX_TIMESTAMP('2002-10-27 02:00'))", "sql_id": "duckdb_100_3"}
+{"model": "sqlglot", "message": "INSERT INTO t1 (ts) VALUES (UNIX_TIMESTAMP('2002-10-27 03:00'))", "sql_id": "duckdb_100_4"}
+{"model": "sqlglot", "message": "SELECT ts, TO_TIMESTAMP(ts) FROM t1", "sql_id": "duckdb_100_5"}
+{"model": "sqlglot", "message": "SELECT CAST('2001-01-01 00:00:00' AS TIMESTAMP)", "sql_id": "duckdb_100_7"}
+{"model": "sqlglot", "message": "SELECT (DATE_DIFF('DAY', CAST('0000-01-01' AS DATE), CAST('2001-01-01 00:00:00' AS DATE)) + 1)", "sql_id": "duckdb_100_8"}
+{"model": "sqlglot", "message": "SELECT (DATE_DIFF('DAY', CAST('0000-01-01' AS DATE), CAST('2001-01-01 00:00:00' AS DATE)) + 1)", "sql_id": "duckdb_100_9"}
+{"model": "sqlglot", "message": "SELECT DATE_DIFF('DAY', CAST('2007-12-30  00:00:00' AS DATE), CAST('2007-12-31 23:59:59' AS DATE))", "sql_id": "duckdb_100_10"}
+{"model": "sqlglot", "message": "SELECT TIMEDIFF('2000:01:01 00:00:00', '2000:01:01 00:00:00')", "sql_id": "duckdb_100_11"}
+{"model": "sqlglot", "message": "SELECT STRFTIME('2009-10-10 23:59:59', '%A %B %Y')", "sql_id": "duckdb_100_12"}
+{"model": "sqlglot", "message": "SELECT CAST(CAST('2003-12-31 23:59:59' AS TIMESTAMPTZ) AT TIME ZONE  AS TIME)", "sql_id": "duckdb_100_13"}
+{"model": "sqlglot", "message": "SELECT TIMESTAMP('2003-12-31 23:59:59', '12:00:00')", "sql_id": "duckdb_100_14"}
+{"model": "sqlglot", "message": "SELECT TIMESTAMPADD(MINUTE, 1, '2003-01-02 23:59:59')", "sql_id": "duckdb_100_15"}
+{"model": "sqlglot", "message": "SELECT DATE_DIFF('MONTH', '2003-02-01 23:59:59', '2003-05-01')", "sql_id": "duckdb_100_16"}
+{"model": "sqlglot", "message": "SELECT TO_SECONDS('2009-11-29 23:59:59')", "sql_id": "duckdb_100_17"}
+{"model": "sqlglot", "message": "SELECT UNIX_TIMESTAMP('2015-11-13 23:59:59')", "sql_id": "duckdb_100_18"}
+{"model": "sqlglot", "message": "SELECT HEX(s1) FROM t1", "sql_id": "duckdb_101_3"}
+{"model": "sqlglot", "message": "SELECT LENGTH(CONCAT('*', s1, '*', s2, '*')) FROM t1", "sql_id": "duckdb_101_7"}
+{"model": "sqlglot", "message": "SELECT HEX(s1), s2 FROM t1 ORDER BY s1 NULLS FIRST, s2 NULLS FIRST", "sql_id": "duckdb_101_11"}
+{"model": "sqlglot", "message": "SELECT CAST(123456789 AS UBIGINT)", "sql_id": "duckdb_101_12"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (CAST(NOW() AS DATE), 1)", "sql_id": "duckdb_102_2"}
+{"model": "sqlglot", "message": "SELECT COUNT(*) FROM t1 WHERE a = NOW()", "sql_id": "duckdb_102_3"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (CAST(NOW() AS DATE), 2)", "sql_id": "duckdb_102_4"}
+{"model": "sqlglot", "message": "SELECT COUNT(*) FROM t1 WHERE a = NOW()", "sql_id": "duckdb_102_5"}
+{"model": "sqlglot", "message": "SELECT COUNT(*) FROM t1 WHERE a = NOW() AND b = 1", "sql_id": "duckdb_102_6"}
+{"model": "sqlglot", "message": "CREATE TABLE t1 AS SELECT CURDATE() AS f1", "sql_id": "duckdb_102_8"}
+{"model": "sqlglot", "message": "SELECT HOUR(f1), MINUTE(f1), SECOND(f1) FROM t1", "sql_id": "duckdb_102_9"}
+{"model": "sqlglot", "message": "SELECT 1 FROM (SELECT LAST_DAY('0')) AS a", "sql_id": "duckdb_102_17"}
+{"model": "sqlglot", "message": "SELECT 1 FROM (SELECT MAKEDATE(2011, 0)) AS a", "sql_id": "duckdb_102_18"}
+{"model": "sqlglot", "message": "WITH RECURSIVE qn AS (SELECT 1 AS n, CAST('x' AS TEXT(100)) AS un UNION ALL SELECT 1 + n, CONCAT(un, 'x') FROM qn WHERE n < 10) SELECT * FROM qn", "sql_id": "duckdb_2_2"}
+{"model": "sqlglot", "message": "SELECT CASE WHEN COUNT(*) > 0 THEN 'YES' ELSE 'NO' END AS \"IMPLICIT COMMIT\" FROM trans", "sql_id": "duckdb_3_2"}
+{"model": "sqlglot", "message": "SELECT CASE WHEN a = 1 THEN a ELSE a END AS b FROM t1 ORDER BY FIELD(b + 1, 1) NULLS FIRST", "sql_id": "duckdb_39_3"}
+{"model": "sqlglot", "message": "SELECT CASE WHEN a = 1 THEN a ELSE a END AS b FROM t1 ORDER BY FIELD(b, 1) NULLS FIRST", "sql_id": "duckdb_39_4"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT 1 FROM t1 WHERE a = 9223372036854775807 AND TRIM(a) = b", "sql_id": "duckdb_4_4"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT 1 FROM t1 WHERE a = 9223372036854775806 AND TRIM(a) = b", "sql_id": "duckdb_4_5"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT 1 FROM t1 WHERE a = 9223372036854775805 AND TRIM(a) = b", "sql_id": "duckdb_4_6"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT 1 FROM t1 WHERE a = 0 AND TRIM(a) = b", "sql_id": "duckdb_4_7"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE COALESCE(a) BETWEEN 0 AND 0.9", "sql_id": "duckdb_4_11"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE COALESCE(a) = 0.9", "sql_id": "duckdb_4_12"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE COALESCE(a) IN (0.8, 0.9)", "sql_id": "duckdb_4_13"}
+{"model": "sqlglot", "message": "SELECT HEX(c1) FROM t1", "sql_id": "duckdb_6_3"}
+{"model": "sqlglot", "message": "CREATE TABLE t1 AS SELECT REPEAT('a', 4000) AS a", "sql_id": "duckdb_6_5"}
+{"model": "sqlglot", "message": "CREATE TABLE head AS SELECT CONCAT(b1.b, b2.b) AS head FROM t1 AS b1, t1 AS b2", "sql_id": "duckdb_6_12"}
+{"model": "sqlglot", "message": "CREATE TABLE tail AS SELECT CONCAT(b1.b, b2.b) AS tail FROM t1 AS b1, t1 AS b2", "sql_id": "duckdb_6_13"}
+{"model": "sqlglot", "message": "", "sql_id": "duckdb_6_18"}
+{"model": "sqlglot", "message": "SELECT COUNT(*) FROM t1 WHERE a <> '' AND OCTET_LENGTH(a) = 2", "sql_id": "duckdb_6_19"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE CHAR_LENGTH(a) = 2", "sql_id": "duckdb_6_20"}
+{"model": "sqlglot", "message": "SELECT COUNT(*) FROM t1 WHERE a <> '' AND OCTET_LENGTH(a) = 3", "sql_id": "duckdb_6_21"}
+{"model": "sqlglot", "message": "SELECT c1, LENGTH(c1) FROM h", "sql_id": "duckdb_7_4"}
+{"model": "sqlglot", "message": "SELECT c1, LPAD(c1, 20, ' ') FROM h", "sql_id": "duckdb_7_5"}
+{"model": "sqlglot", "message": "SELECT c1, RPAD(c1, 20, '52') FROM h", "sql_id": "duckdb_7_6"}
+{"model": "sqlglot", "message": "SELECT STRPOS(c1, 'h') FROM h", "sql_id": "duckdb_7_9"}
+{"model": "sqlglot", "message": "SELECT STRPOS(c1, '') FROM h", "sql_id": "duckdb_7_10"}
+{"model": "sqlglot", "message": "SELECT STRPOS(c1, '52') FROM h", "sql_id": "duckdb_7_11"}
+{"model": "sqlglot", "message": "SELECT STRPOS(c1, '54') FROM h", "sql_id": "duckdb_7_12"}
+{"model": "sqlglot", "message": "SELECT STRPOS(c1, '31') FROM h", "sql_id": "duckdb_7_13"}
+{"model": "sqlglot", "message": "SELECT c1, TRIM(c1) FROM h", "sql_id": "duckdb_7_23"}
+{"model": "sqlglot", "message": "SELECT TO_TIMESTAMP(123456789)", "sql_id": "duckdb_71_0"}
+{"model": "sqlglot", "message": "SELECT TO_TIMESTAMP(234567890)", "sql_id": "duckdb_71_1"}
+{"model": "sqlglot", "message": "SELECT TO_TIMESTAMP(1)", "sql_id": "duckdb_71_2"}
+{"model": "sqlglot", "message": "SELECT UNIX_TIMESTAMP(TO_TIMESTAMP(123456789))", "sql_id": "duckdb_71_3"}
+{"model": "sqlglot", "message": "SELECT UNIX_TIMESTAMP(TO_TIMESTAMP(234567890))", "sql_id": "duckdb_71_4"}
+{"model": "sqlglot", "message": "SELECT UNIX_TIMESTAMP('2039-01-20 01:00:00')", "sql_id": "duckdb_71_5"}
+{"model": "sqlglot", "message": "SELECT UNIX_TIMESTAMP('2038-02-10 01:00:00')", "sql_id": "duckdb_71_6"}
+{"model": "sqlglot", "message": "SELECT UNIX_TIMESTAMP('1970-01-01 01:00:00'), UNIX_TIMESTAMP('1970-01-01 01:00:01'), UNIX_TIMESTAMP('2038-01-19 04:14:07'), UNIX_TIMESTAMP('2038-01-19 04:14:08')", "sql_id": "duckdb_71_7"}
+{"model": "sqlglot", "message": "SELECT a, TO_TIMESTAMP(a) FROM t1", "sql_id": "duckdb_71_11"}
+{"model": "sqlglot", "message": "SELECT UNIX_TIMESTAMP('3001-01-19 08:59:59')", "sql_id": "duckdb_71_13"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT * FROM t WHERE CONCAT(x, x) = 'XX'", "sql_id": "duckdb_72_4"}
+{"model": "sqlglot", "message": "INSERT INTO t1 (f1) SELECT CASE WHEN MAX(f1) IS NULL THEN '2000' ELSE MAX(f1) END FROM t1", "sql_id": "duckdb_74_2"}
+{"model": "sqlglot", "message": "SELECT (SELECT SUM(LENGTH(c)) FROM t1 WHERE c = '13_characters') FROM t1", "sql_id": "duckdb_74_6"}
+{"model": "sqlglot", "message": "INSERT INTO t2 (d) SELECT (SELECT SUM(LENGTH(c)) FROM t1 WHERE c = '13_characters') FROM t1", "sql_id": "duckdb_74_9"}
+{"model": "sqlglot", "message": "INSERT INTO t2 (d) SELECT (SELECT SUM(LENGTH(c)) FROM t1 WHERE c = '7_chars') FROM t1", "sql_id": "duckdb_74_10"}
+{"model": "sqlglot", "message": "SELECT *, HEX(a) FROM t1", "sql_id": "duckdb_74_16"}
+{"model": "sqlglot", "message": "SELECT *, HEX(a) FROM t1 WHERE a = 'abc-def'", "sql_id": "duckdb_74_17"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES ('valid-string', 1), (UNHEX('11'), 2)", "sql_id": "duckdb_75_2"}
+{"model": "sqlglot", "message": "SELECT pk, OCTET_LENGTH(tx), LENGTH(tx) FROM t1", "sql_id": "duckdb_75_3"}
+{"model": "sqlglot", "message": "INSERT IGNORE INTO t1 VALUES (1, REPEAT('a', 110), REPEAT('b', 210))", "sql_id": "duckdb_76_2"}
+{"model": "sqlglot", "message": "SELECT i, LENGTH(a), LENGTH(b), CHAR_LENGTH(a), CHAR_LENGTH(b) FROM t1", "sql_id": "duckdb_76_3"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (1, 'a', 'a', NOW()), (1, 'b', 'b', NOW())", "sql_id": "duckdb_76_6"}
+{"model": "sqlglot", "message": "SELECT t1.time, t1.date, t1.timestamp, CONCAT(date, ' ', time), t1.quarter + t1.week, t1.year + timestampadd, timestampdiff FROM t1", "sql_id": "duckdb_77_3"}
+{"model": "sqlglot", "message": "SELECT CONCAT('|', a, '|'), CONCAT('|', b, '|') FROM t1", "sql_id": "duckdb_78_2"}
+{"model": "sqlglot", "message": "SELECT HEX(val) FROM t1", "sql_id": "duckdb_78_5"}
+{"model": "sqlglot", "message": "SELECT HEX(a) FROM t1", "sql_id": "duckdb_78_8"}
+{"model": "sqlglot", "message": "SELECT a, STRFTIME(a, '%a') AS abday, DAYNAME(a) AS day FROM t1 ORDER BY a NULLS FIRST", "sql_id": "duckdb_79_3"}
+{"model": "sqlglot", "message": "SELECT a, STRFTIME(a, '%b') AS abmon, STRFTIME(CAST(a AS DATE), '%B') AS mon FROM t1 ORDER BY a NULLS FIRST", "sql_id": "duckdb_79_7"}
+{"model": "sqlglot", "message": "SELECT STRFTIME('2001-01-01', '%w %a %A')", "sql_id": "duckdb_79_9"}
+{"model": "sqlglot", "message": "SELECT STRFTIME('2001-01-01', '%-m %b %B')", "sql_id": "duckdb_79_10"}
+{"model": "sqlglot", "message": "SELECT STRFTIME('2010-03-23 11:00:00', '%I %p')", "sql_id": "duckdb_79_11"}
+{"model": "sqlglot", "message": "SELECT STRCMP('', 'ae'), STRCMP('ae', ''), STRCMP('aeq', 'q'), STRCMP('q', 'aeq')", "sql_id": "duckdb_8_0"}
+{"model": "sqlglot", "message": "SELECT STRCMP('ss', ''), STRCMP('', 'ss'), STRCMP('s', 'sss'), STRCMP('q', 'ssq')", "sql_id": "duckdb_8_1"}
+{"model": "sqlglot", "message": "SELECT STRCMP('', 'af'), STRCMP('a', ''), STRCMP('', 'aeq'), STRCMP('', 'aeaeq')", "sql_id": "duckdb_8_2"}
+{"model": "sqlglot", "message": "SELECT STRCMP('ss', 'a'), STRCMP('', 'ssa'), STRCMP('sa', 'sssb'), STRCMP('s', '')", "sql_id": "duckdb_8_3"}
+{"model": "sqlglot", "message": "SELECT STRCMP('', 'o'), STRCMP('', 'u'), STRCMP('', 'oeb')", "sql_id": "duckdb_8_4"}
+{"model": "sqlglot", "message": "SELECT STRCMP('af', ''), STRCMP('', 'a'), STRCMP('aeq', ''), STRCMP('aeaeq', '')", "sql_id": "duckdb_8_5"}
+{"model": "sqlglot", "message": "SELECT STRCMP('a', 'ss'), STRCMP('ssa', ''), STRCMP('sssb', 'sa'), STRCMP('', 's')", "sql_id": "duckdb_8_6"}
+{"model": "sqlglot", "message": "SELECT STRCMP('u', 'a'), STRCMP('u', '')", "sql_id": "duckdb_8_7"}
+{"model": "sqlglot", "message": "SELECT STRCMP('s', 'a'), STRCMP('a', 'x')", "sql_id": "duckdb_8_8"}
+{"model": "sqlglot", "message": "SELECT FIELD('ue', s1), FIELD('', s1), s1 = 'ue', s1 = '' FROM t1", "sql_id": "duckdb_8_13"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE LENGTH(s1) = 2 AND s1 = 'oe'", "sql_id": "duckdb_8_17"}
+{"model": "sqlglot", "message": "SELECT LPAD(NULL, 5, 'x') AS result", "sql_id": "duckdb_80_0"}
+{"model": "sqlglot", "message": "SELECT LPAD(NULL, NULL, 'x') AS result", "sql_id": "duckdb_80_1"}
+{"model": "sqlglot", "message": "SELECT LPAD(NULL, NULL, NULL) AS result", "sql_id": "duckdb_80_2"}
+{"model": "sqlglot", "message": "SELECT LPAD('a', NULL, 'x') AS result", "sql_id": "duckdb_80_3"}
+{"model": "sqlglot", "message": "SELECT LPAD('a', NULL, NULL) AS result", "sql_id": "duckdb_80_4"}
+{"model": "sqlglot", "message": "SELECT LPAD('a', 5, NULL) AS result", "sql_id": "duckdb_80_5"}
+{"model": "sqlglot", "message": "SELECT LPAD(NULL, 5, NULL) AS result", "sql_id": "duckdb_80_6"}
+{"model": "sqlglot", "message": "SELECT LPAD('a', 0, 'x') AS result", "sql_id": "duckdb_80_7"}
+{"model": "sqlglot", "message": "SELECT LPAD('a', 0, '') AS result", "sql_id": "duckdb_80_8"}
+{"model": "sqlglot", "message": "SELECT LPAD('', 0, 'x') AS result", "sql_id": "duckdb_80_9"}
+{"model": "sqlglot", "message": "SELECT LPAD('', 0, '') AS result", "sql_id": "duckdb_80_10"}
+{"model": "sqlglot", "message": "SELECT LPAD('a', -1, 'x')", "sql_id": "duckdb_80_11"}
+{"model": "sqlglot", "message": "SELECT LPAD('123', 5, 'x')", "sql_id": "duckdb_80_12"}
+{"model": "sqlglot", "message": "SELECT LPAD('a', 5, 'xy')", "sql_id": "duckdb_80_13"}
+{"model": "sqlglot", "message": "SELECT LPAD('I LOVE SQL', 20, ' ')", "sql_id": "duckdb_80_14"}
+{"model": "sqlglot", "message": "SELECT LPAD('I LOVE SQL in the morning', 20, ' ')", "sql_id": "duckdb_80_15"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (REPEAT('a', 1024), 0), (REPEAT('b', 1024), 1), (REPEAT('c', 1024), 2), (REPEAT('d', 1024), 3), (REPEAT('e', 1024), 4), (REPEAT('f', 1024), 5)", "sql_id": "duckdb_81_2"}
+{"model": "sqlglot", "message": "SELECT SUM(LENGTH(f1)) FROM t1", "sql_id": "duckdb_81_15"}
+{"model": "sqlglot", "message": "SELECT COALESCE(d, d), COALESCE(d, d), CASE WHEN i THEN d ELSE d END, CASE i WHEN i THEN d ELSE d END, GREATEST(d, d), LEAST(d, d) FROM t1 ORDER BY RANDOM() NULLS FIRST", "sql_id": "duckdb_82_3"}
+{"model": "sqlglot", "message": "SELECT HEX(c1) FROM AB", "sql_id": "duckdb_83_3"}
+{"model": "sqlglot", "message": "INSERT INTO t5 VALUES (1, STRFTIME('2001-01-01', '%A'))", "sql_id": "duckdb_84_2"}
+{"model": "sqlglot", "message": "INSERT INTO t5 VALUES (2, STRFTIME('2001-01-01', '%A'))", "sql_id": "duckdb_84_3"}
+{"model": "sqlglot", "message": "INSERT INTO t5 VALUES (3, STRFTIME('2001-01-01', '%A'))", "sql_id": "duckdb_84_4"}
+{"model": "sqlglot", "message": "SELECT HEX(a) FROM t1", "sql_id": "duckdb_84_8"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (REPEAT('ManyMegaByteBlck', 123))", "sql_id": "duckdb_85_2"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (REPEAT('ManyMegaByteBlck', 234))", "sql_id": "duckdb_85_3"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (REPEAT('ManyMegaByteBlck', 345))", "sql_id": "duckdb_85_4"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (REPEAT('ManyMegaByteBlck', 456))", "sql_id": "duckdb_85_5"}
+{"model": "sqlglot", "message": "SELECT LENGTH(c1) FROM t1", "sql_id": "duckdb_85_6"}
+{"model": "sqlglot", "message": "SELECT NULL, (NULL IS NULL), (1 / 0 IS NULL), (1 / 0 = NULL IS NULL), COALESCE(NULL, 1), COALESCE(NULL, 'TRUE'), COALESCE('TRUE', 'ERROR'), 1 / 0 IS NULL, NOT 1 IS NULL", "sql_id": "duckdb_86_0"}
+{"model": "sqlglot", "message": "SELECT NULL = NULL, NULL <> NULL, COALESCE(NULL, 1.1) + 0, COALESCE(NULL, 1) | 0", "sql_id": "duckdb_86_1"}
+{"model": "sqlglot", "message": "SELECT REPEAT('a', 0), REPEAT('ab', 5 + 5), REPEAT('ab', -1), REVERSE(NULL)", "sql_id": "duckdb_86_3"}
+{"model": "sqlglot", "message": "SELECT FIELD(NULL, 'a', 'b', 'c')", "sql_id": "duckdb_86_4"}
+{"model": "sqlglot", "message": "CREATE TABLE t2 AS SELECT COALESCE(a, b) FROM t1", "sql_id": "duckdb_86_9"}
+{"model": "sqlglot", "message": "CREATE TABLE t2 AS SELECT COALESCE(a, NULL) FROM t1", "sql_id": "duckdb_86_11"}
+{"model": "sqlglot", "message": "CREATE TABLE t2 AS SELECT COALESCE(NULL, b) FROM t1", "sql_id": "duckdb_86_13"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (REPEAT('a', 10), 1), (REPEAT('b', 10), 2)", "sql_id": "duckdb_87_2"}
+{"model": "sqlglot", "message": "SELECT GROUP_CONCAT(a) FROM t1", "sql_id": "duckdb_87_3"}
+{"model": "sqlglot", "message": "SELECT UNIX_TIMESTAMP()", "sql_id": "duckdb_87_5"}
+{"model": "sqlglot", "message": "SELECT REPEAT('a', 2000)", "sql_id": "duckdb_88_0"}
+{"model": "sqlglot", "message": "SELECT LENGTH('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa') AS len", "sql_id": "duckdb_88_1"}
+{"model": "sqlglot", "message": "SELECT LENGTH(REPEAT('a', 2000))", "sql_id": "duckdb_88_2"}
+{"model": "sqlglot", "message": "SELECT c11, LENGTH(c12) FROM t1", "sql_id": "duckdb_88_9"}
+{"model": "sqlglot", "message": "SELECT HEX(a) FROM t1 WHERE a LIKE 'A_'", "sql_id": "duckdb_89_3"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT HEX(a) FROM t1 WHERE a LIKE 'A_'", "sql_id": "duckdb_89_5"}
+{"model": "sqlglot", "message": "SELECT HEX(a) FROM t1", "sql_id": "duckdb_89_6"}
+{"model": "sqlglot", "message": "CREATE TABLE t1 AS SELECT TO_SECONDS(NULL) AS to_seconds", "sql_id": "duckdb_89_8"}
+{"model": "sqlglot", "message": "SELECT CASE WHEN 0 THEN 'ERROR' ELSE 'this' END, CASE WHEN 1 THEN 'is' ELSE 'ERROR' END, CASE WHEN NULL THEN 'ERROR' ELSE 'a' END, CASE WHEN 1 THEN 2 ELSE 3 END, CASE WHEN 1 THEN 2.0 ELSE 3.0 END + 0", "sql_id": "duckdb_9_0"}
+{"model": "sqlglot", "message": "SELECT CASE WHEN 1 THEN st ELSE st END AS s FROM t1 ORDER BY s NULLS FIRST", "sql_id": "duckdb_9_4"}
+{"model": "sqlglot", "message": "SELECT CASE WHEN u = 1 THEN st ELSE st END AS s FROM t1 ORDER BY s NULLS FIRST", "sql_id": "duckdb_9_5"}
+{"model": "sqlglot", "message": "SELECT NULLIF(u, 1) FROM t1", "sql_id": "duckdb_9_7"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT NULLIF(u, 1) FROM t1", "sql_id": "duckdb_9_8"}
+{"model": "sqlglot", "message": "SELECT SUM(CASE WHEN num IS NULL THEN 0.00 ELSE num END) FROM t1", "sql_id": "duckdb_9_12"}
+{"model": "sqlglot", "message": "SELECT MIN(CASE WHEN y - x > 5 THEN y ELSE NULL END), MAX(CASE WHEN y - x > 5 THEN y ELSE NULL END) FROM t1", "sql_id": "duckdb_9_16"}
+{"model": "sqlglot", "message": "SELECT NULLIF(5, 5) IS NULL, NOT NULLIF(5, 5) IS NULL", "sql_id": "duckdb_9_18"}
+{"model": "sqlglot", "message": "SELECT id, CASE WHEN date IS NULL THEN '-' ELSE TO_TIMESTAMP(date) END AS date_ord, text FROM t1 ORDER BY date_ord ASC NULLS FIRST", "sql_id": "duckdb_9_21"}
+{"model": "sqlglot", "message": "SELECT id, CASE WHEN date IS NULL THEN '-' ELSE TO_TIMESTAMP(date) END AS date_ord, text FROM t1 ORDER BY date_ord DESC", "sql_id": "duckdb_9_22"}
+{"model": "sqlglot", "message": "SELECT * FROM (SELECT MAX(CASE WHEN 1 THEN CAST(c AS UBIGINT) ELSE 0 END) FROM t1) AS te", "sql_id": "duckdb_9_26"}
+{"model": "sqlglot", "message": "SELECT * FROM (SELECT MAX(COALESCE(CAST(c AS UBIGINT), 0)) FROM t1) AS te", "sql_id": "duckdb_9_27"}
+{"model": "sqlglot", "message": "SELECT AVG(NULLIF(YEAR(CAST('2001-01-01' AS DATE)), 10))", "sql_id": "duckdb_9_29"}
+{"model": "sqlglot", "message": "SELECT FROM_DAYS(3652499), FROM_DAYS(3652500), FROM_DAYS(3652501)", "sql_id": "duckdb_90_0"}
+{"model": "sqlglot", "message": "SELECT FROM_DAYS(42949670), FROM_DAYS(42949671), FROM_DAYS(42949673)", "sql_id": "duckdb_90_1"}
+{"model": "sqlglot", "message": "INSERT INTO t VALUES (0, REPEAT('x', 120000)), (1, REPEAT('z', 12000))", "sql_id": "duckdb_91_2"}
+{"model": "sqlglot", "message": "SELECT LENGTH(b) FROM (SELECT * FROM t INTERSECT SELECT * FROM t) AS derived", "sql_id": "duckdb_91_4"}
+{"model": "sqlglot", "message": "SELECT argument FROM test_log WHERE argument LIKE CONCAT('%azun', 'dris%')", "sql_id": "duckdb_92_2"}
+{"model": "sqlglot", "message": "SELECT ROW(10, 2, 3) IN (ROW(3, 2, 3), ROW(1, 2, 3), ROW(1, 3, 3))", "sql_id": "duckdb_93_0"}
+{"model": "sqlglot", "message": "SELECT ROW(1, 2, 3) IN (ROW(3, NULL, 3), ROW(1, 2, 3), ROW(1, 3, 3))", "sql_id": "duckdb_93_1"}
+{"model": "sqlglot", "message": "SELECT ROW(10, 2, 3) IN (ROW(3, NULL, 3), ROW(1, 2, 3), ROW(1, 3, 3))", "sql_id": "duckdb_93_2"}
+{"model": "sqlglot", "message": "SELECT ROW('a', 1.5, 3) IN (ROW(1, 2, 3), ROW('a', 1.5, 3), ROW('a', 'a', 'a'))", "sql_id": "duckdb_93_3"}
+{"model": "sqlglot", "message": "SELECT ROW('a', 0, 3) IN (ROW(3, 2, 3), ROW('a', 'a', '3'), ROW(1, 3, 3))", "sql_id": "duckdb_93_4"}
+{"model": "sqlglot", "message": "SELECT ROW('a', 0, 3) IN (ROW(3, 2, 3), ROW('a', '0', '3'), ROW(1, 3, 3))", "sql_id": "duckdb_93_5"}
+{"model": "sqlglot", "message": "SELECT ROW('a', 1.5, 3) IN (ROW(3, NULL, 3), ROW('a', 1.5, 3), ROW(1, 3, 3))", "sql_id": "duckdb_93_6"}
+{"model": "sqlglot", "message": "SELECT ROW('b', 1.5, 3) IN (ROW(3, NULL, 3), ROW('a', 1.5, 3), ROW(1, 3, 3))", "sql_id": "duckdb_93_7"}
+{"model": "sqlglot", "message": "SELECT ROW('b', 1.5, 3) IN (ROW('b', NULL, 3), ROW('a', 1.5, 3), ROW(1, 3, 3))", "sql_id": "duckdb_93_8"}
+{"model": "sqlglot", "message": "SELECT ROW('b', 1.5, 3) IN (ROW('b', NULL, 4), ROW('a', 1.5, 3), ROW(1, 3, 3))", "sql_id": "duckdb_93_9"}
+{"model": "sqlglot", "message": "SELECT ROW(1, 2, ROW(3, 4)) IN (ROW(3, 2, ROW(3, 4)), ROW(1, 2, ROW(3, NULL)))", "sql_id": "duckdb_93_10"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT ROW(1, 2, ROW(3, 4)) IN (ROW(3, 2, ROW(3, 4)), ROW(1, 2, ROW(3, NULL)))", "sql_id": "duckdb_93_11"}
+{"model": "sqlglot", "message": "SELECT ROW(1, 2, ROW(3, NULL)) IN (ROW(3, 2, ROW(3, 4)), ROW(1, 2, ROW(4, 5)))", "sql_id": "duckdb_93_12"}
+{"model": "sqlglot", "message": "SELECT ROW(1, 2, ROW(3, NULL)) IN (ROW(3, 2, ROW(3, 4)), ROW(1, 2, ROW(3, 5)))", "sql_id": "duckdb_93_13"}
+{"model": "sqlglot", "message": "SELECT ROW(1, 2, 3) = ROW(1, 2, 3)", "sql_id": "duckdb_93_14"}
+{"model": "sqlglot", "message": "SELECT ROW(2, 2, 3) = ROW(1 + 1, 2, 3)", "sql_id": "duckdb_93_15"}
+{"model": "sqlglot", "message": "SELECT ROW(1, 2, 3) = ROW(1 + 1, 2, 3)", "sql_id": "duckdb_93_16"}
+{"model": "sqlglot", "message": "SELECT ROW(1, 2, 3) < ROW(1 + 1, 2, 3)", "sql_id": "duckdb_93_17"}
+{"model": "sqlglot", "message": "SELECT ROW(1, 2, 3) > ROW(1 + 1, 2, 3)", "sql_id": "duckdb_93_18"}
+{"model": "sqlglot", "message": "SELECT ROW(1, 2, 3) <= ROW(1 + 1, 2, 3)", "sql_id": "duckdb_93_19"}
+{"model": "sqlglot", "message": "SELECT ROW(1, 2, 3) >= ROW(1 + 1, 2, 3)", "sql_id": "duckdb_93_20"}
+{"model": "sqlglot", "message": "SELECT ROW(1, 2, 3) <> ROW(1 + 1, 2, 3)", "sql_id": "duckdb_93_21"}
+{"model": "sqlglot", "message": "SELECT ROW(NULL, 2, 3) = ROW(NULL, 2, 3)", "sql_id": "duckdb_93_22"}
+{"model": "sqlglot", "message": "SELECT ROW(1, 2, ROW(3, 4, 5)) = ROW(1, 2, ROW(3, 4, 5))", "sql_id": "duckdb_93_23"}
+{"model": "sqlglot", "message": "SELECT ROW('test', 2, 3.33) = ROW('test', 2, 3.33)", "sql_id": "duckdb_93_24"}
+{"model": "sqlglot", "message": "SELECT ROW('test', 2, ROW(3, 33)) = ROW('test', 2, ROW(3, 33))", "sql_id": "duckdb_93_25"}
+{"model": "sqlglot", "message": "SELECT ROW('test', 2, ROW(3, 33)) = ROW('test', 2, ROW(3, 3))", "sql_id": "duckdb_93_26"}
+{"model": "sqlglot", "message": "SELECT ROW('test', 2, ROW(3, 33)) = ROW('test', 2, ROW(3, NULL))", "sql_id": "duckdb_93_27"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE ROW(1, 2, 3) = ROW(a, b, c)", "sql_id": "duckdb_94_3"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE ROW(0, 2, 3) = ROW(a, b, c)", "sql_id": "duckdb_94_4"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE ROW(1, 2, 3) < ROW(a, b, c)", "sql_id": "duckdb_94_5"}
+{"model": "sqlglot", "message": "SELECT ROW(a, 2, 3) IN (ROW(1, b, c), ROW(2, 3, 1)) FROM t1", "sql_id": "duckdb_94_6"}
+{"model": "sqlglot", "message": "SELECT ROW(c, 2, 3) IN (ROW(1, b, a), ROW(2, 3, 1)) FROM t1", "sql_id": "duckdb_94_7"}
+{"model": "sqlglot", "message": "SELECT ROW(a, b, c) IN (ROW(1, 2, 3), ROW(3, 2, 1)) FROM t1", "sql_id": "duckdb_94_8"}
+{"model": "sqlglot", "message": "SELECT ROW(1, 2, 3) IN (ROW(a, b, c), ROW(1, 2, 3)) FROM t1", "sql_id": "duckdb_94_9"}
+{"model": "sqlglot", "message": "SELECT ROW(1, 1, 1) = ROW(1, 1, 1), ROW(1, 1, 1) = ROW(1, 2, 1), ROW(1, NULL, 1) = ROW(2, 2, 1), ROW(1, NULL, 1) = ROW(1, 2, 2), ROW(1, NULL, 1) = ROW(1, 2, 1)", "sql_id": "duckdb_94_11"}
+{"model": "sqlglot", "message": "SELECT ROW(a, 1) IN (SELECT SUM(b), 1) FROM t1 GROUP BY a", "sql_id": "duckdb_95_3"}
+{"model": "sqlglot", "message": "SELECT ROW(a, 1) IN (SELECT SUM(b), 3) FROM t1 GROUP BY a", "sql_id": "duckdb_95_4"}
+{"model": "sqlglot", "message": "SELECT ROW(1, 2) = (SELECT 1, 2 FROM t1 WHERE 1 = 0)", "sql_id": "duckdb_95_12"}
+{"model": "sqlglot", "message": "SELECT ROW(1, 2) = (SELECT 1, 3 FROM t1 WHERE 1 = 0)", "sql_id": "duckdb_95_13"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT ROW(MIN(a), 1) = ROW(a, 1) AS al FROM t1 GROUP BY a", "sql_id": "duckdb_95_18"}
+{"model": "sqlglot", "message": "SELECT ROW(MIN(a), 1) = ROW(a, 1) AS al FROM t1 GROUP BY a", "sql_id": "duckdb_95_19"}
+{"model": "sqlglot", "message": "SELECT RPAD(NULL, 5, 'x') AS result", "sql_id": "duckdb_96_0"}
+{"model": "sqlglot", "message": "SELECT RPAD(NULL, NULL, 'x') AS result", "sql_id": "duckdb_96_1"}
+{"model": "sqlglot", "message": "SELECT RPAD(NULL, NULL, NULL) AS result", "sql_id": "duckdb_96_2"}
+{"model": "sqlglot", "message": "SELECT RPAD('a', NULL, 'x') AS result", "sql_id": "duckdb_96_3"}
+{"model": "sqlglot", "message": "SELECT RPAD('a', NULL, NULL) AS result", "sql_id": "duckdb_96_4"}
+{"model": "sqlglot", "message": "SELECT RPAD('a', 5, NULL) AS result", "sql_id": "duckdb_96_5"}
+{"model": "sqlglot", "message": "SELECT RPAD(NULL, 5, NULL) AS result", "sql_id": "duckdb_96_6"}
+{"model": "sqlglot", "message": "SELECT RPAD('a', 0, 'x') AS result", "sql_id": "duckdb_96_7"}
+{"model": "sqlglot", "message": "SELECT RPAD('a', 0, '') AS result", "sql_id": "duckdb_96_8"}
+{"model": "sqlglot", "message": "SELECT RPAD('', 0, 'x') AS result", "sql_id": "duckdb_96_9"}
+{"model": "sqlglot", "message": "SELECT RPAD('', 0, '') AS result", "sql_id": "duckdb_96_10"}
+{"model": "sqlglot", "message": "SELECT RPAD('a', -1, 'x')", "sql_id": "duckdb_96_11"}
+{"model": "sqlglot", "message": "SELECT RPAD('123456787890', 1, 'x')", "sql_id": "duckdb_96_12"}
+{"model": "sqlglot", "message": "SELECT RPAD('a', 5, 'xy')", "sql_id": "duckdb_96_13"}
+{"model": "sqlglot", "message": "SELECT RPAD('I LOVE SQL', 20, ' ')", "sql_id": "duckdb_96_14"}
+{"model": "sqlglot", "message": "SELECT RPAD('I LOVE SQL in the morning', 20, ' ')", "sql_id": "duckdb_96_15"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT * FROM t1 WHERE (t1.a IN (SELECT t3.a FROM t1 AS t3) IS NULL)", "sql_id": "duckdb_97_6"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE (t1.a IN (SELECT t3.a FROM t1 AS t3) IS NULL)", "sql_id": "duckdb_97_7"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT * FROM t1 WHERE (SELECT b FROM t2 WHERE CAST(UUID() AS TEXT) = CAST(t2.a AS TEXT)) > 0", "sql_id": "duckdb_98_4"}
+{"model": "sqlglot", "message": "SELECT (SELECT COALESCE(SUM(t3.b), 0) FROM t3 WHERE t1.a = t3.a) FROM t1", "sql_id": "duckdb_98_14"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT (SELECT COALESCE(SUM(t3.b), 0) FROM t3 WHERE t1.a = t3.a) FROM t1", "sql_id": "duckdb_98_15"}
+{"model": "sqlglot", "message": "SELECT (SELECT COALESCE(SUM(t3.b), 0) FROM t3 WHERE t1.a = t3.a) FROM t1", "sql_id": "duckdb_98_16"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT (SELECT COALESCE(SUM(t3.b), 0) FROM t3 WHERE t1.a = t3.a) FROM t1", "sql_id": "duckdb_98_17"}
+{"model": "sqlglot", "message": "SELECT TRIM(f1), COUNT(*) FROM table_varchar_pad_space GROUP BY f1", "sql_id": "duckdb_99_6"}
+{"model": "sqlglot", "message": "SELECT a1, a2, b, MIN(c) FROM t1 WHERE (ORD(a1) > 97) AND (ORD(a2) + ORD(a1) > 194) AND (b = 'a') GROUP BY a1, a2, b", "sql_id": "duckdb_10_3"}
+{"model": "sqlglot", "message": "SELECT CONCAT(a1, MIN(c)), b FROM t1 WHERE a1 < 'd' GROUP BY a1, a2, b", "sql_id": "duckdb_10_4"}
+{"model": "sqlglot", "message": "SELECT CONCAT(a1, MIN(c)), b, MAX(c) FROM t1 WHERE a1 < 'd' GROUP BY a1, a2, b", "sql_id": "duckdb_10_5"}
+{"model": "sqlglot", "message": "SELECT CONCAT(a1, a2), b, MIN(c), MAX(c) FROM t1 WHERE a1 < 'd' GROUP BY a1, a2, b", "sql_id": "duckdb_10_6"}
+{"model": "sqlglot", "message": "SELECT CONCAT(ORD(MIN(b)), ORD(MAX(b))), MIN(b), MAX(b) FROM t1 GROUP BY a1, a2", "sql_id": "duckdb_10_7"}
+{"model": "sqlglot", "message": "SELECT Fld1, MAX(Fld2) FROM t1 GROUP BY Fld1 HAVING NOT STD(Fld2) IS NULL", "sql_id": "duckdb_11_3"}
+{"model": "sqlglot", "message": "SELECT Fld1, MAX(Fld2) FROM t1 GROUP BY Fld1 HAVING NOT VARIANCE(Fld2) IS NULL", "sql_id": "duckdb_11_4"}
+{"model": "sqlglot", "message": "INSERT INTO t3 SELECT CONCAT('c-', 1000 + A.a, '=w'), CONCAT('c-', 2000 + A.a, '=w'), 'filler-1' FROM t2 AS A", "sql_id": "duckdb_12_8"}
+{"model": "sqlglot", "message": "INSERT INTO t3 SELECT CONCAT('c-', 1000 + A.a, '=w'), CONCAT('c-', 3000 + A.a, '=w'), 'filler-2' FROM t2 AS A", "sql_id": "duckdb_12_9"}
+{"model": "sqlglot", "message": "UPDATE t1 SET b = REPEAT(CHR(65 + a), 20) WHERE a < 25", "sql_id": "duckdb_12_23"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT * FROM t1 WHERE a < 10 AND b = REPEAT(CHR(65 + a), 20)", "sql_id": "duckdb_12_24"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE a < 10 AND b = REPEAT(CHR(65 + a), 20)", "sql_id": "duckdb_12_25"}
+{"model": "sqlglot", "message": "SELECT a, HEX(b), HEX(c), filler FROM t1 ORDER BY filler NULLS FIRST", "sql_id": "duckdb_13_6"}
+{"model": "sqlglot", "message": "UPDATE t1 SET data = REPEAT('a', 18 * 1024)", "sql_id": "duckdb_14_3"}
+{"model": "sqlglot", "message": "SELECT LENGTH(data) FROM t1", "sql_id": "duckdb_14_4"}
+{"model": "sqlglot", "message": "INSERT INTO t1 (data) VALUES (REPEAT('a', 1 * 1024))", "sql_id": "duckdb_14_7"}
+{"model": "sqlglot", "message": "INSERT INTO t1 (data) VALUES (REPEAT('b', 16 * 1024 - 1024))", "sql_id": "duckdb_14_8"}
+{"model": "sqlglot", "message": "UPDATE t1 SET data = REPEAT('c', 17 * 1024)", "sql_id": "duckdb_14_10"}
+{"model": "sqlglot", "message": "", "sql_id": "duckdb_14_13"}
+{"model": "sqlglot", "message": "SELECT LENGTH(data) FROM t1", "sql_id": "duckdb_14_14"}
+{"model": "sqlglot", "message": "SELECT UNIX_TIMESTAMP('2011-01-01 00:00:00') AS time_t, UNIX_TIMESTAMP('2011-01-01 00:00:00') % 3 AS part, 1234567890 % 3 AS part2", "sql_id": "duckdb_15_0"}
+{"model": "sqlglot", "message": "INSERT INTO t3 (a) VALUES (NOW())", "sql_id": "duckdb_15_3"}
+{"model": "sqlglot", "message": "INSERT INTO t2 VALUES (1 + (SELECT a FROM t1), CONCAT('subq: ', (SELECT b FROM t1)))", "sql_id": "duckdb_15_13"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('abc', 'a')", "sql_id": "duckdb_17_2"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('abc', 'b')", "sql_id": "duckdb_17_3"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('abc', 'c')", "sql_id": "duckdb_17_4"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('abc', 'd')", "sql_id": "duckdb_17_5"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR(NULL, 'a')", "sql_id": "duckdb_17_6"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('a', NULL)", "sql_id": "duckdb_17_7"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR(NULL, NULL)", "sql_id": "duckdb_17_8"}
+{"model": "sqlglot", "message": "SELECT HEX(CONCAT(REGEXP_INSTR('a', 'a')))", "sql_id": "duckdb_17_9"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR(1, 'a')", "sql_id": "duckdb_17_10"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR(1.1, 'a')", "sql_id": "duckdb_17_11"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('a', 1)", "sql_id": "duckdb_17_12"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('a', 1.1)", "sql_id": "duckdb_17_13"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR(subject, pattern) FROM t1", "sql_id": "duckdb_17_14"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('abcabcabc', 'a+', 1)", "sql_id": "duckdb_17_15"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('abcabcabc', 'a+', 2)", "sql_id": "duckdb_17_16"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('abcabcabc', 'b+', 1)", "sql_id": "duckdb_17_17"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('abcabcabc', 'b+', 2)", "sql_id": "duckdb_17_18"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('abcabcabc', 'b+', 3)", "sql_id": "duckdb_17_19"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('abcabcabc', 'a+', 1, 2)", "sql_id": "duckdb_17_20"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('abcabcabc', 'a+', 1, 3)", "sql_id": "duckdb_17_21"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('abcabcabc', 'a+', 1, 4)", "sql_id": "duckdb_17_22"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('abcabcabc', 'a+', 4, 2)", "sql_id": "duckdb_17_23"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('a', 'a+', 1, 1, NULL)", "sql_id": "duckdb_17_24"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('abcabcabc', 'a+', 1, 1, 0)", "sql_id": "duckdb_17_25"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('abcabcabc', 'a+', 1, 1, 1)", "sql_id": "duckdb_17_26"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('aaabcabcabc', 'a+', 1, 1, 1)", "sql_id": "duckdb_17_27"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('aaabcabcabc', 'A+', 1, 1, 1, 'c')", "sql_id": "duckdb_17_28"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('aaabcabcabc', 'A+', 1, 1, 1, 'i')", "sql_id": "duckdb_17_29"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('aaabcabcabc', 'A+', 1, 1, 1, 'ci')", "sql_id": "duckdb_17_30"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('aaabcabcabc', 'A+', 1, 1, 1, 'cic')", "sql_id": "duckdb_17_31"}
+{"model": "sqlglot", "message": "SELECT REGEXP_INSTR('a', 'a+', 1, 1, 1, NULL)", "sql_id": "duckdb_17_32"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('aaa', 'a', 'X')", "sql_id": "duckdb_18_0"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('abc', 'b', 'X')", "sql_id": "duckdb_18_1"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE(NULL, 'a', 'X')", "sql_id": "duckdb_18_2"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('aaa', NULL, 'X')", "sql_id": "duckdb_18_3"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('aaa', 'a', NULL)", "sql_id": "duckdb_18_4"}
+{"model": "sqlglot", "message": "SELECT CONCAT(REGEXP_REPLACE('aaa', 'a', 'X'), 'x')", "sql_id": "duckdb_18_5"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('aaa', 'a', 'X')", "sql_id": "duckdb_18_6"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('aaabbccbbddaa', 'b+', 'X')", "sql_id": "duckdb_18_7"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('aaabbccbbddaa', 'b+', 'X')", "sql_id": "duckdb_18_8"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('aaabbccbbddaa', '(b+)', '<$1>')", "sql_id": "duckdb_18_9"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('aaabbccbbddaa', 'x+', 'x')", "sql_id": "duckdb_18_10"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('aaabbccbbddaa', 'b+', 'x')", "sql_id": "duckdb_18_11"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('aaab', 'b', 'x')", "sql_id": "duckdb_18_12"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('aaabccc', 'b', 'x')", "sql_id": "duckdb_18_13"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('abc', 'b', 'X')", "sql_id": "duckdb_18_14"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('abcbdb', 'b', 'X')", "sql_id": "duckdb_18_15"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('abcbdb', 'b', 'X')", "sql_id": "duckdb_18_16"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('aaabcbdb', 'b', 'X')", "sql_id": "duckdb_18_17"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('aaabcbdb', 'b', 'X')", "sql_id": "duckdb_18_18"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('aaabcbdb', 'b', 'X')", "sql_id": "duckdb_18_19"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('aaa', 'a', 'X')", "sql_id": "duckdb_18_20"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE('aaa', 'a', 'XX')", "sql_id": "duckdb_18_21"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (REGEXP_INSTR('a', 'a'), REGEXP_INSTR('a', 'a'), REGEXP_INSTR('a', 'a'), REGEXP_INSTR('a', 'a'))", "sql_id": "duckdb_19_2"}
+{"model": "sqlglot", "message": "INSERT INTO t1 (c) VALUES (REGEXP_REPLACE('a', 'a', 'a'))", "sql_id": "duckdb_19_6"}
+{"model": "sqlglot", "message": "SELECT LENGTH(REGEXP_REPLACE(REPEAT('a', 'b'), 'a', 'b'))", "sql_id": "duckdb_19_10"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (REPEAT('a', 16384))", "sql_id": "duckdb_19_12"}
+{"model": "sqlglot", "message": "SELECT CHAR_LENGTH(REGEXP_REPLACE(a, 'a', 'b')) FROM t1", "sql_id": "duckdb_19_13"}
+{"model": "sqlglot", "message": "SELECT REGEXP_REPLACE(a, '^([[:alpha:]]+)[[:space:]].*$', '$1') FROM t1", "sql_id": "duckdb_19_17"}
+{"model": "sqlglot", "message": "UPDATE t1 SET a = REGEXP_REPLACE('b', 'b', 'y')", "sql_id": "duckdb_19_21"}
+{"model": "sqlglot", "message": "SELECT SUM(DISTINCT LENGTH(name)) AS s1 FROM t1", "sql_id": "duckdb_20_2"}
+{"model": "sqlglot", "message": "SELECT SUM(DISTINCT LENGTH(name)) AS s1 FROM t1", "sql_id": "duckdb_20_6"}
+{"model": "sqlglot", "message": "SELECT (SELECT SUM(DISTINCT LENGTH(name)) FROM t1) FROM t2", "sql_id": "duckdb_20_10"}
+{"model": "sqlglot", "message": "SELECT CONCAT_WS(pkCrash, strCrash) FROM t1", "sql_id": "duckdb_21_3"}
+{"model": "sqlglot", "message": "SELECT one.id, two.val, ELT(two.val, 'one', 'two') FROM t1 AS one, t2 AS two WHERE two.id = one.id ORDER BY one.id NULLS FIRST", "sql_id": "duckdb_21_10"}
+{"model": "sqlglot", "message": "SELECT LEAST(CAST('01-01-01' AS DATETIME), '01-01:02')", "sql_id": "duckdb_22_0"}
+{"model": "sqlglot", "message": "SELECT LEAST(CAST('2001-12-10' AS DATE), '2001-12/11')", "sql_id": "duckdb_22_1"}
+{"model": "sqlglot", "message": "SELECT LEAST(CAST('10:11:12' AS TIME), '10:11:13 ')", "sql_id": "duckdb_22_2"}
+{"model": "sqlglot", "message": "SELECT UNIX_TIMESTAMP(UTC_TIMESTAMP()) - UNIX_TIMESTAMP(CURRENT_TIMESTAMP)", "sql_id": "duckdb_23_0"}
+{"model": "sqlglot", "message": "INSERT INTO t1 (i, ts) VALUES (UNIX_TIMESTAMP('2003-03-01 00:00:00'), '2003-03-01 00:00:00')", "sql_id": "duckdb_23_3"}
+{"model": "sqlglot", "message": "INSERT INTO t1 (i, ts) VALUES (UNIX_TIMESTAMP('2003-03-30 01:59:59'), '2003-03-30 01:59:59'), (UNIX_TIMESTAMP('2003-03-30 02:30:00'), '2003-03-30 02:30:00'), (UNIX_TIMESTAMP('2003-03-30 03:00:00'), '2003-03-30 03:00:00')", "sql_id": "duckdb_23_4"}
+{"model": "sqlglot", "message": "INSERT INTO t1 (i, ts) VALUES (UNIX_TIMESTAMP(20030330015959), 20030330015959), (UNIX_TIMESTAMP(20030330023000), 20030330023000), (UNIX_TIMESTAMP(20030330030000), 20030330030000)", "sql_id": "duckdb_23_5"}
+{"model": "sqlglot", "message": "INSERT INTO t1 (i, ts) VALUES (UNIX_TIMESTAMP('2003-05-01 00:00:00'), '2003-05-01 00:00:00')", "sql_id": "duckdb_23_6"}
+{"model": "sqlglot", "message": "INSERT INTO t1 (i, ts) VALUES (UNIX_TIMESTAMP('2003-10-26 01:00:00'), '2003-10-26 01:00:00'), (UNIX_TIMESTAMP('2003-10-26 02:00:00'), '2003-10-26 02:00:00'), (UNIX_TIMESTAMP('2003-10-26 02:59:59'), '2003-10-26 02:59:59'), (UNIX_TIMESTAMP('2003-10-26 04:00:00'), '2003-10-26 04:00:00'), (UNIX_TIMESTAMP('2003-10-26 02:59:59'), '2003-10-26 02:59:59')", "sql_id": "duckdb_23_7"}
+{"model": "sqlglot", "message": "SELECT TO_TIMESTAMP(362793609)", "sql_id": "duckdb_23_10"}
+{"model": "sqlglot", "message": "INSERT INTO t1 (ts) VALUES (NOW())", "sql_id": "duckdb_23_12"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES ('2003-03-30 01:59:59', 'Before the gap'), ('2003-03-30 02:30:00', 'Inside the gap'), ('2003-03-30 03:00:00', 'After the gap')", "sql_id": "duckdb_23_15"}
+{"model": "sqlglot", "message": "SELECT UNIX_TIMESTAMP('2003-03-30 01:59:59'), 'Before the gap' AS b", "sql_id": "duckdb_23_18"}
+{"model": "sqlglot", "message": "SELECT UNIX_TIMESTAMP('2003-03-30 02:30:00'), 'Inside the gap' AS b", "sql_id": "duckdb_23_19"}
+{"model": "sqlglot", "message": "SELECT UNIX_TIMESTAMP('2003-03-30 03:00:00'), 'After the gap' AS b", "sql_id": "duckdb_23_20"}
+{"model": "sqlglot", "message": "SELECT TO_TIMESTAMP(0)", "sql_id": "duckdb_23_21"}
+{"model": "sqlglot", "message": "SELECT UNIX_TIMESTAMP('1969-12-31 15:59:59')", "sql_id": "duckdb_23_22"}
+{"model": "sqlglot", "message": "SELECT UNIX_TIMESTAMP('1969-12-31 16:00:00')", "sql_id": "duckdb_23_23"}
+{"model": "sqlglot", "message": "SELECT UNIX_TIMESTAMP('1969-12-31 16:00:01')", "sql_id": "duckdb_23_24"}
+{"model": "sqlglot", "message": "SELECT UNIX_TIMESTAMP('1970-01-01 00:00:01')", "sql_id": "duckdb_23_25"}
+{"model": "sqlglot", "message": "SELECT UNIX_TIMESTAMP('2022-01-01 16:00:01')", "sql_id": "duckdb_23_26"}
+{"model": "sqlglot", "message": "SELECT HEX(a) FROM t1", "sql_id": "duckdb_24_3"}
+{"model": "sqlglot", "message": "SELECT HEX(a) FROM t1", "sql_id": "duckdb_24_7"}
+{"model": "sqlglot", "message": "SELECT HEX(MIN(a)) FROM t1", "sql_id": "duckdb_24_11"}
+{"model": "sqlglot", "message": "SELECT HEX(MIN(b)) FROM t1", "sql_id": "duckdb_24_12"}
+{"model": "sqlglot", "message": "SELECT HEX(MIN(a)), HEX(MAX(a)), HEX(MIN(b)), HEX(MAX(b)) FROM t1", "sql_id": "duckdb_24_13"}
+{"model": "sqlglot", "message": "SELECT HEX(MIN(b)) FROM t1 WHERE a = 4", "sql_id": "duckdb_24_17"}
+{"model": "sqlglot", "message": "SELECT HEX(MIN(c)) FROM t1 WHERE a = 4 AND b = 0", "sql_id": "duckdb_24_18"}
+{"model": "sqlglot", "message": "SELECT HEX(MAX(b)) FROM t1", "sql_id": "duckdb_24_19"}
+{"model": "sqlglot", "message": "UPDATE t1 SET b = CONCAT(a)", "sql_id": "duckdb_24_23"}
+{"model": "sqlglot", "message": "SELECT HEX(GROUP_CONCAT(DISTINCT b)) FROM t1 GROUP BY a", "sql_id": "duckdb_24_27"}
+{"model": "sqlglot", "message": "SELECT HEX(b), i2 FROM t1 WHERE (i2 >= 100 AND i2 < 201) AND b = TRUE", "sql_id": "duckdb_25_3"}
+{"model": "sqlglot", "message": "SELECT HEX(b1), i2 FROM t2 WHERE (i2 >= 100 AND i2 < 201) AND b1 = TRUE", "sql_id": "duckdb_25_7"}
+{"model": "sqlglot", "message": "SELECT HEX(b2), i2 FROM t2 WHERE (i2 >= 100 AND i2 < 201) AND b2 = FALSE", "sql_id": "duckdb_25_8"}
+{"model": "sqlglot", "message": "SELECT HEX(GROUP_CONCAT(DISTINCT b)) FROM t1 GROUP BY a", "sql_id": "duckdb_25_13"}
+{"model": "sqlglot", "message": "SELECT HEX(t2.b) FROM t2", "sql_id": "duckdb_25_15"}
+{"model": "sqlglot", "message": "SELECT a, HEX(b) FROM t1 ORDER BY b NULLS FIRST", "sql_id": "duckdb_25_16"}
+{"model": "sqlglot", "message": "SELECT HEX(a) FROM t1 ORDER BY a NULLS FIRST", "sql_id": "duckdb_26_3"}
+{"model": "sqlglot", "message": "SELECT HEX(CONCAT(a, '\\0')) AS b FROM t1 ORDER BY CONCAT(a, '\\0') NULLS FIRST", "sql_id": "duckdb_26_4"}
+{"model": "sqlglot", "message": "SELECT HEX(a) FROM t1 ORDER BY a NULLS FIRST", "sql_id": "duckdb_26_6"}
+{"model": "sqlglot", "message": "INSERT INTO t (c) VALUES (REPEAT('3', 65535))", "sql_id": "duckdb_26_10"}
+{"model": "sqlglot", "message": "SELECT LENGTH(c), CHAR_LENGTH(c) FROM t", "sql_id": "duckdb_26_11"}
+{"model": "sqlglot", "message": "SELECT LENGTH(c) FROM t2", "sql_id": "duckdb_26_16"}
+{"model": "sqlglot", "message": "SELECT LEAST(-1.1111111111111111111111111, -GROUP_CONCAT(1.7976931348623157E+308)) AS foo", "sql_id": "duckdb_27_0"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (NOW())", "sql_id": "duckdb_28_7"}
+{"model": "sqlglot", "message": "SELECT STRFTIME(a, '%Y %y'), YEAR(CAST(a AS DATE)), YEAR(CAST(NOW() AS DATE)) FROM t1", "sql_id": "duckdb_28_8"}
+{"model": "sqlglot", "message": "SELECT TIMESTAMP('2000-01-27', '23:13:41') - TIMESTAMP('2003-05-16', '23:53:29')", "sql_id": "duckdb_28_10"}
+{"model": "sqlglot", "message": "SELECT LENGTH(v), LENGTH(c), LENGTH(e), LENGTH(t) FROM t1", "sql_id": "duckdb_30_5"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (SUBSTRING(f1, 1, 3))", "sql_id": "duckdb_30_8"}
+{"model": "sqlglot", "message": "SELECT a, (a // 2) FROM t1 ORDER BY a NULLS FIRST", "sql_id": "duckdb_30_12"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (NOW())", "sql_id": "duckdb_31_2"}
+{"model": "sqlglot", "message": "SELECT CASE WHEN y = NOW() THEN 1 ELSE 0 END FROM t1", "sql_id": "duckdb_31_3"}
+{"model": "sqlglot", "message": "SELECT * FROM t4 WHERE yyyy = NOW()", "sql_id": "duckdb_31_9"}
+{"model": "sqlglot", "message": "SELECT DATE_DIFF('QUARTER', LEAST(y1, y2), dbl) FROM t1", "sql_id": "duckdb_31_19"}
+{"model": "sqlglot", "message": "SELECT HOUR(GREATEST(y1, y2)) FROM t1", "sql_id": "duckdb_31_20"}
+{"model": "sqlglot", "message": "SELECT y, CONCAT('\"', c, '\"') FROM t1", "sql_id": "duckdb_32_12"}
+{"model": "sqlglot", "message": "SELECT HEX(b) FROM t1 ORDER BY pk1 NULLS FIRST", "sql_id": "duckdb_33_3"}
+{"model": "sqlglot", "message": "SELECT HEX(b) FROM t1 ORDER BY pk1 NULLS FIRST", "sql_id": "duckdb_33_7"}
+{"model": "sqlglot", "message": "SELECT CONCAT('*', name, '*') FROM t1 ORDER BY 1 NULLS FIRST", "sql_id": "duckdb_34_8"}
+{"model": "sqlglot", "message": "SELECT MIN(name), MIN(CONCAT('*', name, '*')), MAX(name), MAX(CONCAT('*', name, '*')) FROM t1", "sql_id": "duckdb_34_9"}
+{"model": "sqlglot", "message": "SELECT CONCAT('-', a, '-', b, '-') FROM t1 WHERE a = 'hello'", "sql_id": "duckdb_34_14"}
+{"model": "sqlglot", "message": "SELECT CONCAT('-', a, '-', b, '-') FROM t1 WHERE a = 'hello'", "sql_id": "duckdb_34_16"}
+{"model": "sqlglot", "message": "SELECT HEX(col1) FROM t1", "sql_id": "duckdb_34_20"}
+{"model": "sqlglot", "message": "SELECT HEX(col1) FROM t1", "sql_id": "duckdb_34_22"}
+{"model": "sqlglot", "message": "SELECT HEX(col1) FROM t1", "sql_id": "duckdb_34_24"}
+{"model": "sqlglot", "message": "", "sql_id": "duckdb_35_2"}
+{"model": "sqlglot", "message": "", "sql_id": "duckdb_35_3"}
+{"model": "sqlglot", "message": "", "sql_id": "duckdb_35_4"}
+{"model": "sqlglot", "message": "SELECT HEX(a) FROM t1 ORDER BY a NULLS FIRST", "sql_id": "duckdb_35_5"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT HEX(a) FROM t1 ORDER BY a NULLS FIRST", "sql_id": "duckdb_35_6"}
+{"model": "sqlglot", "message": "SELECT HEX(a) FROM t1 WHERE a = UNHEX('1F9480179366F2BF567E1C4B964C1EF029082020')", "sql_id": "duckdb_35_7"}
+{"model": "sqlglot", "message": "SELECT HEX(a) FROM t1 WHERE a = UNHEX('1F9480179366F2BF567E1C4B964C1EF02908')", "sql_id": "duckdb_35_8"}
+{"model": "sqlglot", "message": "SELECT CASE WHEN NULL AND 1 THEN 1 ELSE 2 END, CASE WHEN 1 AND NULL THEN 1 ELSE 2 END", "sql_id": "duckdb_36_0"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE CASE WHEN a AND 1 THEN 0 ELSE 1 END", "sql_id": "duckdb_36_4"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE CASE WHEN 1 AND a THEN 0 ELSE 1 END", "sql_id": "duckdb_36_5"}
+{"model": "sqlglot", "message": "SELECT COALESCE(A, 'N') AS A, COALESCE(B, 'N') AS B, COALESCE(NOT A, 'N') AS nA, COALESCE(NOT B, 'N') AS nB, COALESCE(A AND B, 'N') AS AB, COALESCE(NOT (A AND B), 'N') AS \"n(AB)\", COALESCE((NOT A OR NOT B), 'N') AS nAonB, COALESCE(A OR B, 'N') AS AoB, COALESCE(NOT (A OR B), 'N') AS \"n(AoB)\", COALESCE(NOT A AND NOT B, 'N') AS nAnB FROM t1", "sql_id": "duckdb_36_9"}
+{"model": "sqlglot", "message": "SELECT COALESCE(A = 1, 'N') AS A, COALESCE(B = 1, 'N') AS B, COALESCE(NOT (A = 1), 'N') AS nA, COALESCE(NOT (B = 1), 'N') AS nB, COALESCE((A = 1) AND (B = 1), 'N') AS AB, COALESCE(NOT ((A = 1) AND (B = 1)), 'N') AS \"n(AB)\", COALESCE((NOT (A = 1) OR NOT (B = 1)), 'N') AS nAonB, COALESCE((A = 1) OR (B = 1), 'N') AS AoB, COALESCE(NOT ((A = 1) OR (B = 1)), 'N') AS \"n(AoB)\", COALESCE(NOT (A = 1) AND NOT (B = 1), 'N') AS nAnB FROM t1", "sql_id": "duckdb_36_10"}
+{"model": "sqlglot", "message": "SELECT CAST('2004-01-22 21:45:33' AS DATE)", "sql_id": "duckdb_37_0"}
+{"model": "sqlglot", "message": "SELECT TIMEDIFF(CAST('2004-12-30 12:00:00' AS TIME), '12:00:00')", "sql_id": "duckdb_37_1"}
+{"model": "sqlglot", "message": "SELECT TIMEDIFF(CAST('1 12:00:00' AS TIME), '12:00:00')", "sql_id": "duckdb_37_2"}
+{"model": "sqlglot", "message": "SELECT CAST(CONCAT('12345', '6789') AS UBIGINT)", "sql_id": "duckdb_37_3"}
+{"model": "sqlglot", "message": "SELECT CAST(CONCAT('12345', '6789') AS BIGINT)", "sql_id": "duckdb_37_4"}
+{"model": "sqlglot", "message": "SELECT CAST(REPEAT('1', 9) AS UBIGINT)", "sql_id": "duckdb_37_5"}
+{"model": "sqlglot", "message": "SELECT CAST(REPEAT('1', 9) AS BIGINT)", "sql_id": "duckdb_37_6"}
+{"model": "sqlglot", "message": "SELECT (CAST(NULL AS DATE) IS NULL), (CAST(NULL AS DATE) IS NULL)", "sql_id": "duckdb_37_7"}
+{"model": "sqlglot", "message": "SELECT HEX(CAST('a' AS BLOB(2)))", "sql_id": "duckdb_37_8"}
+{"model": "sqlglot", "message": "SELECT HOUR(f1), MINUTE(f1), SECOND(f1) FROM t1", "sql_id": "duckdb_37_16"}
+{"model": "sqlglot", "message": "SELECT HOUR(CAST('2007-07-19' AS DATE)), MINUTE(CAST('2007-07-19' AS DATE)), SECOND(CAST('2007-07-19' AS DATE))", "sql_id": "duckdb_37_18"}
+{"model": "sqlglot", "message": "SELECT HOUR(CAST(NULL AS DATE)), MINUTE(CAST(NULL AS DATE)), SECOND(CAST(NULL AS DATE))", "sql_id": "duckdb_37_19"}
+{"model": "sqlglot", "message": "SELECT HOUR(NULL), MINUTE(NULL), SECOND(NULL)", "sql_id": "duckdb_37_20"}
+{"model": "sqlglot", "message": "SELECT CAST('a' AS TEXT(2049))", "sql_id": "duckdb_37_21"}
+{"model": "sqlglot", "message": "SELECT CONCAT('value=', CAST('3.4e5' AS REAL))", "sql_id": "duckdb_37_22"}
+{"model": "sqlglot", "message": "SELECT MAKE_TIME(1, 2, CAST('1.6' AS REAL))", "sql_id": "duckdb_37_23"}
+{"model": "sqlglot", "message": "SELECT STRCMP(a, b) FROM t1", "sql_id": "duckdb_38_3"}
+{"model": "sqlglot", "message": "SELECT CAST(1988 AS YEAR), REPEAT(CAST(1988 AS YEAR), 3) AS c2", "sql_id": "duckdb_38_6"}
+{"model": "sqlglot", "message": "SELECT CONCAT('x', CAST(1988 AS YEAR))", "sql_id": "duckdb_38_7"}
+{"model": "sqlglot", "message": "SELECT TIME_TO_SEC(CAST('2030' AS YEAR))", "sql_id": "duckdb_38_8"}
+{"model": "sqlglot", "message": "SELECT TIMESTAMPADD(MINUTE, 1, CAST(1988 AS YEAR))", "sql_id": "duckdb_38_9"}
+{"model": "sqlglot", "message": "SELECT CAST(CAST(STRPTIME('nope', '%d-%m-%Y') AS DATE) AS YEAR)", "sql_id": "duckdb_38_10"}
+{"model": "sqlglot", "message": "SELECT 1 FROM t WHERE CAST(a AS UBIGINT) = 1 AND a = CASE WHEN TRUE THEN NULL ELSE 1 END", "sql_id": "duckdb_38_13"}
+{"model": "sqlglot", "message": "SELECT HEX(a), STRCMP(a, 'a'), STRCMP(a, 'a ') FROM t1", "sql_id": "duckdb_40_3"}
+{"model": "sqlglot", "message": "SELECT CONCAT(b, c), CONCAT(b, c) = '0101' FROM t1", "sql_id": "duckdb_40_7"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT b, c FROM t1 WHERE b = 1 AND CONCAT(b, c) = '0101'", "sql_id": "duckdb_40_8"}
+{"model": "sqlglot", "message": "SELECT b, c FROM t1 WHERE b = 1 AND CONCAT(b, c) = '0101'", "sql_id": "duckdb_40_9"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (NOW()), (NOW()), (NOW())", "sql_id": "duckdb_40_12"}
+{"model": "sqlglot", "message": "SELECT ROW('1', '1') > ROW(a, '1') FROM t1", "sql_id": "duckdb_40_16"}
+{"model": "sqlglot", "message": "SELECT ROW(a, '1') > ROW('1', '1') FROM t1", "sql_id": "duckdb_40_17"}
+{"model": "sqlglot", "message": "SELECT COUNT(DISTINCT CASE WHEN f1 THEN 3 ELSE f2 END) FROM t1", "sql_id": "duckdb_41_3"}
+{"model": "sqlglot", "message": "SELECT HEX(v) FROM t1", "sql_id": "duckdb_42_4"}
+{"model": "sqlglot", "message": "SELECT CONCAT(name, SPACE(level)), CONCAT(name, REPEAT(' ', level)) FROM t1", "sql_id": "duckdb_43_3"}
+{"model": "sqlglot", "message": "CREATE TABLE t1 AS SELECT REPEAT('a', 4000) AS a", "sql_id": "duckdb_43_5"}
+{"model": "sqlglot", "message": "CREATE TABLE head AS SELECT CONCAT(b1.b, b2.b) AS head FROM t1 AS b1, t1 AS b2", "sql_id": "duckdb_43_14"}
+{"model": "sqlglot", "message": "CREATE TABLE tail AS SELECT CONCAT(b1.b, b2.b) AS tail FROM t1 AS b1, t1 AS b2", "sql_id": "duckdb_43_15"}
+{"model": "sqlglot", "message": "SELECT GROUP_CONCAT(COALESCE(a, '')) FROM t1", "sql_id": "duckdb_44_3"}
+{"model": "sqlglot", "message": "SELECT GROUP_CONCAT(CASE WHEN a THEN a ELSE '' END) FROM t1", "sql_id": "duckdb_44_4"}
+{"model": "sqlglot", "message": "SELECT GROUP_CONCAT(CASE WHEN a THEN a ELSE '' END) FROM t1", "sql_id": "duckdb_44_5"}
+{"model": "sqlglot", "message": "SELECT COALESCE(a, '') FROM t1 GROUP BY 1", "sql_id": "duckdb_44_6"}
+{"model": "sqlglot", "message": "CREATE TABLE t2 AS SELECT CONCAT_WS(1, 2, 3) FROM t1", "sql_id": "duckdb_44_8"}
+{"model": "sqlglot", "message": "CREATE TABLE t2 AS SELECT LOWER(a) FROM t1", "sql_id": "duckdb_44_10"}
+{"model": "sqlglot", "message": "CREATE TABLE t2 AS SELECT UPPER(a) FROM t1", "sql_id": "duckdb_44_12"}
+{"model": "sqlglot", "message": "CREATE TABLE t2 AS SELECT REPEAT(1, 2) FROM t1", "sql_id": "duckdb_44_14"}
+{"model": "sqlglot", "message": "CREATE TABLE t2 AS SELECT ELT(1, 111, 222, 333) FROM t1", "sql_id": "duckdb_44_16"}
+{"model": "sqlglot", "message": "SELECT HEX(a) FROM t1", "sql_id": "duckdb_45_2"}
+{"model": "sqlglot", "message": "SELECT HEX(a) FROM t2", "sql_id": "duckdb_45_6"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE a = LPAD('xxx', 10, ' ')", "sql_id": "duckdb_45_11"}
+{"model": "sqlglot", "message": "SELECT COALESCE(c1, ''), COALESCE(NULL, c1) FROM t1", "sql_id": "duckdb_45_15"}
+{"model": "sqlglot", "message": "SELECT CASE WHEN 1 THEN c1 ELSE '' END, CASE WHEN 0 THEN c1 ELSE '' END FROM t1", "sql_id": "duckdb_45_16"}
+{"model": "sqlglot", "message": "SELECT COALESCE('', c1), COALESCE(NULL, c1) FROM t1", "sql_id": "duckdb_45_17"}
+{"model": "sqlglot", "message": "SELECT LEAST(c1, ''), GREATEST(c1, '') FROM t1", "sql_id": "duckdb_45_18"}
+{"model": "sqlglot", "message": "SELECT STRPOS('', c1), STRPOS(c1, '') FROM t1", "sql_id": "duckdb_45_19"}
+{"model": "sqlglot", "message": "SELECT FIELD(c1, ''), FIELD('', c1) FROM t1", "sql_id": "duckdb_45_20"}
+{"model": "sqlglot", "message": "SELECT CONCAT(c1, ''), CONCAT('', c1) FROM t1", "sql_id": "duckdb_45_21"}
+{"model": "sqlglot", "message": "SELECT CONCAT_WS(c1, '', ''), CONCAT_WS('', c1, '') FROM t1", "sql_id": "duckdb_45_22"}
+{"model": "sqlglot", "message": "SELECT ELT(1, c1, ''), ELT(1, '', c1) FROM t1", "sql_id": "duckdb_45_23"}
+{"model": "sqlglot", "message": "SELECT LPAD(c1, 3, 'x'), LPAD('x', 3, c1) FROM t1", "sql_id": "duckdb_45_24"}
+{"model": "sqlglot", "message": "SELECT RPAD(c1, 3, 'x'), RPAD('x', 3, c1) FROM t1", "sql_id": "duckdb_45_25"}
+{"model": "sqlglot", "message": "SELECT CAST(STRPTIME(CONCAT('15-01-2001', ' 2:59:58.999'), CONCAT('%d-%m-%Y', ' ', '%H:%i:%s.%f')) AS DATE)", "sql_id": "duckdb_46_0"}
+{"model": "sqlglot", "message": "SELECT STRPTIME('2004.12.12 22.30.59', '%Y.%m.%d %H:%M:%S')", "sql_id": "duckdb_46_1"}
+{"model": "sqlglot", "message": "SELECT CONCAT('', STRPTIME('8:11:2 03-01-02', '%H:%M:%S %y-%m-%d'))", "sql_id": "duckdb_46_11"}
+{"model": "sqlglot", "message": "SELECT STRFTIME(d, '%d') FROM t1 ORDER BY 1 NULLS FIRST", "sql_id": "duckdb_46_15"}
+{"model": "sqlglot", "message": "SELECT STRFTIME('2004-01-01', '%A (%a), %-d %B (%b) %Y')", "sql_id": "duckdb_46_17"}
+{"model": "sqlglot", "message": "SELECT TIME_FORMAT('24:00:00', '%r')", "sql_id": "duckdb_47_0"}
+{"model": "sqlglot", "message": "SELECT TIME_FORMAT('00:00:00', '%r')", "sql_id": "duckdb_47_1"}
+{"model": "sqlglot", "message": "SELECT TIME_FORMAT('12:00:00', '%r')", "sql_id": "duckdb_47_2"}
+{"model": "sqlglot", "message": "SELECT TIME_FORMAT('15:00:00', '%r')", "sql_id": "duckdb_47_3"}
+{"model": "sqlglot", "message": "SELECT TIME_FORMAT('01:00:00', '%r')", "sql_id": "duckdb_47_4"}
+{"model": "sqlglot", "message": "SELECT TIME_FORMAT('00:00:00', '%l %p')", "sql_id": "duckdb_47_6"}
+{"model": "sqlglot", "message": "SELECT TIME_FORMAT('01:00:00', '%l %p')", "sql_id": "duckdb_47_7"}
+{"model": "sqlglot", "message": "SELECT TIME_FORMAT('12:00:00', '%l %p')", "sql_id": "duckdb_47_8"}
+{"model": "sqlglot", "message": "SELECT TIME_FORMAT('23:00:00', '%l %p')", "sql_id": "duckdb_47_9"}
+{"model": "sqlglot", "message": "SELECT TIME_FORMAT('24:00:00', '%l %p')", "sql_id": "duckdb_47_10"}
+{"model": "sqlglot", "message": "SELECT CAST(STRPTIME('04 /30/2004', '%m /%d/%Y') AS DATE)", "sql_id": "duckdb_47_13"}
+{"model": "sqlglot", "message": "SELECT CAST(STRPTIME('04/30 /2004', '%m /%d /%Y') AS DATE)", "sql_id": "duckdb_47_14"}
+{"model": "sqlglot", "message": "SELECT CAST(STRPTIME('04/30/2004 ', '%m/%d/%Y ') AS DATE)", "sql_id": "duckdb_47_15"}
+{"model": "sqlglot", "message": "SELECT STRFTIME('0000-01-01', '%A %d %B %Y') AS valid_date", "sql_id": "duckdb_47_16"}
+{"model": "sqlglot", "message": "SELECT STRFTIME('0000-02-28', '%A %d %B %Y') AS valid_date", "sql_id": "duckdb_47_17"}
+{"model": "sqlglot", "message": "SELECT STRFTIME('2009-01-01', '%A %d %B %Y') AS valid_date", "sql_id": "duckdb_47_18"}
+{"model": "sqlglot", "message": "SELECT '{\"id\": \"3\", \"$name\": \"Barney\"}' -> '$.id'", "sql_id": "duckdb_48_0"}
+{"model": "sqlglot", "message": "SELECT '{\"id\": \"3\", \"$name\": \"$Barney\"}' -> '$.$name'", "sql_id": "duckdb_48_1"}
+{"model": "sqlglot", "message": "SELECT CONCAT('|', text1, '|') AS c FROM t1 WHERE text1 = 'teststring' OR text1 LIKE 'teststring_%' ORDER BY c NULLS FIRST", "sql_id": "duckdb_49_5"}
+{"model": "sqlglot", "message": "SELECT CONCAT('|', text1, '|') FROM t1 WHERE text1 = 'teststring' OR text1 > 'teststring\\t'", "sql_id": "duckdb_49_6"}
+{"model": "sqlglot", "message": "SELECT text1, LENGTH(text1) FROM t1 ORDER BY text1 NULLS FIRST", "sql_id": "duckdb_49_7"}
+{"model": "sqlglot", "message": "SELECT CONCAT('|', text1, '|') FROM t1 ORDER BY text1 NULLS FIRST", "sql_id": "duckdb_49_9"}
+{"model": "sqlglot", "message": "SELECT CONCAT('|', text1, '|') FROM t1 WHERE text1 = 'teststring' OR text1 > 'teststring\\t'", "sql_id": "duckdb_49_10"}
+{"model": "sqlglot", "message": "SELECT CONCAT('|', text1, '|') FROM t1 WHERE text1 = 'teststring'", "sql_id": "duckdb_49_11"}
+{"model": "sqlglot", "message": "SELECT CONCAT('|', text1, '|') FROM t1 WHERE text1 = 'teststring '", "sql_id": "duckdb_49_12"}
+{"model": "sqlglot", "message": "SELECT CONCAT('Let''s create some new events from the name of ', USER())", "sql_id": "duckdb_50_3"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (2, REPEAT('-', 104))", "sql_id": "duckdb_51_2"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (1, REPEAT('x', 104))", "sql_id": "duckdb_51_3"}
+{"model": "sqlglot", "message": "SELECT CONCAT(f1, '') AS dummy FROM t1 ORDER BY dummy NULLS FIRST", "sql_id": "duckdb_51_7"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 ORDER BY UNIX_TIMESTAMP(f1) NULLS FIRST", "sql_id": "duckdb_51_11"}
+{"model": "sqlglot", "message": "SELECT 'a' AS f1 FROM t1 WHERE a = '8' GROUP BY f1 ORDER BY CONCAT(f1) NULLS FIRST", "sql_id": "duckdb_51_15"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (1, REPEAT('x', 40001))", "sql_id": "duckdb_51_18"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (2, REPEAT('x', 40002))", "sql_id": "duckdb_51_19"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (3, REPEAT('x', 40003))", "sql_id": "duckdb_51_20"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (4, REPEAT('x', 40005))", "sql_id": "duckdb_51_21"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (5, REPEAT('x', 40008))", "sql_id": "duckdb_51_22"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (6, REPEAT('x', 40013))", "sql_id": "duckdb_51_23"}
+{"model": "sqlglot", "message": "SELECT a, LENGTH(b) FROM t1 ORDER BY a DESC", "sql_id": "duckdb_51_24"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT * FROM t1 WHERE LENGTH(t1.vc) > 3", "sql_id": "duckdb_52_13"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT * FROM t1 WHERE LENGTH(t1.vc) = 3", "sql_id": "duckdb_52_14"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT * FROM t1 WHERE LENGTH(t1.vc) IS NULL", "sql_id": "duckdb_52_15"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT * FROM t1 WHERE NOT LENGTH(t1.vc) IS NULL", "sql_id": "duckdb_52_16"}
+{"model": "sqlglot", "message": "INSERT INTO t VALUES (REPEAT(10, 1000))", "sql_id": "duckdb_53_12"}
+{"model": "sqlglot", "message": "INSERT INTO t VALUES (1, REPEAT('2', 257)), (1, REPEAT('1', 257))", "sql_id": "duckdb_53_15"}
+{"model": "sqlglot", "message": "INSERT INTO t VALUES (1, REPEAT('2', 255)), (1, REPEAT('1', 255))", "sql_id": "duckdb_53_18"}
+{"model": "sqlglot", "message": "INSERT INTO t VALUES (1, REPEAT('2', 32750), REPEAT('1', 32750))", "sql_id": "duckdb_53_21"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (NULL), ('A\\0\\0\\0BBBBBBBB'), (SPACE(50000)), (SPACE(50000))", "sql_id": "duckdb_54_2"}
+{"model": "sqlglot", "message": "SELECT LENGTH(a) FROM t1", "sql_id": "duckdb_54_3"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE CONCAT(A, C, B, D) = 'AAAA2003-03-011051'", "sql_id": "duckdb_55_3"}
+{"model": "sqlglot", "message": "SELECT 'a' UNION SELECT CONCAT('a', -4)", "sql_id": "duckdb_55_5"}
+{"model": "sqlglot", "message": "SELECT 'a' UNION SELECT CONCAT('a', -4.5)", "sql_id": "duckdb_55_6"}
+{"model": "sqlglot", "message": "SELECT 'a' UNION SELECT CONCAT('a', -(4 + 1))", "sql_id": "duckdb_55_7"}
+{"model": "sqlglot", "message": "SELECT 'a' UNION SELECT CONCAT('a', 4 - 5)", "sql_id": "duckdb_55_8"}
+{"model": "sqlglot", "message": "SELECT 'a' UNION SELECT CONCAT('a', -0)", "sql_id": "duckdb_55_11"}
+{"model": "sqlglot", "message": "SELECT 'a' UNION SELECT CONCAT('a', -0.0)", "sql_id": "duckdb_55_12"}
+{"model": "sqlglot", "message": "SELECT 'a' UNION SELECT CONCAT('a', -0.0000)", "sql_id": "duckdb_55_13"}
+{"model": "sqlglot", "message": "SELECT CONCAT((SELECT x FROM (SELECT 'a' AS x) AS t1), (SELECT y FROM (SELECT 'b' AS y) AS t2)) FROM (SELECT 1 UNION SELECT 2) AS t3", "sql_id": "duckdb_55_14"}
+{"model": "sqlglot", "message": "SELECT CONCAT(f1, 2) AS a FROM t1 UNION SELECT 'x' AS a FROM t1", "sql_id": "duckdb_55_17"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE REGEXP_MATCHES(CONCAT(c1, ' ', c2), 'First.*')", "sql_id": "duckdb_55_21"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (NULL + INTERVAL '1' DAY)", "sql_id": "duckdb_56_2"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (CAST('2000-01-04' AS DATE) + INTERVAL (NULL) DAY)", "sql_id": "duckdb_56_3"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (NULL + INTERVAL '1' DAY)", "sql_id": "duckdb_56_4"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (CAST('2000-01-04' AS DATE) + INTERVAL '1' DAY)", "sql_id": "duckdb_56_5"}
+{"model": "sqlglot", "message": "SELECT CAST(ts AS DATE) = CURRENT_DATE + INTERVAL '1' DAY AS is_tomorrow, CAST(CAST(ts AS TIMESTAMPTZ) AT TIME ZONE  AS TIME) FROM (SELECT ADDDATE(CAST('00:00:00' AS TIME), INTERVAL '1' DAY) AS ts) AS dt", "sql_id": "duckdb_56_7"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE ((DATE_DIFF('DAY', CAST('0000-01-01' AS DATE), CAST(mydate AS DATE)) + 1) IS NULL)", "sql_id": "duckdb_57_3"}
+{"model": "sqlglot", "message": "SELECT * FROM t3 LEFT JOIN (t2 AS outr2, t2 AS outr, t1) ON (outr.pk = t3.pk) AND (t1.col_int_key = t3.pk) AND (t1.col_date_key IS NULL) AND (outr2.pk <> t3.pk)", "sql_id": "duckdb_57_13"}
+{"model": "sqlglot", "message": "SELECT * FROM t3 JOIN (t2 AS outr2, t2 AS outr, t1) ON (outr.pk = t3.pk) AND (t1.col_int_key = t3.pk) AND (t1.col_date_key IS NULL) AND (outr2.pk <> t3.pk)", "sql_id": "duckdb_57_14"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT * FROM t1 WHERE a LIKE CONCAT('abc', '%')", "sql_id": "duckdb_58_4"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE a LIKE CONCAT('abc', '%')", "sql_id": "duckdb_58_5"}
+{"model": "sqlglot", "message": "SELECT LN(EXP(10)), EXP(LN(SQRT(10)) * 2), LN(NULL)", "sql_id": "duckdb_59_0"}
+{"model": "sqlglot", "message": "SELECT LOG(2, 8), LOG(2, 15), LOG(2, NULL)", "sql_id": "duckdb_59_1"}
+{"model": "sqlglot", "message": "SELECT POWER(10, LOG(10, 10)), POWER(2, 4)", "sql_id": "duckdb_59_2"}
+{"model": "sqlglot", "message": "SELECT CEIL(0.09)", "sql_id": "duckdb_59_3"}
+{"model": "sqlglot", "message": "SELECT CEIL(0.000000000000000009)", "sql_id": "duckdb_59_4"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES ('http://www.foo.com/', NOW())", "sql_id": "duckdb_59_7"}
+{"model": "sqlglot", "message": "SELECT a FROM t1 WHERE a = 'http://www.foo.com/' ORDER BY ABS(TIMEDIFF(ts, 0)) NULLS FIRST", "sql_id": "duckdb_59_8"}
+{"model": "sqlglot", "message": "SELECT CAST(-2 AS UBIGINT) % 3, 18446744073709551614 % 3, -2 % 3", "sql_id": "duckdb_59_10"}
+{"model": "sqlglot", "message": "SELECT 5 % CAST(-2 AS UBIGINT), 5 % 18446744073709551614, 5 % -2", "sql_id": "duckdb_59_11"}
+{"model": "sqlglot", "message": "SELECT POWER(CAST(-2 AS UBIGINT), 5), POWER(18446744073709551614, 5), POWER(-2, 5)", "sql_id": "duckdb_59_12"}
+{"model": "sqlglot", "message": "SELECT ROUND(LEAST(15, -4939092, 0.2704))", "sql_id": "duckdb_60_0"}
+{"model": "sqlglot", "message": "SELECT (1.175494351E-37 // 1.7976931348623157E+308)", "sql_id": "duckdb_60_1"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES (LN(1))", "sql_id": "duckdb_60_4"}
+{"model": "sqlglot", "message": "SELECT FLOOR(CEIL(123456789))", "sql_id": "duckdb_60_6"}
+{"model": "sqlglot", "message": "SELECT CAST(POWER(2, 63) - 1024 AS BIGINT) AS pp", "sql_id": "duckdb_60_7"}
+{"model": "sqlglot", "message": "SELECT CAST(1 - POWER(2, 63) AS BIGINT) AS qq", "sql_id": "duckdb_60_8"}
+{"model": "sqlglot", "message": "SELECT * FROM t0 WHERE CAST(COALESCE(t0.c0, -1) AS UBIGINT)", "sql_id": "duckdb_60_12"}
+{"model": "sqlglot", "message": "SELECT * FROM t0 WHERE CAST(COALESCE(t0.c0, -1) AS UBIGINT)", "sql_id": "duckdb_60_13"}
+{"model": "sqlglot", "message": "SELECT CAST(COALESCE(t0.c0, -1) AS UBIGINT) IS TRUE FROM t0", "sql_id": "duckdb_60_14"}
+{"model": "sqlglot", "message": "SELECT CAST(COALESCE(t0.c0, -1) AS UBIGINT) FROM t0", "sql_id": "duckdb_60_15"}
+{"model": "sqlglot", "message": "SELECT MD5('a'), HEX(MD5('a'))", "sql_id": "duckdb_61_0"}
+{"model": "sqlglot", "message": "CREATE TABLE t1 AS SELECT MD5('a') AS c1", "sql_id": "duckdb_61_2"}
+{"model": "sqlglot", "message": "SELECT MD5('hello')", "sql_id": "duckdb_61_4"}
+{"model": "sqlglot", "message": "DESCRIBE SELECT MD5('hello')", "sql_id": "duckdb_61_5"}
+{"model": "sqlglot", "message": "SELECT LENGTH(UNHEX(MD5('abrakadabra')))", "sql_id": "duckdb_61_6"}
+{"model": "sqlglot", "message": "INSERT INTO t1 VALUES ('test', MD5('test')), ('test', MD5('test'))", "sql_id": "duckdb_61_8"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE f1 = 'test' AND (f2 = MD5('test') OR f2 = MD5('Test'))", "sql_id": "duckdb_61_9"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE f1 = 'test' AND (f2 = MD5('TEST') OR f2 = MD5('test'))", "sql_id": "duckdb_61_10"}
+{"model": "sqlglot", "message": "SELECT a FROM t1 WHERE MID(a + 0, 6, 3) IN (MID(20040106123400, 6, 3))", "sql_id": "duckdb_62_4"}
+{"model": "sqlglot", "message": "SELECT a FROM t1 WHERE MID(a + 0, 6, 3) = (MID(20040106123400, 6, 3))", "sql_id": "duckdb_62_5"}
+{"model": "sqlglot", "message": "SELECT DISTINCT LEAST(a, (SELECT b FROM t1 LIMIT 1)) FROM t1 UNION SELECT 1", "sql_id": "duckdb_62_15"}
+{"model": "sqlglot", "message": "SELECT DISTINCT GREATEST(a, (SELECT b FROM t1 LIMIT 1)) FROM t1 UNION SELECT 1", "sql_id": "duckdb_62_16"}
+{"model": "sqlglot", "message": "SELECT 1 + 1, 1 - 1, 1 + 1 * 2, 8 / 5, 8 % 5, 8 % 5, -(1 + 1) * -2", "sql_id": "duckdb_63_0"}
+{"model": "sqlglot", "message": "SELECT 1 | (1 + 1), 5 & 3, BIT_COUNT(7)", "sql_id": "duckdb_63_1"}
+{"model": "sqlglot", "message": "SELECT t1.a, t2.a, t2.b, BIT_COUNT(t2.b) FROM t1 LEFT JOIN t2 ON t1.a = t2.a", "sql_id": "duckdb_63_7"}
+{"model": "sqlglot", "message": "SELECT STRFTIME('1997-12-31 23:59:59.000002', '%f')", "sql_id": "duckdb_64_0"}
+{"model": "sqlglot", "message": "SELECT DATE_DIFF('DAY', CAST('1997-12-30' AS DATE), CAST('1997-12-31 23:59:59.000001' AS DATE))", "sql_id": "duckdb_64_1"}
+{"model": "sqlglot", "message": "SELECT DATE_DIFF('DAY', NULL, CAST('1997-11-30 23:59:59.000001' AS DATE))", "sql_id": "duckdb_64_2"}
+{"model": "sqlglot", "message": "SELECT MAKEDATE(03, 1)", "sql_id": "duckdb_64_3"}
+{"model": "sqlglot", "message": "SELECT MAKEDATE(1997, 1)", "sql_id": "duckdb_64_5"}
+{"model": "sqlglot", "message": "SELECT MAKEDATE(1997, 0)", "sql_id": "duckdb_64_6"}
+{"model": "sqlglot", "message": "SELECT MAKEDATE(9999, 365)", "sql_id": "duckdb_64_7"}
+{"model": "sqlglot", "message": "SELECT MAKEDATE(9999, 366)", "sql_id": "duckdb_64_8"}
+{"model": "sqlglot", "message": "SELECT MAKEDATE(100, 1)", "sql_id": "duckdb_64_9"}
+{"model": "sqlglot", "message": "SELECT SUBTIME('1997-12-31 23:59:59.000001', '1 1:1:1.000002')", "sql_id": "duckdb_64_10"}
+{"model": "sqlglot", "message": "SELECT SUBTIME('1997-12-31 23:59:59.999999', '1998-01-01 01:01:01.999999')", "sql_id": "duckdb_64_11"}
+{"model": "sqlglot", "message": "SELECT SUBTIME('01:00:00.999999', '02:00:00.999998')", "sql_id": "duckdb_64_12"}
+{"model": "sqlglot", "message": "SELECT SUBTIME('02:01:01.999999', '01:01:01.999999')", "sql_id": "duckdb_64_13"}
+{"model": "sqlglot", "message": "SELECT TIMEDIFF('1997-01-01 23:59:59.000001', '1995-12-31 23:59:59.000002')", "sql_id": "duckdb_64_14"}
+{"model": "sqlglot", "message": "SELECT TIMEDIFF('1997-12-31 23:59:59.000001', '1997-12-30 01:01:01.000002')", "sql_id": "duckdb_64_15"}
+{"model": "sqlglot", "message": "SELECT TIMEDIFF('2005-01-11 15:48:49.999999', '2005-01-11 15:48:50')", "sql_id": "duckdb_64_18"}
+{"model": "sqlglot", "message": "SELECT MAKE_TIME(10, 11, 12)", "sql_id": "duckdb_65_0"}
+{"model": "sqlglot", "message": "SELECT MAKE_TIME(20, 11, 12)", "sql_id": "duckdb_65_1"}
+{"model": "sqlglot", "message": "SELECT TIMESTAMP('2001-12-01', '01:01:01.999999')", "sql_id": "duckdb_65_3"}
+{"model": "sqlglot", "message": "SELECT TIMESTAMP('2001-10-01', '01:01:01.000001')", "sql_id": "duckdb_65_4"}
+{"model": "sqlglot", "message": "SELECT TIMESTAMP('2001-12-01', '20:01:01')", "sql_id": "duckdb_65_5"}
+{"model": "sqlglot", "message": "SELECT CAST('2001-12-01' AS TIMESTAMP)", "sql_id": "duckdb_65_6"}
+{"model": "sqlglot", "message": "SELECT DAY(CAST('1997-12-31 23:59:59.000001' AS DATE))", "sql_id": "duckdb_65_7"}
+{"model": "sqlglot", "message": "SELECT CAST(CAST('1997-12-31 23:59:59.000001' AS TIMESTAMPTZ) AT TIME ZONE  AS TIME)", "sql_id": "duckdb_65_8"}
+{"model": "sqlglot", "message": "SELECT TIMEDIFF(t1, t4) AS ttt, TIMEDIFF(t2, t3) AS qqq, TIMEDIFF(t3, t2) AS eee, TIMEDIFF(t2, t4) AS rrr FROM test", "sql_id": "duckdb_65_12"}
+{"model": "sqlglot", "message": "SELECT STRPTIME('2003-01-02 10:11:12.0012', '%Y-%m-%d %H:%M:%S.%f')", "sql_id": "duckdb_65_13"}
+{"model": "sqlglot", "message": "SELECT TIMEDIFF('2008-09-29 20:10:10', '2008-09-30 20:10:10'), CAST(CAST('00:00:00' AS TIMESTAMPTZ) AT TIME ZONE  AS TIME)", "sql_id": "duckdb_65_14"}
+{"model": "sqlglot", "message": "SELECT TIMEDIFF('2008-09-29 20:10:10', '2008-09-30 20:10:10') > CAST(CAST('00:00:00' AS TIMESTAMPTZ) AT TIME ZONE  AS TIME)", "sql_id": "duckdb_65_15"}
+{"model": "sqlglot", "message": "SELECT TIMEDIFF('2008-09-29 20:10:10', '2008-09-30 20:10:10') < CAST(CAST('00:00:00' AS TIMESTAMPTZ) AT TIME ZONE  AS TIME)", "sql_id": "duckdb_65_16"}
+{"model": "sqlglot", "message": "SELECT SEC_TO_TIME(86399) = CAST(CAST('23:59:59' AS TIMESTAMPTZ) AT TIME ZONE  AS TIME)", "sql_id": "duckdb_66_1"}
+{"model": "sqlglot", "message": "SELECT SEC_TO_TIME(86399) = '23:59:59'", "sql_id": "duckdb_66_2"}
+{"model": "sqlglot", "message": "SELECT CAST(CAST(SEC_TO_TIME(86399) AS TIMESTAMPTZ) AT TIME ZONE  AS TIME) = CAST(CAST('23:59:59' AS TIMESTAMPTZ) AT TIME ZONE  AS TIME)", "sql_id": "duckdb_66_3"}
+{"model": "sqlglot", "message": "SELECT MAKE_TIME(1, 0, 1) = '01:00:01'", "sql_id": "duckdb_66_4"}
+{"model": "sqlglot", "message": "SELECT MAKE_TIME(1, 0, 1) = CAST('01:00:01' AS TIME)", "sql_id": "duckdb_66_6"}
+{"model": "sqlglot", "message": "SELECT ELT(2, 1), FIELD(NULL, 'a', 'b', 'c')", "sql_id": "duckdb_67_0"}
+{"model": "sqlglot", "message": "SELECT FIELD('b', 'a', NULL), FIELD(1, 0, NULL) + 0, FIELD(1.0, 0.0, NULL) + 0.0, FIELD(1.0e1, 0.0e1, NULL) + 0.0e1", "sql_id": "duckdb_67_1"}
+{"model": "sqlglot", "message": "SELECT FIELD(NULL, 'a', NULL), FIELD(NULL, 0, NULL) + 0, FIELD(NULL, 0.0, NULL) + 0.0, FIELD(NULL, 0.0e1, NULL) + 0.0e1", "sql_id": "duckdb_67_2"}
+{"model": "sqlglot", "message": "SELECT one.id, ELT(two.val, 'one', 'two') FROM t1 AS one, t2 AS two WHERE two.id = one.id", "sql_id": "duckdb_67_9"}
+{"model": "sqlglot", "message": "SELECT one.id, ELT(two.val, 'one', 'two') FROM t1 AS one, t2 AS two WHERE two.id = one.id ORDER BY one.id NULLS FIRST", "sql_id": "duckdb_67_10"}
+{"model": "sqlglot", "message": "SELECT CONCAT('\"', CONCAT_WS('\";\"', title, prio, category, program, bugdesc, created, modified, bugstatus, submitter), '\"') FROM t1", "sql_id": "duckdb_68_3"}
+{"model": "sqlglot", "message": "SELECT CONCAT('\"', CONCAT_WS('\";\"', title, prio, category, program, bugstatus, submitter), '\"') FROM t1", "sql_id": "duckdb_68_4"}
+{"model": "sqlglot", "message": "SELECT CONCAT_WS('\";\"', title, prio, category, program, bugdesc, created, modified, bugstatus, submitter) FROM t1", "sql_id": "duckdb_68_5"}
+{"model": "sqlglot", "message": "SELECT CONCAT('</a>', RPAD('', (55 - LENGTH(title)), '.')) FROM t1", "sql_id": "duckdb_68_10"}
+{"model": "sqlglot", "message": "SELECT 0 = 0, 1 > 0, 1 >= 1, 1 < 0, 1 <= 0, 1 <> 0, STRCMP('abc', 'abcd'), STRCMP('b', 'a'), STRCMP('a', 'a')", "sql_id": "duckdb_69_0"}
+{"model": "sqlglot", "message": "SELECT GREATEST(d, d) FROM t1 WHERE k = 2", "sql_id": "duckdb_69_4"}
+{"model": "sqlglot", "message": "", "sql_id": "duckdb_69_6"}
+{"model": "sqlglot", "message": "", "sql_id": "duckdb_69_7"}
+{"model": "sqlglot", "message": "SELECT 12.0 % 1 AS \"col\"", "sql_id": "duckdb_69_8"}
+{"model": "sqlglot", "message": "SELECT 12 % 1.0 AS \"col\"", "sql_id": "duckdb_69_9"}
+{"model": "sqlglot", "message": "SELECT GREATEST(123456789, 234567890) AS g", "sql_id": "duckdb_69_10"}
+{"model": "sqlglot", "message": "SELECT LEAST(123456789, 234567890) AS l", "sql_id": "duckdb_69_11"}
+{"model": "sqlglot", "message": "SELECT GREATEST(123456789, -1, 234567890) AS g", "sql_id": "duckdb_69_12"}
+{"model": "sqlglot", "message": "SELECT LEAST(123456789, -1, 234567890) AS l", "sql_id": "duckdb_69_13"}
+{"model": "sqlglot", "message": "CREATE TABLE t1 AS SELECT GREATEST(-1, 123456789)", "sql_id": "duckdb_69_14"}
+{"model": "sqlglot", "message": "SELECT GREATEST('11', '5', '2')", "sql_id": "duckdb_70_0"}
+{"model": "sqlglot", "message": "SELECT GREATEST('11', 5, 2)", "sql_id": "duckdb_70_1"}
+{"model": "sqlglot", "message": "SELECT GREATEST(11, 5, 2)", "sql_id": "duckdb_70_2"}
+{"model": "sqlglot", "message": "SELECT LEAST('11', '5', '2')", "sql_id": "duckdb_70_3"}
+{"model": "sqlglot", "message": "SELECT LEAST('11', 5, 2)", "sql_id": "duckdb_70_4"}
+{"model": "sqlglot", "message": "SELECT LEAST(11, 5, 2)", "sql_id": "duckdb_70_5"}
+{"model": "sqlglot", "message": "SELECT GREATEST('11', '5', '2') + 0", "sql_id": "duckdb_70_6"}
+{"model": "sqlglot", "message": "SELECT GREATEST('11', 5, 2) + 0", "sql_id": "duckdb_70_7"}
+{"model": "sqlglot", "message": "SELECT GREATEST(11, 5, 2) + 0", "sql_id": "duckdb_70_8"}
+{"model": "sqlglot", "message": "SELECT GREATEST('11', '5', '2') + 0.00", "sql_id": "duckdb_70_9"}
+{"model": "sqlglot", "message": "SELECT GREATEST('11', 5, 2) + 0.00", "sql_id": "duckdb_70_10"}
+{"model": "sqlglot", "message": "SELECT GREATEST(11, 5, 2) + 0.00", "sql_id": "duckdb_70_11"}
+{"model": "sqlglot", "message": "SELECT GREATEST(18446744073709551615, NULL) FROM t0017", "sql_id": "duckdb_70_15"}
+{"model": "sqlglot", "message": "SELECT * FROM t1 WHERE (GREATEST(c1, c2) = 42) AND (c2 = 1)", "sql_id": "duckdb_70_20"}
+{"model": "sqlglot", "message": "SELECT SUM(LEAST(a, b)) FROM t1", "sql_id": "duckdb_70_27"}
+{"model": "sqlglot", "message": "SELECT SUM(LEAST(a, b)) FROM t2", "sql_id": "duckdb_70_28"}
+{"model": "sqlglot", "message": "INSERT INTO clstr_tst (a, b, c, d) VALUES (32, 6, 'seis', REPEAT('xyzzy', 10000))", "sql_id": "duckdb_1_33"}
+{"model": "sqlglot", "message": "INSERT INTO tidrangescan SELECT i, REPEAT('x', 100) FROM GENERATE_SERIES(1, 200) AS s(i)", "sql_id": "duckdb_10_2"}
+{"model": "sqlglot", "message": "SELECT UNNEST(GENERATE_SERIES(1, 3))", "sql_id": "duckdb_12_0"}
+{"model": "sqlglot", "message": "SELECT UNNEST(GENERATE_SERIES(1, 3)) AS val1, UNNEST(GENERATE_SERIES(3, 5)) AS val2", "sql_id": "duckdb_12_1"}
+{"model": "sqlglot", "message": "SELECT UNNEST(GENERATE_SERIES(1, 2)) AS val1, UNNEST(GENERATE_SERIES(1, 4)) AS val2", "sql_id": "duckdb_12_2"}
+{"model": "sqlglot", "message": "INSERT INTO cmdata VALUES (REPEAT('1234567890', 1000))", "sql_id": "duckdb_2_2"}
+{"model": "sqlglot", "message": "INSERT INTO cmdata1 VALUES (REPEAT('1234567890', 1004))", "sql_id": "duckdb_2_6"}
+{"model": "sqlglot", "message": "INSERT INTO delete_test (id, a, b) VALUES (2, 50, REPEAT('x', 10000))", "sql_id": "duckdb_3_3"}
+{"model": "sqlglot", "message": "SELECT CURRENT_TIMESTAMP = CURRENT_TIMESTAMP", "sql_id": "duckdb_4_0"}
+{"model": "sqlglot", "message": "SELECT CURRENT_SCHEMAS(FALSE)", "sql_id": "duckdb_5_0"}
+{"model": "sqlglot", "message": "CREATE TABLE simple1 AS SELECT UNNEST(GENERATE_SERIES(1, 200)) AS id", "sql_id": "duckdb_6_2"}
+{"model": "sqlglot", "message": "CREATE TABLE bigger_than_it_looks AS SELECT UNNEST(GENERATE_SERIES(1, 200)) AS id", "sql_id": "duckdb_6_5"}
+{"model": "sqlglot", "message": "INSERT INTO extremely_skewed SELECT 42 AS id, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' FROM GENERATE_SERIES(1, 200)", "sql_id": "duckdb_6_10"}
+{"model": "sqlglot", "message": "CREATE TABLE wide AS SELECT UNNEST(GENERATE_SERIES(1, 2)) AS id, RPAD('', 320000, 'x') AS t", "sql_id": "duckdb_6_12"}
+{"model": "sqlglot", "message": "CREATE TABLE join_foo AS SELECT UNNEST(GENERATE_SERIES(1, 3)) AS id, CAST('xxxxx' AS TEXT) AS t", "sql_id": "duckdb_6_14"}
+{"model": "sqlglot", "message": "CREATE TABLE join_bar AS SELECT UNNEST(GENERATE_SERIES(1, 10000)) AS id, CAST('xxxxx' AS TEXT) AS t", "sql_id": "duckdb_6_16"}
+{"model": "sqlglot", "message": "INSERT INTO pagg_tab SELECT i % 20, i % 30, STRFTIME(i % 12, 'FM0000'), i % 30 FROM GENERATE_SERIES(0, 2999) AS i", "sql_id": "duckdb_7_2"}
+{"model": "sqlglot", "message": "INSERT INTO pagg_tab_ml SELECT i % 30, i % 10, STRFTIME(i % 4, 'FM0000') FROM GENERATE_SERIES(0, 29999) AS i", "sql_id": "duckdb_7_7"}
+{"model": "sqlglot", "message": "SELECT a, SUM(b), ARRAY_AGG(DISTINCT c), COUNT(*) FROM pagg_tab_ml GROUP BY a HAVING AVG(b) < 3 ORDER BY 1, 2, 3", "sql_id": "duckdb_7_9"}
+{"model": "sqlglot", "message": "INSERT INTO prt1 SELECT i, i % 25, STRFTIME(i, 'FM0000') FROM GENERATE_SERIES(0, 599) AS i WHERE i % 2 = 0", "sql_id": "duckdb_8_2"}
+{"model": "sqlglot", "message": "INSERT INTO prt2 SELECT i % 25, i, STRFTIME(i, 'FM0000') FROM GENERATE_SERIES(0, 599) AS i WHERE i % 3 = 0", "sql_id": "duckdb_8_7"}
+{"model": "sqlglot", "message": "SELECT NEXTVAL('seq3')", "sql_id": "duckdb_9_2"}

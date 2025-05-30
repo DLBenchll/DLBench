@@ -1,0 +1,13 @@
+SELECT RPAD(NULL, 5, 'x') AS result; -- RPAD
+SELECT RPAD(NULL, NULL, 'x') AS result; -- RPAD
+SELECT RPAD(NULL, NULL, NULL) AS result; -- RPAD
+SELECT RPAD('a', NULL, 'x') AS result; -- RPAD
+SELECT RPAD('a', NULL, NULL) AS result; -- RPAD
+SELECT RPAD('a', 5, NULL) AS result; -- RPAD
+SELECT RPAD(NULL, 5, NULL) AS result; -- RPAD
+SELECT RPAD('a', 0, 'x') AS result; -- RPAD
+SELECT RPAD('a', 0, '') AS result; -- RPAD
+SELECT RPAD('', 0, 'x') AS result; -- RPAD
+SELECT RPAD('', 0, '') AS result; -- RPAD
+SELECT RPAD('123456787890', 1, 'x'); -- RPAD
+SELECT RPAD('a', 5, 'xy'); -- RPAD

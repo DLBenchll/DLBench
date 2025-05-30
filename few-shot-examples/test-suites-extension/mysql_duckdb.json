@@ -1,0 +1,45 @@
+[
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from mysql to duckdb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT COUNT(*) FROM t1 WHERE a<>'' AND OCTET_LENGTH(a)=2; -- OCTET_LENGTHOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:mysql schema: ['Table: `t1`\\nColumns:\\n(code, varchar(6), )\\n(a, varchar(1), )\\n'].\n duckdb schema: ['Table: `t1`\\nColumns:\\n(code, VARCHAR, )\\n(a, VARCHAR, )\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT COUNT(*) FROM t1 WHERE a<>'' AND LENGTH(a)=2; -- OCTET_LENGTH"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from mysql to duckdb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT * FROM t1 WHERE CHAR_LENGTH(a)=2; -- CHAR_LENGTHOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:mysql schema: ['Table: `t1`\\nColumns:\\n(code, varchar(6), )\\n(a, varchar(1), )\\n'].\n duckdb schema: ['Table: `t1`\\nColumns:\\n(code, VARCHAR, )\\n(a, VARCHAR, )\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT * FROM t1 WHERE LENGTH(a)=2; -- CHAR_LENGTH"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from mysql to duckdb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT COUNT(*) FROM t1 WHERE a<>'' AND OCTET_LENGTH(a)=3; -- OCTET_LENGTHOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:mysql schema: ['Table: `t1`\\nColumns:\\n(code, varchar(6), )\\n(a, varchar(1), )\\n'].\n duckdb schema: ['Table: `t1`\\nColumns:\\n(code, VARCHAR, )\\n(a, VARCHAR, )\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT COUNT(*) FROM t1 WHERE a<>'' AND LENGTH(a)=3; -- OCTET_LENGTH"
+    }
+  ]
+]
+

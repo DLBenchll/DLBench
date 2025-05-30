@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS t1;
+create table t1 (f1 int, f2 int)ENGINE = MergeTree ORDER BY (f1, f2);
+insert into t1 values (0,1),(1,2);

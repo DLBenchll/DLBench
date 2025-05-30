@@ -1,0 +1,694 @@
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE (a, b) IN ((1, 10)); -- ROW", "sql_id": "mariadb_1_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE (a, b) IN ((1, 10), (2, 20));", "sql_id": "mariadb_1_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE (a, b) NOT IN ((1, 10)); -- ROW", "sql_id": "mariadb_1_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE (a, b) NOT IN ((1, 10), (2, 20));", "sql_id": "mariadb_1_9"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (ts) VALUES (UNIX_TIMESTAMP('2002-10-27 01:00'));", "sql_id": "mariadb_100_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (ts) VALUES (UNIX_TIMESTAMP('2002-10-27 02:00'));", "sql_id": "mariadb_100_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (ts) VALUES (UNIX_TIMESTAMP('2002-10-27 03:00'));", "sql_id": "mariadb_100_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ts, FROM_UNIXTIME(ts) FROM t1;", "sql_id": "mariadb_100_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP('2001-01-01 00:00:00'); -- TIMESTAMP", "sql_id": "mariadb_100_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_DAYS('2001-01-01 00:00:00'); -- TO_DAYS", "sql_id": "mariadb_100_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_DAYS('2001-01-01 00:00:00'); -- TO_DAYS", "sql_id": "mariadb_100_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATEDIFF('2007-12-31 23:59:59', '2007-12-30  00:00:00'); -- DATEDIFF", "sql_id": "mariadb_100_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMEDIFF('2000-01-01 00:00:00', '2000-01-01 00:00:00'); -- TIMEDIFF", "sql_id": "mariadb_100_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE_FORMAT('2009-10-10 23:59:59', '%W %M %Y'); -- DATE_FORMAT", "sql_id": "mariadb_100_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME_FORMAT('2003-12-31 23:59:59', '%H:%i:%s'); -- TIME", "sql_id": "mariadb_100_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP('2003-12-31 23:59:59', '12:00:00'); -- TIMESTAMP", "sql_id": "mariadb_100_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMPADD(MINUTE, 1, '2003-01-02 23:59:59' ); -- TIMESTAMPADD", "sql_id": "mariadb_100_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMPDIFF(MONTH, '2003-02-01 23:59:59', '2003-05-01' ); -- TIMESTAMPDIFF", "sql_id": "mariadb_100_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_SECONDS('2009-11-29 23:59:59'); -- TO_SECONDS", "sql_id": "mariadb_100_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP('2015-11-13 23:59:59'); -- UNIX_TIMESTAMP", "sql_id": "mariadb_100_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(s1) FROM t1;", "sql_id": "mariadb_101_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(CONCAT('*',s1,'*',s2,'*')) FROM t1;", "sql_id": "mariadb_101_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(s1), s2 FROM t1 ORDER BY s1, s2; -- HEX", "sql_id": "mariadb_101_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(123456789 AS UNSIGNED); -- CONVERT", "sql_id": "mariadb_101_12"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (DATE(NOW()), 1);", "sql_id": "mariadb_102_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(*) FROM t1 WHERE a = CURRENT_TIMESTAMP;", "sql_id": "mariadb_102_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (DATE(NOW()), 2);", "sql_id": "mariadb_102_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(*) FROM t1 WHERE a = CURRENT_TIMESTAMP;", "sql_id": "mariadb_102_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(*) FROM t1 WHERE a = CURDATE() AND b = 1;", "sql_id": "mariadb_102_6"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t1 AS SELECT CURDATE() AS f1; -- CURDATE", "sql_id": "mariadb_102_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HOUR(f1), MINUTE(f1), SECOND(f1) FROM t1;", "sql_id": "mariadb_102_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONVERT(a, DATE) AS b FROM t1;", "sql_id": "mariadb_102_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT b = (SELECT CONVERT(a, DATE) FROM t1 GROUP BY a) FROM t1; -- CONVERT", "sql_id": "mariadb_102_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT b = CONVERT((SELECT CONVERT(a, DATE) FROM t1 GROUP BY a), DATE) FROM t1; -- CONVERT", "sql_id": "mariadb_102_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 FROM (SELECT LAST_DAY('0' + INTERVAL 0 MONTH)) a; -- LAST_DAY", "sql_id": "mariadb_102_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 FROM (SELECT MAKEDATE(2011,0)) a; -- MAKEDATE", "sql_id": "mariadb_102_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(20010101,20020202); -- LEAST", "sql_id": "mariadb_102_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(UNIX_TIMESTAMP() AS DATE); -- UNIX_TIMESTAMP", "sql_id": "mariadb_102_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE(20110512154559.6 + 0e0); -- DATE", "sql_id": "mariadb_102_21"}
+{"model": "gpt-3.5-turbo", "message": "WITH recursive qn as (select 1 as n, cast('x' as char(100)) as un union all select 1+n, concat(un,'x') from qn where n<10) select * from qn; -- CONCAT", "sql_id": "mariadb_2_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IF(COUNT(*) > 0, \"YES\", \"NO\") AS \"IMPLICIT COMMIT\" FROM trans; -- IF", "sql_id": "mariadb_3_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IF( a = 1, a, a ) AS b FROM t1 ORDER BY FIELD( b + 1, 1 );", "sql_id": "mariadb_39_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IF( a = 1, a, a ) AS b FROM t1 ORDER BY FIELD( a, 1 );", "sql_id": "mariadb_39_4"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT 1 FROM t1 WHERE a = 9223372036854775807 AND TRIM(a) = b; -- TRIM", "sql_id": "mariadb_4_4"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT 1 FROM t1 WHERE a = 9223372036854775806 AND TRIM(a) = b; -- TRIM", "sql_id": "mariadb_4_5"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT 1 FROM t1 WHERE a = 9223372036854775805 AND TRIM(a) = b; -- TRIM", "sql_id": "mariadb_4_6"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT 1 FROM t1 WHERE a = 0 AND TRIM(a) = b; -- TRIM", "sql_id": "mariadb_4_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE ifnull(a, 0) BETWEEN 0 and 0.9; -- COALESCE", "sql_id": "mariadb_4_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE COALESCE(a, 0.9) = 0.9;", "sql_id": "mariadb_4_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE ifnull(a, 0) in (0.8, 0.9);", "sql_id": "mariadb_4_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT USER(); -- USER", "sql_id": "mariadb_5_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LOWER(CONVERT(c1, BINARY)) FROM t1;", "sql_id": "mariadb_6_3"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t1 AS SELECT REPEAT('a',4000) AS a;", "sql_id": "mariadb_6_5"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE head AS SELECT concat(b1.b, b2.b) AS head FROM t1 b1, t1 b2; -- CONCAT", "sql_id": "mariadb_6_12"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE tail AS SELECT CONCAT(b1.b, b2.b) AS tail FROM t1 b1, t1 b2; -- CONCAT", "sql_id": "mariadb_6_13"}
+{"model": "gpt-3.5-turbo", "message": "UPDATE IGNORE t1 SET a=UNHEX(code);", "sql_id": "mariadb_6_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(*) FROM t1 WHERE a<>'' AND LENGTH(a)=2; -- OCTET_LENGTH", "sql_id": "mariadb_6_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE LENGTH(a)=2;", "sql_id": "mariadb_6_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(*) FROM t1 WHERE a<>'' AND LENGTH(a)=3;", "sql_id": "mariadb_6_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c1, CHAR_LENGTH(c1) FROM h; -- LENGTH", "sql_id": "mariadb_7_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c1, LPAD(c1, 20, ' ') FROM h; -- LPAD", "sql_id": "mariadb_7_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c1, RPAD(c1, 20, '52') FROM h; -- RPAD", "sql_id": "mariadb_7_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT INSTR(c1, 'h') FROM h; -- INSTR", "sql_id": "mariadb_7_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT INSTR(c1, '') FROM h; -- INSTR", "sql_id": "mariadb_7_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT INSTR(c1, '52') FROM h; -- INSTR", "sql_id": "mariadb_7_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT INSTR(c1, '54') FROM h; -- INSTR", "sql_id": "mariadb_7_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT INSTR(c1, '31') FROM h; -- INSTR", "sql_id": "mariadb_7_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c1, TRIM(c1) FROM h; -- TRIM", "sql_id": "mariadb_7_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT FROM_UNIXTIME(123456789); -- FROM_UNIXTIME", "sql_id": "mariadb_71_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT FROM_UNIXTIME(234567890);", "sql_id": "mariadb_71_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT FROM_UNIXTIME(1); -- FROM_UNIXTIME", "sql_id": "mariadb_71_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP(FROM_UNIXTIME(123456789));", "sql_id": "mariadb_71_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP(FROM_UNIXTIME(234567890));", "sql_id": "mariadb_71_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP('2039-01-20 01:00:00'); -- UNIX_TIMESTAMP", "sql_id": "mariadb_71_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP('2038-02-10 01:00:00'); -- UNIX_TIMESTAMP", "sql_id": "mariadb_71_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP('1970-01-01 01:00:00'), UNIX_TIMESTAMP('1970-01-01 01:00:01'), UNIX_TIMESTAMP('2038-01-19 04:14:07'), UNIX_TIMESTAMP('2038-01-19 04:14:08'); -- UNIX_TIMESTAMP", "sql_id": "mariadb_71_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, FROM_UNIXTIME(a) FROM t1; -- FROM_UNIXTIME", "sql_id": "mariadb_71_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP(\"3001-01-19 08:59:59\"); -- UNIX_TIMESTAMP", "sql_id": "mariadb_71_13"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT * FROM t WHERE CONCAT(x,x) = 'XX'; -- CONCAT", "sql_id": "mariadb_72_4"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1(f1) select if(max(f1) is null, '2000',max(f1)) from t1;", "sql_id": "mariadb_74_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (SELECT SUM(LENGTH(c)) FROM t1 WHERE c='13_characters') FROM t1; -- LENGTH", "sql_id": "mariadb_74_6"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t2 (d) SELECT (SELECT CHAR_LENGTH(c) FROM t1 WHERE c='13_characters') FROM t1; -- LENGTH", "sql_id": "mariadb_74_9"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t2 (d) SELECT (SELECT CHAR_LENGTH(c) FROM t1 WHERE c='7_chars') FROM t1; -- LENGTH", "sql_id": "mariadb_74_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *, HEX(a) FROM t1; -- HEX", "sql_id": "mariadb_74_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *, HEX(a) FROM t1 WHERE a = 'abc-def'; -- HEX", "sql_id": "mariadb_74_17"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES('valid-string',1),(CONVERT(UNHEX('11'), BINARY),2);", "sql_id": "mariadb_75_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT pk, OCTET_LENGTH(tx), LENGTH(tx) FROM t1;", "sql_id": "mariadb_75_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT IGNORE INTO t1 VALUES (1, REPEAT('a', 110), REPEAT('b', 210));", "sql_id": "mariadb_76_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT i, LENGTH(a), LENGTH(b), CHAR_LENGTH(a), CHAR_LENGTH(b) FROM t1;", "sql_id": "mariadb_76_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values(1, 'a', 'a', NOW()), (1, 'b', 'b', NOW()); -- NOW", "sql_id": "mariadb_76_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT t1.time, t1.date, t1.timestamp, CONCAT(date, ' ', time), t1.quarter + t1.week, t1.year + timestampadd, timestampdiff FROM t1; -- CONCAT", "sql_id": "mariadb_77_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('|', a, '|'), CONCAT('|', b, '|') FROM t1; -- CONCAT", "sql_id": "mariadb_78_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(val) FROM t1; -- HEX", "sql_id": "mariadb_78_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LOWER(CONVERT(a, BINARY)) FROM t1;", "sql_id": "mariadb_78_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, DATE_FORMAT(a,'%a') as abday, DAYNAME(a) as day FROM t1 ORDER BY a;", "sql_id": "mariadb_79_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, DATE_FORMAT(a,'%b') as abmon, MONTHNAME(a) as mon FROM t1 ORDER BY a;", "sql_id": "mariadb_79_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE_FORMAT('2001-01-01', '%w %a %W'); -- DATE_FORMAT", "sql_id": "mariadb_79_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE_FORMAT('2001-01-01', '%c %b %M'); -- DATE_FORMAT", "sql_id": "mariadb_79_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE_FORMAT('2010-03-23 11:00:00','%h %p'); -- DATE_FORMAT", "sql_id": "mariadb_79_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STRCMP('', 'ae'), STRCMP('ae', ''), STRCMP('aeq', 'q'), STRCMP('q', 'aeq'); -- STRCMP", "sql_id": "mariadb_8_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STRCMP('ss',''), STRCMP('', 'ss'), STRCMP('s', 'sss'), STRCMP('q', 'ssq'); -- STRCMP", "sql_id": "mariadb_8_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STRCMP('', 'af'), STRCMP('a', ''), STRCMP('', 'aeq'), STRCMP('', 'aeaeq'); -- STRCMP", "sql_id": "mariadb_8_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STRCMP('ss','a'), STRCMP('','ssa'), STRCMP('sa','sssb'), STRCMP('s',''); -- STRCMP", "sql_id": "mariadb_8_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STRCMP('', 'o'), STRCMP('', 'u'), STRCMP('', 'oeb'); -- STRCMP", "sql_id": "mariadb_8_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STRCMP('af',''), STRCMP('', 'a'), STRCMP('aeq', ''), STRCMP('aeaeq', ''); -- STRCMP", "sql_id": "mariadb_8_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STRCMP('a','ss'), STRCMP('ssa',''), STRCMP('sssb','sa'), STRCMP('','s'); -- STRCMP", "sql_id": "mariadb_8_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STRCMP('u','a'), STRCMP('u',''); -- STRCMP", "sql_id": "mariadb_8_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STRCMP('s', 'a'), STRCMP('a', 'x'); -- STRCMP", "sql_id": "mariadb_8_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT FIELD('ue',s1,''), FIELD('',s1,''), s1='ue', s1='' FROM t1; -- FIELD", "sql_id": "mariadb_8_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE CHAR_LENGTH(s1) = 2 AND s1 = 'oe';", "sql_id": "mariadb_8_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('', 5, 'x') AS result; -- LPAD", "sql_id": "mariadb_80_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('', NULL, 'x') AS result; -- LPAD", "sql_id": "mariadb_80_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD(NULL, NULL, NULL) AS result; -- LPAD", "sql_id": "mariadb_80_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('a', NULL, 'x') AS result; -- LPAD", "sql_id": "mariadb_80_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('a', NULL, NULL) AS result; -- LPAD", "sql_id": "mariadb_80_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('a', 5, '') AS result; -- LPAD", "sql_id": "mariadb_80_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('', 5, '') AS result; -- LPAD", "sql_id": "mariadb_80_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('a', 0, 'x') AS result; -- LPAD", "sql_id": "mariadb_80_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('a', 0, '') AS result; -- LPAD", "sql_id": "mariadb_80_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('', 0, 'x') AS result; -- LPAD", "sql_id": "mariadb_80_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('', 0, '') AS result; -- LPAD", "sql_id": "mariadb_80_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('a', -1, 'x'); -- LPAD", "sql_id": "mariadb_80_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('123', 5, 'x'); -- LPAD", "sql_id": "mariadb_80_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD('a', 5, 'xy'); -- LPAD", "sql_id": "mariadb_80_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD(\"I LOVE SQL\", 20, \" \"); -- LPAD", "sql_id": "mariadb_80_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD(\"I LOVE SQL in the morning\", 20, \" \"); -- LPAD", "sql_id": "mariadb_80_15"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES(REPEAT('a', 1024), 0), (REPEAT('b', 1024), 1), (REPEAT('c', 1024), 2), (REPEAT('d', 1024), 3), (REPEAT('e', 1024), 4), (REPEAT('f', 1024), 5); -- REPEAT", "sql_id": "mariadb_81_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUM(LENGTH(f1)) FROM t1; -- LENGTH", "sql_id": "mariadb_81_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COALESCE(d, d), IFNULL(d, d), IF(i, d, d), CASE WHEN i THEN d ELSE d END, GREATEST(d, d), LEAST(d, d) FROM t1 ORDER BY RAND();", "sql_id": "mariadb_82_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(c1) FROM AB; -- HEX", "sql_id": "mariadb_83_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t5 values (1, DATE_FORMAT('2001-01-01','%W'));", "sql_id": "mariadb_84_2"}
+{"model": "gpt-3.5-turbo", "message": "insert into t5 values (2, DATE_FORMAT('2001-01-01','%W'));", "sql_id": "mariadb_84_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t5 values (3, DATE_FORMAT('2001-01-01','%W'));", "sql_id": "mariadb_84_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(a) FROM t1;", "sql_id": "mariadb_84_8"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (1,USER()); -- USER", "sql_id": "mariadb_84_11"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (REPEAT('ManyMegaByteBlck', 123));", "sql_id": "mariadb_85_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (REPEAT('ManyMegaByteBlck', 234));", "sql_id": "mariadb_85_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (REPEAT('ManyMegaByteBlck', 345));", "sql_id": "mariadb_85_4"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (REPEAT('ManyMegaByteBlck', 456));", "sql_id": "mariadb_85_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(c1) FROM t1; -- LENGTH", "sql_id": "mariadb_85_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT NULL, ISNULL(NULL), ISNULL(1/0), ISNULL(1/0 IS NULL), IFNULL(NULL, 1), IFNULL(NULL, 'TRUE'), IFNULL('TRUE', 'ERROR'), 1/0 IS NULL, 1 IS NOT NULL; -- ISNULL, IFNULL", "sql_id": "mariadb_86_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT NULL=NULL, NULL<>NULL, IFNULL(NULL,1.1)+0, IFNULL(NULL,1) | 0; -- IFNULL", "sql_id": "mariadb_86_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STRCMP(\"a\", NULL), (1 < NULL), NULL REGEXP \"a\", NULL LIKE \"a%\", \"a%\" LIKE NULL; -- STRCMP", "sql_id": "mariadb_86_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REPEAT(\"a\",0), REPEAT(\"ab\",5+5), REPEAT(\"ab\",-1), REVERSE(NULL); -- REPEAT", "sql_id": "mariadb_86_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT FIELD(NULL, 'a', 'b', 'c'); -- FIELD", "sql_id": "mariadb_86_4"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT IFNULL(a, b) AS IFNULL(a, b) FROM t1;", "sql_id": "mariadb_86_9"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT IFNULL(a, NULL) AS IFNULL(a, NULL) FROM t1;", "sql_id": "mariadb_86_11"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT IFNULL(NULL, b) AS IFNULL_NULL_b FROM t1;", "sql_id": "mariadb_86_13"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES ( REPEAT( 'a', 10 ), 1), ( REPEAT( 'b', 10 ), 2);", "sql_id": "mariadb_87_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GROUP_CONCAT(a) FROM t1; -- GROUP_CONCAT", "sql_id": "mariadb_87_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP(); -- UNIX_TIMESTAMP", "sql_id": "mariadb_87_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REPEAT('a', 2000);", "sql_id": "mariadb_88_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\") as len; -- LENGTH", "sql_id": "mariadb_88_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(REPEAT('a',2000));", "sql_id": "mariadb_88_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c11, CHAR_LENGTH(c12) FROM t1; -- LENGTH", "sql_id": "mariadb_88_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(a) FROM t1 WHERE a LIKE 'A_';", "sql_id": "mariadb_89_3"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT LOWER(HEX(a)) FROM t1 WHERE a LIKE 'A_';", "sql_id": "mariadb_89_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(a) FROM t1;", "sql_id": "mariadb_89_6"}
+{"model": "gpt-3.5-turbo", "message": "create table t1 as select TO_SECONDS(null) as to_seconds; -- TO_SECONDS", "sql_id": "mariadb_89_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IF(0,\"ERROR\",\"this\"),IF(1,\"is\",\"ERROR\"),IF(NULL,\"ERROR\",\"a\"),IF(1,2,3),IF(1,2.0,3.0)+0; -- IF", "sql_id": "mariadb_9_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IF(1=1, st, st) AS s FROM t1 ORDER BY s;", "sql_id": "mariadb_9_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IF(u=1,st,st) s FROM t1 ORDER BY s; -- IF", "sql_id": "mariadb_9_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT NULLIF(u, 1) FROM t1; -- NULLIF", "sql_id": "mariadb_9_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IF(u = 1, NULL, u) AS nullif_result FROM t1;", "sql_id": "mariadb_9_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUM(IF(num IS NULL, 0.00, num)) FROM t1;", "sql_id": "mariadb_9_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MIN(IF(y - x > 5, y, NULL)), MAX(IF(y - x > 5, y, NULL)) FROM t1;", "sql_id": "mariadb_9_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IF(5 <=> 5, NULL, 5) IS NULL, IF(5 <=> 5, 5, NULL) IS NOT NULL; -- NULLIF", "sql_id": "mariadb_9_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT id, IF(date IS NULL, '-', FROM_UNIXTIME(date, '%d-%m-%Y')) AS date_ord, text FROM t1 ORDER BY date_ord ASC;", "sql_id": "mariadb_9_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT id, IF(date IS NULL, '-', FROM_UNIXTIME(date, '%d-%m-%Y')) AS date_ord, text FROM t1 ORDER BY IF(date IS NULL, '-', FROM_UNIXTIME(date, '%Y-%m-%d')) DESC;", "sql_id": "mariadb_9_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM (SELECT MAX(IF(1, CAST(c AS UNSIGNED), 0)) FROM t1) AS te; -- IF", "sql_id": "mariadb_9_26"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM (SELECT MAX(IFNULL(CAST(c AS UNSIGNED), 0)) FROM t1) AS te; -- IFNULL", "sql_id": "mariadb_9_27"}
+{"model": "gpt-3.5-turbo", "message": "SELECT AVG(NULLIF(YEAR('2001-01-01'), 10));", "sql_id": "mariadb_9_29"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_DAYS(DATE_ADD('0000-00-00', INTERVAL 3652499 DAY)), TO_DAYS(DATE_ADD('0000-00-00', INTERVAL 3652500 DAY)), TO_DAYS(DATE_ADD('0000-00-00', INTERVAL 3652501 DAY)); -- FROM_DAYS", "sql_id": "mariadb_90_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_DAYS(FROM_DAYS(42949670)), TO_DAYS(FROM_DAYS(42949671)), TO_DAYS(FROM_DAYS(42949673)); -- FROM_DAYS", "sql_id": "mariadb_90_1"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t VALUES (0, REPEAT('x', 120000)), (1, REPEAT('z', 12000));", "sql_id": "mariadb_91_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(b) FROM (SELECT * FROM t INTERSECT SELECT * FROM t) AS derived; -- LENGTH", "sql_id": "mariadb_91_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT argument FROM test_log WHERE argument LIKE CONCAT('%azun','dris%'); -- CONCAT", "sql_id": "mariadb_92_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(10, 2, 3) IN (ROW(3, 2, 3), ROW(1, 2, 3), ROW(1, 3, 3)); -- ROW", "sql_id": "mariadb_93_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,3) IN (ROW(3,NULL,3), ROW(1,2,3), ROW(1,3,3)); -- ROW", "sql_id": "mariadb_93_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(10, 2, 3) IN (ROW(3, NULL, 3), ROW(1, 2, 3), ROW(1, 3, 3)); -- ROW", "sql_id": "mariadb_93_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW('a', 1.5, 3) IN (ROW(1, 2, 3), ROW('a', 1.5, 3), ROW('a', 'a', 'a')); -- ROW", "sql_id": "mariadb_93_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW('a', 0, 3) IN (ROW(3, 2, 3), ROW('a', 'a', '3'), ROW(1, 3, 3)); -- ROW", "sql_id": "mariadb_93_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW('a', 0, 3) IN (ROW(3, 2, 3), ROW('a', '0', '3'), ROW(1, 3, 3)); -- ROW", "sql_id": "mariadb_93_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW('a', 1.5, 3) IN (ROW(3, NULL, 3), ROW('a', 1.5, 3), ROW(1, 3, 3)); -- ROW", "sql_id": "mariadb_93_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW('b', 1.5, 3) IN (ROW(3, NULL, 3), ROW('a', 1.5, 3), ROW(1, 3, 3)); -- ROW", "sql_id": "mariadb_93_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW('b', 1.5, 3) IN (ROW('b', NULL, 3), ROW('a', 1.5, 3), ROW(1, 3, 3)); -- ROW", "sql_id": "mariadb_93_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW('b', 1.5, 3) IN (ROW('b', NULL, 4), ROW('a', 1.5, 3), ROW(1, 3, 3)); -- ROW", "sql_id": "mariadb_93_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,ROW(3,4)) IN (ROW(3,2,ROW(3,4)), ROW(1,2,ROW(3,NULL)); -- ROW", "sql_id": "mariadb_93_10"}
+{"model": "gpt-3.5-turbo", "message": "explain select row(1,2,row(3,4)) IN (row(3,2,row(3,4)), row(1,2,row(3,NULL))); -- ROW", "sql_id": "mariadb_93_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,ROW(3,NULL)) IN (ROW(3,2,ROW(3,4)), ROW(1,2,ROW(4,5)); -- ROW", "sql_id": "mariadb_93_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,ROW(3,NULL)) IN (ROW(3,2,ROW(3,4)), ROW(1,2,ROW(3,5)); -- ROW", "sql_id": "mariadb_93_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,3)=ROW(1,2,3); -- ROW", "sql_id": "mariadb_93_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(2,2,3) IN (ROW(1+1,2,3)); -- ROW", "sql_id": "mariadb_93_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,3) IN (ROW(1+1,2,3)); -- ROW", "sql_id": "mariadb_93_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,3) < ROW(1+1,2,3); -- ROW", "sql_id": "mariadb_93_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,3)>ROW(1+1,2,3); -- ROW", "sql_id": "mariadb_93_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,3)<=ROW(1+1,2,3); -- ROW", "sql_id": "mariadb_93_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,3)>=ROW(1+1,2,3); -- ROW", "sql_id": "mariadb_93_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,3)<>(1+1,2,3); -- ROW", "sql_id": "mariadb_93_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(NULL,2,3) IN (ROW(NULL,2,3)); -- ROW", "sql_id": "mariadb_93_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,ROW(3,4,5)) IN (ROW(1,2,ROW(3,4,5)); -- ROW", "sql_id": "mariadb_93_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW('test',2,3.33) IN (ROW('test',2,3.33)); -- ROW", "sql_id": "mariadb_93_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW('test',2,ROW(3,33)) IN (ROW('test',2,ROW(3,33))); -- ROW", "sql_id": "mariadb_93_25"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW('test',2,ROW(3,33)) IN (ROW('test',2,ROW(3,3))); -- ROW", "sql_id": "mariadb_93_26"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW('test',2,ROW(3,33)) IN (ROW('test',2,ROW(3,NULL))); -- ROW", "sql_id": "mariadb_93_27"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE (1, 2, 3) = (a, b, c); -- ROW", "sql_id": "mariadb_94_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE (0, 2, 3) = (a, b, c); -- ROW", "sql_id": "mariadb_94_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE (1, 2, 3) < (a, b, c); -- ROW", "sql_id": "mariadb_94_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(a, 2, 3) IN (ROW(1, b, c), ROW(2, 3, 1)) FROM t1; -- ROW", "sql_id": "mariadb_94_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(c, 2, 3) IN (ROW(1, b, a), ROW(2, 3, 1)) FROM t1; -- ROW", "sql_id": "mariadb_94_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(a,b,c) IN (ROW(1,2,3), ROW(3,2,1)) FROM t1; -- ROW", "sql_id": "mariadb_94_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2,3) IN (ROW(a,b,c), ROW(1,2,3)) FROM t1; -- ROW", "sql_id": "mariadb_94_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,1,1) = ROW(1,1,1), ROW(1,1,1) = ROW(1,2,1), ROW(1,NULL,1) = ROW(2,2,1), ROW(1,NULL,1) = ROW(1,2,2), ROW(1,NULL,1) = ROW(1,2,1) ; -- ROW", "sql_id": "mariadb_94_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(a, 1) IN (SELECT SUM(b), 1 FROM t1) FROM t1 GROUP BY a; -- ROW", "sql_id": "mariadb_95_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(a, 1) IN (SELECT SUM(b), 3 FROM t1) FROM t1 GROUP BY a; -- ROW", "sql_id": "mariadb_95_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 FROM t1 WHERE (a, b) >= (SELECT '1', 1 FROM t1 WHERE a > '1234'); -- ROW", "sql_id": "mariadb_95_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2) = (SELECT 1,2 FROM t1 WHERE 1 = 0); -- ROW", "sql_id": "mariadb_95_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW(1,2) = (SELECT 1,3 FROM t1 WHERE 1 = 0); -- ROW", "sql_id": "mariadb_95_13"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT ROW( MIN(a), 1 ) IN ( ROW( a, 1 ) ) AS al FROM t1 GROUP BY a; -- ROW", "sql_id": "mariadb_95_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW( MIN(a), 1 ) IN (ROW(a, 1)) AS al FROM t1 GROUP BY a; -- ROW", "sql_id": "mariadb_95_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD(NULL, 5, 'x') AS result; -- RPAD", "sql_id": "mariadb_96_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('', NULL, 'x') AS result; -- RPAD", "sql_id": "mariadb_96_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD(NULL, NULL, NULL) AS result; -- RPAD", "sql_id": "mariadb_96_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('a', NULL, 'x') AS result; -- RPAD", "sql_id": "mariadb_96_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('a', NULL, NULL) AS result; -- RPAD", "sql_id": "mariadb_96_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('a', 5, '') AS result; -- RPAD", "sql_id": "mariadb_96_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD(NULL, 5, '') AS result; -- RPAD", "sql_id": "mariadb_96_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('a', 0, 'x') AS result; -- RPAD", "sql_id": "mariadb_96_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('a', 0, '') AS result; -- RPAD", "sql_id": "mariadb_96_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('', 0, 'x') AS result; -- RPAD", "sql_id": "mariadb_96_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('', 0, '') AS result; -- RPAD", "sql_id": "mariadb_96_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('a', -1, 'x'); -- RPAD", "sql_id": "mariadb_96_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('123456787890', 1, 'x'); -- RPAD", "sql_id": "mariadb_96_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('a', 5, 'xy'); -- RPAD", "sql_id": "mariadb_96_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD(\"I LOVE SQL\", 20, \" \"); -- RPAD", "sql_id": "mariadb_96_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD(\"I LOVE SQL in the morning\", 20, \" \"); -- RPAD", "sql_id": "mariadb_96_15"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT * FROM t1 WHERE IFNULL(t1.a IN (SELECT t3.a FROM t1 t3), 1); -- ISNULL", "sql_id": "mariadb_97_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE t1.a NOT IN (SELECT t3.a FROM t1 t3);", "sql_id": "mariadb_97_7"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT * FROM t1 WHERE (SELECT b FROM t2 WHERE CAST(UUID() AS CHAR) = CAST(t2.a AS CHAR)) > 0; -- UUID", "sql_id": "mariadb_98_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (SELECT COALESCE(SUM(t3.b), 0) FROM t3 WHERE t1.a=t3.a) FROM t1 ; -- COALESCE", "sql_id": "mariadb_98_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (SELECT COALESCE(SUM(t3.b), 0) FROM t3 WHERE t1.a=t3.a) FROM t1 ; -- COALESCE", "sql_id": "mariadb_98_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (SELECT IFNULL(SUM(t3.b), 0) FROM t3 WHERE t1.a=t3.a) FROM t1 ; -- IFNULL\n\nTranslated to MariaDB:\n\nSELECT (SELECT IFNULL(SUM(t3.b), 0) FROM t3 WHERE t1.a=t3.a) FROM t1 ; -- IFNULL", "sql_id": "mariadb_98_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (SELECT IFNULL(SUM(t3.b), 0) FROM t3 WHERE t1.a=t3.a) FROM t1; -- IFNULL", "sql_id": "mariadb_98_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TRIM(f1), COUNT(*) FROM table_varchar_pad_space GROUP BY f1;", "sql_id": "mariadb_99_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a1, a2, b, MIN(c) \nFROM t1 \nWHERE (ORD(a1) > 97) AND (ORD(a2) + ORD(a1) > 194) AND (b = 'a') \nGROUP BY a1, a2, b; -- ORD", "sql_id": "mariadb_10_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(a1, MIN(c)), b FROM t1 WHERE a1 < 'd' GROUP BY a1, a2, b;", "sql_id": "mariadb_10_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(a1, MIN(c)), b, MAX(c) FROM t1 WHERE a1 < 'd' GROUP BY a1, a2, b;", "sql_id": "mariadb_10_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(a1, a2), b, MIN(c), MAX(c) FROM t1 WHERE a1 < 'd' GROUP BY a1, a2, b; -- CONCAT", "sql_id": "mariadb_10_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(CHAR_LENGTH(GROUP_CONCAT(ORD(b) ORDER BY b)), MIN(b), MAX(b)) FROM t1 GROUP BY a1, a2;", "sql_id": "mariadb_10_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT Fld1, MAX(Fld2) FROM t1 GROUP BY Fld1 HAVING STDDEV_POP(Fld2) IS NOT NULL;", "sql_id": "mariadb_11_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT Fld1, MAX(Fld2) \nFROM t1 \nGROUP BY Fld1 \nHAVING VARIANCE(Fld2) IS NOT NULL; -- VARIANCE", "sql_id": "mariadb_11_4"}
+{"model": "gpt-3.5-turbo", "message": "insert into t3 select concat('c-', 1000+A.a, '=w'), concat('c-', 2000+A.a, '=w'),'filler-1' from t2 A; -- CONCAT", "sql_id": "mariadb_12_8"}
+{"model": "gpt-3.5-turbo", "message": "insert into t3 select concat('c-', 1000+A.a, '=w'), concat('c-', 3000+A.a, '=w'),'filler-2' from t2 A; -- CONCAT", "sql_id": "mariadb_12_9"}
+{"model": "gpt-3.5-turbo", "message": "update t1 set b=repeat(char(65+a), 20) where a < 25; -- REPEAT", "sql_id": "mariadb_12_23"}
+{"model": "gpt-3.5-turbo", "message": "explain select * from t1 where a < 10 and b = repeat(char(65+a), 20); -- REPEAT", "sql_id": "mariadb_12_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE a < 10 AND b = REPEAT(CHAR(65+a), 20);", "sql_id": "mariadb_12_25"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, HEX(b), HEX(c), filler FROM t1 ORDER BY filler;", "sql_id": "mariadb_13_6"}
+{"model": "gpt-3.5-turbo", "message": "UPDATE t1 set data=REPEAT('a',18*1024);", "sql_id": "mariadb_14_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(data) FROM t1;", "sql_id": "mariadb_14_4"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (data) VALUES (REPEAT('a',1*1024));", "sql_id": "mariadb_14_7"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (data) VALUES (REPEAT('b',16*1024-1024));", "sql_id": "mariadb_14_8"}
+{"model": "gpt-3.5-turbo", "message": "UPDATE t1 set data=REPEAT('c',17*1024);", "sql_id": "mariadb_14_10"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 SET data=REPEAT('a',18*1024);", "sql_id": "mariadb_14_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(data) FROM t1;", "sql_id": "mariadb_14_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP('2011-01-01 00:00:00') as time_t, UNIX_TIMESTAMP('2011-01-01 00:00:00') % 3 as part, 1234567890 % 3 as part2; -- UNIX_TIMESTAMP", "sql_id": "mariadb_15_0"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t3 (a) VALUES (NOW()); -- NOW", "sql_id": "mariadb_15_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t2 VALUES (1 + (SELECT a FROM t1),CONCAT('subq: ', (SELECT b FROM t1))); -- CONCAT", "sql_id": "mariadb_15_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT USER(), CURRENT_USER(); -- USER, CURRENT_USER", "sql_id": "mariadb_16_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abc', 'a' ); -- REGEXP_INSTR", "sql_id": "mariadb_17_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abc', 'b' ); -- REGEXP_INSTR", "sql_id": "mariadb_17_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abc', 'c' ); -- REGEXP_INSTR", "sql_id": "mariadb_17_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abc', 'd' ); -- REGEXP_INSTR", "sql_id": "mariadb_17_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( NULL, 'a' ); -- REGEXP_INSTR", "sql_id": "mariadb_17_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'a', NULL ); -- REGEXP_INSTR", "sql_id": "mariadb_17_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( NULL, NULL ); -- REGEXP_INSTR", "sql_id": "mariadb_17_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX( CONCAT( REGEXP_INSTR( 'a', 'a' ) ) );", "sql_id": "mariadb_17_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_INSTR( 1, 'a' ); -- REGEXP_INSTR", "sql_id": "mariadb_17_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 1.1, 'a' ); -- REGEXP_INSTR", "sql_id": "mariadb_17_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'a', '1' ); -- REGEXP_INSTR", "sql_id": "mariadb_17_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'a', 1.1 ); -- REGEXP_INSTR", "sql_id": "mariadb_17_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr(subject, pattern) FROM t1; -- REGEXP_INSTR", "sql_id": "mariadb_17_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abcabcabc', 'a+' ); -- REGEXP_INSTR", "sql_id": "mariadb_17_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_INSTR( 'abcabcabc', 'a+', 2 ); -- REGEXP_INSTR", "sql_id": "mariadb_17_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abcabcabc', 'b+' ); -- REGEXP_INSTR", "sql_id": "mariadb_17_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_INSTR( 'abcabcabc', 'b+', 2 ); -- REGEXP_INSTR", "sql_id": "mariadb_17_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr( 'abcabcabc', 'b+', 3 ); -- REGEXP_INSTR", "sql_id": "mariadb_17_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('aaa', 'a', 'X');", "sql_id": "mariadb_18_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('abc', 'b', 'X');", "sql_id": "mariadb_18_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE( NULL, 'a', 'X' );", "sql_id": "mariadb_18_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('aaa', NULL, 'X');", "sql_id": "mariadb_18_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('aaa', 'a', '');", "sql_id": "mariadb_18_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT( REGEXP_REPLACE( 'aaa', 'a', 'X' ), 'x' );", "sql_id": "mariadb_18_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('aaa', 'a', 'X');", "sql_id": "mariadb_18_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('aaabbccbbddaa', 'b+', 'X');", "sql_id": "mariadb_18_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('aaabbccbbddaa', 'b+', 'X');", "sql_id": "mariadb_18_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('aaabbccbbddaa', '(b+)', '<$1>');", "sql_id": "mariadb_18_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('aaabbccbbddaa', 'x+', 'x');", "sql_id": "mariadb_18_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('aaabbccbbddaa', 'b+', 'x');", "sql_id": "mariadb_18_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('aaab', 'b', 'x');", "sql_id": "mariadb_18_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('aaabccc', 'b', 'x');", "sql_id": "mariadb_18_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('abc', 'b', 'X');", "sql_id": "mariadb_18_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('abcbdb', 'b', 'X');", "sql_id": "mariadb_18_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('abcbdb', 'b', 'X');", "sql_id": "mariadb_18_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('aaabcbdb', 'b', 'X');", "sql_id": "mariadb_18_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('aaabcbdb', 'b', 'X');", "sql_id": "mariadb_18_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('aaabcbdb', 'b', 'X');", "sql_id": "mariadb_18_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('aaa', 'a', 'X');", "sql_id": "mariadb_18_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE('aaa', 'a', 'XX');", "sql_id": "mariadb_18_21"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES ( REGEXP_INSTR('a', 'a'), REGEXP_INSTR('a', 'a'), REGEXP_INSTR('a', 'a'), REGEXP_INSTR('a', 'a') ); -- REGEXP_INSTR", "sql_id": "mariadb_19_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 ( c ) VALUES ( REGEXP_REPLACE('a', 'a', 'a') ); -- REGEXP_REPLACE", "sql_id": "mariadb_19_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(REGEXP_REPLACE(REPEAT('a', 'b'), 'a', 'b'));", "sql_id": "mariadb_19_10"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES ( REPEAT( 'a', 16384 ) );", "sql_id": "mariadb_19_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CHAR_LENGTH(REGEXP_REPLACE(a, 'a', 'b')) FROM t1;", "sql_id": "mariadb_19_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT REGEXP_REPLACE(a, '^([[:alpha:]]+)[[:space:]].*$', '$1') FROM t1;", "sql_id": "mariadb_19_17"}
+{"model": "gpt-3.5-turbo", "message": "UPDATE t1 SET a = REGEXP_REPLACE(a, 'b', 'y');", "sql_id": "mariadb_19_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUM(LENGTH(DISTINCT name)) AS s1 FROM t1;", "sql_id": "mariadb_20_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUM(LENGTH(DISTINCT name)) AS s1 FROM t1;", "sql_id": "mariadb_20_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (SELECT SUM(DISTINCT LENGTH(name)) FROM t1) FROM t2; -- LENGTH", "sql_id": "mariadb_20_10"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t2 VALUES (1,'18:19:29',CURRENT_TIME()); -- NOW", "sql_id": "mariadb_20_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT_WS(pkCrash, strCrash) FROM t1; -- CONCAT_WS", "sql_id": "mariadb_21_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT one.id, two.val, ELT(two.val, 'one', 'two') \nFROM t1 one, t2 two \nWHERE two.id = one.id \nORDER BY one.id;", "sql_id": "mariadb_21_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(CAST('01-01-01' AS DATETIME), '01-01:02'); -- LEAST", "sql_id": "mariadb_22_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(CAST('2001-12-10' AS DATE), '2001-12/11'); -- LEAST", "sql_id": "mariadb_22_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(CAST('10:11:12' AS TIME), '10:11:13 '); -- LEAST", "sql_id": "mariadb_22_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP(UTC_TIMESTAMP()) - UNIX_TIMESTAMP(CURRENT_TIMESTAMP());", "sql_id": "mariadb_23_0"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 (i, ts) values(UNIX_TIMESTAMP('2003-03-01 00:00:00'),'2003-03-01 00:00:00');", "sql_id": "mariadb_23_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 (i, ts) values(UNIX_TIMESTAMP('2003-03-30 01:59:59'),'2003-03-30 01:59:59'),(UNIX_TIMESTAMP('2003-03-30 02:30:00'),'2003-03-30 02:30:00'),(UNIX_TIMESTAMP('2003-03-30 03:00:00'),'2003-03-30 03:00:00');", "sql_id": "mariadb_23_4"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 (i, ts) values(UNIX_TIMESTAMP('2003-03-30 01:59:59'), '2003-03-30 01:59:59'),(UNIX_TIMESTAMP('2003-03-30 02:30:00'), '2003-03-30 02:30:00'),(UNIX_TIMESTAMP('2003-03-30 03:00:00'), '2003-03-30 03:00:00');", "sql_id": "mariadb_23_5"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 (i, ts) values(UNIX_TIMESTAMP('2003-05-01 00:00:00'),'2003-05-01 00:00:00');", "sql_id": "mariadb_23_6"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 (i, ts) values(UNIX_TIMESTAMP('2003-10-26 01:00:00'),'2003-10-26 01:00:00'),(UNIX_TIMESTAMP('2003-10-26 02:00:00'),'2003-10-26 02:00:00'),(UNIX_TIMESTAMP('2003-10-26 02:59:59'),'2003-10-26 02:59:59'),(UNIX_TIMESTAMP('2003-10-26 04:00:00'),'2003-10-26 04:00:00'),(UNIX_TIMESTAMP('2003-10-26 02:59:59'),'2003-10-26 02:59:59');", "sql_id": "mariadb_23_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT FROM_UNIXTIME(362793609); -- FROM_UNIXTIME", "sql_id": "mariadb_23_10"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 (ts) values (NOW());", "sql_id": "mariadb_23_12"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES('2003-03-30 01:59:59', 'Before the gap'),('2003-03-30 02:30:00', 'Inside the gap'),('2003-03-30 03:00:00', 'After the gap'); -- UNIX_TIMESTAMP", "sql_id": "mariadb_23_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP('2003-03-30 01:59:59'), 'Before the gap' AS b; -- UNIX_TIMESTAMP", "sql_id": "mariadb_23_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP('2003-03-30 02:30:00'), 'Inside the gap' AS b; -- UNIX_TIMESTAMP", "sql_id": "mariadb_23_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP('2003-03-30 03:00:00'), 'After the gap' AS b; -- UNIX_TIMESTAMP", "sql_id": "mariadb_23_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT FROM_UNIXTIME(0); -- FROM_UNIXTIME", "sql_id": "mariadb_23_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP(\"1969-12-31 15:59:59\"); -- UNIX_TIMESTAMP", "sql_id": "mariadb_23_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP(\"1969-12-31 16:00:00\"); -- UNIX_TIMESTAMP", "sql_id": "mariadb_23_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP(\"1969-12-31 16:00:01\"); -- UNIX_TIMESTAMP", "sql_id": "mariadb_23_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP(\"1970-01-01 00:00:01\"); -- UNIX_TIMESTAMP", "sql_id": "mariadb_23_25"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP(\"2022-01-01 16:00:01\"); -- UNIX_TIMESTAMP", "sql_id": "mariadb_23_26"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(a) FROM t1;", "sql_id": "mariadb_24_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(a) FROM t1;", "sql_id": "mariadb_24_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(MIN(a)) FROM t1;", "sql_id": "mariadb_24_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(MIN(b)) FROM t1;", "sql_id": "mariadb_24_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(MIN(a)), HEX(MAX(a)), HEX(MIN(b)), HEX(MAX(b)) FROM t1;", "sql_id": "mariadb_24_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(MIN(b)) FROM t1 WHERE a = 4;", "sql_id": "mariadb_24_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(MIN(c)) FROM t1 WHERE a = 4 AND b = 0;", "sql_id": "mariadb_24_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(max(b)) FROM t1;", "sql_id": "mariadb_24_19"}
+{"model": "gpt-3.5-turbo", "message": "UPDATE t1 SET b = CONCAT(a);", "sql_id": "mariadb_24_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(GROUP_CONCAT(DISTINCT b SEPARATOR '')) FROM t1 GROUP BY a;", "sql_id": "mariadb_24_27"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(b), i2 FROM t1 WHERE (i2>=100 AND i2<201) AND b=1; -- HEX", "sql_id": "mariadb_25_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(b1), i2 FROM t2 WHERE (i2>=100 AND i2<201) AND b1=TRUE; -- HEX", "sql_id": "mariadb_25_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(b2), i2 FROM t2 WHERE (i2>=100 AND i2<201) AND b2=FALSE; -- HEX", "sql_id": "mariadb_25_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(GROUP_CONCAT(DISTINCT b SEPARATOR '')) FROM t1 GROUP BY a;", "sql_id": "mariadb_25_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LOWER(CONV(t2.b, 2, 16)) FROM t2;", "sql_id": "mariadb_25_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, LOWER(CONVERT(b, CHAR(16))) FROM t1 ORDER BY b;", "sql_id": "mariadb_25_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(a) FROM t1 ORDER BY a;", "sql_id": "mariadb_26_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(CONCAT(a, '\\\\0')) AS b FROM t1 ORDER BY CONCAT(a, '\\\\0');", "sql_id": "mariadb_26_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(a) FROM t1 ORDER BY a;", "sql_id": "mariadb_26_6"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t (c) VALUES (REPEAT('3',65535)); -- REPEAT", "sql_id": "mariadb_26_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(c), CHAR_LENGTH(c) FROM t; -- LENGTH, CHAR_LENGTH", "sql_id": "mariadb_26_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(c) FROM t2; -- LENGTH", "sql_id": "mariadb_26_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(-1.1111111111111111111111111, -group_concat(1.7976931348623157E+308)) AS foo;", "sql_id": "mariadb_27_0"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (NOW());", "sql_id": "mariadb_28_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE_FORMAT(a, '%Y %y'), YEAR(a), YEAR(NOW()) FROM t1;", "sql_id": "mariadb_28_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP('2000-01-27 23:13:41') - TIMESTAMP('2003-05-16 23:53:29'); -- TIMESTAMP", "sql_id": "mariadb_28_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(v), LENGTH(c), LENGTH(e), LENGTH(t) FROM t1; -- LENGTH", "sql_id": "mariadb_30_5"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES(SUBSTRING(f1, 1, 3)); -- SUBSTR", "sql_id": "mariadb_30_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, (a DIV 2) FROM t1 ORDER BY a; -- DIV", "sql_id": "mariadb_30_12"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (NOW());", "sql_id": "mariadb_31_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IF(y = NOW(), 1, 0) FROM t1;", "sql_id": "mariadb_31_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t4 WHERE yyyy = CURRENT_DATE(); -- NOW", "sql_id": "mariadb_31_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(d, y) FROM t1; -- LEAST", "sql_id": "mariadb_31_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(y, d) FROM t1; -- LEAST", "sql_id": "mariadb_31_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(i, y, v) FROM t1; -- LEAST", "sql_id": "mariadb_31_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMPDIFF(QUARTER, LEAST(y1, y2), dbl) FROM t1;", "sql_id": "mariadb_31_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HOUR(GREATEST(y1, y2)) FROM t1;", "sql_id": "mariadb_31_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT y, CONCAT('\"', c, '\"') FROM t1; -- CONCAT", "sql_id": "mariadb_32_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(b) FROM t1 ORDER BY pk1;", "sql_id": "mariadb_33_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(b) FROM t1 ORDER BY pk1;", "sql_id": "mariadb_33_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('*', name, '*') FROM t1 ORDER BY 1;", "sql_id": "mariadb_34_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MIN(name), MIN(CONCAT('*', name, '*')), MAX(name), MAX(CONCAT('*', name, '*')) FROM t1;", "sql_id": "mariadb_34_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('-', a, '-', b, '-') FROM t1 WHERE a = 'hello';", "sql_id": "mariadb_34_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('-', a, '-', b, '-') FROM t1 WHERE a = 'hello';", "sql_id": "mariadb_34_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(col1) FROM t1; -- HEX", "sql_id": "mariadb_34_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(col1) FROM t1; -- HEX", "sql_id": "mariadb_34_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(col1) FROM t1; -- HEX", "sql_id": "mariadb_34_24"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 SET a=UNHEX('1F9480179366F2BF567E1C4B964C1EF029087575');", "sql_id": "mariadb_35_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 SET a=UNHEX('1F9480179366F2BF567E1C4B964C1EF029082020');", "sql_id": "mariadb_35_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 SET a=UNHEX('1F9480179366F2BF567E1C4B964C1EF029080707');", "sql_id": "mariadb_35_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(a) FROM t1 order by a; -- HEX", "sql_id": "mariadb_35_5"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT HEX(a) FROM t1 ORDER BY a;", "sql_id": "mariadb_35_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(a) from t1 WHERE a=unhex('1F9480179366F2BF567E1C4B964C1EF029082020'); -- HEX, UNHEX", "sql_id": "mariadb_35_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(a) from t1 WHERE a=unhex('1F9480179366F2BF567E1C4B964C1EF02908'); -- HEX, UNHEX", "sql_id": "mariadb_35_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IF(NULL AND 1, 1, 2), IF(1 AND NULL, 1, 2); -- IF", "sql_id": "mariadb_36_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE IF(a AND 1, 0, 1); -- IF", "sql_id": "mariadb_36_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE IF(1 AND a, 0, 1); -- IF", "sql_id": "mariadb_36_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IFNULL(A, 'N') AS A, \n       IFNULL(B, 'N') AS B, \n       IFNULL(NOT A, 'N') AS nA, \n       IFNULL(NOT B, 'N') AS nB, \n       IFNULL(A AND B, 'N') AS AB, \n       IFNULL(NOT (A AND B), 'N') AS `n(AB)`, \n       IFNULL((NOT A OR NOT B), 'N') AS nAonB, \n       IFNULL(A OR B, 'N') AS AoB, \n       IFNULL(NOT (A OR B), 'N') AS `n(AoB)`, \n       IFNULL(NOT A AND NOT B, 'N') AS nAnB \nFROM t1;", "sql_id": "mariadb_36_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IFNULL(a=1, 'N') AS A, \n       IFNULL(b=1, 'N') AS B, \n       IFNULL(NOT (a=1), 'N') AS nA, \n       IFNULL(NOT (b=1), 'N') AS nB, \n       IFNULL((a=1) AND (b=1), 'N') AS AB, \n       IFNULL(NOT ((a=1) AND (b=1)), 'N') AS `n(AB)`, \n       IFNULL(NOT ((a=1) OR (b=1)), 'N') AS nAonB, \n       IFNULL((a=1) OR (b=1), 'N') AS AoB, \n       IFNULL(NOT((a=1) OR (b=1)), 'N') AS `n(AoB)`, \n       IFNULL(NOT (a=1) AND NOT (b=1), 'N') AS nAnB \nFROM t1;", "sql_id": "mariadb_36_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONVERT(\"2004-01-22 21:45:33\" USING DATE); -- CONVERT", "sql_id": "mariadb_37_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMEDIFF(CAST('2004-12-30 12:00:00' AS TIME), '12:00:00'); -- TIMEDIFF", "sql_id": "mariadb_37_1"}
+{"model": "gpt-3.5-turbo", "message": "select timediff(cast('1 12:00:00' as time), '12:00:00'); -- TIMEDIFF", "sql_id": "mariadb_37_2"}
+{"model": "gpt-3.5-turbo", "message": "select cast(concat('12345','6789') as unsigned); -- CONCAT", "sql_id": "mariadb_37_3"}
+{"model": "gpt-3.5-turbo", "message": "select cast(concat('12345','6789') as signed); -- CONCAT", "sql_id": "mariadb_37_4"}
+{"model": "gpt-3.5-turbo", "message": "select cast(repeat('1',9) as unsigned); -- REPEAT", "sql_id": "mariadb_37_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(REPEAT('1', 9) AS SIGNED); -- REPEAT", "sql_id": "mariadb_37_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IFNULL(DATE(NULL), 0), IFNULL(DATE(NULL), 0); -- ISNULL, DATE", "sql_id": "mariadb_37_7"}
+{"model": "gpt-3.5-turbo", "message": "select hex(cast('a' as binary(2))); -- HEX", "sql_id": "mariadb_37_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(DATE(d1) AS SIGNED) FROM t1; -- DATE", "sql_id": "mariadb_37_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HOUR(f1),MINUTE(f1),SECOND(f1) FROM t1; -- HOUR, MINUTE, SECOND", "sql_id": "mariadb_37_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HOUR(CAST('2007-07-19' AS DATE)), MINUTE(CAST('2007-07-19' AS DATE)), SECOND(CAST('2007-07-19' AS DATE));", "sql_id": "mariadb_37_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HOUR(CAST(NULL AS DATETIME)), MINUTE(CAST(NULL AS DATETIME)), SECOND(CAST(NULL AS DATETIME));", "sql_id": "mariadb_37_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HOUR(NULL), MINUTE(NULL), SECOND(NULL);", "sql_id": "mariadb_37_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONVERT('a' USING CHAR(2049)); -- CONVERT", "sql_id": "mariadb_37_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('value=', CAST('3.4e5' AS FLOAT)); -- CONCAT", "sql_id": "mariadb_37_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MAKETIME(1, 2, CAST(\"1.6\" AS DECIMAL)); -- MAKETIME", "sql_id": "mariadb_37_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STRCMP(a, b) FROM t1; -- STRCMP", "sql_id": "mariadb_38_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(JSON_UNQUOTE(JSON_EXTRACT('{\\\"key_year\\\":1934}', '$.key_year')) AS YEAR);", "sql_id": "mariadb_38_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(1988 AS YEAR), REPEAT(CAST(1988 AS CHAR), 3) AS c2; -- REPEAT", "sql_id": "mariadb_38_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('x', CAST(1988 AS CHAR)); -- CONCAT", "sql_id": "mariadb_38_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME_TO_SEC(CAST('2030-01-01' AS TIME)); -- TIME_TO_SEC", "sql_id": "mariadb_38_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMPADD(MINUTE, 1, MAKEDATE(1988, 1)); -- TIMESTAMPADD", "sql_id": "mariadb_38_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT YEAR(STR_TO_DATE('nope','%d-%m-%Y')); -- STR_TO_DATE", "sql_id": "mariadb_38_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 FROM t WHERE CAST(a AS UNSIGNED) = 1 AND a = IF(TRUE, NULL, 1); -- IF", "sql_id": "mariadb_38_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(a), STRCMP(a,'a'), STRCMP(a,'a ') FROM t1;", "sql_id": "mariadb_40_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(b,c), CONCAT(b,c) = '0101' FROM t1; -- CONCAT", "sql_id": "mariadb_40_7"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT b,c FROM t1 WHERE b = 1 AND CONCAT(b,CAST(c AS CHAR)) = '0101';", "sql_id": "mariadb_40_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT b,c FROM t1 WHERE b = 1 AND CONCAT(CAST(b AS CHAR),CAST(c AS CHAR)) = '0101';", "sql_id": "mariadb_40_9"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (NOW()),(NOW()),(NOW()); -- NOW", "sql_id": "mariadb_40_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROW('1', '1') > ROW(a, '1') FROM t1; -- ROW", "sql_id": "mariadb_40_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (a, '1') > ('1', '1') FROM t1; -- ROW", "sql_id": "mariadb_40_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(DISTINCT IF(f1, 3, f2)) FROM t1;", "sql_id": "mariadb_41_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT INET6_NTOA(CAST(inet_ntoa('1') AS BINARY(16)));", "sql_id": "mariadb_42_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LOWER(CONVERT(v, BINARY)) FROM t1;", "sql_id": "mariadb_42_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(name, SPACE(level)), CONCAT(name, REPEAT(' ', level)) FROM t1;", "sql_id": "mariadb_43_3"}
+{"model": "gpt-3.5-turbo", "message": "create table t1 select repeat('a',4000) a;", "sql_id": "mariadb_43_5"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE head AS SELECT CONCAT(b1.b, b2.b) AS head FROM t1 b1, t1 b2; -- CONCAT", "sql_id": "mariadb_43_14"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE tail AS SELECT concat(b1.b, b2.b) AS tail FROM t1 b1, t1 b2; -- CONCAT", "sql_id": "mariadb_43_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT INET6_NTOA(CAST(INET_NTOA('1') AS BINARY(16)));", "sql_id": "mariadb_43_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT group_concat(IFNULL(a,'')) FROM t1;", "sql_id": "mariadb_44_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT group_concat(IF(a,a,'')) FROM t1;", "sql_id": "mariadb_44_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GROUP_CONCAT(CASE WHEN a THEN a ELSE '' END) FROM t1; -- GROUP_CONCAT", "sql_id": "mariadb_44_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COALESCE(a,'') FROM t1 GROUP BY 1; -- COALESCE", "sql_id": "mariadb_44_6"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT CONCAT_WS(',', 1, 2, 3) FROM t1; -- CONCAT_WS", "sql_id": "mariadb_44_8"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT LOWER(a) FROM t1; -- LCASE", "sql_id": "mariadb_44_10"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT UPPER(a) FROM t1; -- UCASE", "sql_id": "mariadb_44_12"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT REPEAT(1,2) FROM t1; -- REPEAT", "sql_id": "mariadb_44_14"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT ELT(1,111,222,333) AS result FROM t1; -- ELT", "sql_id": "mariadb_44_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LOWER(CONVERT(a, BINARY)) FROM t1;", "sql_id": "mariadb_45_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LOWER(CONVERT(a, BINARY)) FROM t2;", "sql_id": "mariadb_45_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE a = LPAD('xxx', 10, ' ');", "sql_id": "mariadb_45_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IFNULL(c1, ''), IFNULL(NULL, c1) FROM t1; -- IFNULL", "sql_id": "mariadb_45_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IF(1, c1, ''), IF(0, c1, '') FROM t1; -- IF", "sql_id": "mariadb_45_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COALESCE('', c1), COALESCE(NULL, c1) FROM t1; -- COALESCE", "sql_id": "mariadb_45_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(c1,''), GREATEST(c1,'') FROM t1;", "sql_id": "mariadb_45_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LOCATE(c1, ''), LOCATE('', c1) FROM t1;", "sql_id": "mariadb_45_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT FIELD('','c1',''), FIELD('','c1') FROM t1;", "sql_id": "mariadb_45_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(c1,''), CONCAT('',c1) FROM t1;", "sql_id": "mariadb_45_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT_WS('', c1, ''), CONCAT_WS('', c1, '') FROM t1;", "sql_id": "mariadb_45_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ELT(1, c1, ''), ELT(1, '', c1) FROM t1;", "sql_id": "mariadb_45_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD(c1, 3, 'x'), LPAD('x', 3, c1) FROM t1; -- LPAD", "sql_id": "mariadb_45_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD(c1, 3, 'x'), RPAD('x', 3, c1) FROM t1; -- RPAD", "sql_id": "mariadb_45_25"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STR_TO_DATE(CONCAT('15-01-2001',' 2:59:58.999'), CONCAT('%d-%m-%Y',' ','%H:%i:%s.%f'));", "sql_id": "mariadb_46_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STR_TO_DATE('2004.12.12 22.30.59','%Y.%m.%d %T'); -- STR_TO_DATE", "sql_id": "mariadb_46_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT date1, format1, STR_TO_DATE(date1, format1) as str_to_date FROM t1; -- STR_TO_DATE", "sql_id": "mariadb_46_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT date1, format1, CONCAT('', STR_TO_DATE(date1, format1)) AS con FROM t1;", "sql_id": "mariadb_46_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT date1, format1, CAST(STR_TO_DATE(date1, format1) AS DATETIME) AS datetime FROM t1; -- STR_TO_DATE", "sql_id": "mariadb_46_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT date1, format1, DATE(STR_TO_DATE(date1, format1)) AS date2 FROM t1;", "sql_id": "mariadb_46_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT date1, format1, TIME_FORMAT(STR_TO_DATE(date1, format1), '%H:%i:%s') as time from t1;", "sql_id": "mariadb_46_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT date1, format1, TIME_FORMAT(DATE_ADD(STR_TO_DATE(date1, format1), INTERVAL 0 SECOND), '%H:%i:%s') as time2 FROM t1;", "sql_id": "mariadb_46_10"}
+{"model": "gpt-3.5-turbo", "message": "select concat('',str_to_date('8:11:2 03-01-02','%H:%i:%S %y-%m-%d'));", "sql_id": "mariadb_46_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE_FORMAT(d, \"%d\") FROM t1 ORDER BY 1;", "sql_id": "mariadb_46_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE_FORMAT('2004-01-01','%W (%a), %e %M (%b) %Y'); -- DATE_FORMAT", "sql_id": "mariadb_46_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME_FORMAT(\"24:00:00\", '%r'); -- TIME_FORMAT", "sql_id": "mariadb_47_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME_FORMAT(\"00:00:00\", '%r'); -- TIME_FORMAT", "sql_id": "mariadb_47_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME_FORMAT(\"12:00:00\", '%r'); -- TIME_FORMAT", "sql_id": "mariadb_47_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME_FORMAT(\"15:00:00\", '%r'); -- TIME_FORMAT", "sql_id": "mariadb_47_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME_FORMAT(\"01:00:00\", '%r'); -- TIME_FORMAT", "sql_id": "mariadb_47_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME_FORMAT(\"25:00:00\", '%r'); -- TIME_FORMAT", "sql_id": "mariadb_47_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME_FORMAT(\"00:00:00\", '%l %p'); -- TIME_FORMAT", "sql_id": "mariadb_47_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME_FORMAT(\"01:00:00\", '%l %p'); -- TIME_FORMAT", "sql_id": "mariadb_47_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME_FORMAT(\"12:00:00\", '%l %p'); -- TIME_FORMAT", "sql_id": "mariadb_47_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME_FORMAT(\"23:00:00\", '%l %p'); -- TIME_FORMAT", "sql_id": "mariadb_47_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME_FORMAT(\"24:00:00\", '%l %p'); -- TIME_FORMAT", "sql_id": "mariadb_47_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME_FORMAT(\"25:00:00\", '%l %p'); -- TIME_FORMAT", "sql_id": "mariadb_47_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE_FORMAT(1151414896, '%Y-%m-%d %H:%i:%s'); -- DATE_FORMAT", "sql_id": "mariadb_47_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STR_TO_DATE('04 /30/2004', '%m /%d/%Y'); -- STR_TO_DATE", "sql_id": "mariadb_47_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STR_TO_DATE('04/30 /2004', '%m /%d /%Y'); -- STR_TO_DATE", "sql_id": "mariadb_47_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STR_TO_DATE('04/30/2004 ', '%m/%d/%Y '); -- STR_TO_DATE", "sql_id": "mariadb_47_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE_FORMAT(\"0000-01-01\",'%W %d %M %Y') as valid_date; -- DATE_FORMAT", "sql_id": "mariadb_47_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE_FORMAT(\"0000-02-28\",'%W %d %M %Y') as valid_date; -- DATE_FORMAT", "sql_id": "mariadb_47_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE_FORMAT(\"2009-01-01\",'%W %d %M %Y') as valid_date; -- DATE_FORMAT", "sql_id": "mariadb_47_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT JSON_EXTRACT('{\"id\": \"3\", \"$name\": \"Barney\"}', '$.id'); -- JSON_EXTRACT", "sql_id": "mariadb_48_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT JSON_EXTRACT('{\"id\": \"3\", \"$name\": \"$Barney\"}', \"$.$name\"); -- JSON_EXTRACT", "sql_id": "mariadb_48_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('|', text1, '|') as c FROM t1 WHERE text1='teststring' OR text1 LIKE 'teststring_%' ORDER BY c;", "sql_id": "mariadb_49_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('|', text1, '|') FROM t1 WHERE text1='teststring' OR text1 > 'teststring\\\\t';", "sql_id": "mariadb_49_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT text1, LENGTH(text1) FROM t1 ORDER BY text1; -- LENGTH", "sql_id": "mariadb_49_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('|', text1, '|') FROM t1 ORDER BY text1;", "sql_id": "mariadb_49_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('|', text1, '|') FROM t1 WHERE text1='teststring' OR text1 > 'teststring\\\\t';", "sql_id": "mariadb_49_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('|', text1, '|') FROM t1 WHERE text1='teststring';", "sql_id": "mariadb_49_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('|', text1, '|') FROM t1 WHERE text1='teststring '; -- CONCAT", "sql_id": "mariadb_49_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(\"Let's create some new events from the name of \", CURRENT_USER());", "sql_id": "mariadb_50_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES ( 2, REPEAT('-', 104) ); -- REPEAT", "sql_id": "mariadb_51_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES ( 1, REPEAT('x', 104) );", "sql_id": "mariadb_51_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(f1, '') AS dummy FROM t1 ORDER BY dummy; -- CONCAT", "sql_id": "mariadb_51_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 ORDER BY UNIX_TIMESTAMP(f1); -- UNIX_TIMESTAMP", "sql_id": "mariadb_51_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' AS f1 FROM t1 WHERE a='8' GROUP BY f1 ORDER BY CONCAT(f1); -- CONCAT", "sql_id": "mariadb_51_15"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (1, REPEAT('x', 40001));", "sql_id": "mariadb_51_18"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (2, REPEAT('x', 40002));", "sql_id": "mariadb_51_19"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (3, REPEAT('x', 40003));", "sql_id": "mariadb_51_20"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (4, REPEAT('x', 40005));", "sql_id": "mariadb_51_21"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (5, REPEAT('x', 40008));", "sql_id": "mariadb_51_22"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (6, REPEAT('x', 40013));", "sql_id": "mariadb_51_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, CHAR_LENGTH(b) FROM t1 ORDER BY a DESC; -- LENGTH", "sql_id": "mariadb_51_24"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT * FROM t1 WHERE CHAR_LENGTH(t1.vc) > 3; -- LENGTH", "sql_id": "mariadb_52_13"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT * FROM t1 WHERE CHAR_LENGTH(t1.vc) = 3; -- LENGTH", "sql_id": "mariadb_52_14"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT * FROM t1 WHERE CHAR_LENGTH(t1.vc) IS NULL; -- LENGTH", "sql_id": "mariadb_52_15"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT * FROM t1 WHERE CHAR_LENGTH(t1.vc) IS NOT NULL; -- LENGTH", "sql_id": "mariadb_52_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(CONV(vbin1, 2, 10) << 3), HEX(CONV(vbin2, 2, 10) << 3) FROM t WHERE id=7;", "sql_id": "mariadb_53_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(CAST(vbin1 AS UNSIGNED) >> 3), HEX(CAST(vbin2 AS UNSIGNED) >> 3) FROM t WHERE id=7;", "sql_id": "mariadb_53_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(~CONVERT(vbin1, UNSIGNED)), HEX(~CONVERT(vbin2, UNSIGNED)) FROM t WHERE id=7; -- HEX", "sql_id": "mariadb_53_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(CAST(vbin1 AS UNSIGNED) << 3), HEX(CAST(vbin2 AS UNSIGNED) << 3) FROM t WHERE id=8;", "sql_id": "mariadb_53_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(CAST(vbin1 AS UNSIGNED) >> 3), HEX(CAST(vbin2 AS UNSIGNED) >> 3) FROM t WHERE id=8;", "sql_id": "mariadb_53_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(~CONVERT(vbin1 USING latin1)), HEX(~CONVERT(vbin2 USING latin1)) FROM t WHERE id=8; -- HEX", "sql_id": "mariadb_53_8"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t VALUES(REPEAT(x'0a',1000));", "sql_id": "mariadb_53_12"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t VALUES(1, REPEAT('2', 257)), (1, REPEAT('1', 257));", "sql_id": "mariadb_53_15"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t VALUES(1, REPEAT('2', 255)), (1, REPEAT('1', 255)); -- REPEAT", "sql_id": "mariadb_53_18"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t VALUES(1, REPEAT('2', 32750), REPEAT('1', 32750));", "sql_id": "mariadb_53_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT BIT_COUNT(a & b) FROM t ; -- BIT_COUNT", "sql_id": "mariadb_53_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE GREATEST((-1) & (-1), -t0.c0); -- GREATEST", "sql_id": "mariadb_53_27"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST((-1) & (-1), -t0.c0) IS TRUE FROM t0; -- GREATEST", "sql_id": "mariadb_53_28"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE GREATEST(123456789, -c0); -- GREATEST", "sql_id": "mariadb_53_29"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(123456789, -t0.c0) = TRUE FROM t0; -- GREATEST", "sql_id": "mariadb_53_30"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (NULL), ('A\\0\\0\\0BBBBBBBB'), (LPAD('', 50000, ' ')), (LPAD('', 50000, ' '));", "sql_id": "mariadb_54_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(a) FROM t1;", "sql_id": "mariadb_54_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE CONCAT(a, c, b, d) = 'AAAA2003-03-011051';", "sql_id": "mariadb_55_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION SELECT CONCAT('a', -4); -- CONCAT", "sql_id": "mariadb_55_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION SELECT CONCAT('a', -4.5); -- CONCAT", "sql_id": "mariadb_55_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION SELECT CONCAT('a', -(4 + 1)); -- CONCAT", "sql_id": "mariadb_55_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION SELECT CONCAT('a', 4 - 5); -- CONCAT", "sql_id": "mariadb_55_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION SELECT CONCAT('a', -3); -- CONCAT", "sql_id": "mariadb_55_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION SELECT CONCAT('a', CONCAT('3',4)); -- CONCAT", "sql_id": "mariadb_55_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION SELECT CONCAT('a', -0); -- CONCAT", "sql_id": "mariadb_55_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION SELECT CONCAT('a', -0.0); -- CONCAT", "sql_id": "mariadb_55_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION SELECT CONCAT('a', -0.0000); -- CONCAT", "sql_id": "mariadb_55_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT((SELECT x FROM (SELECT 'a' AS x) AS t1),(SELECT y FROM (SELECT 'b' AS y) AS t2)) FROM (SELECT 1 UNION SELECT 2) AS t3; -- CONCAT", "sql_id": "mariadb_55_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(f1, 2) AS a FROM t1 UNION SELECT 'x' AS a FROM t1;", "sql_id": "mariadb_55_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE CONCAT(c1,' ',c2) REGEXP 'First.*'; -- CONCAT", "sql_id": "mariadb_55_21"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values (date_add(NULL, INTERVAL 1 DAY)); -- DATE_ADD", "sql_id": "mariadb_56_2"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values (date_add('2000-01-04', INTERVAL NULL DAY)); -- DATE_ADD", "sql_id": "mariadb_56_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values (date_add(NULL, INTERVAL 1 DAY)); -- DATE_ADD", "sql_id": "mariadb_56_4"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values (date_add('2000-01-04', INTERVAL 1 DAY)); -- DATE_ADD", "sql_id": "mariadb_56_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE(ts) = CURRENT_DATE + INTERVAL 1 DAY AS is_tomorrow, TIME(ts)\nFROM (SELECT DATE_ADD(TIME'00:00:00', INTERVAL 1 DAY) AS ts) AS dt; -- DATE", "sql_id": "mariadb_56_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE ISNULL(TO_DAYS(mydate));", "sql_id": "mariadb_57_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * \nFROM t3 \nLEFT JOIN (t2 outr2 JOIN t2 outr JOIN t1) \nON (outr.pk = t3.pk) \nAND (t1.col_int_key = t3.pk) \nAND ISNULL(t1.col_date_key) \nAND (outr2.pk <> t3.pk); -- ISNULL", "sql_id": "mariadb_57_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * \nFROM t3 \nJOIN (t2 outr2 JOIN t2 outr JOIN t1) \nON (outr.pk = t3.pk) \nAND (t1.col_int_key = t3.pk) \nAND ISNULL(t1.col_date_key) \nAND (outr2.pk <> t3.pk);", "sql_id": "mariadb_57_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE a LIKE CONCAT('abc','%');", "sql_id": "mariadb_58_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE a LIKE CONCAT('abc', '%');", "sql_id": "mariadb_58_5"}
+{"model": "gpt-3.5-turbo", "message": "select log(exp(10)),exp(log(sqrt(10))*2),log(NULL); -- LN", "sql_id": "mariadb_59_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LOG2(8), LOG2(15), LOG2(NULL); -- LOG2", "sql_id": "mariadb_59_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POW(10,LOG10(10)), POW(2,4);", "sql_id": "mariadb_59_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CEILING(0.09);", "sql_id": "mariadb_59_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CEILING(0.000000000000000009);", "sql_id": "mariadb_59_4"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES ('http://www.foo.com/', NOW());", "sql_id": "mariadb_59_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a FROM t1 WHERE a='http://www.foo.com/' ORDER BY ABS(TIMEDIFF(ts, '0000-00-00 00:00:00')); -- TIMEDIFF", "sql_id": "mariadb_59_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MOD(CAST(-2 AS UNSIGNED), 3), MOD(18446744073709551614, 3), MOD(-2, 3); -- MOD", "sql_id": "mariadb_59_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MOD(5, CAST(-2 AS SIGNED)), MOD(5, 18446744073709551614), MOD(5, -2); -- MOD", "sql_id": "mariadb_59_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POW(CAST(-2 AS UNSIGNED), 5), POW(18446744073709551614, 5), POW(-2, 5); -- POW", "sql_id": "mariadb_59_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DISTINCT FLOOR(a / 254576881) FROM t1;", "sql_id": "mariadb_59_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE(('')) WHEN (CONVERT(1, CHAR(1))) THEN (('' / 1)) END; -- CONVERT", "sql_id": "mariadb_59_17"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t1 SELECT CAST((CASE(('')) WHEN (CAST(1 AS CHAR(1))) THEN (('' / 1)) END) AS CHAR) as C;", "sql_id": "mariadb_59_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ROUND(LEAST(15, -4939092, 0.2704)); -- LEAST, STDDEV", "sql_id": "mariadb_60_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT FLOOR(1.175494351E-37 / 1.7976931348623157E+308);", "sql_id": "mariadb_60_1"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (LOG(1)); -- LN", "sql_id": "mariadb_60_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT FLOOR(CEIL(123456789)); -- CEIL", "sql_id": "mariadb_60_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(POW(2,63)-1024 AS SIGNED) AS pp; -- POW", "sql_id": "mariadb_60_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(1-POW(2,63) AS SIGNED) AS qq; -- POW", "sql_id": "mariadb_60_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE CAST(COALESCE(t0.c0, -1) AS UNSIGNED); -- COALESCE", "sql_id": "mariadb_60_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE CAST(IFNULL(t0.c0, -1) AS UNSIGNED); -- IFNULL", "sql_id": "mariadb_60_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(COALESCE(t0.c0, -1) AS UNSIGNED) IS TRUE FROM t0; -- COALESCE", "sql_id": "mariadb_60_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(COALESCE(t0.c0, -1) AS UNSIGNED) FROM t0; -- COALESCE", "sql_id": "mariadb_60_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MD5('a'), HEX(MD5('a')); -- MD5, HEX", "sql_id": "mariadb_61_0"}
+{"model": "gpt-3.5-turbo", "message": "create table t1 as select MD5('a') as c1; -- MD5", "sql_id": "mariadb_61_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MD5('hello'); -- MD5", "sql_id": "mariadb_61_4"}
+{"model": "gpt-3.5-turbo", "message": "explain select MD5('hello'); -- MD5", "sql_id": "mariadb_61_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(UNHEX(MD5(\"abrakadabra\")));", "sql_id": "mariadb_61_6"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES ('test', MD5('test')), ('test', MD5('test')); -- MD5", "sql_id": "mariadb_61_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE f1='test' AND (f2= MD5(\"test\") OR f2= MD5(\"Test\")); -- MD5", "sql_id": "mariadb_61_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE f1='test' AND (f2= MD5(\"TEST\") OR f2= MD5(\"test\")); -- MD5", "sql_id": "mariadb_61_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT INET_NTOA(4294902271), INET_NTOA(511); -- INET_NTOA", "sql_id": "mariadb_62_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a FROM t1 WHERE MID(a+0,6,3) IN ( MID('20040106123400',6,3) );", "sql_id": "mariadb_62_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a FROM t1 WHERE MID(CAST(a AS CHAR)+0,6,3) = (MID('20040106123400',6,3));", "sql_id": "mariadb_62_5"}
+{"model": "gpt-3.5-turbo", "message": "create table t1 as select uuid(), length(uuid());", "sql_id": "mariadb_62_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MIN(a) FROM t1 GROUP BY INET_NTOA(a);", "sql_id": "mariadb_62_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DISTINCT LEAST(a, (SELECT b FROM t1 LIMIT 1)) FROM t1 UNION SELECT 1; -- LEAST", "sql_id": "mariadb_62_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DISTINCT GREATEST(a, (SELECT b FROM t1 LIMIT 1)) FROM t1 UNION SELECT 1; -- GREATEST", "sql_id": "mariadb_62_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1+1,1-1,1+1*2,8/5,8%5,MOD(8,5),-(1+1)*-2; -- MOD", "sql_id": "mariadb_63_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 | (1+1), 5 & 3, BIT_COUNT(7); -- BIT_COUNT", "sql_id": "mariadb_63_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT t1.a, t2.a, t2.b, BIT_COUNT(t2.b) FROM t1 LEFT JOIN t2 ON t1.a = t2.a; -- BIT_COUNT", "sql_id": "mariadb_63_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE_FORMAT(\"1997-12-31 23:59:59.000002\", \"%f\"); -- DATE_FORMAT", "sql_id": "mariadb_64_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATEDIFF(\"1997-12-31 23:59:59.000001\",\"1997-12-30\"); -- DATEDIFF", "sql_id": "mariadb_64_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATEDIFF(\"1997-11-30 23:59:59.000001\",NULL); -- DATEDIFF", "sql_id": "mariadb_64_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MAKEDATE(03, 1); -- MAKEDATE", "sql_id": "mariadb_64_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MAKEDATE(1997, 1); -- MAKEDATE", "sql_id": "mariadb_64_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MAKEDATE(1997, 0); -- MAKEDATE", "sql_id": "mariadb_64_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MAKEDATE(9999, 365); -- MAKEDATE", "sql_id": "mariadb_64_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MAKEDATE(9999, 366);", "sql_id": "mariadb_64_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MAKEDATE(100, 1);", "sql_id": "mariadb_64_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUBTIME(\"1997-12-31 23:59:59.000001\", \"1 1:1:1.000002\"); -- SUBTIME", "sql_id": "mariadb_64_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUBTIME(\"1997-12-31 23:59:59.999999\", \"1998-01-01 01:01:01.999999\"); -- SUBTIME", "sql_id": "mariadb_64_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUBTIME(\"01:00:00.999999\", \"02:00:00.999998\"); -- SUBTIME", "sql_id": "mariadb_64_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUBTIME(\"02:01:01.999999\", \"01:01:01.999999\"); -- SUBTIME", "sql_id": "mariadb_64_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMEDIFF('1997-01-01 23:59:59.000001', '1995-12-31 23:59:59.000002');", "sql_id": "mariadb_64_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMEDIFF('1997-12-31 23:59:59.000001', '1997-12-30 01:01:01.000002'); -- TIMEDIFF", "sql_id": "mariadb_64_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMEDIFF(\"1997-12-31 23:59:59.000001\", \"23:59:59.000001\"); -- TIMEDIFF", "sql_id": "mariadb_64_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMEDIFF(\"2000-01-01 00:00:00\", \"2000-01-01 00:00:00.000001\"); -- TIMEDIFF", "sql_id": "mariadb_64_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMEDIFF(\"2005-01-11 15:48:49.999999\", \"2005-01-11 15:48:50\"); -- TIMEDIFF", "sql_id": "mariadb_64_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MAKETIME(10, 11, 12); -- MAKETIME", "sql_id": "mariadb_65_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MAKETIME(20, 11, 12); -- MAKETIME", "sql_id": "mariadb_65_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MAKETIME(-25, 11, 12); -- MAKETIME", "sql_id": "mariadb_65_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP('2001-12-01 01:01:01.999999');", "sql_id": "mariadb_65_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP('2001-10-01 01:01:01.000001');", "sql_id": "mariadb_65_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP('2001-12-01', '20:01:01');", "sql_id": "mariadb_65_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP('2001-12-01'); -- TIMESTAMP", "sql_id": "mariadb_65_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DAY('1997-12-31 23:59:59.000001'); -- DAY", "sql_id": "mariadb_65_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME(\"1997-12-31 23:59:59.000001\"); -- TIME", "sql_id": "mariadb_65_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMEDIFF(t1, t4) As ttt, TIMEDIFF(t2, t3) As qqq, TIMEDIFF(t3, t2) As eee, TIMEDIFF(t2, t4) As rrr from test; -- TIMEDIFF", "sql_id": "mariadb_65_12"}
+{"model": "gpt-3.5-turbo", "message": "select str_to_date(\"2003-01-02 10:11:12.0012\", \"%Y-%m-%d %H:%i:%S.%f\"); -- STR_TO_DATE", "sql_id": "mariadb_65_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMEDIFF('2008-09-29 20:10:10', '2008-09-30 20:10:10'), TIME('00:00:00'); -- TIMEDIFF, TIME", "sql_id": "mariadb_65_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMEDIFF('2008-09-29 20:10:10', '2008-09-30 20:10:10') > TIME('00:00:00');", "sql_id": "mariadb_65_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMEDIFF('2008-09-29 20:10:10', '2008-09-30 20:10:10') < TIME('00:00:00');", "sql_id": "mariadb_65_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(TIME('23:42:12') AS DECIMAL); -- TIME", "sql_id": "mariadb_66_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SEC_TO_TIME(86399)=TIME_FORMAT(DATE_ADD('00:00:00', INTERVAL 86399 SECOND), '%H:%i:%s');", "sql_id": "mariadb_66_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SEC_TO_TIME(86399)='23:59:59'; -- SEC_TO_TIME", "sql_id": "mariadb_66_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME(TIME_FORMAT(SEC_TO_TIME(86399), '%H:%i:%s')) = TIME('23:59:59');", "sql_id": "mariadb_66_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MAKETIME(1,0,1)='01:00:01'; -- MAKETIME", "sql_id": "mariadb_66_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME_FORMAT(DATE_ADD(MAKETIME(1,0,1), INTERVAL 0 SECOND), '%H:%i:%s') = CAST('01:00:01' AS TIME);", "sql_id": "mariadb_66_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MAKETIME(1,0,1)=CAST('01:00:01' AS TIME); -- MAKETIME", "sql_id": "mariadb_66_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ELT(2, 'apple', 'banana', 'cherry'), FIELD(NULL, 'a', 'b', 'c');", "sql_id": "mariadb_67_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT FIELD(\"b\",\"a\",NULL),FIELD(1,0,NULL)+0,FIELD(1.0,0.0,NULL)+0,FIELD(1.0e1,0.0e1,NULL)+0; -- FIELD", "sql_id": "mariadb_67_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT FIELD(NULL, 'a', NULL), FIELD(NULL, 0, NULL) + 0, FIELD(NULL, 0.0, NULL) + 0.0, FIELD(NULL, 0.0e1, NULL) + 0.0e1; -- FIELD", "sql_id": "mariadb_67_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT one.id, ELT(two.val, 'one', 'two') FROM t1 one, t2 two WHERE two.id = one.id; -- ELT", "sql_id": "mariadb_67_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT one.id, ELT(two.val, 'one', 'two') FROM t1 one, t2 two WHERE two.id = one.id ORDER BY one.id;", "sql_id": "mariadb_67_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('\"',CONCAT_WS('\";\"',title,prio,category,program,bugdesc,created,modified,bugstatus,submitter),'\"') FROM t1; -- CONCAT, CONCAT_WS", "sql_id": "mariadb_68_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('\"',CONCAT_WS('\";\"',title,prio,category,program,bugstatus,submitter),'\"') FROM t1; -- CONCAT, CONCAT_WS", "sql_id": "mariadb_68_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT_WS('\";\"',title,prio,category,program,bugdesc,created,modified,bugstatus,submitter) FROM t1; -- CONCAT_WS", "sql_id": "mariadb_68_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(\"</a>\", RPAD('', (55 - LENGTH(title)), '.')) FROM t1;", "sql_id": "mariadb_68_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 0=0,1>0,1>=1,1<0,1<=0,1!=0,STRCMP(\"abc\",\"abcd\"),STRCMP(\"b\",\"a\"),STRCMP(\"a\",\"a\") ; -- STRCMP", "sql_id": "mariadb_69_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(d,d) FROM t1 WHERE k=2; -- GREATEST", "sql_id": "mariadb_69_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (12 % 1) <=> NULL AS 'col'; -- MOD", "sql_id": "mariadb_69_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (12 % 1) IS NULL AS 'col'; -- MOD", "sql_id": "mariadb_69_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MOD(12.0, 1) AS 'col'; -- MOD", "sql_id": "mariadb_69_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MOD(12, 1.0) AS 'col'; -- MOD", "sql_id": "mariadb_69_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(123456789, 234567890) as g;", "sql_id": "mariadb_69_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(123456789, 234567890) as l;", "sql_id": "mariadb_69_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(123456789, -1, 234567890) as g;", "sql_id": "mariadb_69_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(123456789, -1, 234567890) as l; -- LEAST", "sql_id": "mariadb_69_13"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t1 AS SELECT GREATEST(-1, 123456789);", "sql_id": "mariadb_69_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST('11', '5', '2'); -- GREATEST", "sql_id": "mariadb_70_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST('11', 5, 2); -- GREATEST", "sql_id": "mariadb_70_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(11, 5, 2); -- GREATEST", "sql_id": "mariadb_70_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST('11', '5', '2'); -- LEAST", "sql_id": "mariadb_70_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST('11', 5, 2); -- LEAST", "sql_id": "mariadb_70_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(11, 5, 2); -- LEAST", "sql_id": "mariadb_70_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST('11', '5', '2') + 0; -- GREATEST", "sql_id": "mariadb_70_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST('11', 5, 2) + 0; -- GREATEST", "sql_id": "mariadb_70_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(11, 5, 2) + 0; -- GREATEST", "sql_id": "mariadb_70_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST('11', '5', '2') + 0.00; -- GREATEST", "sql_id": "mariadb_70_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST('11', 5, 2) + 0.00; -- GREATEST\n\n-- Translated for MariaDB\nSELECT GREATEST(CAST('11' AS SIGNED), 5, 2) + 0.00;", "sql_id": "mariadb_70_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(11, 5, 2) + 0.00; -- GREATEST", "sql_id": "mariadb_70_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(18446744073709551615, NULL) FROM t0017; -- GREATEST", "sql_id": "mariadb_70_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE (GREATEST(c1, c2) = 42) AND (c2 = 1); -- GREATEST", "sql_id": "mariadb_70_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUM(LEAST(a, b)) FROM t1; -- LEAST", "sql_id": "mariadb_70_27"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUM(LEAST(a, b)) FROM t2; -- LEAST", "sql_id": "mariadb_70_28"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO clstr_tst (a, b, c, d) VALUES (32, 6, 'seis', REPEAT('xyzzy', 10000));", "sql_id": "mariadb_1_33"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO tidrangescan SELECT i,REPEAT('x', 100) FROM (WITH RECURSIVE seq(i) AS (SELECT 1 UNION ALL SELECT i + 1 FROM seq WHERE i + 1 <= 200) SELECT i FROM seq) AS s;", "sql_id": "mariadb_10_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SLEEP(0.1); -- PG_SLEEP", "sql_id": "mariadb_11_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SLEEP(0.1); -- PG_SLEEP", "sql_id": "mariadb_11_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SLEEP(0.1); -- PG_SLEEP", "sql_id": "mariadb_11_16"}
+{"model": "gpt-3.5-turbo", "message": "WITH RECURSIVE seq(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq WHERE n + 1 <= 3) SELECT * FROM seq;", "sql_id": "mariadb_12_0"}
+{"model": "gpt-3.5-turbo", "message": "WITH RECURSIVE seq1(n) AS (\n    SELECT 1\n    UNION ALL\n    SELECT n + 1 FROM seq1 WHERE n + 1 <= 3\n),\nseq2(n) AS (\n    SELECT 3\n    UNION ALL\n    SELECT n + 1 FROM seq2 WHERE n + 1 <= 5\n)\nSELECT n AS val1, (SELECT n FROM seq2 WHERE seq2.n = seq1.n) AS val2\nFROM seq1;", "sql_id": "mariadb_12_1"}
+{"model": "gpt-3.5-turbo", "message": "WITH RECURSIVE seq_val1(n) AS (\n    SELECT 1\n    UNION ALL\n    SELECT n + 1 FROM seq_val1 WHERE n + 1 <= 2\n),\nseq_val2(n) AS (\n    SELECT 1\n    UNION ALL\n    SELECT n + 1 FROM seq_val2 WHERE n + 1 <= 4\n)\nSELECT n AS val1, (SELECT n FROM seq_val2 WHERE n = seq_val1.n) AS val2\nFROM seq_val1;", "sql_id": "mariadb_12_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO cmdata VALUES(REPEAT('1234567890', 1000));", "sql_id": "mariadb_2_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO cmdata1 VALUES(REPEAT('1234567890', 1004));", "sql_id": "mariadb_2_6"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO delete_test (id, a, b) VALUES (2, 50, REPEAT('x', 10000));", "sql_id": "mariadb_3_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT current_timestamp() = NOW(); -- NOW", "sql_id": "mariadb_4_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATABASE();", "sql_id": "mariadb_5_0"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE simple1 AS WITH RECURSIVE seq(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq WHERE n + 1 <= 200) SELECT n AS id FROM seq;", "sql_id": "mariadb_6_2"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE bigger_than_it_looks AS (\n    WITH RECURSIVE seq(n) AS (\n        SELECT 1\n        UNION ALL\n        SELECT n + 1 FROM seq WHERE n < 200\n    )\n    SELECT n as id FROM seq\n);", "sql_id": "mariadb_6_5"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO extremely_skewed \nSELECT 42 as id, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' \nFROM (WITH RECURSIVE seq(n) AS (\n    SELECT 1 \n    UNION ALL \n    SELECT n + 1 FROM seq WHERE n + 1 <= 200\n) SELECT n FROM seq) AS numbers;", "sql_id": "mariadb_6_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, sum(b), group_concat(distinct c), count(*) FROM pagg_tab_ml GROUP BY a HAVING avg(b) < 3 ORDER BY 1, 2, 3;", "sql_id": "mariadb_7_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT NEXT VALUE FOR seq3;", "sql_id": "mariadb_9_2"}

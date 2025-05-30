@@ -1,0 +1,1 @@
+select strcmp('','ae'),strcmp('ae',''),strcmp('aeq','q'),strcmp('q','aeq'); -- STRCMP

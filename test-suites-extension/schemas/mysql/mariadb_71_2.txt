@@ -1,0 +1,2 @@
+select from_unixtime(123456789); -- FROM_UNIXTIME
+select from_unixtime(234567890); -- FROM_UNIXTIME

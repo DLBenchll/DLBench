@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS cmdata;
+CREATE TABLE cmdata(f1 text);

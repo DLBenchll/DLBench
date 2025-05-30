@@ -1,0 +1,3 @@
+SELECT regexp_replace( 'aaa', 'a', 'X' );
+SELECT regexp_replace( 'abc', 'b', 'X' );
+SELECT regexp_replace( NULL, 'a', 'X' );

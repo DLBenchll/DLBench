@@ -1,0 +1,45 @@
+[
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from mysql to monetdb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:INSERT INTO t2 (d)SELECT (SELECT SUM(LENGTH(c)) FROM t1 WHERE c='7_chars') FROM t1; -- LENGTHOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:mysql schema: ['DROP TABLE IF EXISTS t1;\\n', 'create table t1(f1 varchar(5));\\n', \"insert into t1(f1) select if(max(f1) is null, '2000',max(f1)) from t1; -- IF, MAX\\n\", 'DROP TABLE t1;\\n', 'CREATE TABLE t1 (c VARCHAR(30));\\n', \"INSERT INTO t1 (c) VALUES ('7_chars'), ('13_characters');\\n\", \"SELECT (SELECT SUM(LENGTH(c)) FROM t1 WHERE c='13_characters') FROM t1; -- LENGTH\\n\", 'DROP TABLE IF EXISTS t2;\\n', 'CREATE TABLE t2 (d VARCHAR(10));\\n', \"INSERT INTO t2 (d)SELECT (SELECT SUM(LENGTH(c)) FROM t1 WHERE c='13_characters') FROM t1; -- LENGTH\\n\", \"INSERT INTO t2 (d)SELECT (SELECT SUM(LENGTH(c)) FROM t1 WHERE c='7_chars') FROM t1; -- LENGTH\\n\"].\n monetdb schema: ['DROP TABLE IF EXISTS t1;\\n', 'create table t1(f1 varchar(5));\\n', \"insert into t1(f1) select CASE WHEN max(f1) is null THEN '2000' ELSE max(f1) END from t1;\\n\", 'DROP TABLE t1;\\n', 'CREATE TABLE t1 (c VARCHAR(30));\\n', \"INSERT INTO t1 (c) VALUES ('7_chars'), ('13_characters');\\n\", \"SELECT (SELECT SUM(octet_length(c)) FROM t1 WHERE c='13_characters') FROM t1;\\n\", 'DROP TABLE IF EXISTS t2;\\n', 'CREATE TABLE t2 (d VARCHAR(10));\\n', \"INSERT INTO t2 (d)SELECT (SELECT SUM(octet_length(c)) FROM t1 WHERE c='13_characters') FROM t1;\\n\", \"INSERT INTO t2 (d)SELECT (SELECT SUM(octet_length(c)) FROM t1 WHERE c='7_chars') FROM t1;\\n\"]."
+    },
+    {
+      "role": "assistant",
+      "content": "INSERT INTO t2 (d)SELECT (SELECT SUM(octet_length(c)) FROM t1 WHERE c='7_chars') FROM t1;"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from mysql to monetdb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:INSERT INTO t1 VALUES('valid-string',1),(UNHEX('11'),2); -- UNHEXOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:mysql schema: ['DROP TABLE IF EXISTS t1;\\n', 'CREATE TABLE t1 (tx TEXT NULL,pk INTEGER PRIMARY KEY);\\n', \"INSERT INTO t1 VALUES('valid-string',1),(UNHEX('11'),2); -- UNHEX\\n\"].\n monetdb schema: ['DROP TABLE IF EXISTS t1;\\n', 'CREATE TABLE t1 (tx TEXT NULL,pk INTEGER PRIMARY KEY);\\n', \"INSERT INTO t1 VALUES('valid-string',1),(NULL,2);\\n\"]."
+    },
+    {
+      "role": "assistant",
+      "content": "INSERT INTO t1 VALUES('valid-string',1),(NULL,2);"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from mysql to monetdb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT pk,OCTET_LENGTH(tx),LENGTH(tx) FROM t1; -- OCTET_LENGTH, LENGTHOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:mysql schema: ['DROP TABLE IF EXISTS t1;\\n', 'CREATE TABLE t1 (tx TEXT NULL,pk INTEGER PRIMARY KEY);\\n', \"INSERT INTO t1 VALUES('valid-string',1),(UNHEX('11'),2); -- UNHEX\\n\", 'SELECT pk,OCTET_LENGTH(tx),LENGTH(tx) FROM t1; -- OCTET_LENGTH, LENGTH\\n'].\n monetdb schema: ['DROP TABLE IF EXISTS t1;\\n', 'CREATE TABLE t1 (tx TEXT NULL,pk INTEGER PRIMARY KEY);\\n', \"INSERT INTO t1 VALUES('valid-string',1),(NULL,2);\\n\", 'SELECT pk,LENGTH(tx),octet_length(tx) FROM t1;\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT pk,LENGTH(tx),octet_length(tx) FROM t1;"
+    }
+  ]
+]
+

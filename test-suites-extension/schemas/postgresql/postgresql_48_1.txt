@@ -1,0 +1,1 @@
+SELECT '{"id": "3", "$name": "Barney"}'::jsonb #> '{id}';

@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (a DATE, b INT) ENGINE=MergeTree ORDER BY a;
+INSERT INTO t1 VALUES (toDate(now()), 1);
+SELECT COUNT(*) FROM t1 WHERE a = now();
+INSERT INTO t1 VALUES (toDate(now()), 2);
+SELECT COUNT(*) FROM t1 WHERE a = now();
+SELECT COUNT(*) FROM t1 WHERE a = now() AND b = 1;
+DROP TABLE t1;

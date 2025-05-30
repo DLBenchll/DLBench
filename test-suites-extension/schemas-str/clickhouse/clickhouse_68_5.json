@@ -1,0 +1,3 @@
+[
+    "Table: `t1`\nColumns:\n(id, Int32, )\n(title, Nullable(String), )\n(prio, Nullable(Int32), )\n(category, Nullable(Int32), )\n(program, Nullable(Int32), )\n(bugdesc, String, )\n(created, Nullable(DateTime), )\n(modified, DateTime, )\n(bugstatus, Nullable(Int32), )\n(submitter, Nullable(Int32), )\n"
+]

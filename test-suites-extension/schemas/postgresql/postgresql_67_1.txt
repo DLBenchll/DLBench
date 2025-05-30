@@ -1,0 +1,1 @@
+SELECT CASE WHEN 2 > 0 AND 2 <= array_length(ARRAY[1], 1) THEN (ARRAY[1])[2] ELSE NULL END, COALESCE(array_position(ARRAY['a', 'b', 'c'], NULL), 0);

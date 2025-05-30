@@ -1,0 +1,5 @@
+select strcmp('','ae'),strcmp('ae',''),strcmp('aeq','q'),strcmp('q','aeq'); -- STRCMP
+select strcmp('ss',''),strcmp('','ss'),strcmp('s','sss'),strcmp('q','ssq'); -- STRCMP
+select strcmp('','af'),strcmp('a',''),strcmp('','aeq'),strcmp('','aeaeq'); -- STRCMP
+select strcmp('ss','a'),strcmp('','ssa'),strcmp('sa','sssb'),strcmp('s',''); -- STRCMP
+select strcmp('','o'),strcmp('','u'),strcmp('','oeb'); -- STRCMP

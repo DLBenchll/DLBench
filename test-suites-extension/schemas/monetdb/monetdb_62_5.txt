@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 ( a timestamp );
+INSERT INTO t1 VALUES ( '2004-01-06 12:34' );
+SELECT a FROM t1 WHERE substring(sys.timestamp_to_str(a, '%Y%m%d%H%i%s'), 6, 3) IN ( substring('20040106123400', 6, 3));

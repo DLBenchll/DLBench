@@ -1,0 +1,5 @@
+[
+    "Table: `t1`\nColumns:\n(a, int(11), )\n",
+    "Table: `t2`\nColumns:\n(a, int(11), )\n",
+    "Table: `t3`\nColumns:\n(a, char(8), )\n(b, char(8), )\n(filler, char(200), )\n"
+]

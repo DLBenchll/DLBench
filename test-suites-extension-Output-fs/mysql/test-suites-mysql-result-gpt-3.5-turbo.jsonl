@@ -1,0 +1,17 @@
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO clstr_tst (a, b, c, d) VALUES (32, 6, 'seis', REPEAT('xyzzy', 10000));", "sql_id": "mysql_1_33"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO tidrangescan SELECT i,REPEAT('x', 100) FROM (SELECT @i:=@i+1 AS i FROM information_schema.tables, (SELECT @i:=0) AS dummy WHERE @i < 200) AS s;", "sql_id": "mysql_10_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SLEEP(0.1); -- PG_SLEEP", "sql_id": "mysql_11_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SLEEP(0.1); -- PG_SLEEP", "sql_id": "mysql_11_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SLEEP(0.1); -- PG_SLEEP", "sql_id": "mysql_11_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM generate_series(1, 3); -- GENERATE_SERIES", "sql_id": "mysql_12_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 AS val1, 3 AS val2\nUNION ALL\nSELECT 2 AS val1, 4 AS val2\nUNION ALL\nSELECT 3 AS val1, 5 AS val2;", "sql_id": "mysql_12_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 AS val1, 1 AS val2\nUNION ALL\nSELECT 2 AS val1, 2 AS val2\nUNION ALL\nSELECT NULL AS val1, 3 AS val2\nUNION ALL\nSELECT NULL AS val1, 4 AS val2;", "sql_id": "mysql_12_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO cmdata VALUES(REPEAT('1234567890', 1000));", "sql_id": "mysql_2_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO cmdata1 VALUES(REPEAT('1234567890', 1004));", "sql_id": "mysql_2_6"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO delete_test (id, a, b) VALUES (2, 50, REPEAT('x', 10000));", "sql_id": "mysql_3_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT current_timestamp = NOW(); -- NOW", "sql_id": "mysql_4_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATABASE();", "sql_id": "mysql_5_0"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE simple1 AS WITH RECURSIVE seq(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq WHERE n + 1 <= 200) SELECT n AS id FROM seq;", "sql_id": "mysql_6_2"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE bigger_than_it_looks AS SELECT * FROM generate_series(1, 200) AS id;", "sql_id": "mysql_6_5"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO extremely_skewed (id, t) SELECT 42 as id, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' FROM generate_series(1, 200); -- GENERATE_SERIES", "sql_id": "mysql_6_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, sum(b), group_concat(distinct c), count(*) FROM pagg_tab_ml GROUP BY a HAVING avg(b) < 3 ORDER BY 1, 2, 3;", "sql_id": "mysql_7_9"}

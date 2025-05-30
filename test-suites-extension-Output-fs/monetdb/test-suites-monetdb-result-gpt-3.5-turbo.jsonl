@@ -1,0 +1,524 @@
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST('2001-01-01 00:00:00' AS TIMESTAMP);", "sql_id": "monetdb_100_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE '2007-12-31 23:59:59' - DATE '2007-12-30 00:00:00';", "sql_id": "monetdb_100_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM timestamp '2000-01-01 00:00:00' - timestamp '2000-01-01 00:00:00');", "sql_id": "monetdb_100_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sys.timestamp_to_str(TIMESTAMP '2009-10-10 23:59:59', 'W MM YYYY');", "sql_id": "monetdb_100_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME '2003-12-31 23:59:59'; -- TIME", "sql_id": "monetdb_100_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP '2003-01-02 23:59:59' + INTERVAL '1' MINUTE;", "sql_id": "monetdb_100_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP '2003-05-01' - TIMESTAMP '2003-02-01 23:59:59';", "sql_id": "monetdb_100_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2009-11-29 23:59:59') + 62167219200;", "sql_id": "monetdb_100_17"}
+{"model": "gpt-3.5-turbo", "message": "select octet_length('*' || s1 || '*' || s2 || '*') from t1;", "sql_id": "monetdb_101_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(123456789 AS BIGINT);", "sql_id": "monetdb_101_12"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (CAST(CURRENT_TIMESTAMP AS DATE), 1);", "sql_id": "monetdb_102_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(*) FROM t1 WHERE a = CURRENT_TIMESTAMP;", "sql_id": "monetdb_102_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (CAST(CURRENT_TIMESTAMP AS DATE), 2);", "sql_id": "monetdb_102_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(*) FROM t1 WHERE a = CURRENT_TIMESTAMP;", "sql_id": "monetdb_102_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(*) FROM t1 WHERE a = CURRENT_TIMESTAMP AND b = 1;", "sql_id": "monetdb_102_6"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t1 AS SELECT current_date AS f1; -- CURDATE", "sql_id": "monetdb_102_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(HOUR FROM f1), \"minute\"(f1), EXTRACT(SECOND FROM f1) FROM t1;", "sql_id": "monetdb_102_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 FROM (SELECT DATE '2011-01-01' + INTERVAL '-1' DAY) a;", "sql_id": "monetdb_102_18"}
+{"model": "gpt-3.5-turbo", "message": "WITH recursive qn as (select 1 as n, cast('x' as char(100)) as un union all select 1+n, un || 'x' from qn where n<10) select * from qn; -- CONCAT", "sql_id": "monetdb_2_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN COUNT(*) > 0 THEN 'YES' ELSE 'NO' END AS \"IMPLICIT COMMIT\" FROM trans; -- CASE WHEN", "sql_id": "monetdb_3_2"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT 1 FROM t1 WHERE a = 9223372036854775807 AND TRIM(CAST(a AS VARCHAR)) = b;", "sql_id": "monetdb_4_4"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT 1 FROM t1 WHERE a = 9223372036854775806 AND TRIM(CAST(a AS VARCHAR)) = b; -- TRIM", "sql_id": "monetdb_4_5"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT 1 FROM t1 WHERE a = 9223372036854775805 AND TRIM(CAST(a AS VARCHAR)) = b;", "sql_id": "monetdb_4_6"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT 1 FROM t1 WHERE a = 0 AND TRIM(CAST(a AS VARCHAR)) = b; -- TRIM", "sql_id": "monetdb_4_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE COALESCE(a, NULL) BETWEEN 0 AND 0.9;", "sql_id": "monetdb_4_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE COALESCE(a, NULL) = 0.9; -- COALESCE", "sql_id": "monetdb_4_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE COALESCE(a, NULL) IN (0.8, 0.9);", "sql_id": "monetdb_4_13"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t1 AS SELECT REPEAT('a', 4000) AS a;", "sql_id": "monetdb_6_5"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE head AS SELECT b1.b || b2.b AS head FROM t1 b1, t1 b2; -- CONCAT", "sql_id": "monetdb_6_12"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE tail AS SELECT b1.b || b2.b AS tail FROM t1 b1, t1 b2; -- CONCAT", "sql_id": "monetdb_6_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(*) FROM t1 WHERE a<>'' AND LENGTH(a)=2; -- OCTET_LENGTH (MonetDB uses LENGTH instead of OCTET_LENGTH)", "sql_id": "monetdb_6_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE char_length(a)=2; -- CHAR_LENGTH", "sql_id": "monetdb_6_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(*) FROM t1 WHERE a<>'' AND LENGTH(a)=3; -- OCTET_LENGTH (MonetDB uses LENGTH instead of OCTET_LENGTH)", "sql_id": "monetdb_6_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c1, octet_length(c1) FROM h; -- LENGTH", "sql_id": "monetdb_7_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c1, CONCAT(REPEAT(' ', GREATEST(0, 20 - LENGTH(c1))), c1) FROM h;", "sql_id": "monetdb_7_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c1, CONCAT(REPEAT(' ', GREATEST(0, 20 - LENGTH(c1))), c1) FROM h;", "sql_id": "monetdb_7_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('h' in c1) FROM h; -- INSTR", "sql_id": "monetdb_7_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('' in c1) FROM h; -- INSTR", "sql_id": "monetdb_7_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('52' in c1) FROM h; -- INSTR", "sql_id": "monetdb_7_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('54' in c1) FROM h; -- INSTR", "sql_id": "monetdb_7_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('31' in c1) FROM h; -- INSTR", "sql_id": "monetdb_7_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c1, TRIM(c1) FROM h; -- TRIM", "sql_id": "monetdb_7_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP '1970-01-01 00:00:00' + INTERVAL '123456789' SECOND;", "sql_id": "monetdb_71_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP '1970-01-01 00:00:00' + INTERVAL '234567890' SECOND;", "sql_id": "monetdb_71_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP '1970-01-01 00:00:00' + INTERVAL '1' SECOND;", "sql_id": "monetdb_71_2"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT * FROM t WHERE x || x = 'XX';", "sql_id": "monetdb_72_4"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1(f1) select CASE WHEN max(f1) is null THEN '2000' ELSE max(f1) END from t1;", "sql_id": "monetdb_74_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (SELECT SUM(octet_length(c)) FROM t1 WHERE c='13_characters') FROM t1;", "sql_id": "monetdb_74_6"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t2 (d) SELECT (SELECT SUM(octet_length(c)) FROM t1 WHERE c='13_characters') FROM t1;", "sql_id": "monetdb_74_9"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t2 (d) SELECT (SELECT SUM(octet_length(c)) FROM t1 WHERE c='7_chars') FROM t1;", "sql_id": "monetdb_74_10"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES('valid-string',1),(NULL,2);", "sql_id": "monetdb_75_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT pk,LENGTH(tx),octet_length(tx) FROM t1;", "sql_id": "monetdb_75_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values (1, repeat('a',110), repeat('b', 210));", "sql_id": "monetdb_76_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT i, octet_length(a), octet_length(b), char_length(a), char_length(b) from t1;", "sql_id": "monetdb_76_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values(1, 'a', 'a', CURRENT_TIMESTAMP), (1, 'b', 'b', CURRENT_TIMESTAMP);", "sql_id": "monetdb_76_6"}
+{"model": "gpt-3.5-turbo", "message": "select t1.\"time\",t1.\"date\",t1.\"timestamp\",\"date\" || ' ' || \"time\",t1.\"quarter\"+t1.\"week\", t1.\"year\"+\"timestampadd\",  timestampdiff from t1;", "sql_id": "monetdb_77_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT '|' || a || '|' AS a, '|' || b || '|' AS b FROM t1;", "sql_id": "monetdb_78_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, sys.timestamp_to_str(a, 'DY') as abday, dayname(a) as \"day\" FROM t1 ORDER BY a;", "sql_id": "monetdb_79_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, sys.timestamp_to_str(a, 'DY') as abday, dayname(a) as \"day\" FROM t1 ORDER BY a;\nSELECT a, sys.timestamp_to_str(a, 'MON') as abmon, monthname(a) as mon FROM t1 ORDER BY a;", "sql_id": "monetdb_79_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sys.timestamp_to_str(TIMESTAMP '2001-01-01', 'D DY WW');", "sql_id": "monetdb_79_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sys.timestamp_to_str(TIMESTAMP '2001-01-01', 'MM MON MONTH');", "sql_id": "monetdb_79_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sys.timestamp_to_str(TIMESTAMP '2010-03-23 11:00:00', 'HH12 AM');", "sql_id": "monetdb_79_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN '' = 'ae' THEN 0 WHEN '' < 'ae' THEN -1 ELSE 1 END, CASE WHEN 'ae' = '' THEN 0 WHEN 'ae' < '' THEN -1 ELSE 1 END, CASE WHEN 'aeq' = 'q' THEN 0 WHEN 'aeq' < 'q' THEN -1 ELSE 1 END, CASE WHEN 'q' = 'aeq' THEN 0 WHEN 'q' < 'aeq' THEN -1 ELSE 1 END;", "sql_id": "monetdb_8_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN 'ss' = '' THEN 0 WHEN 'ss' < '' THEN -1 ELSE 1 END, \n       CASE WHEN '' = 'ss' THEN 0 WHEN '' < 'ss' THEN -1 ELSE 1 END, \n       CASE WHEN 's' = 'sss' THEN 0 WHEN 's' < 'sss' THEN -1 ELSE 1 END, \n       CASE WHEN 'q' = 'ssq' THEN 0 WHEN 'q' < 'ssq' THEN -1 ELSE 1 END;", "sql_id": "monetdb_8_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN '' = 'af' THEN 0 WHEN '' < 'af' THEN -1 ELSE 1 END, CASE WHEN 'a' = '' THEN 0 WHEN 'a' < '' THEN -1 ELSE 1 END, CASE WHEN '' = 'aeq' THEN 0 WHEN '' < 'aeq' THEN -1 ELSE 1 END, CASE WHEN '' = 'aeaeq' THEN 0 WHEN '' < 'aeaeq' THEN -1 ELSE 1 END;", "sql_id": "monetdb_8_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN 'ss' = 'a' THEN 0 WHEN 'ss' < 'a' THEN -1 ELSE 1 END, CASE WHEN '' = 'ssa' THEN 0 WHEN '' < 'ssa' THEN -1 ELSE 1 END, CASE WHEN 'sa' = 'sssb' THEN 0 WHEN 'sa' < 'sssb' THEN -1 ELSE 1 END, CASE WHEN 's' = '' THEN 0 WHEN 's' < '' THEN -1 ELSE 1 END;", "sql_id": "monetdb_8_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN '' = 'ae' THEN 0 WHEN '' < 'ae' THEN -1 ELSE 1 END, CASE WHEN 'ae' = '' THEN 0 WHEN 'ae' < '' THEN -1 ELSE 1 END, CASE WHEN 'aeq' = 'q' THEN 0 WHEN 'aeq' < 'q' THEN -1 ELSE 1 END, CASE WHEN 'q' = 'aeq' THEN 0 WHEN 'q' < 'aeq' THEN -1 ELSE 1 END;\nSELECT CASE WHEN 'ss' = '' THEN 0 WHEN 'ss' < '' THEN -1 ELSE 1 END, CASE WHEN '' = 'ss' THEN 0 WHEN '' < 'ss' THEN -1 ELSE 1 END, CASE WHEN 's' = 'sss' THEN 0 WHEN 's' < 'sss' THEN -1 ELSE 1 END, CASE WHEN 'q' = 'ssq' THEN 0 WHEN 'q' < 'ssq' THEN -1 ELSE 1 END;\nSELECT CASE WHEN '' = 'af' THEN 0 WHEN '' < 'af' THEN -1 ELSE 1 END, CASE WHEN 'a' = '' THEN 0 WHEN 'a' < '' THEN -1 ELSE 1 END, CASE WHEN '' = 'aeq' THEN 0 WHEN '' < 'aeq' THEN -1 ELSE 1 END, CASE WHEN '' = 'aeaeq' THEN 0 WHEN '' < 'aeaeq' THEN -1 ELSE 1 END;\nSELECT CASE WHEN 'ss' = 'a' THEN 0 WHEN 'ss' < 'a' THEN -1 ELSE 1 END, CASE WHEN '' = 'ssa' THEN 0 WHEN '' < 'ssa' THEN -1 ELSE 1 END, CASE WHEN 'sa' = 'sssb' THEN 0 WHEN 'sa' < 'sssb' THEN -1 ELSE 1 END, CASE WHEN 's' = '' THEN 0 WHEN 's' < '' THEN -1 ELSE 1 END;\nSELECT CASE WHEN '' = 'o' THEN 0 WHEN '' < 'o' THEN -1 ELSE 1 END, CASE WHEN '' = 'u' THEN 0 WHEN '' < 'u' THEN -1 ELSE 1 END, CASE WHEN '' = 'oeb' THEN 0 WHEN '' < 'oeb' THEN -1 ELSE 1 END;", "sql_id": "monetdb_8_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN 'af' = '' THEN 0 WHEN 'af' < '' THEN -1 ELSE 1 END, CASE WHEN '' = 'a' THEN 0 WHEN '' < 'a' THEN -1 ELSE 1 END, CASE WHEN 'aeq' = '' THEN 0 WHEN 'aeq' < '' THEN -1 ELSE 1 END, CASE WHEN 'aeaeq' = '' THEN 0 WHEN 'aeaeq' < '' THEN -1 ELSE 1 END;", "sql_id": "monetdb_8_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN 'a' = 'ss' THEN 0 WHEN 'a' < 'ss' THEN -1 ELSE 1 END, CASE WHEN 'ssa' = '' THEN 0 WHEN 'ssa' < '' THEN -1 ELSE 1 END, CASE WHEN 'sssb' = 'sa' THEN 0 WHEN 'sssb' < 'sa' THEN -1 ELSE 1 END, CASE WHEN '' = 's' THEN 0 WHEN '' < 's' THEN -1 ELSE 1 END;", "sql_id": "monetdb_8_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN 'u' = 'a' THEN 0 WHEN 'u' < 'a' THEN -1 ELSE 1 END, CASE WHEN 'u' = '' THEN 0 WHEN 'u' < '' THEN -1 ELSE 1 END;", "sql_id": "monetdb_8_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN 's' = 'a' THEN 0 WHEN 's' < 'a' THEN -1 ELSE 1 END, CASE WHEN 'a' = 'x' THEN 0 WHEN 'a' < 'x' THEN -1 ELSE 1 END;", "sql_id": "monetdb_8_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE octet_length(s1)=2 AND s1='oe'; -- LENGTH", "sql_id": "monetdb_8_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(REPEAT('x', GREATEST(0, 5 - LENGTH(NULL))), NULL) AS result;", "sql_id": "monetdb_80_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(REPEAT('x', GREATEST(0, NULL - LENGTH(NULL))), NULL) AS result;", "sql_id": "monetdb_80_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(REPEAT(NULL, GREATEST(0, NULL - LENGTH(NULL))), NULL) AS result;", "sql_id": "monetdb_80_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(REPEAT('x', GREATEST(0, NULL - LENGTH('a'))), 'a') AS result;", "sql_id": "monetdb_80_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(REPEAT(NULL, GREATEST(0, NULL - LENGTH('a'))), 'a') AS result;", "sql_id": "monetdb_80_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(REPEAT(NULL, GREATEST(0, 5 - LENGTH('a'))), 'a') AS result;", "sql_id": "monetdb_80_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(REPEAT(NULL, GREATEST(0, 5 - LENGTH(NULL))), NULL) AS result;", "sql_id": "monetdb_80_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(REPEAT('x', GREATEST(0, 0 - LENGTH('a'))), 'a') AS result;", "sql_id": "monetdb_80_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(REPEAT('', GREATEST(0, 0 - LENGTH('a'))), 'a') AS result;", "sql_id": "monetdb_80_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(REPEAT('x', GREATEST(0, 0 - LENGTH('')), '') AS result; -- LPAD", "sql_id": "monetdb_80_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(REPEAT('', GREATEST(0, 0 - LENGTH(''))), '') AS result; -- LPAD", "sql_id": "monetdb_80_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(REPEAT('x', GREATEST(0, -1 - LENGTH('a'))), 'a');", "sql_id": "monetdb_80_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(REPEAT('x', GREATEST(0, 5 - LENGTH('123'))), '123'); -- LPAD", "sql_id": "monetdb_80_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(REPEAT('xy', GREATEST(0, 5 - LENGTH('a'))), 'a');", "sql_id": "monetdb_80_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(REPEAT(' ', GREATEST(0, 20 - LENGTH('I LOVE SQL'))), 'I LOVE SQL');", "sql_id": "monetdb_80_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(REPEAT(' ', GREATEST(0, 20 - LENGTH('I LOVE SQL in the morning'))), 'I LOVE SQL in the morning'); -- LPAD", "sql_id": "monetdb_80_15"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES(REPEAT('a', 1024), 0), (REPEAT('b', 1024), 1), (REPEAT('c', 1024), 2), (REPEAT('d', 1024), 3), (REPEAT('e', 1024), 4), (REPEAT('f', 1024), 5);", "sql_id": "monetdb_81_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUM(octet_length(f1)) FROM t1;", "sql_id": "monetdb_81_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COALESCE(d, d), COALESCE(d, d), CASE WHEN i THEN d ELSE d END, CASE i WHEN i THEN d ELSE d END, GREATEST(d, d), CASE WHEN d <= d THEN d ELSE d END FROM t1 ORDER BY RANDOM();", "sql_id": "monetdb_82_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t5 values (1, sys.timestamp_to_str(TIMESTAMP '2001-01-01', 'DAY'));", "sql_id": "monetdb_84_2"}
+{"model": "gpt-3.5-turbo", "message": "insert into t5 values (2, sys.timestamp_to_str(TIMESTAMP '2001-01-01', 'DAY'));", "sql_id": "monetdb_84_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t5 values (3, sys.timestamp_to_str(TIMESTAMP '2001-01-01', 'DAY'));", "sql_id": "monetdb_84_4"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (REPEAT('ManyMegaByteBlck', 123));", "sql_id": "monetdb_85_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (REPEAT('ManyMegaByteBlck', 234));", "sql_id": "monetdb_85_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (REPEAT('ManyMegaByteBlck', 345));", "sql_id": "monetdb_85_4"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (REPEAT('ManyMegaByteBlck', 456));", "sql_id": "monetdb_85_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT octet_length(c1) FROM t1;", "sql_id": "monetdb_85_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT NULL = NULL, NULL <> NULL, COALESCE(NULL, 1.1) + 0, COALESCE(NULL, 1) | 0;", "sql_id": "monetdb_86_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT FIELD(NULL, 'a', 'b', 'c');", "sql_id": "monetdb_86_4"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT COALESCE(a, b) FROM t1;", "sql_id": "monetdb_86_9"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT COALESCE(a, NULL) FROM t1;", "sql_id": "monetdb_86_11"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT COALESCE(NULL, b) FROM t1; -- IFNULL", "sql_id": "monetdb_86_13"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (REPEAT('a', 10), 1), (REPEAT('b', 10), 2);", "sql_id": "monetdb_87_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STRING_AGG(a, ',') FROM t1;", "sql_id": "monetdb_87_3"}
+{"model": "gpt-3.5-turbo", "message": "select repeat('a',2000);", "sql_id": "monetdb_88_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT octet_length('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa') as len;", "sql_id": "monetdb_88_1"}
+{"model": "gpt-3.5-turbo", "message": "select octet_length(repeat('a',2000));", "sql_id": "monetdb_88_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT c11, octet_length(c12) FROM t1;", "sql_id": "monetdb_88_9"}
+{"model": "gpt-3.5-turbo", "message": "create table t1 as select CASE WHEN NULL IS NULL THEN NULL ELSE EXTRACT(EPOCH FROM NULL) + 62167219200 END as to_seconds;", "sql_id": "monetdb_89_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN 0 THEN 'ERROR' ELSE 'this' END, CASE WHEN 1 THEN 'is' ELSE 'ERROR' END, CASE WHEN NULL THEN 'ERROR' ELSE 'a' END, CASE WHEN 1 THEN 2 ELSE 3 END, CASE WHEN 1 THEN 2.0 ELSE 3.0 END + 0;", "sql_id": "monetdb_9_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN 1 THEN st ELSE st END AS s FROM t1 ORDER BY s;", "sql_id": "monetdb_9_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN u=1 THEN st ELSE st END AS s FROM t1 ORDER BY s;", "sql_id": "monetdb_9_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT NULLIF(u, 1) FROM t1; -- NULLIF", "sql_id": "monetdb_9_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT NULLIF(u, 1) FROM t1; -- NULLIF", "sql_id": "monetdb_9_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUM(CASE WHEN num IS NULL THEN 0.00 ELSE num END) FROM t1;", "sql_id": "monetdb_9_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MIN(CASE WHEN y - x > 5 THEN y ELSE NULL END), MAX(CASE WHEN y - x > 5 THEN y ELSE NULL END) FROM t1;", "sql_id": "monetdb_9_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT NULLIF(5,5) IS NULL, NULLIF(5,5) IS NOT NULL; -- NULLIF", "sql_id": "monetdb_9_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT id, CASE WHEN date IS NULL THEN '-' ELSE CAST(TIMESTAMP '1970-01-01 00:00:00' + INTERVAL '1110000000' SECOND AS STRING) END AS date_ord, text FROM t1 ORDER BY date_ord ASC;", "sql_id": "monetdb_9_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT id, CASE WHEN date IS NULL THEN '-' ELSE CAST(TIMESTAMP '1970-01-01 00:00:00' + INTERVAL date SECOND AS STRING) END AS date_ord, text FROM t1 ORDER BY date_ord DESC;", "sql_id": "monetdb_9_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM (SELECT MAX(CASE WHEN 1 THEN CAST(c AS BIGINT) ELSE 0 END) FROM t1) AS te; -- IF", "sql_id": "monetdb_9_26"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM (SELECT MAX(COALESCE(CAST(c AS BIGINT), 0)) FROM t1) AS te; -- IFNULL", "sql_id": "monetdb_9_27"}
+{"model": "gpt-3.5-turbo", "message": "SELECT AVG(NULLIF(EXTRACT(YEAR FROM DATE '2001-01-01'), 10));", "sql_id": "monetdb_9_29"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sql_add(DATE '0000-01-01', INTERVAL '3652499' DAY), sql_add(DATE '0000-01-01', INTERVAL '3652500' DAY), sql_add(DATE '0000-01-01', INTERVAL '3652501' DAY); -- FROM_DAYS", "sql_id": "monetdb_90_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sql_add(DATE '0000-01-01', INTERVAL '42949670' DAY), sql_add(DATE '0000-01-01', INTERVAL '42949671' DAY), sql_add(DATE '0000-01-01', INTERVAL '42949673' DAY); -- FROM_DAYS", "sql_id": "monetdb_90_1"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t VALUES (0, REPEAT('x', 120000)), (1, REPEAT('z', 12000));", "sql_id": "monetdb_91_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT octet_length(b) FROM (SELECT * FROM t INTERSECT SELECT * FROM t) derived;", "sql_id": "monetdb_91_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT argument FROM test_log WHERE argument LIKE '%azun' || 'dris%';", "sql_id": "monetdb_92_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD(NULL, 5, 'x') AS result;", "sql_id": "monetdb_96_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD(NULL, NULL, 'x') AS result; -- RPAD", "sql_id": "monetdb_96_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD(NULL, NULL, NULL) AS result; -- RPAD", "sql_id": "monetdb_96_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('a', NULL, 'x') AS result; -- RPAD", "sql_id": "monetdb_96_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('a', NULL, NULL) AS result; -- RPAD", "sql_id": "monetdb_96_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('a', 5, NULL) AS result; -- RPAD", "sql_id": "monetdb_96_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD(NULL, 5, NULL) AS result; -- RPAD", "sql_id": "monetdb_96_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('a', 0, 'x') AS result; -- RPAD", "sql_id": "monetdb_96_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('a', 0, '') AS result; -- RPAD", "sql_id": "monetdb_96_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('', 0, 'x') AS result; -- RPAD", "sql_id": "monetdb_96_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('', 0, '') AS result; -- RPAD", "sql_id": "monetdb_96_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('a', -1, 'x'); -- RPAD", "sql_id": "monetdb_96_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('123456787890', 1, 'x'); -- RPAD", "sql_id": "monetdb_96_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('a', 5, 'xy'); -- RPAD", "sql_id": "monetdb_96_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('I LOVE SQL', 20, ' '); -- RPAD", "sql_id": "monetdb_96_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD('I LOVE SQL in the morning', 20, ' '); -- RPAD", "sql_id": "monetdb_96_15"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT * FROM t1 WHERE (t1.a IN (SELECT t3.a FROM t1 t3)) IS NULL;", "sql_id": "monetdb_97_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE (t1.a IN (SELECT t3.a FROM t1 t3)) IS NULL;", "sql_id": "monetdb_97_7"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT * FROM t1 WHERE (SELECT b FROM t2 WHERE CAST(UUID() AS TEXT) = CAST(t2.a AS TEXT) ) > 0;", "sql_id": "monetdb_98_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (SELECT COALESCE(SUM(t3.b), 0) FROM t3 WHERE t1.a=t3.a) FROM t1;", "sql_id": "monetdb_98_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (SELECT COALESCE(SUM(t3.b), 0) FROM t3 WHERE t1.a=t3.a) FROM t1; -- COALESCE", "sql_id": "monetdb_98_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (SELECT COALESCE(SUM(t3.b), 0) FROM t3 WHERE t1.a=t3.a) FROM t1 ; -- COALESCE", "sql_id": "monetdb_98_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (SELECT COALESCE(SUM(t3.b), 0) FROM t3 WHERE t1.a=t3.a) FROM t1 ; -- COALESCE", "sql_id": "monetdb_98_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TRIM(f1), COUNT(*) FROM table_varchar_pad_space GROUP BY f1;", "sql_id": "monetdb_99_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a1, a2, b, MIN(c) FROM t1 WHERE (ASCII(a1) > 97) AND (ASCII(a2) + ASCII(a1) > 194) AND (b = 'a') GROUP BY a1, a2, b;", "sql_id": "monetdb_10_3"}
+{"model": "gpt-3.5-turbo", "message": "select concat(a1,min(c)),b from t1 where a1 < 'd' group by a1,a2,b; -- CONCAT", "sql_id": "monetdb_10_4"}
+{"model": "gpt-3.5-turbo", "message": "select a1 || min(c), b from t1 where a1 < 'd' group by a1,a2,b;", "sql_id": "monetdb_10_5"}
+{"model": "gpt-3.5-turbo", "message": "select a1 || min(c), b from t1 where a1 < 'd' group by a1,a2,b;\nselect a1 || min(c), b, max(c) from t1 where a1 < 'd' group by a1,a2,b;", "sql_id": "monetdb_10_6"}
+{"model": "gpt-3.5-turbo", "message": "select concat(ord(min(b)),ord(max(b))),min(b),max(b) from t1 group by a1,a2;", "sql_id": "monetdb_10_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT Fld1, max(Fld2) FROM t1 GROUP BY Fld1 HAVING stddev(Fld2) IS NOT NULL;", "sql_id": "monetdb_11_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t3 SELECT CONCAT('c-', 1000+A.a, '=w'), CONCAT('c-', 2000+A.a, '=w'),'filler-1' FROM t2 A; -- CONCAT", "sql_id": "monetdb_12_8"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t3 SELECT 'c-' || CAST(1000+A.a AS STRING) || '=w', 'c-' || CAST(3000+A.a AS STRING) || '=w', 'filler-2' FROM t2 A; -- CONCAT", "sql_id": "monetdb_12_9"}
+{"model": "gpt-3.5-turbo", "message": "UPDATE t1 SET b = REPEAT(CHR(65 + a), 20) WHERE a < 25; -- REPEAT", "sql_id": "monetdb_12_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE a < 10 AND b = REPEAT(CAST(65+a AS CHAR), 20); -- REPEAT", "sql_id": "monetdb_12_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE a < 10 AND b = REPEAT(CAST(65+a AS CHAR), 20);", "sql_id": "monetdb_12_25"}
+{"model": "gpt-3.5-turbo", "message": "UPDATE t1 SET data=REPEAT('a',18*1024);", "sql_id": "monetdb_14_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CHAR_LENGTH(data) FROM t1;", "sql_id": "monetdb_14_4"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (data) VALUES (REPEAT('a',1*1024)); -- REPEAT", "sql_id": "monetdb_14_7"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (data) VALUES (X'62' || repeat('62', 15*1024));", "sql_id": "monetdb_14_8"}
+{"model": "gpt-3.5-turbo", "message": "UPDATE t1 set data=repeat('c',17*1024); -- REPEAT", "sql_id": "monetdb_14_10"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 SET data=repeat('a',18*1024);", "sql_id": "monetdb_14_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT octet_length(data) FROM t1;", "sql_id": "monetdb_14_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2011-01-01 00:00:00') as time_t, EXTRACT(EPOCH FROM TIMESTAMP '2011-01-01 00:00:00') % 3 as part, 1234567890 % 3 as part2;", "sql_id": "monetdb_15_0"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t3 (a) VALUES (CURRENT_TIMESTAMP); -- CURRENT_TIMESTAMP", "sql_id": "monetdb_15_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t2 VALUES (1 + (SELECT a FROM t1), 'subq: ' || (SELECT b FROM t1));", "sql_id": "monetdb_15_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_instr('abc', 'a') FROM t1; -- REGEXP_INSTR", "sql_id": "monetdb_17_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('b' IN 'abc');", "sql_id": "monetdb_17_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('c' IN 'abc');", "sql_id": "monetdb_17_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('d' IN 'abc');", "sql_id": "monetdb_17_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('a' IN NULL); -- REGEXP_INSTR", "sql_id": "monetdb_17_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('a' IN NULL);", "sql_id": "monetdb_17_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION(NULL IN NULL);", "sql_id": "monetdb_17_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex( concat(position('a' in 'a')) );", "sql_id": "monetdb_17_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('a' IN '1'); -- REGEXP_INSTR", "sql_id": "monetdb_17_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('a' IN 1.1); -- REGEXP_INSTR", "sql_id": "monetdb_17_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('a' IN 'a');", "sql_id": "monetdb_17_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('a' IN 'a');", "sql_id": "monetdb_17_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION(pattern IN subject) FROM t1;", "sql_id": "monetdb_17_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('a' IN 'abc'); -- REGEXP_INSTR", "sql_id": "monetdb_17_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('a+' IN 'abcabcabc');", "sql_id": "monetdb_17_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('b+' IN 'abcabcabc');", "sql_id": "monetdb_17_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('b+' IN 'abcabcabc');", "sql_id": "monetdb_17_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('b+' IN 'abcabcabc');", "sql_id": "monetdb_17_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('a+' IN 'abcabcabc');", "sql_id": "monetdb_17_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('a+' IN 'abcabcabc');", "sql_id": "monetdb_17_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('a+' IN 'abcabcabc');", "sql_id": "monetdb_17_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('a+' IN 'abcabcabc', 1, 2); -- REGEXP_INSTR", "sql_id": "monetdb_17_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('a+' IN 'a');", "sql_id": "monetdb_17_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('a+' IN 'abcabcabc');", "sql_id": "monetdb_17_25"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('a+' IN 'abcabcabc');", "sql_id": "monetdb_17_26"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('a+' IN 'aaabcabcabc'); -- REGEXP_INSTR", "sql_id": "monetdb_17_27"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('a+' IN 'aaabcabcabc');", "sql_id": "monetdb_17_28"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('A+' IN 'aaabcabcabc');", "sql_id": "monetdb_17_29"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('A+' IN 'aaabcabcabc'); -- REGEXP_INSTR", "sql_id": "monetdb_17_30"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('A+' IN 'aaabcabcabc'); -- REGEXP_INSTR", "sql_id": "monetdb_17_31"}
+{"model": "gpt-3.5-turbo", "message": "SELECT POSITION('a+' IN 'a', 1, 1, NULL); -- REGEXP_INSTR", "sql_id": "monetdb_17_32"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaa', 'a', 'X' ); -- REGEXP_REPLACE", "sql_id": "monetdb_18_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'abc', 'b', 'X' ); -- REGEXP_REPLACE", "sql_id": "monetdb_18_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( NULL, 'a', 'X' ); -- REGEXP_REPLACE", "sql_id": "monetdb_18_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaa', NULL, 'X' );", "sql_id": "monetdb_18_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaa', 'a', NULL );", "sql_id": "monetdb_18_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat( regexp_replace( 'aaa', 'a', 'X' ), 'x' ); -- CONCAT, REGEXP_REPLACE", "sql_id": "monetdb_18_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaa', 'a', 'X', 1 ); -- REGEXP_REPLACE", "sql_id": "monetdb_18_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabbccbbddaa', 'b+', 'X', 1, 1 ); -- REGEXP_REPLACE", "sql_id": "monetdb_18_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabbccbbddaa', 'b+', 'X', 1, 2 ); -- REGEXP_REPLACE", "sql_id": "monetdb_18_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabbccbbddaa', '(b+)', '<$1>', 1, 2 ); -- REGEXP_REPLACE", "sql_id": "monetdb_18_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabbccbbddaa', 'x+', 'x', 1, 0 ); -- REGEXP_REPLACE", "sql_id": "monetdb_18_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabbccbbddaa', 'b+', 'x', 1, 0 ); -- REGEXP_REPLACE", "sql_id": "monetdb_18_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaab', 'b', 'x', 1, 2 ); -- REGEXP_REPLACE", "sql_id": "monetdb_18_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabccc', 'b', 'x', 1, 2 ); -- REGEXP_REPLACE", "sql_id": "monetdb_18_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'abc', 'b', 'X' );", "sql_id": "monetdb_18_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'abcbdb', 'b', 'X' ); -- REGEXP_REPLACE", "sql_id": "monetdb_18_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'abcbdb', 'b', 'X', 3 ); -- REGEXP_REPLACE", "sql_id": "monetdb_18_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabcbdb', 'b', 'X', 1 ); -- REGEXP_REPLACE", "sql_id": "monetdb_18_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaabcbdb', 'b', 'X', 2 ); -- REGEXP_REPLACE", "sql_id": "monetdb_18_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'abcbdb', 'b', 'X', 3 ); -- REGEXP_REPLACE", "sql_id": "monetdb_18_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaa', 'a', 'X', 2 ); -- REGEXP_REPLACE", "sql_id": "monetdb_18_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace( 'aaa', 'a', 'XX', 2 ); -- REGEXP_REPLACE", "sql_id": "monetdb_18_21"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (regexp_instr('a', 'a'), regexp_instr('a', 'a'), regexp_instr('a', 'a'), regexp_instr('a', 'a')); -- REGEXP_INSTR", "sql_id": "monetdb_19_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (c) VALUES (CAST(REGEXP_REPLACE('a', 'a', 'a') AS CHAR(100))); -- REGEXP_REPLACE", "sql_id": "monetdb_19_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(REGEXP_REPLACE(REPEAT('a', 'b'), 'a', 'b')); -- LENGTH, REGEXP_REPLACE, REPEAT", "sql_id": "monetdb_19_10"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES ( repeat( 'a', 16384 ) ); -- REPEAT", "sql_id": "monetdb_19_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT char_length(regexp_replace(a, 'a', 'b')) FROM t1;", "sql_id": "monetdb_19_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT regexp_replace(a, '^([[:alpha:]]+)[[:space:]].*$', '$1') FROM t1; -- REGEXP_REPLACE", "sql_id": "monetdb_19_17"}
+{"model": "gpt-3.5-turbo", "message": "UPDATE t1 SET a = regexp_replace('b', 'b', 'y'); -- REGEXP_REPLACE", "sql_id": "monetdb_19_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUM(LENGTH(name)) s1 FROM t1; -- LENGTH", "sql_id": "monetdb_20_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUM(DISTINCT octet_length(name)) s1 FROM t1;", "sql_id": "monetdb_20_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (SELECT SUM(DISTINCT octet_length(name)) FROM t1) FROM t2;", "sql_id": "monetdb_20_10"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t2 VALUES (1,'18:19:29',CURRENT_TIME);", "sql_id": "monetdb_20_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(CAST('01-01-01' AS TIMESTAMP), '01-01:02'); -- LEAST", "sql_id": "monetdb_22_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN CAST('2001-12-10' AS DATE) <= CAST('2001-12-11' AS DATE) THEN CAST('2001-12-10' AS DATE) ELSE CAST('2001-12-11' AS DATE) END; -- LEAST", "sql_id": "monetdb_22_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(CAST('10:11:12' AS TIME), CAST('10:11:13' AS TIME)); -- LEAST", "sql_id": "monetdb_22_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (i, ts) VALUES(EXTRACT(EPOCH FROM TIMESTAMP '2003-03-01 00:00:00'), TIMESTAMP '2003-03-01 00:00:00');", "sql_id": "monetdb_23_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (i, ts) VALUES (EXTRACT(EPOCH FROM TIMESTAMP '2003-03-30 01:59:59'), '2003-03-30 01:59:59'), (EXTRACT(EPOCH FROM TIMESTAMP '2003-03-30 02:30:00'), '2003-03-30 02:30:00'), (EXTRACT(EPOCH FROM TIMESTAMP '2003-03-30 03:00:00'), '2003-03-30 03:00:00');", "sql_id": "monetdb_23_4"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (i, ts) VALUES (CAST(EXTRACT(EPOCH FROM TIMESTAMP '2003-05-01 00:00:00') AS BIGINT), '2003-05-01 00:00:00');", "sql_id": "monetdb_23_6"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (i, ts) VALUES (CAST(EXTRACT(EPOCH FROM TIMESTAMP '2003-10-26 01:00:00') AS BIGINT), '2003-10-26 01:00:00'), (CAST(EXTRACT(EPOCH FROM TIMESTAMP '2003-10-26 02:00:00') AS BIGINT), '2003-10-26 02:00:00'), (CAST(EXTRACT(EPOCH FROM TIMESTAMP '2003-10-26 02:59:59') AS BIGINT), '2003-10-26 02:59:59'), (CAST(EXTRACT(EPOCH FROM TIMESTAMP '2003-10-26 04:00:00') AS BIGINT), '2003-10-26 04:00:00'), (CAST(EXTRACT(EPOCH FROM TIMESTAMP '2003-10-26 02:59:59') AS BIGINT), '2003-10-26 02:59:59');", "sql_id": "monetdb_23_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT FROM_UNIXTIME(362793609); -- FROM_UNIXTIME", "sql_id": "monetdb_23_10"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (ts) VALUES (CAST(EXTRACT(EPOCH FROM CURRENT_TIMESTAMP) AS BIGINT));", "sql_id": "monetdb_23_12"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES(CAST(EXTRACT(EPOCH FROM TIMESTAMP '2003-03-30 01:59:59') AS BIGINT), 'Before the gap'),(CAST(EXTRACT(EPOCH FROM TIMESTAMP '2003-03-30 02:30:00') AS BIGINT), 'Inside the gap'),(CAST(EXTRACT(EPOCH FROM TIMESTAMP '2003-03-30 03:00:00') AS BIGINT), 'After the gap'); -- UNIX_TIMESTAMP", "sql_id": "monetdb_23_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP('2003-03-30 01:59:59'), 'Before the gap' AS b; -- UNIX_TIMESTAMP", "sql_id": "monetdb_23_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT UNIX_TIMESTAMP('2003-03-30 02:30:00'), 'Inside the gap' AS b; -- UNIX_TIMESTAMP", "sql_id": "monetdb_23_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2003-03-30 03:00:00'), 'After the gap' AS b; -- UNIX_TIMESTAMP", "sql_id": "monetdb_23_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(EXTRACT(EPOCH FROM TIMESTAMP '1970-01-01 00:00:00') + INTERVAL '362793609' SECOND;", "sql_id": "monetdb_23_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '1969-12-31 15:59:59'); -- UNIX_TIMESTAMP", "sql_id": "monetdb_23_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '1969-12-31 16:00:00'); -- UNIX_TIMESTAMP", "sql_id": "monetdb_23_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '1969-12-31 16:00:01');", "sql_id": "monetdb_23_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP '1970-01-01 00:00:01' + INTERVAL '1' SECOND;", "sql_id": "monetdb_23_25"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(EXTRACT(EPOCH FROM TIMESTAMP '2022-01-01 16:00:01') AS BIGINT);", "sql_id": "monetdb_23_26"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(a, 'hex') FROM t1;", "sql_id": "monetdb_24_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(a, 'hex') FROM t1;", "sql_id": "monetdb_24_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(min(a), 'hex') FROM t1;", "sql_id": "monetdb_24_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(MIN(a)) FROM t1;", "sql_id": "monetdb_24_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(MIN(a)), HEX(MAX(a)), HEX(MIN(b)), HEX(MAX(b)) FROM t1;", "sql_id": "monetdb_24_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(MIN(b)) FROM t1 WHERE a = 4;", "sql_id": "monetdb_24_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(MAX(b)) FROM t1; -- HEX", "sql_id": "monetdb_24_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(b), i2 FROM t1 WHERE (i2>=100 AND i2<201) AND b=TRUE; -- HEX", "sql_id": "monetdb_25_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(b1), i2 FROM t2 WHERE (i2 >= 100 AND i2 < 201) AND b1 = TRUE; -- HEX", "sql_id": "monetdb_25_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ENCODE(b2, 'hex'), i2 FROM t2 WHERE (i2 >= 100 AND i2 < 201) AND b2 = FALSE;", "sql_id": "monetdb_25_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_HEX(GROUP_CONCAT(DISTINCT b)) FROM t1 GROUP BY a;", "sql_id": "monetdb_25_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ENCODE(t2.b, 'hex') FROM t2;", "sql_id": "monetdb_25_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, ENCODE(b, 'hex') FROM t1 ORDER BY b;", "sql_id": "monetdb_25_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(a, 'hex') FROM t1 ORDER BY a;", "sql_id": "monetdb_26_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HEX(CONCAT(a, '\\\\0')) AS b FROM t1 ORDER BY CONCAT(a, '\\\\0');", "sql_id": "monetdb_26_4"}
+{"model": "gpt-3.5-turbo", "message": "select encode(a, 'hex') from t1 order by a;", "sql_id": "monetdb_26_6"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t (c) VALUES (REPEAT('3',65535)); -- REPEAT", "sql_id": "monetdb_26_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(c), OCTET_LENGTH(c) FROM t; -- LENGTH, OCTET_LENGTH", "sql_id": "monetdb_26_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(c) FROM t2; -- LENGTH", "sql_id": "monetdb_26_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(-1.1111111111111111111111111, - CAST(group_concat(1.7976931348623157E+308) AS DOUBLE)) AS foo;", "sql_id": "monetdb_27_0"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (NOW()); -- NOW", "sql_id": "monetdb_28_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATEFORMAT(a, '%Y %y'), YEAR(a), YEAR(CURRENT_TIMESTAMP) FROM t1;", "sql_id": "monetdb_28_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMPDIFF(SECOND, '2000-01-27 23:13:41', '2003-05-16 23:53:29'); -- TIMESTAMP", "sql_id": "monetdb_28_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(v), LENGTH(c), LENGTH(e), LENGTH(t) FROM t1;", "sql_id": "monetdb_30_5"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES(SUBSTRING(f1 FROM 1 FOR 3)); -- SUBSTR", "sql_id": "monetdb_30_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a,(a / 2) FROM t1 ORDER BY a;", "sql_id": "monetdb_30_12"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (CURRENT_DATE); -- NOW", "sql_id": "monetdb_31_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN y = CURRENT_TIMESTAMP THEN 1 ELSE 0 END FROM t1;", "sql_id": "monetdb_31_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t4 WHERE yyyy = YEAR(CURRENT_DATE);", "sql_id": "monetdb_31_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(d, y) FROM t1; -- LEAST", "sql_id": "monetdb_31_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(y, d) FROM t1; -- LEAST", "sql_id": "monetdb_31_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMPDIFF(QUARTER, LEAST(y1, y2), dbl) FROM t1; -- TIMESTAMPDIFF, LEAST\n\nSELECT TIMESTAMPDIFF(QUARTER, LEAST(y1, y2), dbl) FROM t1;", "sql_id": "monetdb_31_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT y, c || '\"' FROM t1;", "sql_id": "monetdb_32_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat('*', name, '*') FROM t1 ORDER BY 1;", "sql_id": "monetdb_34_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MIN(name), MIN('*' || name || '*'), MAX(name), MAX('*' || name || '*') FROM t1;", "sql_id": "monetdb_34_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('-', a, '-', b, '-') FROM t1 WHERE a = 'hello';", "sql_id": "monetdb_34_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT '-' || a || '-' || b || '-' FROM t1 WHERE a = 'hello';", "sql_id": "monetdb_34_16"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (a) VALUES (decode_string('1F9480179366F2BF567E1C4B964C1EF029087575'));", "sql_id": "monetdb_35_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (a) VALUES (X'1F9480179366F2BF567E1C4B964C1EF029082020');", "sql_id": "monetdb_35_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 (a) VALUES (X'1F9480179366F2BF567E1C4B964C1EF029080707');", "sql_id": "monetdb_35_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(a, 'hex') FROM t1 ORDER BY a;", "sql_id": "monetdb_35_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(a, 'hex') FROM t1 ORDER BY a;", "sql_id": "monetdb_35_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(a, 'hex') FROM t1 WHERE a = unhex('1F9480179366F2BF567E1C4B964C1EF029082020');", "sql_id": "monetdb_35_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT hex(a) FROM t1 WHERE a=CAST('1F9480179366F2BF567E1C4B964C1EF02908' AS BLOB);", "sql_id": "monetdb_35_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN NULL AND 1 THEN 1 ELSE 2 END, CASE WHEN 1 AND NULL THEN 1 ELSE 2 END; -- IF", "sql_id": "monetdb_36_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE CASE WHEN a AND 1 THEN 0 ELSE 1 END;", "sql_id": "monetdb_36_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE CASE WHEN 1 AND a THEN 0 ELSE 1 END; -- IF", "sql_id": "monetdb_36_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IFNULL(A, 'N') AS A, IFNULL(B, 'N') AS B, IFNULL(NOT A, 'N') AS nA, IFNULL(NOT B, 'N') AS nB, IFNULL(A AND B, 'N') AS AB, IFNULL(NOT (A AND B), 'N') AS \"n(AB)\", IFNULL((NOT A OR NOT B), 'N') AS nAonB, IFNULL(A OR B, 'N') AS AoB, IFNULL(NOT (A OR B), 'N') AS \"n(AoB)\", IFNULL(NOT A AND NOT B, 'N') AS nAnB FROM t1; -- IFNULL", "sql_id": "monetdb_36_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COALESCE(A=1, 'N') AS A, COALESCE(B=1, 'N') AS B, COALESCE(NOT (A=1), 'N') AS nA, COALESCE(NOT (B=1), 'N') AS nB, COALESCE((A=1) AND (B=1), 'N') AS AB, COALESCE(NOT ((A=1) AND (B=1)), 'N') AS \"n(AB)\", COALESCE((NOT (A=1) OR NOT (B=1)), 'N') AS nAonB, COALESCE((A=1) OR (B=1), 'N') AS AoB, COALESCE(NOT((A=1) OR (B=1)), 'N') AS \"n(AoB)\", COALESCE(NOT (A=1) AND NOT (B=1), 'N') AS nAnB FROM t1;", "sql_id": "monetdb_36_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE(\"2004-01-22 21:45:33\"); -- CONVERT", "sql_id": "monetdb_37_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMPDIFF(SECOND, '2004-12-30 12:00:00', '12:00:00'); -- TIMEDIFF", "sql_id": "monetdb_37_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM CAST('1 12:00:00' AS TIME) - TIME '12:00:00'); -- TIMEDIFF", "sql_id": "monetdb_37_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(CONCAT('12345','6789') AS UNSIGNED); -- CONCAT", "sql_id": "monetdb_37_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST('12345' || '6789' AS INTEGER);", "sql_id": "monetdb_37_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(REPEAT('1',9) AS UNSIGNED); -- REPEAT", "sql_id": "monetdb_37_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(REPEAT('1', 9) AS INTEGER);", "sql_id": "monetdb_37_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT isnull(NULL), isnull(CAST(NULL AS DATE)); -- ISNULL, DATE", "sql_id": "monetdb_37_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(CAST(d1 AS DATE) AS INT) FROM t1;", "sql_id": "monetdb_37_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT HOUR(f1), MINUTE(f1), SECOND(f1) FROM t1; -- HOUR, MINUTE, SECOND", "sql_id": "monetdb_37_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(HOUR FROM f1), EXTRACT(MINUTE FROM f1), EXTRACT(SECOND FROM f1) FROM t1; -- HOUR, MINUTE, SECOND", "sql_id": "monetdb_37_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(HOUR FROM CAST(NULL AS DATE)), EXTRACT(MINUTE FROM CAST(NULL AS DATE)), EXTRACT(SECOND FROM CAST(NULL AS DATE)); -- HOUR, MINUTE, SECOND", "sql_id": "monetdb_37_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(HOUR FROM NULL), EXTRACT(MINUTE FROM NULL), EXTRACT(SECOND FROM NULL);", "sql_id": "monetdb_37_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CHAR_LENGTH('a'); -- CONVERT", "sql_id": "monetdb_37_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'value=' || CAST('3.4e5' AS FLOAT);", "sql_id": "monetdb_37_22"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MAKETIME(1, 2, CAST('1.6' AS DOUBLE)); -- MAKETIME", "sql_id": "monetdb_37_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SIGN(CHAR_LENGTH(a) - CHAR_LENGTH(b)) FROM t1; -- STRCMP", "sql_id": "monetdb_38_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(YEAR FROM TIMESTAMP '1988-01-01'), REPEAT(CAST(1988 AS VARCHAR), 3) AS c2; -- REPEAT", "sql_id": "monetdb_38_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'x' || CAST(1988 AS STRING); -- CONCAT", "sql_id": "monetdb_38_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2030-01-01'); -- TIME_TO_SEC", "sql_id": "monetdb_38_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMPADD(MINUTE, 1, CAST(1988 AS INT)); -- TIMESTAMPADD", "sql_id": "monetdb_38_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(YEAR FROM PARSEDATETIME('nope', '%d-%m-%Y')); -- STR_TO_DATE", "sql_id": "monetdb_38_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1 FROM t WHERE CAST(a AS INT) = 1 AND a = CASE WHEN TRUE THEN NULL ELSE 1 END; -- IF", "sql_id": "monetdb_38_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT encode(a, 'hex'), CASE WHEN a = 'a' THEN 0 ELSE 1 END, CASE WHEN a = 'a ' THEN 0 ELSE 1 END FROM t1;", "sql_id": "monetdb_40_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(CAST(b AS VARCHAR) || CAST(c AS VARCHAR)), CASE WHEN CONCAT(CAST(b AS VARCHAR), CAST(c AS VARCHAR)) = '0101' THEN TRUE ELSE FALSE END FROM t1;", "sql_id": "monetdb_40_7"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT b,c FROM t1 WHERE b = 1 AND (b || c) = '0101';", "sql_id": "monetdb_40_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT b, c FROM t1 WHERE b = 1 AND b || c = '0101';", "sql_id": "monetdb_40_9"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (NOW()),(NOW()),(NOW()); -- NOW", "sql_id": "monetdb_40_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COUNT(DISTINCT CASE WHEN f1 THEN 3 ELSE f2 END) FROM t1;", "sql_id": "monetdb_41_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT name || ' ' || level, name || repeat(' ', level) FROM t1;", "sql_id": "monetdb_43_3"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t1 AS SELECT REPEAT('a', 4000) AS a;", "sql_id": "monetdb_43_5"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE head AS SELECT b1.b || b2.b AS head FROM t1 b1, t1 b2;", "sql_id": "monetdb_43_14"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE tail AS SELECT b1.b || b2.b AS tail FROM t1 b1, t1 b2;", "sql_id": "monetdb_43_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STRING_AGG(COALESCE(a,'')) FROM t1;", "sql_id": "monetdb_44_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GROUP_CONCAT(COALESCE(a,'')) FROM t1;", "sql_id": "monetdb_44_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GROUP_CONCAT(CASE WHEN a IS NOT NULL THEN a ELSE '' END) FROM t1;", "sql_id": "monetdb_44_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COALESCE(a,'') FROM t1 GROUP BY 1; -- COALESCE", "sql_id": "monetdb_44_6"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT LOWER(a) FROM t1; -- LOWER", "sql_id": "monetdb_44_10"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT lower(a) FROM t1;", "sql_id": "monetdb_44_12"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t2 AS SELECT REPEAT('1',2) FROM t1; -- REPEAT", "sql_id": "monetdb_44_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE a = lpad('xxx', 10, ' '); -- LPAD", "sql_id": "monetdb_45_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT IFNULL(c1, ''), IFNULL(NULL, c1) FROM t1; -- IFNULL", "sql_id": "monetdb_45_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN 1 THEN c1 ELSE '' END, CASE WHEN 0 THEN c1 ELSE '' END FROM t1; -- IF", "sql_id": "monetdb_45_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT COALESCE('', c1), COALESCE(NULLIF(c1, ''), c1) FROM t1; -- COALESCE", "sql_id": "monetdb_45_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(c1,''), GREATEST(c1,'') FROM t1;", "sql_id": "monetdb_45_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LOCATE('', c1), LOCATE(c1, '') FROM t1;", "sql_id": "monetdb_45_19"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(c1,''), CONCAT('',c1) FROM t1; -- CONCAT", "sql_id": "monetdb_45_21"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD(c1, 3, 'x'), LPAD('x', 3, c1) FROM t1; -- LPAD", "sql_id": "monetdb_45_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT RPAD(c1, 3, 'x'), RPAD('x', 3, c1) FROM t1;", "sql_id": "monetdb_45_25"}
+{"model": "gpt-3.5-turbo", "message": "SELECT date1, format1, STR_TO_DATE(date1, format1) AS str_to_date FROM t1; -- STR_TO_DATE", "sql_id": "monetdb_46_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT date1, format1, CONCAT('', str_to_date(date1, format1)) AS con FROM t1;", "sql_id": "monetdb_46_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT date1, format1, DATE(CAST(date1 AS DATE)) AS date2 FROM t1;", "sql_id": "monetdb_46_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(DAY FROM d) FROM t1 ORDER BY 1;", "sql_id": "monetdb_46_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT date_format('2004-01-01','%W (%a), %e %M (%b) %Y'); -- DATE_FORMAT", "sql_id": "monetdb_46_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT PARSEDATE('04 /30/2004', '%m /%d/%Y'); -- STR_TO_DATE", "sql_id": "monetdb_47_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT str_to_date('04/30/2004', '%m/%d/%Y');", "sql_id": "monetdb_47_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT str_to_date('04/30/2004', '%m/%d/%Y');", "sql_id": "monetdb_47_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TO_CHAR(TIMESTAMP '0000-01-01', 'Day DD Month YYYY') as valid_date; -- DATE_FORMAT", "sql_id": "monetdb_47_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sys.timestamp_to_str(TIMESTAMP '0000-02-28', 'Day DD Month YYYY') as valid_date;", "sql_id": "monetdb_47_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sys.timestamp_to_str(TIMESTAMP '2009-01-01', 'Day DD Month YYYY') as valid_date;", "sql_id": "monetdb_47_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT concat('|', text1, '|') as c from t1 where text1='teststring' or text1 like 'teststring_%' order by c;", "sql_id": "monetdb_49_5"}
+{"model": "gpt-3.5-turbo", "message": "select '|' || text1 || '|' from t1 where text1='teststring' or text1 > 'teststring\\\\t';", "sql_id": "monetdb_49_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT text1, LENGTH(text1) FROM t1 ORDER BY text1; -- LENGTH", "sql_id": "monetdb_49_7"}
+{"model": "gpt-3.5-turbo", "message": "select '|' || text1 || '|' from t1 order by text1;", "sql_id": "monetdb_49_9"}
+{"model": "gpt-3.5-turbo", "message": "select '|' || text1 || '|' from t1 where text1='teststring' or text1 > 'teststring\\\\t';", "sql_id": "monetdb_49_10"}
+{"model": "gpt-3.5-turbo", "message": "select '|' || text1 || '|' from t1 where text1='teststring';", "sql_id": "monetdb_49_11"}
+{"model": "gpt-3.5-turbo", "message": "select '|' || text1 || '|' from t1 where text1='teststring '; -- CONCAT", "sql_id": "monetdb_49_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT('Let''s create some new events from the name of ', CURRENT_USER);", "sql_id": "monetdb_50_3"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (2, REPEAT('-', 104));", "sql_id": "monetdb_51_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (1, REPEAT('x', 104));", "sql_id": "monetdb_51_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT f1 || '' AS dummy FROM t1 ORDER BY dummy;", "sql_id": "monetdb_51_7"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (1, REPEAT('x', 40001));", "sql_id": "monetdb_51_18"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (2, REPEAT('x', 40002)); -- REPEAT", "sql_id": "monetdb_51_19"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (3, REPEAT('x', 40003)); -- REPEAT", "sql_id": "monetdb_51_20"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (4, REPEAT('x', 40005)); -- REPEAT", "sql_id": "monetdb_51_21"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (5, REPEAT('x', 40008)); -- REPEAT", "sql_id": "monetdb_51_22"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (6, REPEAT('x', 40013)); -- REPEAT", "sql_id": "monetdb_51_23"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a, CHAR_LENGTH(b) FROM t1 ORDER BY a DESC;", "sql_id": "monetdb_51_24"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE CHAR_LENGTH(t1.vc) > 3; -- LENGTH", "sql_id": "monetdb_52_13"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT * FROM t1 WHERE octet_length(t1.vc) > 3;", "sql_id": "monetdb_52_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE octet_length(t1.vc) IS NULL;", "sql_id": "monetdb_52_15"}
+{"model": "gpt-3.5-turbo", "message": "EXPLAIN SELECT * FROM t1 WHERE octet_length(t1.vc) IS NOT NULL; -- LENGTH", "sql_id": "monetdb_52_16"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t VALUES(REPEAT(x'0a',1000)); -- REPEAT", "sql_id": "monetdb_53_12"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t VALUES(1, REPEAT(x'32', 32750), REPEAT(x'31', 32750)); -- REPEAT", "sql_id": "monetdb_53_21"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 values (NULL), ('A\\0\\0\\0BBBBBBBB'), (REPEAT(' ',50000)), (REPEAT(' ',50000));", "sql_id": "monetdb_54_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(a) FROM t1;", "sql_id": "monetdb_54_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE CONCAT(a, c, b, d) = 'AAAA2003-03-011051';", "sql_id": "monetdb_55_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' FROM (SELECT 'a' UNION ALL SELECT CONCAT('a', -4)) AS temp; -- CONCAT", "sql_id": "monetdb_55_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION SELECT 'a' || CAST(-4 AS STRING);", "sql_id": "monetdb_55_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION SELECT 'a' || CAST(-4 AS STRING); -- CONCAT", "sql_id": "monetdb_55_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION SELECT 'a' || CAST(4 - 5 AS STRING); -- CONCAT", "sql_id": "monetdb_55_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION SELECT 'a' || CAST(-4 AS STRING);", "sql_id": "monetdb_55_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION SELECT 'a' || CAST(-4 AS STRING); -- CONCAT", "sql_id": "monetdb_55_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION SELECT 'a' || CAST(-0 AS STRING); -- CONCAT", "sql_id": "monetdb_55_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION SELECT 'a' || CAST(-0 AS STRING); -- CONCAT", "sql_id": "monetdb_55_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 'a' UNION SELECT 'a' || CAST(-0.0000 AS STRING); -- CONCAT", "sql_id": "monetdb_55_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT((SELECT x FROM (SELECT 'a' AS x) AS t1), (SELECT y FROM (SELECT 'b' AS y) AS t2)) FROM (SELECT 1 UNION SELECT 2) AS t3;", "sql_id": "monetdb_55_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CONCAT(f1, '2') AS a FROM t1 UNION SELECT 'x' AS a FROM t1; -- CONCAT", "sql_id": "monetdb_55_17"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (DATEADD(NULL, 1, 'day'));", "sql_id": "monetdb_56_2"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values (CAST(NULL AS DATE) + INTERVAL '1' DAY);", "sql_id": "monetdb_56_3"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values (CAST(NULL AS DATE) + INTERVAL '1' DAY);", "sql_id": "monetdb_56_4"}
+{"model": "gpt-3.5-turbo", "message": "insert into t1 values (TIMESTAMP '2000-01-04' + INTERVAL '1' DAY);", "sql_id": "monetdb_56_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE(ts) = CURRENT_DATE + INTERVAL '1' DAY AS is_tomorrow, TIME(ts)\nFROM (SELECT CAST('00:00:00' AS TIME) + INTERVAL '1' DAY AS ts) AS dt; -- DATE", "sql_id": "monetdb_56_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE mydate IS NULL;", "sql_id": "monetdb_57_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT *\nFROM t3\nLEFT JOIN (t2\n           OUTER JOIN t2 outr\n           JOIN t1 ON outr.pk = t1.col_int_key\n                    AND t1.col_date_key IS NULL\n                    AND outr.pk <> t3.pk) ON t3.pk = t1.col_int_key;", "sql_id": "monetdb_57_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t3 JOIN (t2 outr2 JOIN t2 outr JOIN t1) ON (outr.pk = t3.pk) AND (t1.col_int_key = t3.pk) AND t1.col_date_key IS NULL AND (outr2.pk <> t3.pk);", "sql_id": "monetdb_57_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE a LIKE 'abc%';", "sql_id": "monetdb_58_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE a LIKE 'abc' || '%';", "sql_id": "monetdb_58_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT ln(exp(10)), exp(ln(sqrt(10))*2), ln(NULL); -- LN", "sql_id": "monetdb_59_0"}
+{"model": "gpt-3.5-turbo", "message": "select log(8)/log(2),log(15)/log(2),log(NULL)/log(2); -- LOG2", "sql_id": "monetdb_59_1"}
+{"model": "gpt-3.5-turbo", "message": "select pow(10,log(10)),power(2,4); -- POW, POWER", "sql_id": "monetdb_59_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CEIL(0.09);", "sql_id": "monetdb_59_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CEIL(0.000000000000000009); -- CEIL", "sql_id": "monetdb_59_4"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES ('http://www.foo.com/', now()); -- NOW", "sql_id": "monetdb_59_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a FROM t1 WHERE a='http://www.foo.com/' ORDER BY ABS(EXTRACT(EPOCH FROM ts) - 0);", "sql_id": "monetdb_59_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT mod(CAST(-2 AS UNSIGNED), 3), mod(18446744073709551614, 3), mod(-2, 3); -- MOD", "sql_id": "monetdb_59_10"}
+{"model": "gpt-3.5-turbo", "message": "select mod(5, cast(-2 as int)), mod(5, 18446744073709551614), mod(5, -2); -- MOD", "sql_id": "monetdb_59_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT power(-2, 5), power(18446744073709551614, 5), power(-2, 5); -- POWER", "sql_id": "monetdb_59_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN ('') = (CAST(1 AS CHAR(1))) THEN ('' / 1) END; -- CONVERT", "sql_id": "monetdb_59_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (1.175494351E-37 / 1.7976931348623157E+308); -- DIV", "sql_id": "monetdb_60_1"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES (LN(1)); -- LN", "sql_id": "monetdb_60_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT FLOOR(CEIL(123456789)); -- CEIL", "sql_id": "monetdb_60_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(POWER(2,63)-1024 AS BIGINT) AS pp; -- POW", "sql_id": "monetdb_60_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE CAST(COALESCE(t0.c0, -1) AS UNSIGNED); -- COALESCE", "sql_id": "monetdb_60_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t0 WHERE CAST(COALESCE(t0.c0, -1) AS BIGINT); -- COALESCE", "sql_id": "monetdb_60_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(COALESCE(t0.c0, -1) AS BIGINT) IS TRUE FROM t0; -- COALESCE", "sql_id": "monetdb_60_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CAST(COALESCE(t0.c0, -1) AS BIGINT) FROM t0; -- COALESCE", "sql_id": "monetdb_60_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT md5('a'), hex(md5('a')); -- MD5, HEX", "sql_id": "monetdb_61_0"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t1 AS SELECT MD5('a');", "sql_id": "monetdb_61_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MD5('hello'); -- MD5", "sql_id": "monetdb_61_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MD5('hello');", "sql_id": "monetdb_61_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LENGTH(UNHEX(MD5('abrakadabra'))); -- LENGTH, UNHEX, MD5", "sql_id": "monetdb_61_6"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO t1 VALUES ('test', MD5('test')), ('test', MD5('test')); -- MD5", "sql_id": "monetdb_61_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE f1='test' AND (f2= OCTET_LENGTH(MD5('test')) OR f2= OCTET_LENGTH(MD5('Test')); -- MD5", "sql_id": "monetdb_61_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE f1 = 'test' AND (f2 = MD5('test') OR f2 = MD5('test')); -- MD5", "sql_id": "monetdb_61_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a FROM t1 WHERE SUBSTRING(CAST(a AS VARCHAR), 6, 3) IN (SUBSTRING('20040106123400' FROM 6 FOR 3));", "sql_id": "monetdb_62_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT a FROM t1 WHERE substring(sys.timestamp_to_str(a, '%Y%m%d%H%i%s'), 6, 3) IN (substring('20040106123400', 6, 3));", "sql_id": "monetdb_62_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DISTINCT LEAST(a, (SELECT b FROM t1 LIMIT 1)) FROM t1 UNION SELECT 1; -- LEAST", "sql_id": "monetdb_62_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DISTINCT CASE WHEN a >= (SELECT b FROM t1 LIMIT 1) THEN a ELSE (SELECT b FROM t1 LIMIT 1) END FROM t1 UNION SELECT 1;", "sql_id": "monetdb_62_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 1+1,1-1,1+1*2,8/5,8%5,8%5,-(1+1)*-2; -- MOD", "sql_id": "monetdb_63_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(MICROSECOND FROM TIMESTAMP '1997-12-31 23:59:59.000002'); -- EXTRACT", "sql_id": "monetdb_64_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT datediff(TIMESTAMP '1997-12-31 23:59:59.000001', TIMESTAMP '1997-12-30'); -- DATEDIFF", "sql_id": "monetdb_64_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT datediff(TIMESTAMP '1997-11-30 23:59:59.000001', NULL); -- DATEDIFF", "sql_id": "monetdb_64_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT makedate(3, 1); -- MAKEDATE", "sql_id": "monetdb_64_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DATE '1997-01-01' + INTERVAL '0' DAY;", "sql_id": "monetdb_64_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT makedate(1997,0); -- MAKEDATE", "sql_id": "monetdb_64_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT makedate(9999,365); -- MAKEDATE", "sql_id": "monetdb_64_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT makedate(9999,366); -- MAKEDATE", "sql_id": "monetdb_64_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT makedate(100,1); -- MAKEDATE", "sql_id": "monetdb_64_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT subtime(TIMESTAMP '1997-12-31 23:59:59.000001', INTERVAL '1 1:1:1.000002' HOUR TO SECOND); -- SUBTIME", "sql_id": "monetdb_64_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT subtime(TIMESTAMP '1997-12-31 23:59:59.999999', TIMESTAMP '1998-01-01 01:01:01.999999'); -- SUBTIME", "sql_id": "monetdb_64_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT subtime(TIMESTAMP '01:00:00.999999', INTERVAL '02:00:00.999998' HOUR TO SECOND); -- SUBTIME", "sql_id": "monetdb_64_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT subtime(TIME '02:01:01.999999', TIME '01:01:01.999999'); -- SUBTIME", "sql_id": "monetdb_64_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sys.timestamp_to_str(TIMESTAMP '1997-01-01 23:59:59.000001' - TIMESTAMP '1995-12-31 23:59:59.000002', 'FF6');", "sql_id": "monetdb_64_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '1997-12-31 23:59:59.000001' - TIMESTAMP '1997-12-30 01:01:01.000002');", "sql_id": "monetdb_64_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '1997-12-31 23:59:59.000001' - TIMESTAMP '23:59:59.000001'); -- TIMEDIFF", "sql_id": "monetdb_64_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2000-01-01 00:00:00' - TIMESTAMP '2000-01-01 00:00:00.000001'); -- TIMEDIFF", "sql_id": "monetdb_64_17"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2005-01-11 15:48:49.999999' - TIMESTAMP '2005-01-11 15:48:50'); -- TIMEDIFF", "sql_id": "monetdb_64_18"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MAKETIME(10,11,12); -- MAKETIME", "sql_id": "monetdb_65_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME '20:11:12';", "sql_id": "monetdb_65_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP '2001-12-01 01:01:01.999999';", "sql_id": "monetdb_65_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP '2001-10-01 01:01:01.000001';", "sql_id": "monetdb_65_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP '2001-12-01 20:01:01';", "sql_id": "monetdb_65_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMESTAMP '2001-12-01';", "sql_id": "monetdb_65_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT DAY(TIMESTAMP '1997-12-31 23:59:59.000001'); -- DAY", "sql_id": "monetdb_65_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME '1997-12-31 23:59:59.000001';", "sql_id": "monetdb_65_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT (t1 - t4) AS ttt, (t2 - t3) AS qqq, (t3 - t2) AS eee, (t2 - t4) AS rrr FROM test; -- TIMEDIFF", "sql_id": "monetdb_65_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT STR_TO_DATE('2003-01-02 10:11:12.0012', '%Y-%m-%d %H:%i:%S.%f'); -- STR_TO_DATE", "sql_id": "monetdb_65_13"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIMEDIFF(TIMESTAMP '2008-09-29 20:10:10', TIMESTAMP '2008-09-30 20:10:10'), TIME '00:00:00';", "sql_id": "monetdb_65_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2008-09-29 20:10:10' - TIMESTAMP '2008-09-30 20:10:10') > sys.time_to_str('00:00:00', '%H:%M:%S');", "sql_id": "monetdb_65_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT EXTRACT(EPOCH FROM TIMESTAMP '2008-09-29 20:10:10' - TIMESTAMP '2008-09-30 20:10:10') < 0;", "sql_id": "monetdb_65_16"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sec_to_time(86399)=TIME '23:59:59';", "sql_id": "monetdb_66_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD(CAST(CASE WHEN 86399 / 3600 = 24 THEN 0 ELSE 86399 / 3600 END AS STRING), 2, '0') || ':' || LPAD(CAST((86399 % 3600) / 60 AS STRING), 2, '0') || ':' || LPAD(CAST(86399 % 60 AS STRING), 2, '0') = sys.time_to_str(TIME '23:59:59', '%H:%M:%S');", "sql_id": "monetdb_66_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LPAD(CAST(CASE WHEN 86399 / 3600 = 24 THEN 0 ELSE 86399 / 3600 END AS STRING), 2, '0') || ':' || LPAD(CAST((86399 % 3600) / 60 AS STRING), 2, '0') || ':' || LPAD(CAST(86399 % 60 AS STRING), 2, '0') = sys.time_to_str(TIME '23:59:59', '%H:%M:%S');", "sql_id": "monetdb_66_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT MAKETIME(1,0,1)='01:00:01'; -- MAKETIME", "sql_id": "monetdb_66_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT TIME '01:00:01' = '01:00:01';", "sql_id": "monetdb_66_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT sys.time_to_str(TIME '01:00:01', '%H:%M:%S') = CAST('01:00:01' AS TIME);", "sql_id": "monetdb_66_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT 0=0,1>0,1>=1,1<0,1<=0,1<>0,CASE WHEN 'abc'='abcd' THEN 0 WHEN 'abc'<'abcd' THEN -1 ELSE 1 END,CASE WHEN 'b'='a' THEN 0 WHEN 'b'<'a' THEN -1 ELSE 1 END,CASE WHEN 'a'='a' THEN 0 WHEN 'a'<'a' THEN -1 ELSE 1 END; -- STRCMP", "sql_id": "monetdb_69_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(d,d) FROM t1 WHERE k=2; -- GREATEST", "sql_id": "monetdb_69_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(123456789, 234567890) AS g; -- GREATEST", "sql_id": "monetdb_69_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST(123456789, 234567890) AS l; -- LEAST", "sql_id": "monetdb_69_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(123456789, -1, 234567890) AS g;", "sql_id": "monetdb_69_12"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST( CASE WHEN 123456789 <= -1 AND 123456789 <= 234567890 THEN 123456789 WHEN -1 <= 123456789 AND -1 <= 234567890 THEN -1 ELSE 234567890 END) AS l;", "sql_id": "monetdb_69_13"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE t1 AS SELECT CASE WHEN -1 <= 123456789 THEN 123456789 ELSE -1 END;", "sql_id": "monetdb_69_14"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST('11', '5', '2'); -- GREATEST", "sql_id": "monetdb_70_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST('11', '5', '2');", "sql_id": "monetdb_70_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST('11', 5, 2); -- GREATEST", "sql_id": "monetdb_70_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT LEAST('11', '5', '2'); -- LEAST", "sql_id": "monetdb_70_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN '11' IS NULL THEN 5 WHEN 5 IS NULL THEN '11' WHEN '11' <= 5 AND '11' <= 2 THEN '11' WHEN 5 <= 2 THEN 5 ELSE 2 END;", "sql_id": "monetdb_70_4"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN 11 IS NULL THEN 5 WHEN 5 IS NULL THEN 11 WHEN 11 <= 5 AND 11 <= 2 THEN 11 WHEN 5 <= 2 THEN 5 ELSE 2 END;", "sql_id": "monetdb_70_5"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN '11' IS NULL THEN '5' WHEN '5' IS NULL THEN '11' WHEN '11' <= '5' AND '11' <= '2' THEN '11' WHEN '5' <= '2' THEN '5' ELSE '2' END + 0;", "sql_id": "monetdb_70_6"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST('11', 5, 2) + 0;", "sql_id": "monetdb_70_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(11, 5, 2) + 0; -- GREATEST", "sql_id": "monetdb_70_8"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN '11' IS NULL THEN '5' WHEN '5' IS NULL THEN '11' WHEN '11' <= '5' AND '11' <= '2' THEN '11' WHEN '5' <= '2' THEN '5' ELSE '2' END + 0.00;", "sql_id": "monetdb_70_9"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST('11', 5, 2) + 0.00; -- GREATEST", "sql_id": "monetdb_70_10"}
+{"model": "gpt-3.5-turbo", "message": "SELECT GREATEST(11, 5, 2) + 0.00; -- GREATEST", "sql_id": "monetdb_70_11"}
+{"model": "gpt-3.5-turbo", "message": "SELECT CASE WHEN 18446744073709551615 IS NULL THEN NULL ELSE 18446744073709551615 END FROM t0017; -- GREATEST", "sql_id": "monetdb_70_15"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM t1 WHERE (CASE WHEN c1 >= c2 THEN c1 ELSE c2 END = 42) AND (c2 = 1);", "sql_id": "monetdb_70_20"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUM(CASE WHEN a IS NULL THEN b WHEN b IS NULL THEN a WHEN a <= b THEN a ELSE b END) FROM t1;", "sql_id": "monetdb_70_27"}
+{"model": "gpt-3.5-turbo", "message": "SELECT SUM(CASE WHEN a IS NULL THEN b WHEN b IS NULL THEN a WHEN a <= b THEN a ELSE b END) FROM t2;", "sql_id": "monetdb_70_28"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO clstr_tst (a, b, c, d) VALUES (32, 6, 'seis', REPEAT('xyzzy', 10000));", "sql_id": "monetdb_1_33"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO tidrangescan SELECT i,REPEAT('x', 100) FROM generate_series(1,200) AS s(i);", "sql_id": "monetdb_10_2"}
+{"model": "gpt-3.5-turbo", "message": "SELECT generate_series(1, 3); -- GENERATE_SERIES", "sql_id": "monetdb_12_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT * FROM generate_series(1, 3 + 1);", "sql_id": "monetdb_12_1"}
+{"model": "gpt-3.5-turbo", "message": "SELECT generate_series(1, 2), generate_series(1, 4); -- GENERATE_SERIES", "sql_id": "monetdb_12_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO cmdata VALUES(repeat('1234567890', 1000));", "sql_id": "monetdb_2_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO cmdata1 VALUES(repeat('1234567890', 1004));", "sql_id": "monetdb_2_6"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO delete_test (id, a, b) VALUES (2, 50, REPEAT('x', 10000));", "sql_id": "monetdb_3_3"}
+{"model": "gpt-3.5-turbo", "message": "SELECT current_timestamp = CURRENT_TIMESTAMP;", "sql_id": "monetdb_4_0"}
+{"model": "gpt-3.5-turbo", "message": "SELECT current_schema();", "sql_id": "monetdb_5_0"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE simple1 AS SELECT generate_series(1, 200) AS id; -- GENERATE_SERIES", "sql_id": "monetdb_6_2"}
+{"model": "gpt-3.5-turbo", "message": "CREATE TABLE bigger_than_it_looks AS SELECT generate_series(1, 200) AS id; -- GENERATE_SERIES", "sql_id": "monetdb_6_5"}
+{"model": "gpt-3.5-turbo", "message": "insert into extremely_skewed select 42 as id, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' from generate_series(1, 200); -- GENERATE_SERIES", "sql_id": "monetdb_6_10"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO pagg_tab SELECT i % 20, i % 30, LPAD(CAST(i % 12 AS VARCHAR), 4, '0'), i % 30 FROM generate_series(0, 2999) i;", "sql_id": "monetdb_7_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO pagg_tab_ml SELECT i % 30, i % 10, lpad(CAST(i % 4 AS STRING), 4, '0') FROM generate_series(0, 29999) AS g(i);", "sql_id": "monetdb_7_7"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO prt1 SELECT i, i % 25, LPAD(CAST(i AS VARCHAR), 4, '0') FROM generate_series(0, 599) i WHERE i % 2 = 0;", "sql_id": "monetdb_8_2"}
+{"model": "gpt-3.5-turbo", "message": "INSERT INTO prt2 SELECT i % 25, i, lpad(CAST(i AS string), 4, '0') FROM generate_series(0, 599) AS g(i) WHERE i % 3 = 0;", "sql_id": "monetdb_8_7"}
+{"model": "gpt-3.5-turbo", "message": "SELECT nextval('seq3'); -- NEXTVAL", "sql_id": "monetdb_9_2"}

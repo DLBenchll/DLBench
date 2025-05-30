@@ -1,0 +1,19 @@
+select CONVERT("2004-01-22 21:45:33",DATE); -- CONVERT
+select timediff(cast('2004-12-30 12:00:00' as time), '12:00:00'); -- TIMEDIFF
+select timediff(cast('1 12:00:00' as time), '12:00:00'); -- TIMEDIFF
+select cast(concat('12345','6789') as unsigned); -- CONCAT
+select cast(concat('12345','6789') as signed); -- CONCAT
+select cast(repeat('1',9) as unsigned); -- REPEAT
+select cast(repeat('1',9) as signed); -- REPEAT
+select isnull(date(NULL)), isnull(cast(NULL as DATE)); -- ISNULL, DATE
+select hex(cast('a' as binary(2))); -- HEX
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (d1 datetime);
+INSERT INTO t1(d1) VALUES ('2007-07-19 08:30:00'), (NULL),('2007-07-19 08:34:00'), (NULL), ('2007-07-19 08:36:00');
+SELECT cast(date(d1) as signed) FROM t1; -- DATE
+drop table t1;
+CREATE TABLE t1 (f1 DATE);
+INSERT INTO t1 VALUES ('2007-07-19'), (NULL);
+SELECT HOUR(f1),MINUTE(f1),SECOND(f1) FROM t1; -- HOUR, MINUTE, SECOND
+drop table t1;
+SELECT HOUR(CAST('2007-07-19' AS DATE)),MINUTE(CAST('2007-07-19' AS DATE)),SECOND(CAST('2007-07-19' AS DATE)); -- HOUR, MINUTE, SECOND

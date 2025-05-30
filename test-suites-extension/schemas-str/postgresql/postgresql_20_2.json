@@ -1,0 +1,3 @@
+[
+    "Table: `t1`\nColumns:\n(id, integer, PRI)\n(gender, character(1), )\n(name, character varying(20), )\n"
+]

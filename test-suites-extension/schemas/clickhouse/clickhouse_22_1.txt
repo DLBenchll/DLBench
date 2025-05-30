@@ -1,0 +1,1 @@
+SELECT least(toDateTime('2001-01-01 00:00:00'), toDateTime('2001-01-01 00:01:02'));

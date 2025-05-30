@@ -1,0 +1,1 @@
+SELECT JSONExtractString(JSONExtractRaw('{"id": "3", "$name": "Barney"}', 'id'), '');

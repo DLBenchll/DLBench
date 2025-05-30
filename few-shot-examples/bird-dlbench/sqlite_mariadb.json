@@ -1,0 +1,45 @@
+[
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from sqlite to mariadb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT DISTINCT App, Sentiment FROM user_reviews WHERE App IN ( SELECT App FROM playstore WHERE CAST(SUBSTR('Last Updated', -4, 4) AS INTEGER) < 2015 )Output only the translated SQL. Do not add any extra commentary.\n[Schema Information]:sqlite schema: ['Table: `user_reviews`\\nColumns:\\n(`App`, text)\\n(`Translated_Review`, text)\\n(`Sentiment`, text)\\n(`Sentiment_Polarity`, text)\\n(`Sentiment_Subjectivity`, text)\\n(`rowid`, integer, primary key)\\n', 'Table: `playstore`\\nColumns:\\n(`App`, text)\\n(`Category`, text)\\n(`Rating`, real)\\n(`Reviews`, integer)\\n(`Size`, text)\\n(`Installs`, text)\\n(`Type`, text)\\n(`Price`, text)\\n(`Content Rating`, text)\\n(`Genres`, text)\\n(`rowid`, integer, primary key)\\n'].\n mariadb schema: ['Table: `user_reviews`\\nColumns:\\n(`App`, TEXT)\\n(`Translated_Review`, TEXT)\\n(`Sentiment`, TEXT)\\n(`Sentiment_Polarity`, TEXT)\\n(`Sentiment_Subjectivity`, TEXT)\\n(`rowid`, BIGINT, primary key)\\n', 'Table: `playstore`\\nColumns:\\n(`App`, TEXT)\\n(`Category`, TEXT)\\n(`Rating`, DOUBLE)\\n(`Reviews`, BIGINT)\\n(`Size`, TEXT)\\n(`Installs`, TEXT)\\n(`Type`, TEXT)\\n(`Price`, TEXT)\\n(`Content_Rating`, TEXT)\\n(`Genres`, TEXT)\\n(`rowid`, BIGINT, primary key)\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT DISTINCT `App`, `Sentiment` FROM `user_reviews` WHERE `App` IN ( SELECT `App` FROM `playstore` WHERE CAST(SUBSTR('Last Updated', -4, 4) AS SIGNED) < 2015 );"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from sqlite to mariadb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT CAST(SUM(CASE WHEN SUBSTR('Last Updated', -4) > '2018' THEN 1 ELSE 0 END) AS REAL) * 100 / COUNT(App) PER FROM playstore WHERE Type = 'Free' AND Rating >= 4.5Output only the translated SQL. Do not add any extra commentary.\n[Schema Information]:sqlite schema: ['Table: `playstore`\\nColumns:\\n(`App`, text)\\n(`Category`, text)\\n(`Rating`, real)\\n(`Reviews`, integer)\\n(`Size`, text)\\n(`Installs`, text)\\n(`Type`, text)\\n(`Price`, text)\\n(`Content Rating`, text)\\n(`Genres`, text)\\n(`rowid`, integer, primary key)\\n'].\n mariadb schema: ['Table: `playstore`\\nColumns:\\n(`App`, TEXT)\\n(`Category`, TEXT)\\n(`Rating`, DOUBLE)\\n(`Reviews`, BIGINT)\\n(`Size`, TEXT)\\n(`Installs`, TEXT)\\n(`Type`, TEXT)\\n(`Price`, TEXT)\\n(`Content_Rating`, TEXT)\\n(`Genres`, TEXT)\\n(`rowid`, BIGINT, primary key)\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT CAST(SUM(CASE WHEN SUBSTR('Last Updated', -4) > '2018' THEN 1 ELSE 0 END) AS DOUBLE) * 100 / COUNT(`App`) AS percentage FROM `playstore` WHERE `Type` = 'Free' AND `Rating` >= 4.5;"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from sqlite to mariadb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT T FROM ( SELECT IIF(`Customer Names` LIKE '%Group%', `Customer Names`, NULL) AS T FROM Customers ) WHERE T IS NOT NULLOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:sqlite schema: ['Table: `Customers`\\nColumns:\\n(`CustomerID`, integer, primary key)\\n(`Customer Names`, text)\\n'].\n mariadb schema: ['Table: `Customers`\\nColumns:\\n(`CustomerID`, BIGINT, primary key)\\n(`Customer_Names`, TEXT)\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT T FROM ( SELECT IF(`Customer_Names` LIKE '%Group%', `Customer_Names`, NULL) AS T FROM `Customers` ) AS subquery WHERE T IS NOT NULL;"
+    }
+  ]
+]
+

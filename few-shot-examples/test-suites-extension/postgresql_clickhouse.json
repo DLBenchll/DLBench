@@ -1,0 +1,45 @@
+[
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from postgresql to clickhouse , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT generate_series(1, 3); -- GENERATE_SERIESOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:postgresql schema: [].\n clickhouse schema: []."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT number + 1 AS n FROM numbers(3);"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from postgresql to clickhouse , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT generate_series(1, 3) AS val1, generate_series(3,5) AS val2; -- GENERATE_SERIESOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:postgresql schema: [].\n clickhouse schema: []."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT a.number + 1 AS val1, b.number + 3 AS val2 FROM numbers(3) AS a, numbers(3) AS b;"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from postgresql to clickhouse , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT generate_series(1, 2) AS val1, generate_series(1,4) AS val2; -- GENERATE_SERIESOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:postgresql schema: [].\n clickhouse schema: []."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT a.number + 1 AS val1, b.number + 1 AS val2 FROM numbers(2) AS a, numbers(4) AS b;"
+    }
+  ]
+]
+

@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS prt1;
+CREATE TABLE prt1 (a int, b int, c varchar);

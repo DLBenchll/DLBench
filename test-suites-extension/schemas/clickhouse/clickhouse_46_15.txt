@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (date1 String, format1 String) ENGINE = MergeTree ORDER BY tuple();
+INSERT INTO t1 VALUES ('2003-01-02 10:11:12', '%Y-%m-%d %H:%i:%S');
+DROP TABLE t1;
+CREATE TABLE t1 (d Date) ENGINE = MergeTree ORDER BY d;
+INSERT INTO t1 VALUES ('2004-07-14'), ('2005-07-14');

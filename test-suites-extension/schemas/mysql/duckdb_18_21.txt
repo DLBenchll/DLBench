@@ -1,0 +1,21 @@
+SELECT regexp_replace( 'aaa', 'a', 'X' ); -- REGEXP_REPLACE
+SELECT regexp_replace( 'abc', 'b', 'X' ); -- REGEXP_REPLACE
+SELECT regexp_replace( NULL, 'a', 'X' ); -- REGEXP_REPLACE
+SELECT regexp_replace( 'aaa', NULL, 'X' ); -- REGEXP_REPLACE
+SELECT regexp_replace( 'aaa', 'a', NULL ); -- REGEXP_REPLACE
+SELECT concat( regexp_replace( 'aaa', 'a', 'X' ), 'x' ); -- CONCAT, REGEXP_REPLACE
+SELECT regexp_replace( 'aaa', 'a', 'X', 1 ); -- REGEXP_REPLACE
+SELECT regexp_replace( 'aaabbccbbddaa', 'b+', 'X', 1, 1 ); -- REGEXP_REPLACE
+SELECT regexp_replace( 'aaabbccbbddaa', 'b+', 'X', 1, 2 ); -- REGEXP_REPLACE
+SELECT regexp_replace( 'aaabbccbbddaa', '(b+)', '<$1>', 1, 2 ); -- REGEXP_REPLACE
+SELECT regexp_replace( 'aaabbccbbddaa', 'x+', 'x', 1, 0 ); -- REGEXP_REPLACE
+SELECT regexp_replace( 'aaabbccbbddaa', 'b+', 'x', 1, 0 ); -- REGEXP_REPLACE
+SELECT regexp_replace( 'aaab', 'b', 'x', 1, 2 ); -- REGEXP_REPLACE
+SELECT regexp_replace( 'aaabccc', 'b', 'x', 1, 2 ); -- REGEXP_REPLACE
+SELECT regexp_replace( 'abc', 'b', 'X' ); -- REGEXP_REPLACE
+SELECT regexp_replace( 'abcbdb', 'b', 'X' ); -- REGEXP_REPLACE
+SELECT regexp_replace( 'abcbdb', 'b', 'X', 3 ); -- REGEXP_REPLACE
+SELECT regexp_replace( 'aaabcbdb', 'b', 'X', 1 ); -- REGEXP_REPLACE
+SELECT regexp_replace( 'aaabcbdb', 'b', 'X', 2 ); -- REGEXP_REPLACE
+SELECT regexp_replace( 'aaabcbdb', 'b', 'X', 3 ); -- REGEXP_REPLACE
+SELECT regexp_replace( 'aaa', 'a', 'X', 2 ); -- REGEXP_REPLACE

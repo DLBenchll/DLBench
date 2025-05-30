@@ -1,0 +1,3 @@
+[
+    "Table: `t1`\nColumns:\n(col1_idx, int(11), )\n(col2_idx, int(11), )\n(col3, int(11), )\n(col4, int(11), )\n(vc, varchar(30), )\n(vc_ft, varchar(30), )\n"
+]

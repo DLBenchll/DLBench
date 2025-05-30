@@ -1,0 +1,20 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1(c1 BYTEA);
+INSERT INTO t1 VALUES(E'\\x3A'), (E'\\x3B'), (E'\\x3C'), (E'\\x3D'), (E'\\x3E'), (E'\\x3F'), (E'\\x40'), (E'\\x5B'), (E'\\x5C'), (E'\\x5D'), (E'\\x5E'), (E'\\x5F'), (E'\\x60'), (E'\\x7B'), (E'\\x7C'), (E'\\x7D'), (E'\\x7E');
+SELECT encode(c1::bytea, 'hex') FROM t1; -- HEX
+DROP TABLE t1;
+CREATE TABLE t1 AS SELECT repeat('a', 4000) a; -- REPEAT
+DROP TABLE t1;
+CREATE TABLE t1 (b VARCHAR(2));
+INSERT INTO t1 VALUES ('0'),('1'),('2'),('3'),('4'),('5'),('6'),('7');
+INSERT INTO t1 VALUES ('8'),('9'),('A'),('B'),('C'),('D'),('E'),('F');
+DROP TABLE IF EXISTS head;
+DROP TABLE IF EXISTS tail;
+CREATE TABLE head AS SELECT b1.b || b2.b AS head FROM t1 b1, t1 b2; -- CONCAT
+CREATE TABLE tail AS SELECT b1.b || b2.b AS tail FROM t1 b1, t1 b2; -- CONCAT
+DROP TABLE head;
+DROP TABLE tail;
+DROP TABLE t1;
+CREATE TABLE t1 AS SELECT '111111' AS code, ' ' AS a LIMIT 1;
+UPDATE t1 SET a = decode(code, 'hex') WHERE a <> ''; -- UNHEX
+SELECT COUNT(*) FROM t1 WHERE a <> '' AND OCTET_LENGTH(a) = 2; -- OCTET_LENGTH

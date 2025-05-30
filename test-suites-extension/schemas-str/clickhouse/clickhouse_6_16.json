@@ -1,0 +1,7 @@
+[
+    "Table: `bigger_than_it_looks`\nColumns:\n(id, UInt64, )\n",
+    "Table: `extremely_skewed`\nColumns:\n(id, Int32, )\n(t, String, )\n",
+    "Table: `join_foo`\nColumns:\n(id, UInt64, )\n(t, String, )\n",
+    "Table: `simple1`\nColumns:\n(id, UInt64, )\n",
+    "Table: `wide`\nColumns:\n(id, UInt64, )\n(t, String, )\n"
+]

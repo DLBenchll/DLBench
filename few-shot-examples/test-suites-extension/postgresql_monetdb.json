@@ -1,0 +1,45 @@
+[
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from postgresql to monetdb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:INSERT INTO delete_test (id, a, b) VALUES (2, 50, repeat('x', 10000)); -- REPEATOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:postgresql schema: ['DROP TABLE IF EXISTS delete_test;\\n', 'CREATE TABLE delete_test (id SERIAL PRIMARY KEY,a INT,b text);\\n', 'INSERT INTO delete_test (id, a) VALUES (1, 10);\\n'].\n monetdb schema: ['DROP TABLE IF EXISTS delete_test;\\n', 'CREATE TABLE delete_test (id INT PRIMARY KEY, a INT, b text);\\n', 'INSERT INTO delete_test (id, a) VALUES (1, 10);\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "INSERT INTO delete_test (id, a, b) VALUES (2, 50, repeat('x', 10000));"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from postgresql to monetdb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT current_timestamp = NOW(); -- NOWOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:postgresql schema: [].\n monetdb schema: []."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT current_timestamp = CURRENT_TIMESTAMP;"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from postgresql to monetdb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:select current_schemas(false); -- CURRENT_SCHEMASOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:postgresql schema: [].\n monetdb schema: []."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT current_schema;"
+    }
+  ]
+]
+

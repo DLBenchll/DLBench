@@ -1,0 +1,45 @@
+[
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from postgresql to duckdb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:INSERT INTO cmdata VALUES(repeat('1234567890', 1000)); -- REPEATOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:postgresql schema: ['Table: `cmdata`\\nColumns:\\n(f1, text, )\\n'].\n duckdb schema: []."
+    },
+    {
+      "role": "assistant",
+      "content": "INSERT INTO cmdata VALUES(repeat('1234567890', 1000));"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from postgresql to duckdb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:INSERT INTO cmdata1 VALUES(repeat('1234567890', 1004)); -- REPEATOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:postgresql schema: ['Table: `cmdata1`\\nColumns:\\n(f1, text, )\\n'].\n duckdb schema: []."
+    },
+    {
+      "role": "assistant",
+      "content": "INSERT INTO cmdata1 VALUES(repeat('1234567890', 1004));"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from postgresql to duckdb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:INSERT INTO delete_test (id, a, b) VALUES (2, 50, repeat('x', 10000)); -- REPEATOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:postgresql schema: ['Table: `delete_test`\\nColumns:\\n(id, integer, PRI)\\n(a, integer, )\\n(b, text, )\\n'].\n duckdb schema: []."
+    },
+    {
+      "role": "assistant",
+      "content": "INSERT INTO delete_test (id, a, b) VALUES (2, 50, REPEAT('x', 10000));"
+    }
+  ]
+]
+

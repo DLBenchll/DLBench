@@ -1,0 +1,10 @@
+SELECT formatDateTime(toDateTime('1997-12-31 23:59:59'), '%f');
+SELECT dateDiff('day', toDate('1997-12-30'), toDate('1997-12-31 23:59:59'));
+SELECT dateDiff('day', NULL, toDate('1997-11-30 23:59:59'));
+SELECT makeDate(3, 1);
+SELECT makeDate(3, 1);
+SELECT makeDate(1997, 1);
+SELECT makeDate(1997, 0);
+SELECT makeDate(9999, 365);
+SELECT makeDate(9999, 366);
+SELECT makeDate(100, 1);

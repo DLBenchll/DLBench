@@ -1,0 +1,45 @@
+[
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from postgresql to mariadb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT generate_series(1, 2) AS val1, generate_series(1,4) AS val2; -- GENERATE_SERIESOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:postgresql schema: [].\n mariadb schema: []."
+    },
+    {
+      "role": "assistant",
+      "content": "WITH RECURSIVE seq1(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq1 WHERE n + 1 <= 2), seq2(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM seq2 WHERE n + 1 <= 4) SELECT seq1.n AS val1, seq2.n AS val2 FROM seq1, seq2;"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from postgresql to mariadb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:INSERT INTO cmdata VALUES(repeat('1234567890', 1000)); -- REPEATOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:postgresql schema: ['Table: `cmdata`\\nColumns:\\n(f1, text, )\\n'].\n mariadb schema: ['Table: `cmdata`\\nColumns:\\n(f1, text, )\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "INSERT INTO cmdata VALUES(repeat('1234567890', 1000));"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from postgresql to mariadb , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:INSERT INTO cmdata1 VALUES(repeat('1234567890', 1004)); -- REPEATOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:postgresql schema: ['Table: `cmdata1`\\nColumns:\\n(f1, text, )\\n'].\n mariadb schema: ['Table: `cmdata1`\\nColumns:\\n(f1, text, )\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "INSERT INTO cmdata1 VALUES(repeat('1234567890', 1004));"
+    }
+  ]
+]
+

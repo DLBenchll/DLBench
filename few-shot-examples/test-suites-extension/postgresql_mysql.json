@@ -1,0 +1,45 @@
+[
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from postgresql to mysql , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:INSERT INTO delete_test (id, a, b) VALUES (2, 50, repeat('x', 10000)); -- REPEATOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:postgresql schema: ['Table: `delete_test`\\nColumns:\\n(id, integer, PRI)\\n(a, integer, )\\n(b, text, )\\n'].\n mysql schema: ['Table: `delete_test`\\nColumns:\\n(id, int, PRI)\\n(a, int, )\\n(b, text, )\\n']."
+    },
+    {
+      "role": "assistant",
+      "content": "INSERT INTO delete_test (id, a, b) VALUES (2, 50, REPEAT('x', 10000));"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from postgresql to mysql , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:SELECT current_timestamp = NOW(); -- NOWOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:postgresql schema: [].\n mysql schema: []."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT NOW() = NOW();"
+    }
+  ],
+  [
+    {
+      "role": "system",
+      "content": "You are an expert SQL translation assistant.Let's think step by step."
+    },
+    {
+      "role": "user",
+      "content": "[Task Descriptions]:Please translate the following SQL statement from postgresql to mysql , ensuring that the resulting query is functionally equivalent to the original. [SQL statement]:select current_schemas(false); -- CURRENT_SCHEMASOutput only the translated SQL. Do not add any extra commentary.\n[Schema Information]:postgresql schema: [].\n mysql schema: []."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT DATABASE();"
+    }
+  ]
+]
+
