@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS t5;
+CREATE TABLE t5 (c1 int, c2 varchar(128) NOT NULL);

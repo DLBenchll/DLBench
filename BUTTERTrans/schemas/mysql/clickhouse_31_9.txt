@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS t1;
+create table t1 (y year);
+insert into t1 values (now()); -- NOW
+select if(y = now(), 1, 0) from t1; -- IF, NOW
+DROP TABLE t1;
+DROP TABLE IF EXISTS t4;
+CREATE TABLE t4(yyyy YEAR, c4 CHAR(4));
+INSERT INTO t4 (c4) VALUES (NULL),(1970),(1999),(2000),(2001),(2069);

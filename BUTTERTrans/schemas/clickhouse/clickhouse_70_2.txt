@@ -1,0 +1,2 @@
+SELECT GREATEST('11', '5', '2');
+SELECT GREATEST(toInt32('11'), 5, 2) AS col;

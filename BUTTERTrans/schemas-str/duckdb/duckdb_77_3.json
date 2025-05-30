@@ -1,0 +1,3 @@
+[
+    "Table: `t1`\nColumns:\n(time, TIME, )\n(date, DATE, )\n(timestamp, TIMESTAMP, )\n(quarter, INTEGER, )\n(week, INTEGER, )\n(year, INTEGER, )\n(timestampadd, INTEGER, )\n(timestampdiff, INTEGER, )\n"
+]

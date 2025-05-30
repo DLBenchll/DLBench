@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS tidrangescan;
+CREATE TABLE tidrangescan (id Int32, data String) ENGINE=MergeTree ORDER BY id;

@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS pagg_tab;
+CREATE TABLE pagg_tab (a int, b int, c text, d int);

@@ -1,0 +1,3 @@
+[
+    "Table: `t1`\nColumns:\n(col1_idx, integer, )\n(col2_idx, integer, )\n(col3, integer, )\n(col4, integer, )\n(vc, character varying(30), )\n(vc_ft, character varying(30), )\n"
+]

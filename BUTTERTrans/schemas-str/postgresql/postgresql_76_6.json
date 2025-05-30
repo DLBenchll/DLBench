@@ -1,0 +1,3 @@
+[
+    "Table: `t1`\nColumns:\n(c1, integer, )\n(c2, character(12), )\n(c3, character varying(123), )\n(c4, timestamp without time zone, )\n"
+]

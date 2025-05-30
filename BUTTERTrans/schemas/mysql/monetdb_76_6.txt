@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS t1;
+create table t1 (i int, a char(200), b text, unique (a), unique (b(300)));
+insert ignore t1 values (1, repeat('a',110), repeat('b', 210)); -- REPEAT
+select i, length(a), length(b), char_length(a), char_length(b) from t1; -- LENGTH, CHAR_LENGTH
+DROP TABLE t1;
+create table t1 (c1 int,c2 char(12),c3 varchar(123),c4 timestamp NOT NULL);

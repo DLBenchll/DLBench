@@ -1,0 +1,4 @@
+[
+    "Table: `t1`\nColumns:\n(b, UInt8, )\n(i2, Int32, )\n(s, String, )\n",
+    "Table: `t2`\nColumns:\n(b1, UInt8, )\n(b2, UInt8, )\n(i2, Int32, )\n(s, String, )\n"
+]

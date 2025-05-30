@@ -1,0 +1,2 @@
+select NULL=NULL,NULL<>NULL,IFNULL(NULL,1.1)+0,IFNULL(NULL,1) | 0; -- IFNULL
+select strcmp("a",NULL),(1<NULL),NULL regexp "a",null like "a%","a%" like null; -- STRCMP

@@ -1,0 +1,1 @@
+SELECT json_extract('{"id": "3", "$name": "Barney"}', '$.id'); -- JSON_EXTRACT

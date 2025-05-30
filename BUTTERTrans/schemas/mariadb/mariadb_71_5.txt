@@ -1,0 +1,5 @@
+select from_unixtime(123456789);
+select from_unixtime(234567890);
+select from_unixtime(1);
+select unix_timestamp(from_unixtime(123456789));
+select unix_timestamp(from_unixtime(234567890));

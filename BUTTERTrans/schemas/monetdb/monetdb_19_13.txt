@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1(a REAL, b INT, c CHAR(100), d DECIMAL);
+INSERT INTO t1 VALUES (CAST(POSITION('a' IN 'a') AS REAL), CAST(POSITION('a' IN 'a') AS INT), CAST(POSITION('a' IN 'a') AS CHAR(100)), CAST(POSITION('a' IN 'a') AS DECIMAL));
+DELETE FROM t1;
+DELETE FROM t1;
+INSERT INTO t1 ( c ) VALUES ( regexp_replace('a', 'a', 'a') );
+DELETE FROM t1;
+DROP TABLE t1;
+SELECT octet_length(regexp_replace( repeat('a', 1), 'a', 'b' ));
+CREATE TABLE t1 ( a TEXT);
+INSERT INTO t1 VALUES ( repeat( 'a', 16384 ) );

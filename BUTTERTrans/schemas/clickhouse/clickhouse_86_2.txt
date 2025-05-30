@@ -1,0 +1,2 @@
+SELECT NULL, NULL IS NULL, NULL IS NULL, NULL IS NULL, ifNull(NULL, 1), ifNull(NULL, 'TRUE'), ifNull('TRUE', 'ERROR'), (1 / 0) IS NULL, 1 IS NOT NULL;
+SELECT NULL = NULL, NULL != NULL, ifNull(NULL, 1.1) + 0, ifNull(NULL, 1) or 0;

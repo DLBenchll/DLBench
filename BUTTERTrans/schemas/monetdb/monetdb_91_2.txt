@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS t;
+CREATE TABLE t(i int, b TEXT);

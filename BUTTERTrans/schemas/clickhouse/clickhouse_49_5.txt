@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (text1 VARCHAR(32) NOT NULL) ENGINE = MergeTree ORDER BY text1;
+INSERT INTO t1 VALUES ('teststring'), ('nothing'), ('teststring\t');
+ALTER TABLE t1 ALTER COLUMN text1 TYPE VARCHAR(32);

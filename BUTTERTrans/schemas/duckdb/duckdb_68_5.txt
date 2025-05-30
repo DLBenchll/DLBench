@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1(id int NOT NULL,title varchar default NULL,prio int default NULL,category int default NULL,program int default NULL,bugdesc text,created datetime default NULL,modified timestamp NOT NULL,bugstatus int default NULL,submitter int default NULL);
+INSERT INTO t1 VALUES(1,'Link',1,1,1,'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa','2001-02-28 08:40:16',STRPTIME('20010228084016'::VARCHAR,'%Y%m%d%H%M%S'),0,4);
+SELECT CONCAT('"',concat_ws('";"',title,prio,category,program,bugdesc,created,modified,bugstatus,submitter),'"') FROM t1;
+SELECT CONCAT('"',concat_ws('";"',title,prio,category,program,bugstatus,submitter),'"') FROM t1;

@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (id INTEGER NOT NULL PRIMARY KEY,gender CHAR(1),name VARCHAR(20));
+SELECT SUM(DISTINCT octet_length(name)) s1 FROM t1;
+INSERT INTO t1 (id, gender, name) VALUES (1, NULL, NULL);
+INSERT INTO t1 (id, gender, name) VALUES (2, NULL, NULL);
+INSERT INTO t1 (id, gender, name) VALUES (3, NULL, NULL);
+SELECT SUM(DISTINCT octet_length(name)) s1 FROM t1;
+INSERT INTO t1 (id, gender, name) VALUES (4, 'F', 'Helen'), (5, 'F', 'Anastasia'), (6, 'F', 'Katherine'), (7, 'F', 'Margo'), (8, 'F', 'Magdalene'), (9, 'F', 'Mary');
+DROP TABLE IF EXISTS t2;
+CREATE TABLE t2 AS SELECT name FROM t1;

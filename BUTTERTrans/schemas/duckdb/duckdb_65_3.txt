@@ -1,0 +1,2 @@
+select make_time(10,11,12);
+select make_time(20,11,12);

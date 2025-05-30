@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (data bytea);
+INSERT INTO t1 (data) VALUES ('aaa'::bytea);

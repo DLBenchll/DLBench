@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (data bytea);
+INSERT INTO t1 (data) VALUES ('aaa'::bytea);
+UPDATE t1 SET data = repeat('a', 18*1024)::bytea;

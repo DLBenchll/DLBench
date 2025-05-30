@@ -1,0 +1,2 @@
+select row(10,2,3) IN (row(3,2,3), row(1,2,3), row(1,3,3)); -- ROW
+select row(1,2,3) IN (row(3,NULL,3), row(1,2,3), row(1,3,3)); -- ROW

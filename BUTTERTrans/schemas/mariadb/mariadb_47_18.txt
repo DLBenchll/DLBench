@@ -1,0 +1,18 @@
+SELECT TIME_FORMAT("24:00:00", '%r');
+SELECT TIME_FORMAT("00:00:00", '%r');
+SELECT TIME_FORMAT("12:00:00", '%r');
+SELECT TIME_FORMAT("15:00:00", '%r');
+SELECT TIME_FORMAT("01:00:00", '%r');
+SELECT TIME_FORMAT("25:00:00", '%r');
+SELECT TIME_FORMAT("00:00:00", '%l %p');
+SELECT TIME_FORMAT("01:00:00", '%l %p');
+SELECT TIME_FORMAT("12:00:00", '%l %p');
+SELECT TIME_FORMAT("23:00:00", '%l %p');
+SELECT TIME_FORMAT("24:00:00", '%l %p');
+SELECT TIME_FORMAT("25:00:00", '%l %p');
+SELECT DATE_FORMAT('%Y-%m-%d %H:%i:%s', 1151414896);
+select str_to_date('04 /30/2004', '%m /%d/%Y');
+select str_to_date('04/30 /2004', '%m /%d /%Y');
+select str_to_date('04/30/2004 ', '%m/%d/%Y ');
+SELECT DATE_FORMAT("0000-01-01",'%W %d %M %Y') as valid_date;
+SELECT DATE_FORMAT("0000-02-28",'%W %d %M %Y') as valid_date;

@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS t1;
+CREATE table t1 (a blob);
+insert into t1 values ('b'),('a\\0'),('a'),('a '),('aa'),(NULL);

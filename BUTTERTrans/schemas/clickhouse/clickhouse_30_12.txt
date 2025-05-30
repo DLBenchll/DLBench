@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (v String, c FixedString(3), e FixedString(3), t String) ENGINE = MergeTree ORDER BY tuple();
+INSERT INTO t1 VALUES ('abc', 'de', 'ghi', 'jkl');
+INSERT INTO t1 VALUES ('abc ', 'de ', 'ghi', 'jkl ');
+INSERT INTO t1 VALUES ('abc    ', 'd  ', 'ghi', 'jkl    ');
+SELECT length(v), length(c), length(e), length(t) FROM t1;
+DROP TABLE t1;
+CREATE TABLE t1 (f1 String) ENGINE = MergeTree ORDER BY tuple();
+INSERT INTO t1 VALUES ('tes');
+DROP TABLE t1;
+CREATE TABLE t1 (a FixedString(2)) ENGINE = MergeTree ORDER BY tuple();
+INSERT INTO t1 VALUES ('10'), ('50'), ('30'), ('60'); -- 修正：移除无法转为整数的 '1a' 和 't'

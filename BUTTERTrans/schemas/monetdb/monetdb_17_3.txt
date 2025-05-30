@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (subject char(10),pattern char(10));
+SELECT POSITION('a' IN 'abc');

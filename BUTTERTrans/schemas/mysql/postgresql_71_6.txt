@@ -1,0 +1,6 @@
+select from_unixtime(123456789); -- FROM_UNIXTIME
+select from_unixtime(234567890); -- FROM_UNIXTIME
+select from_unixtime(1); -- FROM_UNIXTIME
+select unix_timestamp(from_unixtime(123456789)); -- UNIX_TIMESTAMP, FROM_UNIXTIME
+select unix_timestamp(from_unixtime(234567890)); -- UNIX_TIMESTAMP, FROM_UNIXTIME
+select unix_timestamp('2039-01-20 01:00:00'); -- UNIX_TIMESTAMP

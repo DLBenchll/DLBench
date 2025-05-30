@@ -1,0 +1,13 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1(c1 String) ENGINE = MergeTree() ORDER BY c1;
+INSERT INTO t1 VALUES(unhex('3A')), (unhex('3B')), (unhex('3C')), (unhex('3D')), (unhex('3E')), (unhex('3F')), (unhex('40')), (unhex('5B')), (unhex('5C')), (unhex('5D')), (unhex('5E')), (unhex('5F')), (unhex('60')), (unhex('7B')), (unhex('7C')), (unhex('7D')), (unhex('7E'));
+SELECT HEX(c1) FROM t1; -- HEX
+DROP TABLE t1;
+CREATE TABLE t1 ENGINE = MergeTree() ORDER BY a AS SELECT repeat('a',4000) AS a;
+DROP TABLE t1;
+CREATE TABLE t1 (b String) ENGINE = MergeTree() ORDER BY b;
+INSERT INTO t1 VALUES ('0'),('1'),('2'),('3'),('4'),('5'),('6'),('7');
+INSERT INTO t1 VALUES ('8'),('9'),('A'),('B'),('C'),('D'),('E'),('F');
+DROP TABLE IF EXISTS head;
+DROP TABLE IF EXISTS tail;
+CREATE TABLE head ENGINE = MergeTree() ORDER BY head AS SELECT concat(b1.b, b2.b) AS head FROM t1 b1, t1 b2; -- CONCAT

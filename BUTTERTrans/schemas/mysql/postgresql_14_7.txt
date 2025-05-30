@@ -1,0 +1,7 @@
+drop table if exists t1;
+CREATE TABLE t1 (data LONGBLOB);
+INSERT INTO t1 (data) VALUES ('aaa');
+UPDATE t1 set data=repeat('a',18*1024); -- REPEAT
+select length(data) from t1; -- LENGTH
+delete from t1 where left(data,1)='a';
+truncate table t1;

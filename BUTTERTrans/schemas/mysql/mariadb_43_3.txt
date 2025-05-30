@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS t1;
+create table t1 (name varchar(10),level smallint);
+insert into t1 values ('string',1);

@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS prt1;
+CREATE TABLE prt1 (a int, b int, c varchar);
+INSERT INTO prt1 SELECT i, i % 25, lpad(CAST(i AS string), 4, '0') FROM generate_series(0, 599 + 1) AS g(i) WHERE i % 2 = 0;
+DROP TABLE prt1;
+DROP TABLE IF EXISTS prt2;
+CREATE TABLE prt2 (a int, b int, c varchar);

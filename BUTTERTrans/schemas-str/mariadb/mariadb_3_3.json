@@ -1,0 +1,3 @@
+[
+    "Table: `delete_test`\nColumns:\n(id, int(11), PRI)\n(a, int(11), )\n(b, text, )\n"
+]

@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS pagg_tab;
+CREATE TABLE pagg_tab (a int, b int, c text, d int);
+INSERT INTO pagg_tab SELECT i % 20, i % 30, to_char(i % 12, 'FM0000'), i % 30 FROM generate_series(0, 2999) i; -- TO_CHAR, GENERATE_SERIES
+ANALYZE pagg_tab;
+DROP TABLE pagg_tab;
+DROP TABLE IF EXISTS pagg_tab_ml;
+CREATE TABLE pagg_tab_ml (a int, b int, c text);

@@ -1,0 +1,4 @@
+[
+    "Table: `t0`\nColumns:\n(a, int(11), )\n",
+    "Table: `t1`\nColumns:\n(a, int(11), )\n(b, char(20), )\n(filler, char(200), )\n"
+]

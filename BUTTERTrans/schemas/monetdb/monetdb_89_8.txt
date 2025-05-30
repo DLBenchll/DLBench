@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS t1;
+create table t1 (a varchar(50));
+insert into t1 values (X'00410000');
+drop table t1;

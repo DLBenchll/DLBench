@@ -1,0 +1,1 @@
+select CONVERT("2004-01-22 21:45:33",DATE); -- CONVERT

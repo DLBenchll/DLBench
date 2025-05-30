@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1(a Int16, b String) ENGINE = MergeTree ORDER BY a;
+INSERT INTO t1 VALUES (1997, 'random_str');

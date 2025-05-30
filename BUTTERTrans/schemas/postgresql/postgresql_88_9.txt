@@ -1,0 +1,9 @@
+select repeat('a',2000);
+SELECT octet_length('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa') as len;
+select octet_length(repeat('a',2000));
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (c11 INT NOT NULL, c12 TEXT);
+DROP TABLE IF EXISTS t2;
+CREATE TABLE t2 (c21 INT NOT NULL, c22 TEXT);
+INSERT INTO t1 VALUES(100,'abcd');
+INSERT INTO t2 VALUES(100,'xyz');

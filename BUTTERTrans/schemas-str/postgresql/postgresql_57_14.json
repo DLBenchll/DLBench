@@ -1,0 +1,5 @@
+[
+    "Table: `t1`\nColumns:\n(pk, integer, PRI)\n(col_int_key, integer, )\n(col_date_key, date, )\n",
+    "Table: `t2`\nColumns:\n(pk, integer, PRI)\n",
+    "Table: `t3`\nColumns:\n(pk, integer, )\n"
+]

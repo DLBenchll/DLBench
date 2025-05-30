@@ -1,0 +1,3 @@
+[
+    "Table: `t1`\nColumns:\n(id, int(11), )\n(date, int(10), )\n(text, varchar(32), )\n"
+]

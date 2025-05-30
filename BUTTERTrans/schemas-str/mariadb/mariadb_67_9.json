@@ -1,0 +1,4 @@
+[
+    "Table: `t1`\nColumns:\n(id, int(10), PRI)\n",
+    "Table: `t2`\nColumns:\n(id, int(10), PRI)\n(val, int(10), )\n"
+]

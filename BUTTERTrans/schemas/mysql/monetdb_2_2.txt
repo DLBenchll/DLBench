@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS t;
+CREATE TABLE t(c char(3), vc varchar(3), b binary(3), vb varbinary(3));
