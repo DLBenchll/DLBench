@@ -1,5 +1,0 @@
-SELECT strptime(CONCAT('15-01-2001', ' 2:59:58.999'), CONCAT('%d-%m-%Y', ' ','%H:%M:%S.%f'));
-SELECT strptime('2004.12.12 22.30.59', '%Y.%m.%d %H.%M.%S');
-DROP TABLE IF EXISTS t1;
-CREATE TABLE t1 (date1 CHAR(30), format1 CHAR(30) NOT NULL);
-INSERT INTO t1 VALUES('2003-01-02 10:11:12', '%Y-%m-%d %H:%i:%S');

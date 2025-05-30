@@ -1,4 +1,0 @@
-[
-    "Table: `t1`\nColumns:\n(id, int(11), PRI)\n(gender, char(1), )\n(name, varchar(20), )\n",
-    "Table: `t2`\nColumns:\n(pk, int(11), PRI)\n(time_nokey, time, )\n(datetime_key, time, )\n"
-]

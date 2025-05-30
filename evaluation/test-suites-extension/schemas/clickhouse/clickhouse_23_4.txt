@@ -1,4 +1,0 @@
-SELECT toUnixTimestamp(now('UTC')) - toUnixTimestamp(now());
-DROP TABLE IF EXISTS t1;
-CREATE TABLE t1 (i Int32, ts DateTime) ENGINE = MergeTree() ORDER BY tuple();
-INSERT INTO t1 (i, ts) VALUES(toUnixTimestamp('2003-03-01 00:00:00'), '2003-03-01 00:00:00');

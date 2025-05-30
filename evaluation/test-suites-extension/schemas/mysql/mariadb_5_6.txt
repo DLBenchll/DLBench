@@ -1,6 +1,0 @@
-DROP USER IF EXISTS 'test'@'localhost';
-CREATE USER 'test'@'localhost' IDENTIFIED BY 'gambling';
-GRANT ALL PRIVILEGES ON *.* TO 'test'@'localhost';
-DROP USER 'test'@'localhost';
-DROP USER IF EXISTS 'must_change'@'localhost';
-CREATE USER 'must_change'@'localhost' IDENTIFIED BY 'aha';

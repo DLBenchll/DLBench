@@ -1,3 +1,0 @@
-DROP TABLE IF EXISTS t5;
-create table t5 (c1 int, c2 varchar(128) not null);
-insert into t5 values (1, STRFTIME(DATE '2001-01-01','%W'));

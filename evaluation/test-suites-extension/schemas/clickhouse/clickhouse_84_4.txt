@@ -1,4 +1,0 @@
-DROP TABLE IF EXISTS t5;
-CREATE TABLE t5 (c1 Int32, c2 String NOT NULL) ENGINE=MergeTree ORDER BY c1;
-INSERT INTO t5 VALUES (1, formatDateTime(toDateTime('2001-01-01'), '%W'));
-INSERT INTO t5 VALUES (2, formatDateTime(toDateTime('2001-01-01'), '%W'));

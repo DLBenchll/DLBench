@@ -1,6 +1,0 @@
-DROP TABLE IF EXISTS simple1;
-CREATE TABLE simple1 ENGINE=MergeTree ORDER BY id AS SELECT number + 1 AS id FROM numbers(200);
-DROP TABLE IF EXISTS bigger_than_it_looks;
-CREATE TABLE bigger_than_it_looks ENGINE=MergeTree ORDER BY id AS SELECT number + 1 AS id FROM numbers(200);
-DROP TABLE IF EXISTS extremely_skewed;
-CREATE TABLE extremely_skewed (id Int32, t String) ENGINE=MergeTree ORDER BY id;

@@ -1,8 +1,0 @@
-DROP TABLE IF EXISTS t1;
-CREATE TABLE t1 (a String, b String) ENGINE=MergeTree ORDER BY a;
-SELECT concat('|', a, '|'), concat('|', b, '|') FROM t1;
-DROP TABLE t1;
-CREATE TABLE t1 (val String) ENGINE=MergeTree ORDER BY val;
-SELECT HEX(val) FROM t1;
-DROP TABLE t1;
-CREATE TABLE t1 (a String) ENGINE=MergeTree ORDER BY a;

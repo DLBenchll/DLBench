@@ -1,4 +1,0 @@
-select unix_timestamp(utc_timestamp())-unix_timestamp(current_timestamp()); -- UNIX_TIMESTAMP, UTC_TIMESTAMP, CURRENT_TIMESTAMP
-DROP TABLE IF EXISTS t1;
-create table t1 (i int, ts timestamp);
-insert into t1 (i, ts) values(unix_timestamp('2003-03-01 00:00:00'),'2003-03-01 00:00:00'); -- UNIX_TIMESTAMP

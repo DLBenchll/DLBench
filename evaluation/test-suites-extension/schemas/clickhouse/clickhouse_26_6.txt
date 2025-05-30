@@ -1,6 +1,0 @@
-DROP TABLE IF EXISTS t1;
-CREATE TABLE t1 (a String) ENGINE = MergeTree() ORDER BY tuple();
-INSERT INTO t1 VALUES ('b'),('a\\0'),('a'),('a '),('aa'),(NULL);
-SELECT hex(a) FROM t1 ORDER BY a;
-SELECT hex(concat(a,'\\0')) AS b FROM t1 ORDER BY concat(a,'\\0');
-ALTER TABLE t1 ALTER COLUMN a TYPE String;

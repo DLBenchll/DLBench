@@ -1,2 +1,0 @@
-select ln(exp(10)),exp(ln(sqrt(10))*2),ln(NULL);
-select log(2, 8),log(2, 15);

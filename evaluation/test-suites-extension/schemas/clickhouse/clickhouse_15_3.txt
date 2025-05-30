@@ -1,3 +1,0 @@
-SELECT toUnixTimestamp('2011-01-01 00:00:00') AS time_t, toUnixTimestamp('2011-01-01 00:00:00') % 3 AS part, 1234567890 % 3 AS part2;
-DROP TABLE IF EXISTS t3;
-CREATE TABLE t3 (a DateTime, b String) ENGINE = MergeTree ORDER BY a;

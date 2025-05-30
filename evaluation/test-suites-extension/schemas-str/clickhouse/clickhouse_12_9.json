@@ -1,5 +1,0 @@
-[
-    "Table: `t1`\nColumns:\n(a, Int32, )\n",
-    "Table: `t2`\nColumns:\n(a, Int32, )\n",
-    "Table: `t3`\nColumns:\n(a, String, )\n(b, String, )\n(filler, String, )\n"
-]

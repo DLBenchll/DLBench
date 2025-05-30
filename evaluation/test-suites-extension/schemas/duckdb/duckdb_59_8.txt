@@ -1,8 +1,0 @@
-select ln(exp(10)),exp(ln(sqrt(10))*2),ln(NULL);
-select log2(8),log2(15),log2(NULL);
-select pow(10,log10(10)),pow(2,4);
-select ceil(0.09);
-select ceil(0.000000000000000009);
-DROP TABLE IF EXISTS t1;
-create table t1 (a varchar(90), ts timestamp not null);
-insert into t1 values ('http://www.foo.com/', current_timestamp);

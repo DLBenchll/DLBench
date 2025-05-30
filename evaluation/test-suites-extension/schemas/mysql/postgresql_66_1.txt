@@ -1,1 +1,0 @@
-SELECT CAST(time('23:42:12') AS DECIMAL); -- TIME

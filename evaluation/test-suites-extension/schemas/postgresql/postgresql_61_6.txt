@@ -1,6 +1,0 @@
-SELECT MD5('a'), encode(MD5('a')::bytea, 'hex');
-DROP TABLE IF EXISTS t1;
-CREATE TABLE t1 AS SELECT MD5('a') AS c1;
-DROP TABLE t1;
-SELECT MD5('hello');
-EXPLAIN SELECT MD5('hello');

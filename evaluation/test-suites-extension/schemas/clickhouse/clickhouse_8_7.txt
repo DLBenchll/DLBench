@@ -1,6 +1,0 @@
-DROP TABLE IF EXISTS prt1;
-CREATE TABLE prt1 (a Int32, b Int32, c String) ENGINE=MergeTree ORDER BY a;
-INSERT INTO prt1 SELECT number AS i, i % 25, LPAD(toString(i), 4, '0') FROM numbers(600) WHERE i % 2 = 0;
-DROP TABLE prt1;
-DROP TABLE IF EXISTS prt2;
-CREATE TABLE prt2 (a Int32, b Int32, c String) ENGINE=MergeTree ORDER BY a;

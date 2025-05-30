@@ -1,1 +1,0 @@
-select date_format("1997-12-31 23:59:59.000002", "%f"); -- DATE_FORMAT

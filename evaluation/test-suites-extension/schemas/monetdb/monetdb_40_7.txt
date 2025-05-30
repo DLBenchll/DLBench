@@ -1,7 +1,0 @@
-DROP TABLE IF EXISTS t1;
-CREATE TABLE t1 (a char(10) not null);
-INSERT INTO t1 VALUES ('a'),('a\\0'),('a\\t'),('a ');
-SELECT NULL AS hex_a, CASE WHEN a = 'a' THEN 0 WHEN a < 'a' THEN -1 ELSE 1 END AS strcmp_a_a, CASE WHEN a = 'a ' THEN 0 WHEN a < 'a ' THEN -1 ELSE 1 END AS strcmp_a_a_space FROM t1;
-DROP TABLE t1;
-CREATE TABLE t1 (b int, c int);
-INSERT INTO t1 (b,c) VALUES (1,2), (1,1), (2,2);

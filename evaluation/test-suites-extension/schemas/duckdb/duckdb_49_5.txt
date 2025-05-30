@@ -1,4 +1,0 @@
-DROP TABLE IF EXISTS t1;
-create table t1 (text1 varchar(32) not NULL);
-insert into t1 values ('teststring'), ('nothing'), ('teststring\\t');
-ALTER TABLE t1 ALTER COLUMN text1 TYPE VARCHAR(32);

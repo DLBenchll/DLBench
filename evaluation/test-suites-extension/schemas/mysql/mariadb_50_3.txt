@@ -1,3 +1,0 @@
-CREATE USER 'ev_test'@'localhost';
-GRANT ALL ON *.* to ev_test@localhost;
-REVOKE EVENT ON *.* FROM ev_test@localhost;

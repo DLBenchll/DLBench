@@ -1,8 +1,0 @@
-DROP TABLE IF EXISTS t1;
-CREATE TABLE t1 (data bytea);
-INSERT INTO t1 (data) VALUES ('aaa'::bytea);
-UPDATE t1 SET data = repeat('a', 18*1024)::bytea;
-SELECT octet_length(data) FROM t1;
-DELETE FROM t1 WHERE left(data::text, 1) = 'a';
-TRUNCATE TABLE t1;
-INSERT INTO t1 (data) VALUES (repeat('a', 1*1024)::bytea);

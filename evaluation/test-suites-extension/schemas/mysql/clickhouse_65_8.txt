@@ -1,7 +1,0 @@
-select maketime(10,11,12); -- MAKETIME
-select maketime(20,11,12); -- MAKETIME
-select timestamp("2001-12-01", "01:01:01.999999"); -- TIMESTAMP
-select timestamp("2001-10-01", "01:01:01.000001"); -- TIMESTAMP
-select timestamp("2001-12-01", "20:01:01"); -- TIMESTAMP
-select timestamp("2001-12-01"); -- TIMESTAMP
-select day("1997-12-31 23:59:59.000001"); -- DAY

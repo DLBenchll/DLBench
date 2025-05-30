@@ -1,8 +1,0 @@
-DROP TABLE IF EXISTS t1;
-create table t1 (text1 varchar(32) not NULL);
-insert into t1 values ('teststring'), ('nothing'), ('teststring\\t');
-select concat('|', text1, '|') as c from t1 where text1='teststring' or text1 like 'teststring_%' order by c; -- CONCAT
-select concat('|', text1, '|') from t1 where text1='teststring' or text1 > 'teststring\\t'; -- CONCAT
-select text1, length(text1) from t1 order by text1; -- LENGTH
-insert into t1 values ('teststring ');
-select concat('|', text1, '|') from t1 order by text1; -- CONCAT

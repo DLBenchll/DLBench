@@ -1,6 +1,0 @@
-DROP TABLE IF EXISTS t1;
-create table t1 (a int, b char(10), c char(10), filler char(10));
-insert into t1 values (1,'abcdefg','abcdefg','one');
-insert into t1 values (2,'ijkilmn','ijkilmn','two');
-insert into t1 values (3,'qrstuvw','qrstuvw','three');
-update t1 set filler = 'boo' where a = 1;

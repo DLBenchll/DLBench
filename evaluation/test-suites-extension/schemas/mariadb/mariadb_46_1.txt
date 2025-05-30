@@ -1,1 +1,0 @@
-select str_to_date(concat('15-01-2001',' 2:59:58.999'),concat('%d-%m-%Y',' ','%H:%i:%s.%f'));

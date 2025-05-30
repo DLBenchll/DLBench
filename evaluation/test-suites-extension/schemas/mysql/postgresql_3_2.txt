@@ -1,2 +1,0 @@
-DROP TABLE IF EXISTS trans;
-CREATE TABLE trans (a INT);

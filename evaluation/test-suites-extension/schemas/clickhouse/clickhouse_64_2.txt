@@ -1,2 +1,0 @@
-SELECT formatDateTime(toDateTime('1997-12-31 23:59:59'), '%f');
-SELECT dateDiff('day', toDate('1997-12-30'), toDate('1997-12-31 23:59:59'));

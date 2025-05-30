@@ -1,8 +1,0 @@
-drop table if exists t1;
-CREATE TABLE t1 (data BLOB);
-INSERT INTO t1 (data) VALUES (X'616161');
-UPDATE t1 set data=repeat('a',18*1024);
-select octet_length(data) from t1;
-delete from t1 where left(data,1)='a';
-truncate table t1;
-INSERT INTO t1 (data) VALUES (repeat('a',1*1024));

@@ -1,2 +1,0 @@
-BEGIN;
-DROP TABLE IF EXISTS simple1;

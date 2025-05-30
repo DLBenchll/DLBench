@@ -1,6 +1,0 @@
-DROP TABLE IF EXISTS table_varchar_pad_space;
-CREATE TABLE table_varchar_pad_space (f1 String) ENGINE=MergeTree ORDER BY f1;
-INSERT INTO table_varchar_pad_space VALUES ('ABC  ');
-INSERT INTO table_varchar_pad_space VALUES ('XYZ');
-INSERT INTO table_varchar_pad_space VALUES ('XYZ ');
-INSERT INTO table_varchar_pad_space VALUES ('ABC ');

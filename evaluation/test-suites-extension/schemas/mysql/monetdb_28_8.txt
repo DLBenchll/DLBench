@@ -1,8 +1,0 @@
-DROP TABLE IF EXISTS t1;
-CREATE TABLE t1 (value TEXT NOT NULL, id VARCHAR(32) NOT NULL, stamp timestamp NOT NULL);
-INSERT INTO t1 VALUES ("my value", "myKey","1999-04-02 00:00:00");
-UPDATE t1 SET value="my value" WHERE id="myKey";
-UPDATE t1 SET id="myKey" WHERE value="my value";
-drop table t1;
-create table t1 (a timestamp NOT NULL);
-insert into t1 values (now()); -- NOW

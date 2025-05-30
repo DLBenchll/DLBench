@@ -1,3 +1,0 @@
-[
-    "Table: `t1`\nColumns:\n(time, String, )\n(date, Date, )\n(timestamp, DateTime, )\n(quarter, Int32, )\n(week, Int32, )\n(year, Int32, )\n(timestampadd, Int32, )\n(timestampdiff, Int32, )\n"
-]
