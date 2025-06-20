@@ -1,6 +1,6 @@
 [
     {
-        "sql_id": "BIRDTrans_1",
+        "sql_id": 1,
         "database_name": "movie_platform",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -42,7 +42,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_2",
+        "sql_id": 2,
         "database_name": "movie_platform",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -92,7 +92,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_3",
+        "sql_id": 3,
         "database_name": "movie_platform",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -140,7 +140,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_4",
+        "sql_id": 4,
         "database_name": "movie_platform",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -188,7 +188,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_5",
+        "sql_id": 5,
         "database_name": "movie_platform",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -232,7 +232,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_6",
+        "sql_id": 6,
         "database_name": "book_publishing_company",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -278,7 +278,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_7",
+        "sql_id": 7,
         "database_name": "book_publishing_company",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -324,7 +324,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_8",
+        "sql_id": 8,
         "database_name": "book_publishing_company",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -368,7 +368,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_9",
+        "sql_id": 9,
         "database_name": "book_publishing_company",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -417,7 +417,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_10",
+        "sql_id": 10,
         "database_name": "book_publishing_company",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -463,7 +463,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_11",
+        "sql_id": 11,
         "database_name": "book_publishing_company",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -509,7 +509,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_12",
+        "sql_id": 12,
         "database_name": "book_publishing_company",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -555,7 +555,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_13",
+        "sql_id": 13,
         "database_name": "book_publishing_company",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -601,7 +601,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_14",
+        "sql_id": 14,
         "database_name": "book_publishing_company",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -645,7 +645,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_15",
+        "sql_id": 15,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -716,7 +716,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_16",
+        "sql_id": 16,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -762,7 +762,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_17",
+        "sql_id": 17,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -808,7 +808,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_18",
+        "sql_id": 18,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -864,7 +864,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_19",
+        "sql_id": 19,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -935,7 +935,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_20",
+        "sql_id": 20,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -994,7 +994,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_21",
+        "sql_id": 21,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1038,7 +1038,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_22",
+        "sql_id": 22,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1124,7 +1124,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_23",
+        "sql_id": 23,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1170,7 +1170,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_24",
+        "sql_id": 24,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1214,7 +1214,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_25",
+        "sql_id": 25,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1257,7 +1257,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_26",
+        "sql_id": 26,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1306,7 +1306,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_27",
+        "sql_id": 27,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1352,7 +1352,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_28",
+        "sql_id": 28,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1398,7 +1398,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_29",
+        "sql_id": 29,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1444,7 +1444,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_30",
+        "sql_id": 30,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1500,7 +1500,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_31",
+        "sql_id": 31,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1544,7 +1544,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_32",
+        "sql_id": 32,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1590,7 +1590,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_33",
+        "sql_id": 33,
         "database_name": "retail_complains",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1636,7 +1636,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_34",
+        "sql_id": 34,
         "database_name": "movies_4",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1684,7 +1684,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_35",
+        "sql_id": 35,
         "database_name": "movies_4",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1732,7 +1732,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_36",
+        "sql_id": 36,
         "database_name": "movies_4",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1780,7 +1780,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_37",
+        "sql_id": 37,
         "database_name": "movies_4",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1824,7 +1824,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_38",
+        "sql_id": 38,
         "database_name": "movies_4",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1870,7 +1870,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_39",
+        "sql_id": 39,
         "database_name": "movies_4",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1914,7 +1914,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_40",
+        "sql_id": 40,
         "database_name": "movies_4",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -1962,7 +1962,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_41",
+        "sql_id": 41,
         "database_name": "movies_4",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -2010,7 +2010,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_42",
+        "sql_id": 42,
         "database_name": "codebase_comments",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -2094,7 +2094,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_43",
+        "sql_id": 43,
         "database_name": "codebase_comments",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -2178,7 +2178,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_44",
+        "sql_id": 44,
         "database_name": "codebase_comments",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -2262,7 +2262,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_45",
+        "sql_id": 45,
         "database_name": "codebase_comments",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -2346,7 +2346,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_46",
+        "sql_id": 46,
         "database_name": "codebase_comments",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -2430,7 +2430,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_47",
+        "sql_id": 47,
         "database_name": "movie",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -2485,7 +2485,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_48",
+        "sql_id": 48,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -2532,7 +2532,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_49",
+        "sql_id": 49,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -2580,7 +2580,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_50",
+        "sql_id": 50,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -2623,7 +2623,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_51",
+        "sql_id": 51,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -2664,7 +2664,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_52",
+        "sql_id": 52,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -2707,7 +2707,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_53",
+        "sql_id": 53,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -2753,7 +2753,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_54",
+        "sql_id": 54,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -2798,7 +2798,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_55",
+        "sql_id": 55,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -2841,7 +2841,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_56",
+        "sql_id": 56,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -2894,7 +2894,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_57",
+        "sql_id": 57,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -2937,7 +2937,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_58",
+        "sql_id": 58,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -2980,7 +2980,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_59",
+        "sql_id": 59,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3026,7 +3026,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_60",
+        "sql_id": 60,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3069,7 +3069,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_61",
+        "sql_id": 61,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3112,7 +3112,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_62",
+        "sql_id": 62,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3160,7 +3160,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_63",
+        "sql_id": 63,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3203,7 +3203,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_64",
+        "sql_id": 64,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3250,7 +3250,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_65",
+        "sql_id": 65,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3295,7 +3295,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_66",
+        "sql_id": 66,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3342,7 +3342,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_67",
+        "sql_id": 67,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3390,7 +3390,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_68",
+        "sql_id": 68,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3436,7 +3436,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_69",
+        "sql_id": 69,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3482,7 +3482,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_70",
+        "sql_id": 70,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3535,7 +3535,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_71",
+        "sql_id": 71,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3583,7 +3583,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_72",
+        "sql_id": 72,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3631,7 +3631,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_73",
+        "sql_id": 73,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3677,7 +3677,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_74",
+        "sql_id": 74,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3718,7 +3718,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_75",
+        "sql_id": 75,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3764,7 +3764,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_76",
+        "sql_id": 76,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3812,7 +3812,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_77",
+        "sql_id": 77,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3855,7 +3855,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_78",
+        "sql_id": 78,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3898,7 +3898,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_79",
+        "sql_id": 79,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3941,7 +3941,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_80",
+        "sql_id": 80,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -3985,7 +3985,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_81",
+        "sql_id": 81,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4031,7 +4031,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_82",
+        "sql_id": 82,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4081,7 +4081,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_83",
+        "sql_id": 83,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4127,7 +4127,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_84",
+        "sql_id": 84,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4168,7 +4168,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_85",
+        "sql_id": 85,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4221,7 +4221,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_86",
+        "sql_id": 86,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4264,7 +4264,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_87",
+        "sql_id": 87,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4329,7 +4329,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_88",
+        "sql_id": 88,
         "database_name": "talkingdata",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4372,7 +4372,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_89",
+        "sql_id": 89,
         "database_name": "law_episode",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4418,7 +4418,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_90",
+        "sql_id": 90,
         "database_name": "law_episode",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4461,7 +4461,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_91",
+        "sql_id": 91,
         "database_name": "law_episode",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4504,7 +4504,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_92",
+        "sql_id": 92,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4555,7 +4555,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_93",
+        "sql_id": 93,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4606,7 +4606,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_94",
+        "sql_id": 94,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4657,7 +4657,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_95",
+        "sql_id": 95,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4708,7 +4708,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_96",
+        "sql_id": 96,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4752,7 +4752,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_97",
+        "sql_id": 97,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4808,7 +4808,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_98",
+        "sql_id": 98,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4854,7 +4854,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_99",
+        "sql_id": 99,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4900,7 +4900,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_100",
+        "sql_id": 100,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4946,7 +4946,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_101",
+        "sql_id": 101,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -4997,7 +4997,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_102",
+        "sql_id": 102,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5048,7 +5048,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_103",
+        "sql_id": 103,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5114,7 +5114,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_104",
+        "sql_id": 104,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5160,7 +5160,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_105",
+        "sql_id": 105,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5221,7 +5221,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_106",
+        "sql_id": 106,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5272,7 +5272,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_107",
+        "sql_id": 107,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5318,7 +5318,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_108",
+        "sql_id": 108,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5369,7 +5369,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_109",
+        "sql_id": 109,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5420,7 +5420,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_110",
+        "sql_id": 110,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5466,7 +5466,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_111",
+        "sql_id": 111,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5510,7 +5510,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_112",
+        "sql_id": 112,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5561,7 +5561,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_113",
+        "sql_id": 113,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5607,7 +5607,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_114",
+        "sql_id": 114,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5658,7 +5658,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_115",
+        "sql_id": 115,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5704,7 +5704,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_116",
+        "sql_id": 116,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5750,7 +5750,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_117",
+        "sql_id": 117,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5796,7 +5796,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_118",
+        "sql_id": 118,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5842,7 +5842,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_119",
+        "sql_id": 119,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5888,7 +5888,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_120",
+        "sql_id": 120,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5934,7 +5934,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_121",
+        "sql_id": 121,
         "database_name": "synthea",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -5980,7 +5980,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_122",
+        "sql_id": 122,
         "database_name": "car_retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6028,7 +6028,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_123",
+        "sql_id": 123,
         "database_name": "car_retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6076,7 +6076,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_124",
+        "sql_id": 124,
         "database_name": "car_retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6122,7 +6122,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_125",
+        "sql_id": 125,
         "database_name": "car_retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6173,7 +6173,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_126",
+        "sql_id": 126,
         "database_name": "car_retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6219,7 +6219,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_127",
+        "sql_id": 127,
         "database_name": "car_retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6267,7 +6267,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_128",
+        "sql_id": 128,
         "database_name": "car_retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6313,7 +6313,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_129",
+        "sql_id": 129,
         "database_name": "car_retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6362,7 +6362,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_130",
+        "sql_id": 130,
         "database_name": "car_retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6414,7 +6414,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_131",
+        "sql_id": 131,
         "database_name": "car_retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6465,7 +6465,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_132",
+        "sql_id": 132,
         "database_name": "car_retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6516,7 +6516,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_133",
+        "sql_id": 133,
         "database_name": "car_retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6562,7 +6562,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_134",
+        "sql_id": 134,
         "database_name": "car_retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6608,7 +6608,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_135",
+        "sql_id": 135,
         "database_name": "car_retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6656,7 +6656,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_136",
+        "sql_id": 136,
         "database_name": "car_retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6705,7 +6705,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_137",
+        "sql_id": 137,
         "database_name": "car_retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6753,7 +6753,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_138",
+        "sql_id": 138,
         "database_name": "restaurant",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6796,7 +6796,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_139",
+        "sql_id": 139,
         "database_name": "restaurant",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6839,7 +6839,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_140",
+        "sql_id": 140,
         "database_name": "restaurant",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6880,7 +6880,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_141",
+        "sql_id": 141,
         "database_name": "restaurant",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6923,7 +6923,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_142",
+        "sql_id": 142,
         "database_name": "restaurant",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -6966,7 +6966,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_143",
+        "sql_id": 143,
         "database_name": "restaurant",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7007,7 +7007,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_144",
+        "sql_id": 144,
         "database_name": "restaurant",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7050,7 +7050,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_145",
+        "sql_id": 145,
         "database_name": "soccer_2016",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7098,7 +7098,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_146",
+        "sql_id": 146,
         "database_name": "soccer_2016",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7141,7 +7141,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_147",
+        "sql_id": 147,
         "database_name": "soccer_2016",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7189,7 +7189,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_148",
+        "sql_id": 148,
         "database_name": "soccer_2016",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7232,7 +7232,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_149",
+        "sql_id": 149,
         "database_name": "soccer_2016",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7276,7 +7276,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_150",
+        "sql_id": 150,
         "database_name": "soccer_2016",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7322,7 +7322,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_151",
+        "sql_id": 151,
         "database_name": "soccer_2016",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7370,7 +7370,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_152",
+        "sql_id": 152,
         "database_name": "soccer_2016",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7416,7 +7416,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_153",
+        "sql_id": 153,
         "database_name": "soccer_2016",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7461,7 +7461,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_154",
+        "sql_id": 154,
         "database_name": "soccer_2016",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7504,7 +7504,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_155",
+        "sql_id": 155,
         "database_name": "soccer_2016",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7556,7 +7556,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_156",
+        "sql_id": 156,
         "database_name": "soccer_2016",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7603,7 +7603,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_157",
+        "sql_id": 157,
         "database_name": "soccer_2016",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7647,7 +7647,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_158",
+        "sql_id": 158,
         "database_name": "soccer_2016",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7693,7 +7693,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_159",
+        "sql_id": 159,
         "database_name": "soccer_2016",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7737,7 +7737,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_160",
+        "sql_id": 160,
         "database_name": "movielens",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7780,7 +7780,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_161",
+        "sql_id": 161,
         "database_name": "movielens",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7825,7 +7825,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_162",
+        "sql_id": 162,
         "database_name": "movielens",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7868,7 +7868,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_163",
+        "sql_id": 163,
         "database_name": "movielens",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7911,7 +7911,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_164",
+        "sql_id": 164,
         "database_name": "movielens",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -7961,7 +7961,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_165",
+        "sql_id": 165,
         "database_name": "movielens",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8004,7 +8004,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_166",
+        "sql_id": 166,
         "database_name": "movielens",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8050,7 +8050,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_167",
+        "sql_id": 167,
         "database_name": "movielens",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8095,7 +8095,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_168",
+        "sql_id": 168,
         "database_name": "movielens",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8143,7 +8143,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_169",
+        "sql_id": 169,
         "database_name": "movielens",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8203,7 +8203,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_170",
+        "sql_id": 170,
         "database_name": "superstore",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8254,7 +8254,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_171",
+        "sql_id": 171,
         "database_name": "superstore",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8302,7 +8302,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_172",
+        "sql_id": 172,
         "database_name": "superstore",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8348,7 +8348,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_173",
+        "sql_id": 173,
         "database_name": "superstore",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8394,7 +8394,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_174",
+        "sql_id": 174,
         "database_name": "superstore",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8442,7 +8442,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_175",
+        "sql_id": 175,
         "database_name": "superstore",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8490,7 +8490,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_176",
+        "sql_id": 176,
         "database_name": "superstore",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8536,7 +8536,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_177",
+        "sql_id": 177,
         "database_name": "superstore",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8582,7 +8582,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_178",
+        "sql_id": 178,
         "database_name": "superstore",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8628,7 +8628,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_179",
+        "sql_id": 179,
         "database_name": "superstore",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8674,7 +8674,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_180",
+        "sql_id": 180,
         "database_name": "superstore",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8723,7 +8723,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_181",
+        "sql_id": 181,
         "database_name": "superstore",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8769,7 +8769,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_182",
+        "sql_id": 182,
         "database_name": "superstore",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8815,7 +8815,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_183",
+        "sql_id": 183,
         "database_name": "superstore",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8861,7 +8861,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_184",
+        "sql_id": 184,
         "database_name": "superstore",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8907,7 +8907,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_185",
+        "sql_id": 185,
         "database_name": "shooting",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8948,7 +8948,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_186",
+        "sql_id": 186,
         "database_name": "shooting",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -8997,7 +8997,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_187",
+        "sql_id": 187,
         "database_name": "shooting",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9071,7 +9071,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_188",
+        "sql_id": 188,
         "database_name": "shooting",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9115,7 +9115,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_189",
+        "sql_id": 189,
         "database_name": "genes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9160,7 +9160,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_190",
+        "sql_id": 190,
         "database_name": "genes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9203,7 +9203,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_191",
+        "sql_id": 191,
         "database_name": "app_store",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9246,7 +9246,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_192",
+        "sql_id": 192,
         "database_name": "regional_sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9287,7 +9287,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_193",
+        "sql_id": 193,
         "database_name": "regional_sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9334,7 +9334,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_194",
+        "sql_id": 194,
         "database_name": "regional_sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9375,7 +9375,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_195",
+        "sql_id": 195,
         "database_name": "regional_sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9416,7 +9416,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_196",
+        "sql_id": 196,
         "database_name": "regional_sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9457,7 +9457,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_197",
+        "sql_id": 197,
         "database_name": "regional_sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9498,7 +9498,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_198",
+        "sql_id": 198,
         "database_name": "regional_sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9541,7 +9541,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_199",
+        "sql_id": 199,
         "database_name": "regional_sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9584,7 +9584,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_200",
+        "sql_id": 200,
         "database_name": "regional_sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9627,7 +9627,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_201",
+        "sql_id": 201,
         "database_name": "regional_sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9677,7 +9677,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_202",
+        "sql_id": 202,
         "database_name": "regional_sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9718,7 +9718,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_203",
+        "sql_id": 203,
         "database_name": "regional_sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9761,7 +9761,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_204",
+        "sql_id": 204,
         "database_name": "regional_sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9806,7 +9806,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_205",
+        "sql_id": 205,
         "database_name": "regional_sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9852,7 +9852,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_206",
+        "sql_id": 206,
         "database_name": "regional_sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9893,7 +9893,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_207",
+        "sql_id": 207,
         "database_name": "regional_sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9934,7 +9934,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_208",
+        "sql_id": 208,
         "database_name": "professional_basketball",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -9980,7 +9980,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_209",
+        "sql_id": 209,
         "database_name": "professional_basketball",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10026,7 +10026,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_210",
+        "sql_id": 210,
         "database_name": "professional_basketball",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10069,7 +10069,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_211",
+        "sql_id": 211,
         "database_name": "shakespeare",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10117,7 +10117,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_212",
+        "sql_id": 212,
         "database_name": "shakespeare",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10160,7 +10160,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_213",
+        "sql_id": 213,
         "database_name": "shakespeare",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10222,7 +10222,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_214",
+        "sql_id": 214,
         "database_name": "shakespeare",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10267,7 +10267,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_215",
+        "sql_id": 215,
         "database_name": "shakespeare",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10313,7 +10313,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_216",
+        "sql_id": 216,
         "database_name": "shakespeare",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10356,7 +10356,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_217",
+        "sql_id": 217,
         "database_name": "shakespeare",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10376,7 +10376,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_218",
+        "sql_id": 218,
         "database_name": "shakespeare",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10396,7 +10396,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_219",
+        "sql_id": 219,
         "database_name": "shakespeare",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10443,7 +10443,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_220",
+        "sql_id": 220,
         "database_name": "donor",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10461,7 +10461,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_221",
+        "sql_id": 221,
         "database_name": "video_games",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10503,7 +10503,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_222",
+        "sql_id": 222,
         "database_name": "authors",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10545,7 +10545,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_223",
+        "sql_id": 223,
         "database_name": "college_completion",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10588,7 +10588,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_224",
+        "sql_id": 224,
         "database_name": "public_review_platform",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10634,7 +10634,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_225",
+        "sql_id": 225,
         "database_name": "public_review_platform",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10684,7 +10684,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_226",
+        "sql_id": 226,
         "database_name": "public_review_platform",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10731,7 +10731,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_227",
+        "sql_id": 227,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10774,7 +10774,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_228",
+        "sql_id": 228,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10819,7 +10819,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_229",
+        "sql_id": 229,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10864,7 +10864,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_230",
+        "sql_id": 230,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10909,7 +10909,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_231",
+        "sql_id": 231,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10954,7 +10954,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_232",
+        "sql_id": 232,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -10999,7 +10999,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_233",
+        "sql_id": 233,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11044,7 +11044,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_234",
+        "sql_id": 234,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11087,7 +11087,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_235",
+        "sql_id": 235,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11130,7 +11130,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_236",
+        "sql_id": 236,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11175,7 +11175,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_237",
+        "sql_id": 237,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11220,7 +11220,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_238",
+        "sql_id": 238,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11263,7 +11263,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_239",
+        "sql_id": 239,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11306,7 +11306,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_240",
+        "sql_id": 240,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11349,7 +11349,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_241",
+        "sql_id": 241,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11394,7 +11394,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_242",
+        "sql_id": 242,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11439,7 +11439,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_243",
+        "sql_id": 243,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11482,7 +11482,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_244",
+        "sql_id": 244,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11527,7 +11527,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_245",
+        "sql_id": 245,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11572,7 +11572,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_246",
+        "sql_id": 246,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11615,7 +11615,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_247",
+        "sql_id": 247,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11661,7 +11661,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_248",
+        "sql_id": 248,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11706,7 +11706,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_249",
+        "sql_id": 249,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11749,7 +11749,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_250",
+        "sql_id": 250,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11795,7 +11795,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_251",
+        "sql_id": 251,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11840,7 +11840,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_252",
+        "sql_id": 252,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11886,7 +11886,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_253",
+        "sql_id": 253,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11929,7 +11929,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_254",
+        "sql_id": 254,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -11974,7 +11974,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_255",
+        "sql_id": 255,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12019,7 +12019,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_256",
+        "sql_id": 256,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12064,7 +12064,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_257",
+        "sql_id": 257,
         "database_name": "simpson_episodes",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12109,7 +12109,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_258",
+        "sql_id": 258,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12157,7 +12157,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_259",
+        "sql_id": 259,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12200,7 +12200,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_260",
+        "sql_id": 260,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12243,7 +12243,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_261",
+        "sql_id": 261,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12286,7 +12286,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_262",
+        "sql_id": 262,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12329,7 +12329,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_263",
+        "sql_id": 263,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12370,7 +12370,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_264",
+        "sql_id": 264,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12415,7 +12415,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_265",
+        "sql_id": 265,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12463,7 +12463,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_266",
+        "sql_id": 266,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12504,7 +12504,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_267",
+        "sql_id": 267,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12550,7 +12550,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_268",
+        "sql_id": 268,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12593,7 +12593,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_269",
+        "sql_id": 269,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12636,7 +12636,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_270",
+        "sql_id": 270,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12679,7 +12679,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_271",
+        "sql_id": 271,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12730,7 +12730,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_272",
+        "sql_id": 272,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12773,7 +12773,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_273",
+        "sql_id": 273,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12836,7 +12836,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_274",
+        "sql_id": 274,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12879,7 +12879,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_275",
+        "sql_id": 275,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12922,7 +12922,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_276",
+        "sql_id": 276,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -12967,7 +12967,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_277",
+        "sql_id": 277,
         "database_name": "student_loan",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -13012,7 +13012,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_278",
+        "sql_id": 278,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -13078,7 +13078,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_279",
+        "sql_id": 279,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -13149,7 +13149,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_280",
+        "sql_id": 280,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -13194,7 +13194,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_281",
+        "sql_id": 281,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -13239,7 +13239,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_282",
+        "sql_id": 282,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -13303,7 +13303,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_283",
+        "sql_id": 283,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -13348,7 +13348,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_284",
+        "sql_id": 284,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -13414,7 +13414,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_285",
+        "sql_id": 285,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -13458,7 +13458,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_286",
+        "sql_id": 286,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -13502,7 +13502,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_287",
+        "sql_id": 287,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -13546,7 +13546,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_288",
+        "sql_id": 288,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -13615,7 +13615,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_289",
+        "sql_id": 289,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -13688,7 +13688,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_290",
+        "sql_id": 290,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -13737,7 +13737,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_291",
+        "sql_id": 291,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -13781,7 +13781,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_292",
+        "sql_id": 292,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -13852,7 +13852,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_293",
+        "sql_id": 293,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -13964,7 +13964,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_294",
+        "sql_id": 294,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -14033,7 +14033,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_295",
+        "sql_id": 295,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -14104,7 +14104,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_296",
+        "sql_id": 296,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -14150,7 +14150,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_297",
+        "sql_id": 297,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -14194,7 +14194,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_298",
+        "sql_id": 298,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -14288,7 +14288,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_299",
+        "sql_id": 299,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -14334,7 +14334,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_300",
+        "sql_id": 300,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -14403,7 +14403,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_301",
+        "sql_id": 301,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -14472,7 +14472,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_302",
+        "sql_id": 302,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -14541,7 +14541,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_303",
+        "sql_id": 303,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -14583,7 +14583,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_304",
+        "sql_id": 304,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -14627,7 +14627,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_305",
+        "sql_id": 305,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -14671,7 +14671,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_306",
+        "sql_id": 306,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -14781,7 +14781,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_307",
+        "sql_id": 307,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -14833,7 +14833,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_308",
+        "sql_id": 308,
         "database_name": "disney",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -14877,7 +14877,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_309",
+        "sql_id": 309,
         "database_name": "legislator",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -14923,7 +14923,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_310",
+        "sql_id": 310,
         "database_name": "legislator",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -14969,7 +14969,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_311",
+        "sql_id": 311,
         "database_name": "legislator",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15015,7 +15015,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_312",
+        "sql_id": 312,
         "database_name": "legislator",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15061,7 +15061,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_313",
+        "sql_id": 313,
         "database_name": "legislator",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15107,7 +15107,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_314",
+        "sql_id": 314,
         "database_name": "legislator",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15153,7 +15153,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_315",
+        "sql_id": 315,
         "database_name": "legislator",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15204,7 +15204,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_316",
+        "sql_id": 316,
         "database_name": "legislator",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15255,7 +15255,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_317",
+        "sql_id": 317,
         "database_name": "legislator",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15306,7 +15306,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_318",
+        "sql_id": 318,
         "database_name": "legislator",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15350,7 +15350,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_319",
+        "sql_id": 319,
         "database_name": "beer_factory",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15396,7 +15396,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_320",
+        "sql_id": 320,
         "database_name": "beer_factory",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15442,7 +15442,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_321",
+        "sql_id": 321,
         "database_name": "beer_factory",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15488,7 +15488,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_322",
+        "sql_id": 322,
         "database_name": "beer_factory",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15534,7 +15534,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_323",
+        "sql_id": 323,
         "database_name": "beer_factory",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15582,7 +15582,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_324",
+        "sql_id": 324,
         "database_name": "sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15627,7 +15627,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_325",
+        "sql_id": 325,
         "database_name": "sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15680,7 +15680,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_326",
+        "sql_id": 326,
         "database_name": "sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15723,7 +15723,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_327",
+        "sql_id": 327,
         "database_name": "sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15768,7 +15768,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_328",
+        "sql_id": 328,
         "database_name": "sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15821,7 +15821,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_329",
+        "sql_id": 329,
         "database_name": "sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15866,7 +15866,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_330",
+        "sql_id": 330,
         "database_name": "sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15909,7 +15909,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_331",
+        "sql_id": 331,
         "database_name": "sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15952,7 +15952,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_332",
+        "sql_id": 332,
         "database_name": "sales",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -15995,7 +15995,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_333",
+        "sql_id": 333,
         "database_name": "menu",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16040,7 +16040,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_334",
+        "sql_id": 334,
         "database_name": "menu",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16090,7 +16090,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_335",
+        "sql_id": 335,
         "database_name": "menu",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16134,7 +16134,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_336",
+        "sql_id": 336,
         "database_name": "shipping",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16180,7 +16180,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_337",
+        "sql_id": 337,
         "database_name": "shipping",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16226,7 +16226,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_338",
+        "sql_id": 338,
         "database_name": "shipping",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16272,7 +16272,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_339",
+        "sql_id": 339,
         "database_name": "shipping",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16318,7 +16318,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_340",
+        "sql_id": 340,
         "database_name": "shipping",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16366,7 +16366,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_341",
+        "sql_id": 341,
         "database_name": "shipping",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16412,7 +16412,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_342",
+        "sql_id": 342,
         "database_name": "shipping",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16460,7 +16460,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_343",
+        "sql_id": 343,
         "database_name": "shipping",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16506,7 +16506,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_344",
+        "sql_id": 344,
         "database_name": "shipping",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16552,7 +16552,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_345",
+        "sql_id": 345,
         "database_name": "shipping",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16598,7 +16598,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_346",
+        "sql_id": 346,
         "database_name": "shipping",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16646,7 +16646,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_347",
+        "sql_id": 347,
         "database_name": "shipping",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16692,7 +16692,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_348",
+        "sql_id": 348,
         "database_name": "shipping",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16738,7 +16738,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_349",
+        "sql_id": 349,
         "database_name": "shipping",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16784,7 +16784,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_350",
+        "sql_id": 350,
         "database_name": "language_corpus",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16828,7 +16828,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_351",
+        "sql_id": 351,
         "database_name": "language_corpus",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16870,7 +16870,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_352",
+        "sql_id": 352,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16914,7 +16914,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_353",
+        "sql_id": 353,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -16962,7 +16962,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_354",
+        "sql_id": 354,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17008,7 +17008,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_355",
+        "sql_id": 355,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17056,7 +17056,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_356",
+        "sql_id": 356,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17104,7 +17104,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_357",
+        "sql_id": 357,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17152,7 +17152,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_358",
+        "sql_id": 358,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17200,7 +17200,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_359",
+        "sql_id": 359,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17246,7 +17246,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_360",
+        "sql_id": 360,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17292,7 +17292,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_361",
+        "sql_id": 361,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17338,7 +17338,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_362",
+        "sql_id": 362,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17392,7 +17392,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_363",
+        "sql_id": 363,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17436,7 +17436,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_364",
+        "sql_id": 364,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17546,7 +17546,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_365",
+        "sql_id": 365,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17592,7 +17592,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_366",
+        "sql_id": 366,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17643,7 +17643,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_367",
+        "sql_id": 367,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17691,7 +17691,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_368",
+        "sql_id": 368,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17737,7 +17737,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_369",
+        "sql_id": 369,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17781,7 +17781,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_370",
+        "sql_id": 370,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17827,7 +17827,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_371",
+        "sql_id": 371,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17873,7 +17873,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_372",
+        "sql_id": 372,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17919,7 +17919,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_373",
+        "sql_id": 373,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -17965,7 +17965,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_374",
+        "sql_id": 374,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18011,7 +18011,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_375",
+        "sql_id": 375,
         "database_name": "books",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18057,7 +18057,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_376",
+        "sql_id": 376,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18103,7 +18103,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_377",
+        "sql_id": 377,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18149,7 +18149,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_378",
+        "sql_id": 378,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18195,7 +18195,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_379",
+        "sql_id": 379,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18241,7 +18241,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_380",
+        "sql_id": 380,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18287,7 +18287,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_381",
+        "sql_id": 381,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18333,7 +18333,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_382",
+        "sql_id": 382,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18379,7 +18379,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_383",
+        "sql_id": 383,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18425,7 +18425,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_384",
+        "sql_id": 384,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18471,7 +18471,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_385",
+        "sql_id": 385,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18519,7 +18519,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_386",
+        "sql_id": 386,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18567,7 +18567,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_387",
+        "sql_id": 387,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18613,7 +18613,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_388",
+        "sql_id": 388,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18657,7 +18657,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_389",
+        "sql_id": 389,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18701,7 +18701,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_390",
+        "sql_id": 390,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18747,7 +18747,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_391",
+        "sql_id": 391,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18793,7 +18793,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_392",
+        "sql_id": 392,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18839,7 +18839,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_393",
+        "sql_id": 393,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18885,7 +18885,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_394",
+        "sql_id": 394,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18931,7 +18931,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_395",
+        "sql_id": 395,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -18979,7 +18979,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_396",
+        "sql_id": 396,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19025,7 +19025,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_397",
+        "sql_id": 397,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19073,7 +19073,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_398",
+        "sql_id": 398,
         "database_name": "food_inspection_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19121,7 +19121,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_399",
+        "sql_id": 399,
         "database_name": "coinmarketcap",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19167,7 +19167,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_400",
+        "sql_id": 400,
         "database_name": "coinmarketcap",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19213,7 +19213,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_401",
+        "sql_id": 401,
         "database_name": "coinmarketcap",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19259,7 +19259,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_402",
+        "sql_id": 402,
         "database_name": "coinmarketcap",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19305,7 +19305,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_403",
+        "sql_id": 403,
         "database_name": "coinmarketcap",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19351,7 +19351,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_404",
+        "sql_id": 404,
         "database_name": "coinmarketcap",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19398,7 +19398,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_405",
+        "sql_id": 405,
         "database_name": "coinmarketcap",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19444,7 +19444,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_406",
+        "sql_id": 406,
         "database_name": "coinmarketcap",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19490,7 +19490,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_407",
+        "sql_id": 407,
         "database_name": "retail_world",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19536,7 +19536,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_408",
+        "sql_id": 408,
         "database_name": "retail_world",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19582,7 +19582,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_409",
+        "sql_id": 409,
         "database_name": "retail_world",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19632,7 +19632,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_410",
+        "sql_id": 410,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19675,7 +19675,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_411",
+        "sql_id": 411,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19718,7 +19718,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_412",
+        "sql_id": 412,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19761,7 +19761,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_413",
+        "sql_id": 413,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19805,7 +19805,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_414",
+        "sql_id": 414,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19849,7 +19849,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_415",
+        "sql_id": 415,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19900,7 +19900,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_416",
+        "sql_id": 416,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19941,7 +19941,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_417",
+        "sql_id": 417,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -19982,7 +19982,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_418",
+        "sql_id": 418,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20027,7 +20027,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_419",
+        "sql_id": 419,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20070,7 +20070,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_420",
+        "sql_id": 420,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20114,7 +20114,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_421",
+        "sql_id": 421,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20157,7 +20157,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_422",
+        "sql_id": 422,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20198,7 +20198,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_423",
+        "sql_id": 423,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20241,7 +20241,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_424",
+        "sql_id": 424,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20286,7 +20286,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_425",
+        "sql_id": 425,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20346,7 +20346,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_426",
+        "sql_id": 426,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20391,7 +20391,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_427",
+        "sql_id": 427,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20467,7 +20467,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_428",
+        "sql_id": 428,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20510,7 +20510,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_429",
+        "sql_id": 429,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20561,7 +20561,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_430",
+        "sql_id": 430,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20605,7 +20605,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_431",
+        "sql_id": 431,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20651,7 +20651,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_432",
+        "sql_id": 432,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20702,7 +20702,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_433",
+        "sql_id": 433,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20747,7 +20747,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_434",
+        "sql_id": 434,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20791,7 +20791,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_435",
+        "sql_id": 435,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20835,7 +20835,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_436",
+        "sql_id": 436,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20883,7 +20883,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_437",
+        "sql_id": 437,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20926,7 +20926,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_438",
+        "sql_id": 438,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -20969,7 +20969,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_439",
+        "sql_id": 439,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21013,7 +21013,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_440",
+        "sql_id": 440,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21057,7 +21057,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_441",
+        "sql_id": 441,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21101,7 +21101,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_442",
+        "sql_id": 442,
         "database_name": "retails",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21154,7 +21154,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_443",
+        "sql_id": 443,
         "database_name": "ice_hockey_draft",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21200,7 +21200,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_444",
+        "sql_id": 444,
         "database_name": "ice_hockey_draft",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21246,7 +21246,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_445",
+        "sql_id": 445,
         "database_name": "ice_hockey_draft",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21292,7 +21292,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_446",
+        "sql_id": 446,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21351,7 +21351,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_447",
+        "sql_id": 447,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21394,7 +21394,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_448",
+        "sql_id": 448,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21440,7 +21440,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_449",
+        "sql_id": 449,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21485,7 +21485,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_450",
+        "sql_id": 450,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21533,7 +21533,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_451",
+        "sql_id": 451,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21579,7 +21579,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_452",
+        "sql_id": 452,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21623,7 +21623,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_453",
+        "sql_id": 453,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21669,7 +21669,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_454",
+        "sql_id": 454,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21715,7 +21715,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_455",
+        "sql_id": 455,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21761,7 +21761,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_456",
+        "sql_id": 456,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21806,7 +21806,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_457",
+        "sql_id": 457,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21852,7 +21852,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_458",
+        "sql_id": 458,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21898,7 +21898,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_459",
+        "sql_id": 459,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21944,7 +21944,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_460",
+        "sql_id": 460,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -21990,7 +21990,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_461",
+        "sql_id": 461,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22036,7 +22036,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_462",
+        "sql_id": 462,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22087,7 +22087,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_463",
+        "sql_id": 463,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22131,7 +22131,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_464",
+        "sql_id": 464,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22179,7 +22179,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_465",
+        "sql_id": 465,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22225,7 +22225,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_466",
+        "sql_id": 466,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22276,7 +22276,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_467",
+        "sql_id": 467,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22327,7 +22327,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_468",
+        "sql_id": 468,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22373,7 +22373,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_469",
+        "sql_id": 469,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22424,7 +22424,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_470",
+        "sql_id": 470,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22470,7 +22470,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_471",
+        "sql_id": 471,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22533,7 +22533,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_472",
+        "sql_id": 472,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22583,7 +22583,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_473",
+        "sql_id": 473,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22636,7 +22636,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_474",
+        "sql_id": 474,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22685,7 +22685,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_475",
+        "sql_id": 475,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22733,7 +22733,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_476",
+        "sql_id": 476,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22779,7 +22779,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_477",
+        "sql_id": 477,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22832,7 +22832,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_478",
+        "sql_id": 478,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22880,7 +22880,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_479",
+        "sql_id": 479,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22933,7 +22933,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_480",
+        "sql_id": 480,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -22994,7 +22994,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_481",
+        "sql_id": 481,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23040,7 +23040,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_482",
+        "sql_id": 482,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23093,7 +23093,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_483",
+        "sql_id": 483,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23146,7 +23146,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_484",
+        "sql_id": 484,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23192,7 +23192,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_485",
+        "sql_id": 485,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23263,7 +23263,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_486",
+        "sql_id": 486,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23316,7 +23316,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_487",
+        "sql_id": 487,
         "database_name": "works_cycles",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23385,7 +23385,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_488",
+        "sql_id": 488,
         "database_name": "image_and_language",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23433,7 +23433,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_489",
+        "sql_id": 489,
         "database_name": "hockey",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23479,7 +23479,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_490",
+        "sql_id": 490,
         "database_name": "hockey",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23525,7 +23525,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_491",
+        "sql_id": 491,
         "database_name": "hockey",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23568,7 +23568,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_492",
+        "sql_id": 492,
         "database_name": "hockey",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23611,7 +23611,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_493",
+        "sql_id": 493,
         "database_name": "hockey",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23657,7 +23657,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_494",
+        "sql_id": 494,
         "database_name": "world",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23700,7 +23700,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_495",
+        "sql_id": 495,
         "database_name": "world",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23743,7 +23743,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_496",
+        "sql_id": 496,
         "database_name": "world",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23786,7 +23786,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_497",
+        "sql_id": 497,
         "database_name": "music_platform_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23828,7 +23828,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_498",
+        "sql_id": 498,
         "database_name": "music_platform_2",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23872,7 +23872,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_499",
+        "sql_id": 499,
         "database_name": "sales_in_weather",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23920,7 +23920,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_500",
+        "sql_id": 500,
         "database_name": "sales_in_weather",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -23967,7 +23967,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_501",
+        "sql_id": 501,
         "database_name": "sales_in_weather",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24014,7 +24014,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_502",
+        "sql_id": 502,
         "database_name": "sales_in_weather",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24061,7 +24061,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_503",
+        "sql_id": 503,
         "database_name": "sales_in_weather",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24108,7 +24108,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_504",
+        "sql_id": 504,
         "database_name": "sales_in_weather",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24155,7 +24155,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_505",
+        "sql_id": 505,
         "database_name": "sales_in_weather",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24198,7 +24198,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_506",
+        "sql_id": 506,
         "database_name": "sales_in_weather",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24256,7 +24256,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_507",
+        "sql_id": 507,
         "database_name": "sales_in_weather",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24301,7 +24301,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_508",
+        "sql_id": 508,
         "database_name": "sales_in_weather",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24345,7 +24345,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_509",
+        "sql_id": 509,
         "database_name": "sales_in_weather",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24390,7 +24390,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_510",
+        "sql_id": 510,
         "database_name": "mondial_geo",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24434,7 +24434,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_511",
+        "sql_id": 511,
         "database_name": "mondial_geo",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24480,7 +24480,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_512",
+        "sql_id": 512,
         "database_name": "mondial_geo",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24526,7 +24526,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_513",
+        "sql_id": 513,
         "database_name": "mondial_geo",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24569,7 +24569,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_514",
+        "sql_id": 514,
         "database_name": "mondial_geo",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24615,7 +24615,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_515",
+        "sql_id": 515,
         "database_name": "mondial_geo",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24663,7 +24663,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_516",
+        "sql_id": 516,
         "database_name": "mondial_geo",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24732,7 +24732,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_517",
+        "sql_id": 517,
         "database_name": "mondial_geo",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24776,7 +24776,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_518",
+        "sql_id": 518,
         "database_name": "mondial_geo",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24831,7 +24831,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_519",
+        "sql_id": 519,
         "database_name": "mondial_geo",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24875,7 +24875,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_520",
+        "sql_id": 520,
         "database_name": "mondial_geo",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24919,7 +24919,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_521",
+        "sql_id": 521,
         "database_name": "chicago_crime",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -24969,7 +24969,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_522",
+        "sql_id": 522,
         "database_name": "chicago_crime",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25019,7 +25019,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_523",
+        "sql_id": 523,
         "database_name": "chicago_crime",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25069,7 +25069,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_524",
+        "sql_id": 524,
         "database_name": "chicago_crime",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25119,7 +25119,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_525",
+        "sql_id": 525,
         "database_name": "chicago_crime",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25169,7 +25169,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_526",
+        "sql_id": 526,
         "database_name": "chicago_crime",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25219,7 +25219,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_527",
+        "sql_id": 527,
         "database_name": "food_inspection",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25263,7 +25263,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_528",
+        "sql_id": 528,
         "database_name": "food_inspection",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25309,7 +25309,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_529",
+        "sql_id": 529,
         "database_name": "food_inspection",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25355,7 +25355,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_530",
+        "sql_id": 530,
         "database_name": "food_inspection",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25399,7 +25399,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_531",
+        "sql_id": 531,
         "database_name": "food_inspection",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25443,7 +25443,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_532",
+        "sql_id": 532,
         "database_name": "food_inspection",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25489,7 +25489,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_533",
+        "sql_id": 533,
         "database_name": "food_inspection",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25535,7 +25535,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_534",
+        "sql_id": 534,
         "database_name": "food_inspection",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25581,7 +25581,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_535",
+        "sql_id": 535,
         "database_name": "food_inspection",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25629,7 +25629,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_536",
+        "sql_id": 536,
         "database_name": "food_inspection",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25675,7 +25675,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_537",
+        "sql_id": 537,
         "database_name": "food_inspection",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25724,7 +25724,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_538",
+        "sql_id": 538,
         "database_name": "food_inspection",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25768,7 +25768,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_539",
+        "sql_id": 539,
         "database_name": "food_inspection",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25814,7 +25814,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_540",
+        "sql_id": 540,
         "database_name": "craftbeer",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25857,7 +25857,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_541",
+        "sql_id": 541,
         "database_name": "craftbeer",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25900,7 +25900,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_542",
+        "sql_id": 542,
         "database_name": "human_resources",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25943,7 +25943,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_543",
+        "sql_id": 543,
         "database_name": "human_resources",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -25993,7 +25993,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_544",
+        "sql_id": 544,
         "database_name": "human_resources",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26038,7 +26038,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_545",
+        "sql_id": 545,
         "database_name": "human_resources",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26083,7 +26083,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_546",
+        "sql_id": 546,
         "database_name": "human_resources",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26126,7 +26126,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_547",
+        "sql_id": 547,
         "database_name": "human_resources",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26176,7 +26176,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_548",
+        "sql_id": 548,
         "database_name": "human_resources",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26219,7 +26219,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_549",
+        "sql_id": 549,
         "database_name": "human_resources",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26264,7 +26264,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_550",
+        "sql_id": 550,
         "database_name": "human_resources",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26309,7 +26309,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_551",
+        "sql_id": 551,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26375,7 +26375,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_552",
+        "sql_id": 552,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26441,7 +26441,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_553",
+        "sql_id": 553,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26512,7 +26512,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_554",
+        "sql_id": 554,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26560,7 +26560,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_555",
+        "sql_id": 555,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26626,7 +26626,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_556",
+        "sql_id": 556,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26672,7 +26672,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_557",
+        "sql_id": 557,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26717,7 +26717,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_558",
+        "sql_id": 558,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26797,7 +26797,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_559",
+        "sql_id": 559,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26840,7 +26840,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_560",
+        "sql_id": 560,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26881,7 +26881,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_561",
+        "sql_id": 561,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26926,7 +26926,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_562",
+        "sql_id": 562,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -26971,7 +26971,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_563",
+        "sql_id": 563,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27045,7 +27045,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_564",
+        "sql_id": 564,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27086,7 +27086,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_565",
+        "sql_id": 565,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27127,7 +27127,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_566",
+        "sql_id": 566,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27172,7 +27172,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_567",
+        "sql_id": 567,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27213,7 +27213,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_568",
+        "sql_id": 568,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27256,7 +27256,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_569",
+        "sql_id": 569,
         "database_name": "bike_share_1",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27302,7 +27302,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_570",
+        "sql_id": 570,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27353,7 +27353,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_571",
+        "sql_id": 571,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27404,7 +27404,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_572",
+        "sql_id": 572,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27459,7 +27459,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_573",
+        "sql_id": 573,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27507,7 +27507,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_574",
+        "sql_id": 574,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27555,7 +27555,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_575",
+        "sql_id": 575,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27598,7 +27598,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_576",
+        "sql_id": 576,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27642,7 +27642,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_577",
+        "sql_id": 577,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27683,7 +27683,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_578",
+        "sql_id": 578,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27726,7 +27726,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_579",
+        "sql_id": 579,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27773,7 +27773,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_580",
+        "sql_id": 580,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27828,7 +27828,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_581",
+        "sql_id": 581,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27887,7 +27887,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_582",
+        "sql_id": 582,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27934,7 +27934,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_583",
+        "sql_id": 583,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -27987,7 +27987,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_584",
+        "sql_id": 584,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28032,7 +28032,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_585",
+        "sql_id": 585,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28076,7 +28076,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_586",
+        "sql_id": 586,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28117,7 +28117,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_587",
+        "sql_id": 587,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28160,7 +28160,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_588",
+        "sql_id": 588,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28212,7 +28212,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_589",
+        "sql_id": 589,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28259,7 +28259,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_590",
+        "sql_id": 590,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28305,7 +28305,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_591",
+        "sql_id": 591,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28351,7 +28351,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_592",
+        "sql_id": 592,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28396,7 +28396,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_593",
+        "sql_id": 593,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28441,7 +28441,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_594",
+        "sql_id": 594,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28489,7 +28489,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_595",
+        "sql_id": 595,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28532,7 +28532,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_596",
+        "sql_id": 596,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28577,7 +28577,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_597",
+        "sql_id": 597,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28620,7 +28620,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_598",
+        "sql_id": 598,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28665,7 +28665,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_599",
+        "sql_id": 599,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28712,7 +28712,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_600",
+        "sql_id": 600,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28757,7 +28757,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_601",
+        "sql_id": 601,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28828,7 +28828,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_602",
+        "sql_id": 602,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
@@ -28880,7 +28880,7 @@
         ]
     },
     {
-        "sql_id": "BIRDTrans_603",
+        "sql_id": 603,
         "database_name": "movie_3",
         "source_dbms": "sqlite",
         "target_dbms": "monetdb",
