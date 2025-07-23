@@ -1,4 +1,4 @@
-## Comparision with Existing Databases
+## Comparision with Existing Benchmarks
 
 The comparison below emphasizes the broader dialect coverage, diverse data sources (including both test suites and real-world queries), detailed dialect annotations, and comprehensive evaluation metrics (including semantic equivalence) offered by **DLBench** and other benchmarks.
 
