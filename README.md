@@ -1,10 +1,6 @@
 # DLBENCH: A Comprehensive Benchmark for SQL Translation with Large Language Models
 DLBENCH is a comprehensive benchmark for evaluating the SQL translation capabilities of Large Language Models (LLMs). It contains 6,402 translation tasks across seven popular DBMSs and 9,320 SQL dialects, covering both real-world and diverse synthetic scenarios. The quality and difficulty of DLBENCH are validated through a rigorous multi-step cleaning process and cross-checked by both LLM-based and human annotations. Please check our [Leaderboard](https://dlbenchll.github.io/leaderboard.html) for a visualization of the evaluation results.
 
-## Updates
-- 2025-05-30 Publish benchmark and leaderboard
-- 2025-06-20 Add usage instructions for running inference and evaluation with DLBench
-
 ## Benchmark Dataset
 
 DLBENCH includes two comprehensive SQL translation datasets: **BIRDTRANS** and **BUTTERTRANS**. These datasets cover a diverse range of SQL queries across multiple relational DBMS dialects, carefully selected to reflect both real-world and synthetic query scenarios.
