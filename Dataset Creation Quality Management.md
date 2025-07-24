@@ -109,6 +109,12 @@ Figure 3 illustrates the entire process involved in building our benchmark, star
 
 
 
+## Guidelines
+
+To preserve anonymization and comply with double-blind review requirements, we provide a simplified version of the annotation guidelines. Certain implementation details and examples have been redacted. Please refer to xxx
+
+
+
 
 ## References
 
