@@ -1,21 +1,21 @@
-## **Annotation Comparison: GPT-4o-mini vs GPT-o3**
+## **Annotation Comparison: GPT-4o-mini vs o3**
 
  *Supplementary Document*
 
-To evaluate the impact of LLM choice on annotation quality, we randomly sampled 100 cases and compared the performance of **GPT-4o-mini** and **GPT-o3**, following Reviewer#C's suggestion.
+To evaluate the impact of LLM choice on annotation quality, we randomly sampled 100 cases and compared the performance of **GPT-4o-mini** and **o3**, following Reviewer#C's suggestion.
 
 ### Summary of Results
 
 | Model       | Execution Success Rate | Cases Requiring Manual Fix |
 | ----------- | ---------------------- | -------------------------- |
 | GPT-4o-mini | 42%                    | 71                         |
-| GPT-o3      | 52%                    | 65                         |
+| o3      | 52%                    | 65                         |
 
-Notably, GPT-o3 showed a higher rate of successful execution, but the success was often superficial—several queries produced incorrect or incomplete results due to misinterpretation of dialect-specific logic.
+Notably, o3 showed a higher rate of successful execution, but the success was often superficial—several queries produced incorrect or incomplete results due to misinterpretation of dialect-specific logic.
 
 
 
-### **Example: Semantic Divergence Despite Successful Execution (GPT-o3)**
+### **Example: Semantic Divergence Despite Successful Execution (o3)**
 
 - **Source Query (SQLite):**
 
@@ -32,7 +32,7 @@ Notably, GPT-o3 showed a higher rate of successful execution, but the success wa
   **Expected Semantic Meaning from SQL documentation:**
    Extract the **year** component (last 4 characters) from the time part of `start_date`.
 
-- GPT-o3 Translation (MySQL):
+- o3 Translation (MySQL):
 
 - ```sql
   SELECT MAX(SUBSTR(CAST(`T1`.`start_date` AS CHAR), INSTR(`T1`.`start_date`, ' ') - 4, 4))  
