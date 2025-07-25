@@ -18,7 +18,7 @@
 | ------------ | ----------------------- | ----------------- | -------------------------------- | ------------------------------------------------------------ | ------------------- |
 | A01          | 5                       | PhD Student       | Databases                        | MySQL, PostgreSQL, SQLite, MariaDB, MonetDB                  | 95%                 |
 | A02          | 3                       | PhD Student       | Databases                        | MySQL, PostgreSQL, SQLite, SQL Server, Oracle                | 97%                 |
-| A036         | 5                       | Software Engineer | Telecom, Enterprise Applications | MySQL, PostgreSQL, SQLite, OceanBase , MonetDB, DuckDB, ClickHouse | 92%                 |
+| A03          | 5                       | Software Engineer | Telecom, Enterprise Applications | MySQL, PostgreSQL, SQLite, OceanBase , MonetDB, DuckDB, ClickHouse | 92%                 |
 
 
 
